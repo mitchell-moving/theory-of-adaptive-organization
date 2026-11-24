@@ -22,7 +22,7 @@ Cheapest way: one interior angle on the 513-point grid whose rationalizing width
 
 `G-cone` passes. At \(\phi=0\), \(s=1\), \(q_{\mathrm{eq}}=0.640000000000\) and \(q_{\mathrm{ptr}}=0.688377871168\).
 
-`G-dyn` passes. All 17 quadratic starts land on the same action in every cell. The starts are not mirrored.
+`G-dyn` passes. All 17 quadratic starts land on the same action in every cell, and that action is the equator end: 782 landings, each recorded at \(q_{\mathrm{eq}}\). On this closed form the cost falls with \(\theta\), so the landings do not split. The starts are not mirrored.
 
 ## NUMERICAL
 
@@ -32,18 +32,20 @@ Cheapest way: one interior angle on the 513-point grid whose rationalizing width
 
 **P2, matches.** No smooth cell is wide. All 23 corner cells have width at least \(0.01\). The flat interior tie is the point \(\{1\}\), width \(0\). The equator at \(\phi=0\), \(s=1\) is \([0,\ 0.640000]\), the equator-end formula \(1-r^2\), and it does not close under refinement. The coarse middle action stays an interval of width \(0.024149\).
 
-**P3, matches.** The largest endpoint gap is \(9.623\times 10^{-5}\), under \(10^{-3}\). On smooth cells the midpoint sits on \(\lambda(u)\) at the installed angle. On corners the set fills the cone: \([0,\ q_{\mathrm{eq}}]\) at the equator, \([q_{\mathrm{ptr}},\ 2]\) at the pointer, \([0,\ 1]\) on the flat equator, \([1,\ 2]\) on the flat pointer.
+**P3, matches.** The scored maximum is \(9.623\times 10^{-5}\), the coarse equator scan against its own crossing, under \(10^{-3}\). Smooth, pin, cap, fine equator, and pointer residuals are at most \(5.170\times 10^{-7}\). On smooth cells the midpoint sits on \(\lambda(u)\) at the installed angle. On corners the set fills the cone: \([0,\ q_{\mathrm{eq}}]\) at the equator, \([q_{\mathrm{ptr}},\ 2]\) at the pointer, \([0,\ 1]\) on the flat equator, \([1,\ 2]\) on the flat pointer.
 
-**Model implication.** On this menu the rationalizing set is the multiplier where the action is an interior critical point, and it is the normal cone where the action is an endpoint, a flat equator, or a coarse menu. The wide T79 sets are that equator cone. The singleton was a fine-grid point. The parent's root \(0.6\) is not this multiplier and was not an input.
+**Model implication.** On this menu the rationalizing set is the multiplier where the action is an interior critical point, and it is the normal cone where the action is an endpoint, a flat equator, or a coarse menu. That is the one-dimensional envelope relation on a menu whose disturbance falls strictly with \(u\). A ratio inside a cone stays unidentified. Of 171 T79 pair rows, 102 are equator cones and 67 are pointer cones, 24 of those the full window \([0,\ 2]\) at stake 10. The other 2 are the pin. Its 513-grid midpoint is \(0.299858\), \(\lambda\) at that angle. The parent's root \(0.6\) is not this multiplier and was not an input.
 
 ## PUZZLE, P4
 
 Three schemes. Equal weight has peaks in bins 8 and 10, masses \(0.148430\) and \(0.146252\), diffuse. The dynamics rule, which never reads \(R\), has peaks in bins 3, 8, and 10, masses \(0.108696\), \(0.217391\), and \(0.260870\), concentrated. Those bins sit on corner values: bin 3 on \(q_{\mathrm{eq}}(0,2)=0.28\), bin 8 on \(0.64\), bin 10 on the cluster near \(0.82\).
 
-Robustness has no peak. Its heaviest bin is \(0.094724\), under the locked floor \(0.10\). Survival on the probes is 1 on most cells and dips only next to the switch between equator and pointer (down to \(1/3\) at one probe when \(s=2\)). The shape that remains is the Voronoi weight of the quadratic probes, larger per bin where the probes are sparse. It does not pick out a corner, and it does not reach a peak.
+Robustness has no peak. Its heaviest bin is \(0.094724\), under the locked floor \(0.10\). The scheme histograms the probe coordinate times survival, and it does not read \(R\). Survival is \(9/9\) on 199 of 210 pair-probe cells. The minimum is \(2/9\), at \(\phi=\pi/6\), \(s=2\), probe \(0.5\). One cell is \(3/9\), at \(\phi=0\), \(s=2\), probe \(0.32\). With survival identically 1 the locked probes already put mass \(0.092857\) in the heaviest bin, under \(0.10\). The miss is in the probe list. The stored histogram is the scored one.
 
-No agreed peak. `P4-agree` and `P4-corner` fail for that reason. The optional clause is not a separate miss of a shared mode sitting off a corner: there is no shared mode. The thresholds were not moved after the histogram. A miss here is a puzzle about the weighting. It does not remove H-corner, and it does not remove the distributional reading. Both stay open to course-correction.
+Equal weight is the scheme that weighs \(R\). Dynamics records \(q_{\mathrm{eq}}\). Robustness records the probes. `P4-agree` and `P4-corner` fail because those three histograms share no peak. The optional clause has no shared mode to sit on a corner. The thresholds were not moved after the histogram. A miss here is a puzzle about the weighting. H-corner and the distributional reading both stay open to course-correction.
 
 ## Errata
 
 The family table enumerates 46 cells. The sentence that says 45 was not used to drop a row. See `DEVIATIONS.md`. The lock was not edited.
+
+After the independent pass on PR #14 (0 blockers), three prose lines were corrected in place. The old survival floor was \(1/3\); the recomputed floor is \(2/9\). The old T79 sentence named only the equator cone; 67 of 171 pair rows are pointer cones. The old name for \(9.623\times 10^{-5}\) was an endpoint gap; that figure is the coarse equator scan. Scores, thresholds, and the lock are unchanged.

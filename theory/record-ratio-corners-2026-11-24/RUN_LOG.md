@@ -12,4 +12,6 @@ No parent return, no delay, and no binary-entropy channel is in the script. The 
 
 ## Errata
 
-The cell-count slip above. No other erratum.
+The cell-count slip above.
+
+After the independent pass on PR #14, `MEMO.md` was corrected in place. Survival bottoms at 2/9, not at 1/3. The wide T79 rows are 102 equator cones and 67 pointer cones. The scored gap \(9.623\times 10^{-5}\) is the coarse equator scan. Details are in `DEVIATIONS.md`. The script, the stored stdout, the thresholds, and the lock were not edited. The checks remain `FAILS 3`.
