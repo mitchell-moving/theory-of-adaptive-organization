@@ -1,0 +1,18 @@
+T85 ctc fixed point
+definition DEUTSCH-FIXED-POINT
+model toy-deutsch-prescription
+P1b-named PASS I:nonunique SWAP:unique CNOT_CR:nonunique CNOT_C:nonunique CZ:nonunique DCNOT:unique DISC:nonunique
+P-disc-matrix PASS max_abs=1.110e-16
+P1b-grid PASS nonunique=20/64 unique_sv_min=0.292893 nonunique_sv_max=5.551e-16
+P1a PASS max_abs_dS_C=5.551e-16 n=149 rejections=0
+P2-bound PASS min_dS_CR=0.000e+00
+P2-candidate UNSUPPORTED honest_min_dS_CR=0.000000e+00
+P2-illicit PASS delta=-0.693147180560 selector_dS=0.693147180560 not-a-process
+P3-gap PASS qgap_target=0.416495530700 I_target=0.130812035941 g=0.000001 I=0.130812035941 PD=0.416495530700 g=0.010000 I=0.130812035941 PD=0.416495530700 g=0.100000 I=0.130812035941 PD=0.416495530700 g=0.500000 I=0.130812035941 PD=0.416495530700 g=1.000000 I=0.130812035941 PD=0.416495530700
+P3-candidate UNSUPPORTED qgap_stays=0.416495530700
+P3-phase PASS qgap=1.110e-16 dist0=0.000e+00 dist1=1.110e-16
+P3-contraction PASS nullity0=1 nullity_eps=0
+P4-cycle PASS sum=0.000e+00 netI=0.000e+00 dist=0.000e+00
+P4-half PASS sum=-0.500000000000
+rejections=0
+FAILS 0

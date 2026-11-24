@@ -1,0 +1,7 @@
+# T85 run log
+
+Append only. A line in this file is not rewritten.
+
+- Preregistration commit `f18721fc852f83a6154aa50186cbbdb876fe0ad9`, before `ctc_fixed_point_checks.py` and before any stored output. `PREREG.md` was not edited after that commit. sha256 `756d9f0c257d4dcf73d53440cde43a50dd8092633cdc3383cf7b21ad3b0e2f8e`. The same hash is the first line of `PREREG.sha256` and the commit message.
+- Scored script `theory/ctc_fixed_point_checks/ctc_fixed_point_checks.py`. Stdout is `theory/ctc_fixed_point_checks/ctc_fixed_point_checks.out`. The script imports no random module. Two consecutive runs matched byte for byte. `FAILS 0`. P1a maximum \(|\Delta S(\rho_{CTC})|=5.551\times 10^{-16}\) on 149 points, 0 rejections. P1b-grid non-unique \(20/64\). P2 minimum \(\Delta S(\rho_{CR})=0\). P2-illicit \(-0.693147180560\), marked not a process. P3 gap \(0.416495530700\) at five depolarizing strengths. P4 cycle sum \(0\), net learning \(0\), half-cycle sum \(-1/2\). The bars were not edited.
+- After that output was stored, `python3 tools/check_consistency.py` reported RESULT PASS (wording FAILs 0; 29 INFO hits are frozen records). `python3 tools/check_open_work.py` and `python3 tools/check_fresh.py` reported RESULT PASS. `python3 -m pytest -q --ignore=reviews/night2/CAUSAL_NULL_INVARIANCE` reported 292 passed, 1 skipped. numba is not installed, so that path was ignored. The skip is `tools/test_lean.py` (Lean 4 / lake is not installed).
