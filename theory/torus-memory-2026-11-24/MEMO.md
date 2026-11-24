@@ -98,3 +98,7 @@ Crossref on 24 November 2026 (`theory/torus_memory_checks/crossref.out`). Kuramo
 ## What remains
 
 The P7 puzzle is the objective, not the algebra: a loss that punishes a missed mean field cannot reward creating one. A benefit of coherence that is not "match this mean field" would be a different preregistration. The quantum ratio \(q\) stays the open number of T74; on this classical torus it is not a second coordinate.
+
+## Coupled loop
+
+A separate lock, `PREREG_COUPLED.md`, scores the lag map of destruction rate and return share under both of T81's start rules. All 144 orbits are FIXED. On the E-pair horizon the locked returns are \(0.246706007043\) and \(0.067235517163\). Detail is in `MEMO_COUPLED.md`.
