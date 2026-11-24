@@ -76,3 +76,42 @@ Rules: `process/PROCESS.md` and `process/MISS_LOG_TEMPLATE.md` on upstream `652d
 1. **ACE-16 and CLOCK-FLOOR.** The candidate 16 is 12 above the symmetric threshold and matches accounting C only. The holding floor is 3.306853 nats below the 4-nat onset. Both sit in the model. The update is the label, not a new formula: class RF keeps \(\Pi_c\to 4\), and the holding floor stays \(\ln 2\).
 2. **M2, M3, M4.** Prediction weight on the identity was 0.2 against the rival. The boundary price moves one-for-one with the stake. The Poisson age changes the slope from \(1/4\) to \(1/2\). Halving that slope moves the refresh limit from 4 to 8 and leaves \(c^*=4\kappa kT\) where it was. Location is the model. No measurement gate fired. The update is to stop calling the symmetric 4 the Poisson onset.
 3. **R3-tau and R3-J.** The short-time loss is linear in the age, so the rate is the square-root/EOQ balance (`theory/INTERNAL_MODEL.md:45`, `:180`; `theory/CLOCK_TERM_2026-11-23.md:55`), not the CK lag balance (`theory/CLOCK_TERM_2026-11-23.md:40-47`, `:55`). Those two ratios are `NOT A TEST`. The earlier R3 row stays as it was written.
+
+## Ledger after the independent review of `067c485`
+
+**Lock reference:** consistency lock `cc4d406` (sha256 `347cca6bc1d940decc404963993edde2dc8e4fe0901ad76d045d0c3d9ad1b18f`). The three earlier locks and `ONSET_PREREG.md` are unedited. Review: fork PR #26 comment `7145474164`, write-up on fork PR #28.  
+**Logged at (ET):** 2026-11-24 16:55 ET  
+**Breach check:** `none`
+
+Every row below is `NOT A TEST`. Odds are 1 given the closed form. Information is about 0 (`process/PROCESS.md` item 5 on upstream `652d936`). Earlier rows are not edited. The model is one reset with loss linear in the gap: the slow-drift square-root/EOQ class, KNOWN at `theory/INTERNAL_MODEL.md:45` and `:180`, the same exponent as `theory/CLOCK_TERM_2026-11-23.md:55` and `CORE.md:91`.
+
+| prediction_id | locked_prediction (value/band; odds if feasible) | outcome | miss (signed size & direction, or HIT + info) | location (`model` \| `measurement/code` \| `process`) | stake_x_info (`low` \| `medium` \| `high`) | update (what changed, or `none yet`) | breach_check |
+|---|---|---|---|---|---|---|---|
+| R0 | closed derivative | same function, centered difference | `NOT A TEST`; information ~0 | model | low | none yet | none |
+| R1 | A and B share \(\Pi_c\) | they differ by the constant \(-A/T\) | `NOT A TEST`; information ~0 | model | low | none yet | none |
+| R2 | series of \(\Pi_c\); limit 4 | \(\Pi_c(0.01)=4.02674456\) | `NOT A TEST`; information ~0 | model | low | none yet | none |
+| R3 | short-period ratios near 1 | 1.003338 and 0.998337 | `NOT A TEST`; information ~0; EOQ identity | model | low | none yet | none |
+| R4 | elasticity bars | 0.50083, 0.54149, 0.58198 | `NOT A TEST`; elasticity is the loss share | model | low | none yet | none |
+| R5 | accounting C tends to 16 | 16.001600 and 16.160893 | `NOT A TEST`; one-sided opening charge | model | low | none yet | none |
+| R6 | monomial share \(1/3\) | share \(1/3\) for every \(s\) | `NOT A TEST`; the monomial, not the envelope | model | low | none yet | none |
+| R7 | unitary doubling of the series | \(2\Pi_c(0.01)\) | `NOT A TEST`; information ~0 | model | low | none yet | none |
+| R8 | clock heat does not lower a fixed rate; onset \(4\kappa kT\) | nonnegative addend; \(2\cdot b/a=4\) | `NOT A TEST`; information ~0 | model | low | none yet | none |
+| R9 | \(t\) falls and \(\Pi_c\) rises | sign change on the grid | `NOT A TEST`; information ~0 | model | low | none yet | none |
+| B1 | \(\lvert F-\ln 2\rvert\le 10^{-12}\), \(F\) defined as \(\ln 2\) | \(F=\ln 2\) | `NOT A TEST`; information ~0 | model | low | none yet | none |
+| B2 | \(\lvert F-4\rvert\ge 3\) | gap \(3.306853\) | `NOT A TEST`; the gap is \(4-\ln 2\) | model | low | none yet | none |
+| B3 | \(\lvert F\rvert\ge 0.5\) against a clock at rest | \(\ln 2\) against 0 | `NOT A TEST`; information ~0 | model | low | none yet | none |
+| A1 | constants 4 and 0 miss B2 and B3 | both miss those bars | `NOT A TEST`; arithmetic of the same constants | model | low | none yet | none |
+| K0 | T84 prereg lacks \(w^{1/2}\) and \(T_{\mathrm{hold}}\) | both absent | `NOT A TEST`; a string check | model | low | none yet | none |
+| K1 | \(t\) depends on \(\gamma T\) only | \(t(2,1/2)=t(1/2,2)\) | `NOT A TEST`; \(\varepsilon=(1-e^{-\gamma T})/2\) | model | low | none yet | none |
+| K2 | printed-cell elasticity 0.901222 | 0.901222 | `NOT A TEST`; \(w\varepsilon/J_H\) of an affine cost | model | low | none yet | none |
+| K3 | squared-Hamming share \(1/3\), \(\Pi=600\) | share \(1/3\); \(6/0.01=600\) | `NOT A TEST`; loss share \(1/(p+1)\) at \(p=2\) | model | low | none yet | none |
+| K4 | five nearby costs flip the signs | five flipped cells | `NOT A TEST`; each cost is a closed form | model | low | none yet | none |
+| M1 | both pure numbers near 4 | \(4\) and \(4.02674456\) | `NOT A TEST`; the shared integer; information ~0 | model | low | label is a consistency check | none |
+| M2 | elasticity within 0.05 of 0 | elasticity \(+1\) | `NOT A TEST`; \(A_c\propto w\) forces \(+1\) | model | low | label is a consistency check | none |
+| M3 | both age slopes within 1e-9 of \(1/4\) | \(1/4\) and \(1/2\) | `NOT A TEST`; the two integrals are fixed | model | low | label is a consistency check | none |
+| M4 | half-slope limit within 0.05 of 4 | limit \(8\) | `NOT A TEST`; \(1/(1/8)=8\) | model | low | label is a consistency check | none |
+| GAUSS | the short-time monomial stands in for the envelope | review: envelope elasticity 0.354802 at \(s=20\) | signed \(+0.021469\) from \(1/3\); the script does not evaluate the envelope | measurement/code | medium | none yet | none |
+
+### Scaled note
+
+The class sentence is the content. One reset, loss linear in the gap, no clock rate: slow-drift square-root/EOQ, KNOWN at `theory/INTERNAL_MODEL.md:45` and `:180`, same exponent as `theory/CLOCK_TERM_2026-11-23.md:55` and `CORE.md:91`. The Gaussian envelope at \(s=20\) sits \(+0.021469\) from the monomial the script scores. That gap is the review's, location measurement/code, and it does not move a formula. The onset comparison stays a consistency check: no band inside the closed forms can be missed.

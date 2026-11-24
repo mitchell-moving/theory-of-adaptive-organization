@@ -6,3 +6,7 @@
 
 Committed before any further computation. The lock says no bar inside the closed forms can miss, so there is no scoring script and no stored output.
 
+## After the lock
+
+No computation was run. The ledger in `DEVIATIONS.md` reclassifies the scored bars. The lock file was not edited.
+

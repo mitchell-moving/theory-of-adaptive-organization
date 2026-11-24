@@ -80,4 +80,12 @@ The refresh rate sits in the square-root/EOQ class. Short-time Hamming loss is l
 
 ## Deviations
 
-None from the locks. `PREREG.md` was not edited after `612b82e`. `ADDENDUM_PREREG.md` was not edited after `9619565`. `ADDENDUM_REVIEW_PREREG.md` was not edited after `6fb397b`. `ONSET_PREREG.md` was not edited after `a27520c`.
+None from the locks. `PREREG.md` was not edited after `612b82e`. `ADDENDUM_PREREG.md` was not edited after `9619565`. `ADDENDUM_REVIEW_PREREG.md` was not edited after `6fb397b`. `ONSET_PREREG.md` was not edited after `a27520c`. `CONSISTENCY_PREREG.md` was not edited after `cc4d406`.
+
+## Consistency check
+
+Locked in `CONSISTENCY_PREREG.md` (commit `cc4d406`, sha256 `347cca6bc1d940decc404963993edde2dc8e4fe0901ad76d045d0c3d9ad1b18f`) after the independent review of head `067c485` (fork PR #26 comment `7145474164`; write-up on fork PR #28). No scoring script follows. The label is `CONSISTENCY_CHECK`.
+
+**Observed in-model. Consistency check.** Every scored bar of the three earlier locks is `NOT A TEST`. Information is about 0. The onset bars M1–M4 are the same kind of comparison: the stake elasticity is 1 because \(A_c\propto w\), the two age slopes are the two integrals, and \(1/(1/8)=8\). No band inside those forms can be missed. The named rival, a shared integer 4, is the reading that remains.
+
+The model is one reset with loss linear in the gap and no clock rate. That is the slow-drift square-root/EOQ class, KNOWN at `theory/INTERNAL_MODEL.md:45` and `:180`. The same exponent is `theory/CLOCK_TERM_2026-11-23.md:55` and `CORE.md:91`. It is not the \(w^{1/3}\) branch at `theory/CLOCK_TERM_2026-11-23.md:40-47`.
