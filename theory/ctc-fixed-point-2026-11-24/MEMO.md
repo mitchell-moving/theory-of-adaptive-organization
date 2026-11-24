@@ -54,6 +54,24 @@ The number \(- \ln 2 = -0.693147180560\) is real and is not that map (`out:10`).
 
 Model implication, conditional on these bars (`PREREG.md:170`): the loop does not push \(\Delta S(\rho_{CR})\) below 0, does not instantiate Reeb-Wolf, and does not force \(q\). The ratio gap that survives is \(P_D\), with the \(P_D\) of the fixed point the selector keeps. Route A `:106` still has no reverse leg. A cycle on the CTC wire with \(\Delta S(\rho_{CTC})=0\) is not that reverse leg.
 
+## Correction appended after the independent review
+
+The sentences above that call the scored gap the route A gap stay visible. They are withdrawn. `PREREG.md` is not edited. The lock remains `f18721fc852f83a6154aa50186cbbdb876fe0ad9`, sha256 `756d9f0c257d4dcf73d53440cde43a50dd8092633cdc3383cf7b21ad3b0e2f8e`.
+
+**Miss.** Location `model`. The prose claim was that the loop's ratio gap is route A's same-channel gap and is not undercut. Route A's minimized record cost of one classical channel has slope 0 in \(\kappa_D\) (`theory/RECORD_RATIO_CONSISTENCY_2026-11-24.md:116` on `forge-record-ratio-reframes`). The scored DISC design, one fixed point, has slope \(P_D=h((2+\sqrt{2})/4)=0.416495530700\). Signed size: \(+0.416495530700\) nats per unit \(\kappa_D\), outcome minus that slope 0. The eight-field row is `route-A-id` in `DEVIATIONS.md`. This blocks reading the score as a test of route A. The ten locked bars are not moved.
+
+The loop's gap and route A's gap differ as follows.
+
+1. Route A at `:103` is the cost of a direct measurement minus the cost of pointer-plus-garbling, two designs of one classical channel, equal to \(\kappa_D P_D(\theta)\). The scored gap is \(J(q=1)-J(q=0)=P_D\) on one DISC design (`PREREG.md:59-60`, `out:11`). There is no garbling path. `:114` is the menu on which that two-design gap is not a comparison.
+2. Route A \(P_D\) is the entropy of a projective pinch on the antipodal ensemble (`:55` on that file). The CTC \(P_D\) is the entropy increase of the chronology-respecting qubit under the two-qubit unitary. For DISC at \(I/2\), the output of \(\lvert 0\rangle\) has diagonal entries \(3/4\) and \(1/4\) and an off-diagonal \(1/4\). That state is not the dephasing of \(\lvert 0\rangle\).
+3. On route A's menu the minimized cost does not depend on \(\kappa_D\) (`:116`). On the scored design the cost rises with \(\kappa_D\) at slope \(0.416495530700\). That is the signed miss.
+4. Minimizing \(q\) on this one design, with \(P_D>0\), selects the endpoint \(q=0\). `:112` already separates that endpoint from a ratio that stays unidentified.
+5. If the pure fixed points and the mixed fixed point are both kept as designs, their costs meet when \(q=h(3/4)/h((2+\sqrt{2})/4)=1.350158892880\). Below that value the mixed point is cheaper, and its cost still depends on \(q\). The maximum-entropy selector keeps the mixed point and drops the pure pair. Neither reading recomputes `:103`.
+
+What still stands, and is not that identification: the loop supplies no reverse leg that refunds a pinch, and \(\Delta S(\rho_{CTC})=0\) is not such a leg. The integrated floor 0 in P4 is the identity of CNOT twice and SWAP twice on the world, the memory, and a pure bath. The CTC qubit is not in that circuit. It is reversible uncomputation. It does not price the Deutsch fixed point.
+
+**Grid.** The count 20/64 is exact on \(U(a,b,c)=\exp[-i(a\,XX+b\,YY+c\,ZZ)/2]\) with each angle in \(\{0,\pi/4,\pi/2,\pi\}\), \(\rho_{CR}=I/2\), non-unique when the smallest singular value of \(M-I\) is below \(10^{-8}\) (`out:6`). The unique-gate floor on that grid is \(1-1/\sqrt{2}=0.292893218813\). The count moves with the angle set. The same cutoff on \(\{0,\pi/6,\pi/3,\pi/2\}\) gives 10 of 64, on \(\{0,\pi/3,2\pi/3,\pi\}\) gives 20, on \(\{0,\pi/4,\pi/2,3\pi/4\}\) gives 10, and on \(\{\pi/4,\pi/2,3\pi/4,\pi\}\) gives 10. The locked bar is the locked grid. It was not moved.
+
 ## What is new, and what is not
 
 Not new: \(\Delta S(\rho_{CTC})=0\); the sign from unitarity and subadditivity; route A's gap formula; Reeb-Wolf on a thermal reservoir, which this loop does not meet; Clausius on a return; the revival note's vanishing keep-cost.
@@ -63,3 +81,5 @@ Reported here, on this toy: 20 of 64 gates need a selector; the discriminating u
 ## Deviations
 
 `DEVIATIONS.md`. No bar was missed. The preregistration was not edited.
+
+Appended after the review: the route A identification is a miss, logged in that file. The ten locked bars stay hits.
