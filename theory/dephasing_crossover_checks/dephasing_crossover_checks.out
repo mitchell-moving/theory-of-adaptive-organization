@@ -1,0 +1,15 @@
+C0 PASS max_err=5.551e-17
+C1 PASS bad_cells=0 t_1em4=10.210290 t_half=1.386294361120
+C2 PASS bad_cells=0 chi_over_r_0.05=0.025010 chi_1=0.693147180560
+C3 PASS span_H=0.000e+00 span_P=0.000e+00
+C4 PASS max_abs_delta=8.882e-16
+C5 PASS bad_cells=0
+C6 PASS max_abs=0.000e+00 jacobi=1.110e-16
+C7 PASS PD_cross=0.06540602 cited_gap=1.797e-08 PD_c0=0.000e+00 PD_c_quarter=0.34657359
+C8 PASS bad_cells=0 J_H_noiseless=0.693147180560
+C9 PASS max_abs=3.469e-17 respect_minus_ln2_at_1=0.069283
+C10 PASS form_err=0.000e+00
+C11 PASS label=CLUE_SPLIT
+HEADLINE CLUE_SPLIT
+FAILS 0
+ALL T84 CHECKS PASS
