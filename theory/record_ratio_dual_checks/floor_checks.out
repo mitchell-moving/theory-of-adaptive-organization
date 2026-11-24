@@ -1,0 +1,4 @@
+H-eps PASS NO-EPS
+H-sign PASS q_probe=-2.363872 theta=0.767426
+H-move PASS lam=0.000000 q_probe=-2.363872
+FAILS 0

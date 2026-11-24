@@ -1,6 +1,6 @@
 # Record-price ratio: shadow price of a disturbance budget
 
-*24 November 2026 (UTC). Lock committed before the grid: `theory/record_ratio_dual_checks/PREREG.md`, sha256 `4e306d83…25ec`. Self-check, not an independent review. `THEORY.md` is unchanged (blob `6caadae569116a94a74563398be94cebf6e99e9b`). Open-work row T77. Status words are those at `CORE.md:169`. Nothing here derives general relativity, quantum mechanics, or holography.*
+*24 November 2026 (UTC). Two locks, each committed before its grid. The shadow-price lock is `theory/record_ratio_dual_checks/PREREG.md`, sha256 `4e306d83…25ec`. The floor lock is `PREREG_FLOOR.md`, sha256 `29879441…c73a`. Self-check, not an independent review. `THEORY.md` is unchanged (blob `6caadae569116a94a74563398be94cebf6e99e9b`). Open-work row T77. Status words are those at `CORE.md:169`. Nothing here derives general relativity, quantum mechanics, or holography.*
 
 *T76 showed that \(J\) is linear in \(q=\kappa_D/\kappa\), so minimizing \(J\) over the ratio cannot select an interior value, and on the antipodal menu it selects the boundary \(0\) whenever \(P_D>0\). This note asks whether that coefficient is instead the Lagrange multiplier of a disturbance budget \(P_D\le D\) in \(\min(\kappa I+w L)\).*
 
@@ -9,6 +9,8 @@
 **Model implication.** On the menus scored here, ratio \(1\) is not the shadow price of any disturbance cap the repository already names. Ratio \(0\) is the shadow price of a slack cap. A cap that binds on the antipodal menu, at a positive stake, prices a ratio strictly below \(1\). The largest such price, at stake \(w\), is \(1-w/w_\star\).
 
 The hope that some natural \(D\) would give \(\lambda^\star=1\) is a **Puzzle**. The break is that the named sources are not budgets that bind at that price. A \(D\) chosen so the multiplier equals \(1\) would be a hand pick, and this note does not make one.
+
+A gravitational floor is a further candidate, scored in its own lock below. It does not supply \(\varepsilon(m)\), and the coefficient it does produce is negative. It is not a reason \(\kappa_D\) cannot be \(0\).
 
 ## What was scored
 
@@ -39,3 +41,25 @@ What that says about \(0\) and \(1\). Complementary slackness does account for r
 A later inversion that picks \(D\) so the formula equals \(1\) is the hand pick this lock ruled out. It is not a next test.
 
 **Model implication.** Conditional on \(\min(I+w L)\) subject to \(P_D\le D\) with \(D\) equal to the antipodal ledger, or with no \(D\) supplied by Reeb–Wolf or by the ruin cap: the shadow price is \(0\) or is undefined, not \(1\). Conditional on a cap that does bind on ANT at stake \(w>0\): the price is at most \(1-w/w_\star<1\). Conditional on \(w=w_\ast\): the single-shot design is the pointer and the ledger cap is slack. **ELEMENTARY** for the closed-form ceiling. **NUMERICAL** for the grid maximum, the derivative, and the off-pair levelers.
+
+## Gravitational floor
+
+**Model implication, not a derivation of gravity.** A record with mass might broadcast part of its state on a channel that cannot be screened. The candidate reading is a floor \(P_D\ge\varepsilon(m)>0\) on every such record, and a reason \(\kappa_D\) cannot be \(0\).
+
+The citation was checked on Crossref on 24 November 2026 before the lock. Groszek, Woffinden, Harvey, White, and Davis, "Unblockable communication with gravity," *Science Advances* 12, issue 47 (2026), doi `10.1126/sciadv.aee0802`. The record is a journal article issued 20 November 2026. The paper reports a binary message encoded by moving a mass and read by a gravimeter through a brick wall, about \(0.7\) m, at about \(1\) bit per minute. That is an experimental communication result. **KNOWN** as that citation. It is not a measurement of \(P_D\).
+
+The floor was allowed to come only from the four sources already named for \(D\): the ledger, Reeb–Wolf / Landauer, the ruin cap, and \(w_\ast\). The bit rate is not one of them. T64's barrier-to-mass step is an assumed input in another note. Using it here would add a free parameter. It was not used.
+
+**Observed against the lock** (`floor_checks.out`, `FAILS 0`).
+
+- **H-eps matches.** The line is `NO-EPS`. No decimal floor is printed.
+- **H-sign matches.** At the probe \(\varepsilon=P_\chi(0)/2\), which is not \(\varepsilon(m)\), and at stake \(w=10\), the central-difference coefficient is \(q_{\mathrm{probe}}=-2.363872\) at \(\theta=0.767426\). It is negative, and it is not \(1\).
+- **H-move matches.** The upper-budget price at the ledger and \(w=10\) is \(0\). The probe coefficient is not that price.
+
+**Where the hope breaks.** A binding lower constraint \(P_D\ge\varepsilon\) carries a multiplier \(\mu\ge 0\) on \(\varepsilon-P_D\). That enters \(J\) as \(q=-\mu\le 0\). The probe is the numerical reading of that sign: about \(-2.36\), not \(+1\). An unscreenable channel, even if granted, prices a floor with the opposite sign from \(\kappa_D>0\). It does not move \(\lambda^\star\) of the upper budget. And nothing in the four sources fixes the size \(\varepsilon(m)\) without a new parameter. The \(1\) bit per minute stays a bit rate.
+
+What that says about \(0\) and \(1\). Ratio \(0\) is still the shadow price of a slack upper cap. The floor does not push the coefficient up through \(0\). It pulls the other way, and only after a size is chosen. Choosing that size by hand is the move the shadow-price lock already ruled out.
+
+The next test would be a formula already written in \(J\) or in one of the four sources that takes a mass and returns a nat of \(P_D\). No such formula is in those objects. Adding a coupling in order to have a number is not that test.
+
+**Model implication.** Conditional on the four named sources: there is no \(\varepsilon(m)\). Conditional on a binding floor: the coefficient of \(P_D\) is nonpositive, and at the locked probe it is \(-2.363872\). Conditional on the ledger cap at \(w=10\): \(\lambda^\star=0\), unchanged. **ELEMENTARY** for the sign of a lower-constraint multiplier. **NUMERICAL** for the probe. The hope that the floor forces \(\kappa_D>0\) is a **Puzzle**. Not a derivation of gravity.
