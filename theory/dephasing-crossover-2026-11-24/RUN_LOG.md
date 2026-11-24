@@ -9,3 +9,7 @@
 `PREREG.md` sha256 `c6826685567aadeeb11ff1617b727a9dce69d8287688068f81429a859913203d`
 
 Committed before any results script and before any stored output. No cell has been scored.
+
+## Run
+
+Script `theory/dephasing_crossover_checks/dephasing_crossover_checks.py`, after the lock. Stdout stored at `theory/dephasing_crossover_checks/dephasing_crossover_checks.out`. `HEADLINE CLUE_SPLIT`. `FAILS 0`. `ALL T84 CHECKS PASS`. No prediction was edited.
