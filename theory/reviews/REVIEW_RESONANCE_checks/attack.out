@@ -1,0 +1,151 @@
+TAU 415.345062231901579
+SIN2 2.407636663901557e-03
+SPECTRAL lambda 0.999416113416163 one_minus 5.838865838367902e-04 inv_gap 1712.661376 inv_log 1712.161327
+BLOCKS
+  width 1 n 1 sites 16
+  width 2 n 3 sites 15 16 17
+  width 3 n 3 sites 15 16 17
+  width 4 n 5 sites 14 15 16 17 18
+  width 5 n 5 sites 14 15 16 17 18
+  width 6 n 7 sites 13 14 15 16 17 18 19
+  width 7 n 7 sites 13 14 15 16 17 18 19
+  width 8 n 9 sites 12 13 14 15 16 17 18 19 20
+  width 9 n 9 sites 12 13 14 15 16 17 18 19 20
+PD_TOP 0.096372378510879
+PORT T 415 period 1 mean 0.246706007043 levels NONE widths [(9,), (9,)]
+PORT T 500 period 2 mean NONE levels 0.288951536270 0.291620058685 widths [(8,), (7,), (8,), (7,), (8,), (7,)]
+PORT T 550 period 1 mean 0.313065981732 levels NONE widths [(9,), (5,), (6,), (6,)]
+PORT T 831 period 1 mean 0.422916079022 levels NONE widths [(9,), (1,), (1,)]
+SCAN stake 2 official floor 300-1200
+ISLANDS 500-505 555-558 613-615 674-674
+OTHER_PERIODS 0
+STAKE 1.0 islands NONE
+STAKE 4.0 islands NONE
+CENTERS 502.5 556.5 614.0 674.0
+ALIGN center 502.5000 nearest_locked 1.250000 rel 0.032130 target 519.181328
+  nearest_q<=4 r 1.250000 rel 0.032130 target 519.181328
+  nearest_q<=5 r 1.200000 rel 0.008198 target 498.414075
+ALIGN center 556.5000 nearest_locked 1.333333 rel 0.004887 target 553.793416
+  nearest_q<=4 r 1.333333 rel 0.004887 target 553.793416
+  nearest_q<=5 r 1.333333 rel 0.004887 target 553.793416
+ALIGN center 614.0000 nearest_locked 1.500000 rel 0.014474 target 623.017593
+  nearest_q<=4 r 1.500000 rel 0.014474 target 623.017593
+  nearest_q<=5 r 1.500000 rel 0.014474 target 623.017593
+ALIGN center 674.0000 nearest_locked 1.500000 rel 0.081831 target 623.017593
+  nearest_q<=4 r 1.666667 rel 0.026352 target 692.241770
+  nearest_q<=5 r 1.600000 rel 0.014217 target 664.552100
+LEE interval 416.0 830.0 length 414.0
+RATIOS_Q4 1.000000->415.345 1.250000->519.181 1.333333->553.793 1.500000->623.018 1.666667->692.242 1.750000->726.854 2.000000->830.690
+COV eps 0.050000 f 0.765909 f3 4.492942e-01
+COV eps 0.032130 f 0.550440 f3 1.667746e-01
+COV eps 0.014474 f 0.258130 f3 1.719939e-02
+COV eps 0.004887 f 0.085003 f3 6.141869e-04
+REGION p0 0.085003 p1 0.173127 p2 0.292310 p3 0.449560
+ORDERED_GAP_PROB 4.415684e-02
+SPEC r 1.250000 eps 0.032130 window 502.500 535.863 frac 0.080586
+SPEC r 1.333333 eps 0.004887 window 551.087 556.500 frac 0.013074
+SPEC r 1.500000 eps 0.014474 window 614.000 632.035 frac 0.043563
+SPEC_PRODUCT 4.589842e-05
+INTEGER n 415 within_0.05 319 frac 0.768675
+FLOOR_VARIANTS
+  floor span 8.0 off 0.00 islands 500-505 555-558 613-615 674-674 high 0 undef 0
+  floor span 8.0 off 0.25 islands 507-511 562-565 621-622 682-683 high 0 undef 0
+  floor span 8.0 off 0.50 islands 512-516 568-571 626-628 691-691 high 0 undef 0
+  floor span 8.0 off 0.75 islands 519-523 575-578 634-636 698-699 high 0 undef 0
+  round span 8.0 off 0.00 islands 512-516 568-571 626-628 691-691 high 0 undef 0
+  floor span 4.0 off 0.00 islands 534-535 644-644 high 0 undef 0
+  floor span 16.0 off 0.00 islands 590-595 622-625 657-659 691-691 high 0 undef 0
+  real span 8.0 off 0.00 islands 501-501 505-505 508-508 511-511 514-514 522-522 529-529 569-569 571-571 573-573 high 0 undef 0
+GRIDS
+  n 46 floor 500-504 556-559 612-614 672-672 real 504-504 510-510 516-516 523-523 556-556 564-564 572-572 581-581 620-620 628-628 636-636 644-644
+  n 91 floor 501-505 554-557 614-616 673-673 real 503-503 506-506 515-515 518-518 521-521 528-528 566-566 570-570 574-574 622-622 626-626
+  n 181 floor 500-505 555-558 613-615 674-674 real 501-501 505-505 508-508 511-511 514-514 522-522 529-529 569-569 571-571 573-573
+  n 361 floor 501-505 555-558 613-614 674-675 real NONE
+  n 721 probe_floor_p2 500-505 555-558 613-614 674-675 probe_real_p2 NONE
+  n 1441 probe_floor_p2 500-505 555-558 613-615 675-675 probe_real_p2 NONE
+  n 2881 probe_floor_p2 500-505 555-558 613-615 675-675 probe_real_p2 NONE
+WIDTH_PAIRS
+  T 500 period tail widths [(8,), (7,), (8,), (7,), (8,), (7,), (8,), (7,)]
+  T 501 period tail widths [(8,), (7,), (8,), (7,), (8,), (7,), (8,), (7,)]
+  T 502 period tail widths [(8,), (7,), (8,), (7,), (8,), (7,), (8,), (7,)]
+  T 503 period tail widths [(8,), (7,), (8,), (7,), (8,), (7,), (8,), (7,)]
+  T 504 period tail widths [(8,), (7,), (8,), (7,), (8,), (7,), (8,), (7,)]
+  T 505 period tail widths [(8,), (7,), (8,), (7,), (8,), (7,), (8,), (7,)]
+  T 555 period tail widths [(6,), (5,), (6,), (5,), (6,), (5,), (6,), (5,)]
+  T 556 period tail widths [(6,), (5,), (6,), (5,), (6,), (5,), (6,), (5,)]
+  T 557 period tail widths [(6,), (5,), (6,), (5,), (6,), (5,), (6,), (5,)]
+  T 558 period tail widths [(6,), (5,), (6,), (5,), (6,), (5,), (6,), (5,)]
+  T 613 period tail widths [(4,), (3,), (4,), (3,), (4,), (3,), (4,), (3,)]
+  T 614 period tail widths [(4,), (3,), (4,), (3,), (4,), (3,), (4,), (3,)]
+  T 615 period tail widths [(4,), (3,), (4,), (3,), (4,), (3,), (4,), (3,)]
+  T 674 period tail widths [(2,), (1,), (2,), (1,), (2,), (1,), (2,), (1,)]
+COUPLED
+  T 500 periods 4 4 4 rho0 7.500000
+  T 501 periods 4 4 4 rho0 7.500000
+  T 502 periods 4 4 4 rho0 7.500000
+  T 503 periods 4 4 4 rho0 7.500000
+  T 504 periods 4 4 4 rho0 7.500000
+  T 505 periods 4 4 4 rho0 7.500000
+  T 555 periods 4 4 4 rho0 5.500000
+  T 556 periods 4 4 4 rho0 5.500000
+  T 557 periods 4 4 4 rho0 5.500000
+  T 558 periods 4 4 4 rho0 5.500000
+  T 613 periods 4 4 4 rho0 3.500000
+  T 614 periods 4 4 4 rho0 3.500000
+  T 615 periods 4 4 4 rho0 3.500000
+  T 674 periods 4 4 4 rho0 1.500000
+FINE_T500
+  g 0.25 periods 16 16 16 max_step 2.480e-01 closure 0.000e+00 tail0 (7.981335,0.291428)
+  g 0.50 periods 9 9 9 max_step 4.971e-01 closure 0.000e+00 tail0 (7.994129,0.291505)
+  g 0.75 periods 12 12 12 max_step 7.475e-01 closure 0.000e+00 tail0 (7.765573,0.289366)
+  g 1.00 periods 4 4 4 max_step 1.000e+00 closure 0.000e+00 tail0 (8.000000,0.288952)
+  g 1.25 periods 3 3 3 max_step 1.538e+00 closure 0.000e+00 tail0 (8.307692,0.288399)
+  g 1.50 periods 3 3 3 max_step 2.000e+00 closure 1.777e-15 tail0 (6.666667,0.289545)
+  g 1.75 periods 5 5 5 max_step 3.867e+00 closure 1.110e-16 tail0 (9.657459,0.287105)
+SEPARATION
+  g 0.25 d40 1.006e-11 dend 0.000e+00 lam40 -0.2877
+  g 0.50 d40 0.000e+00 dend 0.000e+00 lam40 -99.0000
+  g 0.75 d40 0.000e+00 dend 0.000e+00 lam40 -99.0000
+  g 1.00 d40 0.000e+00 dend 0.000e+00 lam40 -99.0000
+  g 1.25 d40 0.000e+00 dend 0.000e+00 lam40 -99.0000
+  g 1.50 d40 0.000e+00 dend 0.000e+00 lam40 -99.0000
+  g 1.75 d40 1.006e-11 dend 0.000e+00 lam40 -0.2877
+GAIN_GRID
+  g 0.10-0.10 period 27
+  g 0.15-0.15 period 19
+  g 0.20-0.20 period 18
+  g 0.25-0.25 period 16
+  g 0.30-0.30 period 14
+  g 0.35-0.35 period 12
+  g 0.40-0.40 period 11
+  g 0.45-0.45 period 10
+  g 0.50-0.55 period 9
+  g 0.60-0.60 period 8
+  g 0.65-0.70 period 7
+  g 0.75-0.75 period 12
+  g 0.80-0.85 period 6
+  g 0.90-0.95 period 5
+  g 1.00-1.10 period 4
+  g 1.15-1.70 period 3
+  g 1.75-1.85 period 5
+  g 1.90-1.90 period 7
+  g 1.95-1.95 period 11
+TONGUE_WINDOWS
+  g 0.50 near500 1:15 6:2 7:1 9:1 11:1 13:1
+  g 0.50 near556 1:17 6:1 7:1 8:1 18:1
+  g 0.50 near614 1:18 6:1 7:1 8:1
+  g 1.00 near500 1:15 4:6
+  g 1.00 near556 1:17 4:4
+  g 1.00 near614 1:18 4:3
+  g 1.50 near500 1:12 3:9
+  g 1.50 near556 1:14 3:7
+  g 1.50 near614 1:16 3:5
+P3_PROBE
+  I0 gamma 0.00 theta (99.99999999999646, 150.00000000000009) action (0.0, 0.0)
+  I0 gamma 0.02 theta (99.99999999999646, 150.00000000000009) action (0.0, 0.0)
+  I0 gamma 0.05 theta (99.99999999999646, 150.00000000000009) action (0.0, 0.0)
+  angle_diff 0-vs-0.02 0.000e+00 0-vs-0.05 0.000e+00
+  probe gamma 0.02 I1 0.054134113294648 gap_to_formula 3.206e-15 theta2 150.000000000000085
+  probe gamma 0.05 I1 0.002695178799634 gap_to_formula -2.025e-16 theta2 150.000000000000085
+  unstated_theta0_0.3 theta2 150.30000000000003979039
+DONE
