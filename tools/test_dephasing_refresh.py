@@ -35,6 +35,19 @@ def test_dephasing_refresh_addendum_checks():
     assert r.stdout == expected
 
 
+def test_dephasing_refresh_onset():
+    r = subprocess.run(
+        [sys.executable, os.path.join(HERE, "dephasing_refresh_onset_checks.py")],
+        capture_output=True, text=True, timeout=60,
+    )
+    assert r.returncode == 0, r.stdout + r.stderr
+    assert "HEADLINE MISS_COINCIDENCE" in r.stdout
+    assert "FAILS 3" in r.stdout
+    with open(os.path.join(HERE, "dephasing_refresh_onset_checks.out"), encoding="utf-8") as f:
+        expected = f.read()
+    assert r.stdout == expected
+
+
 def test_dephasing_refresh_review_fold():
     r = subprocess.run(
         [sys.executable, os.path.join(HERE, "dephasing_refresh_review_checks.py")],

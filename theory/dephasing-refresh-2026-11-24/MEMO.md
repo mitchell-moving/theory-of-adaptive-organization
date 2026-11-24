@@ -64,6 +64,20 @@ The threshold \(t(\gamma,T)\) depends on \(\gamma\) and \(T\) only through \(\ga
 
 Squared Hamming on the refresh rate has loss share \(1/3\) and critical \(\Pi=600\) at \(\gamma T=0.01\), not \(4\) (`:4`). The five nearby one-shot costs flip the locked signs (`:5`): carrier entropy \(J_H=0.939924\) at stake \(1\); linear-leak threshold \(0.193085\); squared one-shot \(J_H=0.269071\) at stake \(2\); stake-dependent rent gap \(1.239472\); linear-coherence threshold \(3.436564\).
 
+## Onset map
+
+Locked in `ONSET_PREREG.md` (commit `a27520c`, sha256 `659ed3e67e40bc03aef71bb69c694eb91e3ee0049a7e907570945d9fd42760fb`) before `dephasing_refresh_onset_checks.py`. The three earlier locks were not edited.
+
+**Observed in-model.** Headline `MISS_COINCIDENCE` (`dephasing_refresh_onset_checks.out`).
+
+The labeled hypothesis was that \(\Pi_c\to 4\) is the Poisson look onset \(c^*=4\kappa kT\) (`theory/CLOCK_TERM_2026-11-23.md:126`, the \(a=1\), \(b=2\) branch). The named rival was a shared integer: \(2b/a=4\) from that branch, and 4 from the \((\gamma T)^2\) expansion of the Hamming average.
+
+M1 holds: \(c^*/(\kappa kT)=4\) and \(\Pi_c(0.01)=4.02674456\), residual \(+0.02674456\), inside \(0.05\). That is the integer match. It does not identify the objects.
+
+M2 misses by \(+1\): the boundary price \(A_c=w\gamma T^2/\Pi_c\) has stake elasticity \(+1.00000000\), and \(c^*\) has elasticity 0. M3 misses by \(+0.250000\): the uniform-age slope is \(1/4\), and the exponential-age slope, which is the Poisson age in `theory/CLOCK_TERM_2026-11-23.md:40`, is \(1/2\). M4 misses by \(+4\): with \((a,b)\) held at \((1,2)\), a short-time slope \(1/8\) moves the refresh limit to 8 and leaves \(c^*\) at 4.
+
+The refresh rate sits in the square-root/EOQ class. Short-time Hamming loss is linear in the age, so \(A/\tau\) against that loss is the balance at `theory/INTERNAL_MODEL.md:45` and `:180`, and the diffusive \(w^{1/2}\) balance at `theory/CLOCK_TERM_2026-11-23.md:55`. It is not the CK balance at `theory/CLOCK_TERM_2026-11-23.md:40-47`, whose lag grows as \(1/f^2\) and whose rate scales as \(w^{1/3}\). The parent identities \(\tau^*\sim 2\sqrt{A/(w\gamma)}\) and \(J^*\sim\sqrt{A w\gamma}\) are that elementary balance. Scoring them is `NOT A TEST`.
+
 ## Deviations
 
-None. `PREREG.md` was not edited after `612b82e`. `ADDENDUM_PREREG.md` was not edited after `9619565`. `ADDENDUM_REVIEW_PREREG.md` was not edited after `6fb397b`.
+None from the locks. `PREREG.md` was not edited after `612b82e`. `ADDENDUM_PREREG.md` was not edited after `9619565`. `ADDENDUM_REVIEW_PREREG.md` was not edited after `6fb397b`. `ONSET_PREREG.md` was not edited after `a27520c`.

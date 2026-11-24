@@ -1,0 +1,8 @@
+M1 c*/(kappa kT)=4.000000000000
+M1 Pi_c(0.01)=4.02674456 residual=+2.67445630e-02
+M2 elasticity e_A=+1.00000000 residual_from_0=+1.00000000
+M3 alpha_U=0.2500000000 alpha_E=0.4999999983 gap_E_minus_U=+0.2499999984
+M4 half-slope limit=8.00000000 residual_from_4=+4.00000000
+HEADLINE MISS_COINCIDENCE
+FAILS 3
+BARS MISSED 3
