@@ -11,3 +11,5 @@ The locked predictions, the relabel criterion, and the beyond-Kuramoto criterion
 2026-11-24, before the T82c lock. `PREREG_REVERSIBLE.md` is already locked, so the horizon predictions are a new file. That preregistration is not edited.
 
 2026-11-24, after the independent review of round 1 (fork PR #16, comment 7144237250). Correction, not a rescore. `MEMO_COUPLED.md:35` says interior destruction rates do not occur. That sentence is kept and scoped, in an appended section, to the twelve locked cells (`coupled_loop_checks.out:19-30`). At \(T=550\) the same midpoint map locks at rate 6 and return \(0.313065981732\). Stake 2 prefers widths 2 through 8 for returns from 0.280 to 0.363. The locked horizons sit outside that band. The width-9 history gap falls from \(0.179470489880\) at \(T=415\) to \(0.000896617534\) at \(T=10000\). Both numbers were recomputed with the locked step. No locked preregistration and no scoreboard was edited.
+
+2026-11-24, before the T82d lock. The resonance scan is a new file, `PREREG_RESONANCE.md`. The earlier preregistrations are not edited.
