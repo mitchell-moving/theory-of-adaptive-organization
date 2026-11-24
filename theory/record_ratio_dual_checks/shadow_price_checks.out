@@ -1,0 +1,10 @@
+H-led PASS maxPD-D=0.000e+00 | w=1.000000 theta=1.570796 PD=9.637238e-02 lam=0 | w=5.776227 theta=0.000000 PD=0.000000e+00 lam=0 | w=10.000000 theta=0.000000 PD=0.000000e+00 lam=0
+H-bound PASS grid_max=0.688377609733 ceiling=0.688377871168 left_limit=-1.079441541680
+H-deriv PASS formula=0.652985548762 numerical=0.652985548986 gap=2.242e-10
+H-off PASS ledgers=0.050672,0.057695,0.096372 range=0.045701 levelers=0.548714,0.525792 NO-SINGLE-D
+H-rank PASS PD=0.000e+00 I=0.000e+00 gap=0.346573590280 half_ln2=0.346573590280 lambda=undefined
+H-reeb PASS NO-D
+H-ruin PASS NO-D
+H-w PASS gap_pi=2.998449 gap_star=2.567212 theta=0.000000 n_tie=1
+H-none PASS NO-NATURAL-D
+FAILS 0
