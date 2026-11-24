@@ -115,3 +115,26 @@ Every row below is `NOT A TEST`. Odds are 1 given the closed form. Information i
 ### Scaled note
 
 The class sentence is the content. One reset, loss linear in the gap, no clock rate: slow-drift square-root/EOQ, KNOWN at `theory/INTERNAL_MODEL.md:45` and `:180`, same exponent as `theory/CLOCK_TERM_2026-11-23.md:55` and `CORE.md:91`. The Gaussian envelope at \(s=20\) sits \(+0.021469\) from the monomial the script scores. That gap is the review's, location measurement/code, and it does not move a formula. The onset comparison stays a consistency check: no band inside the closed forms can be missed.
+
+## Ledger after re-review comment `7146054525`
+
+**Lock reference:** `a27520c` (sha256 `659ed3e67e40bc03aef71bb69c694eb91e3ee0049a7e907570945d9fd42760fb`). `ONSET_PREREG.md` is unedited. Re-review of head `7cba6b6`, write-up on draft PR #33.  
+**Logged at (ET):** 2026-11-24 17:20 ET  
+**Breach check:** `none`
+
+T84b as a whole contains no test that can miss inside this model. \(c^*=4\kappa kT\) stays an untested hypothesis. Odds on M1–M4 are 1 given the locked formulas. Information is about 0. Earlier rows are not edited.
+
+| prediction_id | locked_prediction (value/band; odds if feasible) | outcome | miss (signed size & direction, or HIT + info) | location (`model` \| `measurement/code` \| `process`) | stake_x_info (`low` \| `medium` \| `high`) | update (what changed, or `none yet`) | breach_check |
+|---|---|---|---|---|---|---|---|
+| M1 | both pure numbers within 0.05 of 4 | \(\Pi_c(0.01)=4.026744563040\), \(c^*=4\) | `NOT A TEST`; residual \(+0.026744563040\); the parent series already fills the band; information ~0 | model | low | none yet; \(c^*=4\kappa kT\) stays untested | none |
+| M2 | elasticity of \(A_c\) within 0.05 of 0 | float64 \(0.9999999999951152\) | `NOT A TEST`; miss \(+1\) from 0; \(A_c\propto w\); information ~0 | model | low | none yet | none |
+| M3 | both age slopes within \(10^{-9}\) of \(1/4\) | uniform residual \(-2.057\times 10^{-11}\); exponential limit \(1/2\) | `NOT A TEST`; miss \(+1/4\) on the exponential slope; information ~0 | model | low | none yet | none |
+| M4 | half-slope limit within 0.05 of 4 | \(1/(1/8)=8\) | `NOT A TEST`; miss \(+4\); information ~0 | model | low | none yet | none |
+| SCOPE | a bar inside this model that can miss | no such bar in the five locks | `NOT A TEST`; T84b contains no test that can miss inside this model; \(c^*=4\kappa kT\) is untested | model | medium | no new in-model lock | none |
+| GAUSS-MODEL | envelope share against the monomial \(1/3\) | \(0.354802\) at \(s=20\) | signed \(+0.021469\) from \(1/3\) | model | medium | location corrected from `measurement/code`; no MV gate fired; no formula change | none |
+| MEMO51 | addendum headline described as not a consistency check | `MEMO.md` line that says the headline is not a consistency check, left in place | process miss: the older sentence stayed beside the later reclassification | process | medium | superseding line appended under that sentence; the sentence was not rewritten | none |
+| OPEN-LABEL | same description in the T84b cell | the cell still contains that sentence | process miss: same wording in `OPEN_WORK.md` | process | low | superseding sentence appended in the cell; the old sentence was not rewritten | none |
+
+### Scaled note
+
+M1–M4 and SCOPE are one fact. The named rival cannot lose, because each residual is the formula. Location is the model. No formula changes. \(c^*=4\kappa kT\) is not tested by any bar in this model. The envelope gap \(+0.021469\) is a different loss, so its location is the model. The two older sentences that deny the consistency label stay on the page. The update is the superseding line under each.

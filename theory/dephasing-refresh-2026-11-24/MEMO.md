@@ -50,6 +50,8 @@ The noiseless holding cost, computed from T84's \(J_H\) at \(\gamma\tau=0\), is 
 
 The guard forms fail the bars the stock floor passes (`:2`). Reading the floor as \(4\kappa/\lambda\) makes the gap to 4 equal to 0, so bar B2 fails. Reading it as the frozen ongoing heat, which is 0 (`CORE.md:78`), makes the gap to a clock that is off equal to 0, so bar B3 fails. The comparison separates the stock floor from those two forms, so the headline is not a consistency check.
 
+Superseding the previous sentence: that headline is a consistency check and `NOT A TEST`. The bars cannot miss while \(F\) is defined as \(\ln 2\). The sentence above stays as it was written.
+
 The stake exponent and the \(\gamma,T_{\mathrm{hold}}\) scaling were not refit here. They remain the parent locks: short-period elasticity \(1/2\), with \(e(1)>0.55\) so the band is not uniform and is not T68's \(1/3\); \(w_c\sim 4A/(\gamma T_{\mathrm{hold}}^2)\) at small \(\gamma T_{\mathrm{hold}}\) (`PREREG.md` R2, R4; `ADDENDUM_PREREG.md` section C).
 
 ## Review fold-in
@@ -89,3 +91,9 @@ Locked in `CONSISTENCY_PREREG.md` (commit `cc4d406`, sha256 `347cca6bc1d940decc4
 **Observed in-model. Consistency check.** Every scored bar of the three earlier locks is `NOT A TEST`. Information is about 0. The onset bars M1–M4 are the same kind of comparison: the stake elasticity is 1 because \(A_c\propto w\), the two age slopes are the two integrals, and \(1/(1/8)=8\). No band inside those forms can be missed. The named rival, a shared integer 4, is the reading that remains.
 
 The model is one reset with loss linear in the gap and no clock rate. That is the slow-drift square-root/EOQ class, KNOWN at `theory/INTERNAL_MODEL.md:45` and `:180`. The same exponent is `theory/CLOCK_TERM_2026-11-23.md:55` and `CORE.md:91`. It is not the \(w^{1/3}\) branch at `theory/CLOCK_TERM_2026-11-23.md:40-47`.
+
+## Re-review of the onset bars
+
+Appended after comment `7146054525`. `ONSET_PREREG.md` is not edited. No new in-model lock.
+
+M1–M4 are `NOT A TEST`, information about 0. T84b as a whole contains no test that can miss inside this model. \(c^*=4\kappa kT\) stays an untested hypothesis.
