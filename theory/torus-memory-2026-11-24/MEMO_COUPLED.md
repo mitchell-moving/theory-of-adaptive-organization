@@ -41,3 +41,13 @@ Gain \(\alpha=1.5\) leaves \([1,9]\) during the transient. Those 950 evaluations
 ## Model implication
 
 Inside this lag map, with T81's walk and T81's cost, feedback phase-locks the destruction rate and the return. History of the walk chooses the locked return. It does not produce a limit cycle or a torus on the locked grid.
+
+## Correction
+
+Appended after the independent review of round 1 (fork PR #16, comment 7144237250). The sentences above are unchanged. They describe the twelve locked cells in `coupled_loop_checks.out:19-30`.
+
+"Interior rates do not occur" is true on those twelve cells. At stake 2 the preferred width is 9 for a return below 0.280, passes through widths 8, 7, 6, 5, 4, 3, and 2 as the return runs from 0.280 to 0.363, and is 1 from 0.364. On the thousandth grid the value at 0.280 is the tie 8.5, and 0.364 is width 1. The locked horizons sit outside that band. At \(T=415\) the midpoint returns are \(0.239059227845\) and \(0.246706007043\). At \(T=831\) the width-9 midpoint return is \(0.427603138435\).
+
+At \(T=550\), between those horizons, the midpoint return of the length-7 block is \(0.313065981732\), and that return selects width 6. The lag map at gain \((1,1)\), from \((1,0)\), \((5,0.5)\), \((9,1)\), and \((4,0.32)\), locks at destruction rate 6 and return \(0.313065981732\), tail range 0. Recomputed with the locked step. The twelve locked scores are not changed.
+
+The width-9 gap between the two starts is \(0.179470489880\) at \(T=415\) and \(0.000896617534\) at \(T=10000\). Both columns head toward 1. That decay is the dissipative contrast recorded in `MEMO_REVERSIBLE.md`.

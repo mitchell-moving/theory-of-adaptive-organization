@@ -43,3 +43,7 @@ The detuning grid has no run of three rotation numbers within \(10^{-3}\) of \(3
 `formal/lean/` has no torus, rotation-number, or KAM lemma. The class split above is a numerical instance of one natural target: a constant-frequency flow on \(T^2\) is periodic exactly when the frequency ratio is rational. Two others are already named in the archaeology and are not formalized: the rank of a frequency vector over \(\mathbb{Q}\), and the 0:1 tongue width \(K/\pi\).
 
 The names "revival" and "filling" are this same split (`PREREG_REVERSIBLE.md:107-109`). The classifier matches it. The return share on the irrational orbits still depends on the angle, so the share is a coarse record of the start at this horizon. This tree has no T83 note and no Talbot carpet.
+
+## Contrast: the coupled map forgets
+
+The width-9 gap between the two coupled-loop starts is \(0.179470489880\) at \(T=415\) and \(0.000896617534\) at \(T=10000\) (review comment 7144237250; recomputed with the locked step). In that dissipative menu the history is a transient. The reversible score is the contrast: at zero coupling and zero damping the actions stay at their starts (`reversible_torus_checks.out:5`) and the return share still depends on the angle at the locked horizon (`:23-25`). Whether that dependence survives a long walk horizon is locked separately in `PREREG_HORIZON.md` and is not a rescore of these lines.
