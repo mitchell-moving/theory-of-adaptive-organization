@@ -48,4 +48,8 @@ Berry's fractal of \(P(x)\) is not a dimension of \(R\). No Hausdorff number for
 
 ## What was not found
 
-No term in \(J\) that the cited results do not already assign. The hypothesis, read on this well, is a relabel of frozen storage plus the pinch, and the return share is the known revival.
+No term in \(J\) that the cited results do not already assign. The hypothesis, read on this well, is a relabel of the nearest frozen-storage sentence plus the pinch. The zero keep-cost is the absence of a bath (`PREREG.md:121`). `CORE.md:78` is a static record after a one-time write. This well is a pure state whose phases wind, so that sentence is the nearest one, not an identification. \(R\) is the survival probability of the initial packet. The share of a destroyed-record cost that comes back was not computed, so the flow-ratio question stays open.
+
+## Errata after the review
+
+The preregistration and the stored output were not edited. Four bars cannot miss, and they are not evidence (`DEVIATIONS.md` item 4, `PREREG.md:29`): purity, the gap \(|h(R)-h(R)|\), \(\ln 120\) against itself, and `C-link` recorded as true. The printed numbers are still the right ones for this state. Even separations of the printed off-diagonal are 0, and the integral is not (`DEVIATIONS.md` item 3). Three glosses stay in the lock: the commensurate return is the integer spectrum, not a Poincaré return; the destruction clause on Hogg and Huberman 1982 is not in the Crossref record; "irrational times" is stronger than the same bullet's "almost every time" (`DEVIATIONS.md` item 5).
