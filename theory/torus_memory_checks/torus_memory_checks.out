@@ -1,0 +1,14 @@
+P0 PASS  prereg sha256 d0acb22ecefa52d41d95ca2a20f3fbfb251c237ee2bc9f6aa49549939508b204
+P3 PASS  D-I full 0.000000000000 one 0.000000000000 none 0.000000000000
+P1 PASS  distinct 3 Hsum 1.039720770840 Hphase 2.772588722240 ln3 1.098612288668
+P2 PASS  rank_irr 2 rank_rat 1 period_err 4.219e-15 I_radius 0.000000000000
+P4 PASS  w10 ['both'] w1 ['blind'] Jboth 1.386294361120 Jone 5.693147180560 Jblind 10.000000000000
+P5 PASS  w1 ['blind'] w10 ['large'] w1000 ['both'] thresholds 1.386294361120 138.629436111989
+P6 PASS  Adler identity resid within 1e-12 drop 0.693147180560 cost_drop 1.386294361120
+P7 FAIL  Kc 1.000000000000 Kc_check 1.000000000000 K_formula 1.383621274020 K_switch 1.383621274020 rel_switch 0.000e+00 Jmin 0.000000000000 argmin_K [0.000000000000, 1.000000000000] rel_joint 0.277259 NOT_BEYOND True
+P7-DIAG  fixed-K switch matches the blind-corner formula; rel 0.000e+00. Joint argmin is the incoherent interval, cost 0, not the formula. Criterion returns NOT BEYOND either way.
+P8 PASS  Kc_stakes_moved False Fstar 1.581138830084 F_equal 1.000000000000 2.000000000000 M2_align True M2_equal_fails True
+HEADLINE PASS  RELABEL on P1 (R-sum), P2 (R-hull), P5 (R-mode); NOT BEYOND; Q3 shared-cause FAIL as predicted
+FAILS 1
+SCORED_FAIL P7
+SCOREBOARD COMPLETE

@@ -1,0 +1,9 @@
+# T82b run log
+
+Locked file: `theory/torus-memory-2026-11-24/PREREG_REVERSIBLE.md`
+
+sha256: `84b5cd7fb8c4e843ae1f54e837cdca1fec603c57916f6d1787716ca6cf0988dc`
+
+The scored script has not been run. Scores, when they exist, are appended below this line and this paragraph is not rewritten.
+
+2026-11-24, after the lock. `reversible_torus_checks.py` against the hash above. I-rev PASS, I-vol PASS, P1 PASS, P2 FAIL, P3 FAIL, P4 FAIL, P4-tongue FAIL, P-kc FAIL, BEYOND PASS NOT_BEYOND. FAILS 5. Output `theory/torus_memory_checks/reversible_torus_checks.out`.
