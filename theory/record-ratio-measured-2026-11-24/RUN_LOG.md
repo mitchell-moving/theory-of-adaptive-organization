@@ -7,3 +7,5 @@ The scored script is `measured_checks.py`. Stdout is `measured_checks.out`. Seed
 No deviation. The list is `DEVIATIONS.md`.
 
 `G-gap`, `M1-scale`, and `M4` miss the locked bars. Those misses were not repaired by editing the lock or the bars.
+
+After the review of head `f625bb7`, the memo was corrected. The six locked fixed-point cells remain `POINT`, and each terminal is the entrance fraction of one extreme packet. At \(T=500\), between locked horizons 415 and 831, the same map 2-cycles. That readout is in `DEVIATIONS.md`. It is not a change to a locked bar.
