@@ -81,3 +81,31 @@ The second pinch is the adversary that does not pay. Restoration pays by putting
 A pass of P1 with a miss of both adversaries is the split the lock asked to keep. The two misses are not averaged into one ratio.
 
 **Model implication, in-model.** Conditional on selection seeing only \(I\) and \(L\): the long-run support contains \(0\), and a \(q>0\) is there only by installing the same angle. Conditional on a fraction \(\alpha\) of \(P_D\) persisting: the support is the set of menu ratios that install a minimizer of \(J\) at ratio \(\alpha\). Conditional on removal proportional to \(P_D\): the support is the set of menu ratios that install a less disturbed angle, and on the flat-loss axis that set is \(\{2\}\).
+
+## Errata after the independent review
+
+*Appended after the independent review of head `5660367` (fork PR #11, comment 7140772595; branch `forge-persistence-review` at `d6e9653`). Zero blockers. `PREREG.md`, `persistence_checks.py`, and `persistence_checks.out` are unchanged. The sections above are the record of the locked map. This section restates their scope. The three notes below are the review's HIGH notes.*
+
+### Restoration
+
+**Identity.** \(F_\alpha=I+\alpha P_D+wL\) is \(J\) at ratio \(\alpha\), by the definition in PREREG §2.5. The sentence above, that the persistent cost is \(J\) at ratio \(\alpha\), restates that definition. It is not a finding. The grid did not produce it.
+
+**NUMERICAL. The only evidence is the angle separation.** On 10 of 26 cells the installed angles differ (tag `RESTORE`). Ratio 0 is at the equator and a positive menu ratio is at the pointer. The stored gaps on those cells run from \(1.620000\times 10^{-2}\) to \(1.882542\times 10^{-1}\). Those gaps are what the identity and that separation already imply.
+
+### Flat-loss support
+
+**Clue. It depends on the tie rule and on the menu.** On the locked menu \(\{0,\ 0.25,\ 0.5,\ 0.64,\ 1,\ 2\}\), ratio 2 is the only point above 1. Every ratio above 1 installs the pointer, and those ratios tie. The locked tie rule minimizes \(F\) on a flat charged cost, assigns ratio 1 the equator, and the removal map then drops ratio 1, so the stored support is \(\{2\}\). The independent review applied the smallest-angle rule and the minimum-\(P_D\) rule to that same flat charged cost. Both put ratio 1 in the support, at the same weight as ratio 2. \(\{2\}\) is that menu under that resolution of a flat charged cost. It is not a unique survivor.
+
+### Removal map
+
+**Modeling choice.** The locked probability is \(\min(1,\ \rho P_D/P_{\max})\). At maximum disturbance this equals \(\rho\), and at \(\rho=1\) the growth weight is 0. The stored weights \(0\) and \(0.783509\) are that cap. The independent review scored the monotone map \(\min(1,\ \rho P_D)\), which is not divided by \(P_{\max}\). Ratio 0 is back in the support on 7 cells, all at \(\rho=1/2\), and on the flat-loss axis that map removes the locked support \(\{2\}\). The 20 exclusions, and \(\{2\}\) on the flat-loss axis, depend on that normalization. The closing conditional above, removal proportional to \(P_D\) with flat-loss support \(\{2\}\), is broader than the map that was scored.
+
+## What survives
+
+**Model implication, in-model.**
+
+\(q=0\) weakly dominates when destruction stays gone. That is P1.
+
+A positive \(q\) needs a return channel, and its size is set by how that channel is modeled, not by \(J\).
+
+So \(q\) is set outside \(J\) by whatever produces the return. That is the open question T79 takes up.
