@@ -1,0 +1,52 @@
+Crossref works API, queried 24 November 2026. Fields below are what the API returned. An empty issued date is left empty.
+
+DOI 10.1007/BFb0013365
+title: Self-entrainment of a population of coupled non-linear oscillators
+author: Yoshiki Kuramoto
+container: Lecture Notes in Physics; International Symposium on Mathematical Problems in Theoretical Physics
+page: 420-422
+publisher: Springer-Verlag
+issued: (date-parts empty)
+ISBN: 3540071741
+
+DOI 10.1007/BFb0013294
+title: International Symposium on Mathematical Problems in Theoretical Physics
+container: Lecture Notes in Physics
+issued: 1975
+
+DOI 10.1007/978-3-642-69689-3
+title: Chemical Oscillations, Waves, and Turbulence
+author: Yoshiki Kuramoto
+container: Springer Series in Synergetics
+issued: 1984
+
+DOI 10.1016/S0167-2789(00)00094-4
+title: From Kuramoto to Crawford: exploring the onset of synchronization in populations of coupled oscillators
+author: Steven H. Strogatz
+container: Physica D: Nonlinear Phenomena
+volume: 143
+page: 1-20
+issued: 2000-09
+
+DOI 10.1103/RevModPhys.77.137
+title: The Kuramoto model: A simple paradigm for synchronization phenomena
+authors: Juan A. Acebrón; L. L. Bonilla; Conrad J. Pérez Vicente; Félix Ritort; Renato Spigler
+container: Reviews of Modern Physics
+volume: 77
+page: 137-185
+issued: 2005-04-07
+
+DOI 10.1007/978-3-642-01742-1_10
+title: Small denominators. I. Mapping of the circumference onto itself
+authors: (empty on this record)
+container: Collected Works
+page: 152-223
+issued: 2009
+
+DOI 10.1016/0005-1098(76)90006-6
+title: The internal model principle of control theory
+authors: B.A. Francis; W.M. Wonham
+container: Automatica
+volume: 12
+page: 457-465
+issued: 1976-09
