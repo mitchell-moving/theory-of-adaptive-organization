@@ -42,7 +42,7 @@ The typical `T-small` cell with \(w=1\) is the equator, \(\alpha=0.600000\), \(R
 
 **P3, puzzle on 46 of 72 cells.** The parent leading and the joint equilibrium select the same return there. Child, \(\tau=0.5\), \(w=1\), `T-small`: both returns are \(0.600000\). They differ on other cells. Child, \(\tau=0\), \(w=1\), `T-small`: Nash \(0.600000\), Stackelberg \(0.700000\). Where the Nash set is empty the fail condition is not met. Child, \(\tau=0\), \(w=2\), `T-small`: the cycle above, Stackelberg \(0.380000\).
 
-**P4, puzzle.** No cell in the slow or fast limits is pinned, and 119 cells in the headline and scale families are unpinned, so the ratio is not a function of \(\tau\) alone. At \(\tau=0\), child, \(w=1\), `T-small`, the Nash return is \(0.600000\) and the midpoint of \(R\) is \(0.320000\), which is \(0.28\) from the returned share. At \(\tau=2\) and \(\tau=4\), \(\beta=0\) for the child, and \(R\) is still \([0.00,0.64]\) at \(w=1\) (midpoint \(0.320000\)) and \([0.00,0.28]\) at \(w=2\) (midpoint \(0.140000\)). A late return does not put the ratio at \(0\). The scale family moves the midpoint of the same kind of set: at \(\tau=0\), child, `T-small`, \(w=1\), the midpoint is \(0.320000\) at \(\kappa_c=1\) and \(0.410000\) at \(\kappa_c=2\).
+**P4, puzzle.** No cell in the slow or fast limits is pinned, so the ratio is not a function of \(\tau\) alone. The printed `bad=119` counts 72 headline rows and 48 scale rows, minus the one pin. Twelve of those scale rows repeat \((\kappa_c,\kappa_p,\kappa_{D,p})=(1,1,1)\), which the lock counts once. The unique count is 107 unpinned cells out of 108. At \(\tau=0\), child, \(w=1\), `T-small`, the Nash return is \(0.600000\) and the midpoint of \(R\) is \(0.320000\), which is \(0.28\) from the returned share. At \(\tau=2\) and \(\tau=4\), \(\beta=0\) for the child, and \(R\) is still \([0.00,0.64]\) at \(w=1\) (midpoint \(0.320000\)) and \([0.00,0.28]\) at \(w=2\) (midpoint \(0.140000\)). A late return does not put the ratio at \(0\). The scale family moves the midpoint of the same kind of set: at \(\tau=0\), child, `T-small`, \(w=1\), the midpoint is \(0.320000\) at \(\kappa_c=1\) and \(0.410000\) at \(\kappa_c=2\).
 
 The lineage book keeps \(\rho=1\) at every \(\tau\), so a late return is still a live charge there. It does not pin a ratio either. At lineage, \(w=2\), `T-small`, every locked \(\tau\) is the same empty Nash and the same 2-cycle.
 
@@ -62,9 +62,15 @@ Not monotone: child, \(\tau=4\), \(w=2\), `T-small`, \(\sigma=1.008748\times 10^
 
 Lineage \(\sigma\) all sits in \([1.706013\times 10^{-8},\ 1.008748\times 10^{-6}]\), one band of width \(10^{-3}\), while \(q_{\mathrm{hat}}\) runs from \(0.320000\) to \(1.350000\). There is no slope to read. The same-band clause is the miss.
 
-Path KL over one persistence time is a different number. On the child cloud, S1 spans \(0.359032\) to \(1.565091\), S2 spans \(7.068414\) to \(8.675755\), and S3 spans \(1.071406\) to \(4.336982\). For every start, the pair with the smallest path KL is child or lineage, \(\tau=0\), \(w=1\), `T-large`, \(\alpha=1\), \(q_{\mathrm{hat}}=1.350000\). The pair with the smallest steady \(\sigma\) is \(\tau=0\), \(w=1\), `T-small`, \(\alpha=0.6\), \(q_{\mathrm{hat}}=0.320000\). The answer depends on the start.
+Path KL over one persistence time is a different number. On the child cloud, S1 spans \(0.359032\) to \(1.565091\), S2 spans \(7.068414\) to \(8.675755\), and S3 spans \(1.071406\) to \(4.336982\). The three starts agree. Each one is smallest at \(\tau=0\), \(w=1\), `T-large`, \(\alpha=1\), \(q_{\mathrm{hat}}=1.350000\). The smallest steady \(\sigma\) is a different cell: \(\tau=0\), \(w=1\), `T-small`, \(\alpha=0.6\), \(q_{\mathrm{hat}}=0.320000\). Clause 6 fails because those two cells differ.
 
-The clue is the reset. Its rate is \(1\), and the keep rate is \(I\), which is \(0\) at the equator, so the stationary mass sits in the unrecorded state and the steady divergence stays small. The ratio stays the width of the angle's rationalizing set. Forcing the reverse rates to match the forward rates would be the mirror's circularity (`MIRROR_REVIEW.md:31`, `:60`, at `e3e0e701`) and was not done.
+The clue is the reset. Its rate is \(1\), and the keep rate is \(I\), which is \(0\) at the equator, so the stationary mass sits in the unrecorded state. At the minimum cell, \(\pi_U=0.999998\). Steady \(\sigma\) is below \(10^{-3}\) on 35 of 37 child Nash pairs. The range is that leak plus the one interior pin. The ratio stays the width of the angle's rationalizing set. Forcing the reverse rates to match the forward rates would be the mirror's circularity (`MIRROR_REVIEW.md:31`, `:60`, at `e3e0e701`) and was not done.
+
+## What the grid is sampling
+
+Wherever \(P_D>0\), the parent's continuous best reply is the constant root \(0.6\). An interior Nash is the child answering a return that formula fixed. The child's angle changes the grid return at the pointer, where \(P_D=0\) and the tie rule picks \(0\) or \(1\). It changes the leader's return when a commitment moves the child off the equator. On child accounting, \(\tau=0\), \(w=1\), `T-small`, the Nash cost of the parent at \(\alpha=0.600000\) is \(0.245347\) and the leader's cost at \(\alpha=0.700000\), on the pointer, is \(0.243972\). The leader's cost is lower by \(0.001375\).
+
+On every equator Nash the rationalizing set is the \(0.02\)-grid sample of \([0,\ 1-(w_c/\kappa_c)r^2]\) with \(r=0.6\). The edges are \(0.64\) at \(w/\kappa_c=1\), \(0.28\) at \(w/\kappa_c=2\), and \(0.82\) at \(w/\kappa_c=1/2\). The midpoints \(0.320000\), \(0.140000\), and \(0.410000\) are half those edges. The movement with \(\kappa_c\) is that normalized stake. The cycle, the Stackelberg gap, and the entropy-production miss are the parts that go past this identity.
 
 ## Common-cause targets
 
@@ -80,4 +86,10 @@ The clue is the reset. Its rate is \(1\), and the keep rate is \(I\), which is \
 
 ## Errata
 
-None. A miss is a puzzle and a clue, and the locks stay as committed.
+The locks were not edited.
+
+`PREREG_3.md:71-77` names two boundary terms. The displayed equation is \(H(p_n)-H(p_0)\). The sentence above it puts the start \(p_0\) on both ends. The run scores the equation. Substituting the fixed-reference boundary leaves the path-KL minimum on the same cell, \(\tau=0\), \(w=1\), `T-large`, \(q_{\mathrm{hat}}=1.350000\), which is still not the steady minimum. The steady clauses do not use this boundary. P5 misses either way.
+
+The P1 fail text also names a split of \(q_{\mathrm{hat}}\) across the two tie rules. The script marks a cell by its own summary. It does not compare the two rules in a separate line. The only pin's other rule is already unpinned, so `FAILS 5` does not depend on that comparison.
+
+A review's line check: swarm alignment is `theory/SWARM_RULE_2026-11-23.md:47`, and line 46 is the tamper sentence. The fractal citation `:76-78` is the section heading. The T78 base-selector sentence is that memo's line 11, just above the cited lines. Those pointers stay in the committed lock.
