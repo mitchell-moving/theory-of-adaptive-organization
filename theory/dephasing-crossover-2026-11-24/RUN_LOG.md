@@ -13,3 +13,7 @@ Committed before any results script and before any stored output. No cell has be
 ## Run
 
 Script `theory/dephasing_crossover_checks/dephasing_crossover_checks.py`, after the lock. Stdout stored at `theory/dephasing_crossover_checks/dephasing_crossover_checks.out`. `HEADLINE CLUE_SPLIT`. `FAILS 0`. `ALL T84 CHECKS PASS`. No prediction was edited.
+
+## Addendum (24 November 2026)
+
+The run record above stays, including the stored headline and the count on `dephasing_crossover_checks.out:13-15`. The reading going forward is observed in-model, a consistency check, and NOT A TEST. Ledger: `DEVIATIONS.md`. Write-up: `RESULTS_ADDENDUM.md`. No prediction was edited.

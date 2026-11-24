@@ -71,3 +71,7 @@ Appended after fork PR #22 comment `7144884461`. The lock is unchanged.
 The scored signs are identities of the locked cost: \(J_P-J_H=h(\varepsilon)-w\varepsilon\). Inside that cost the headline cannot come out another way. The label for the run is observed in-model. It is a consistency check of that cost, not a test that could have missed. The inequality \(w/\kappa>h(\varepsilon)/\varepsilon\) restates the endpoint comparison for \(R(D)=\ln 2-h(D)\) under Hamming loss. It depends on \(\gamma\) and the hold only through the product \(\gamma T\). At \(\gamma\tau=1\), \(w=2\), the stake elasticity is \(0.901222\). No \(w^{1/2}\) was locked here.
 
 At \(w=0\) and \(q=0\), \(J_Z=0\) because the pinch charges nothing. The formula is doing what it says. The \(10^{-3}\) separation printed at \(\gamma\tau=1\) is \(\chi(e^{-1})=0.069283\). The lock's Q4 sentence does not name \(10^{-3}\), and the identity \(S+P_{D,Z}=\ln 2\) does not depend on that cut.
+
+## Addendum (24 November 2026)
+
+The sentences above stay, including **PROVED (in-model)** on line 23. That label is superseded. Going forward the P1, P2, and crossover arithmetic is observed in-model, a consistency check, and NOT A TEST. The ledger is `DEVIATIONS.md`. The write-up is `RESULTS_ADDENDUM.md`. `PREREG.md` was not edited. No prediction was patched. `THEORY.md` and `CORE.md` are unchanged.
