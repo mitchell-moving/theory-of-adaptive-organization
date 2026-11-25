@@ -10,7 +10,7 @@
 
 That ceiling is the slice. At \(\phi=\pi/2\) the loss is \(r^2/2\) at every angle, because the estimand is the axis that complete dephasing has erased. Then \(dL=0\) and \(dI=-dP_D\), so every binding cap has shadow price exactly \(1\), at every stake. The ledger cap's subdifferential is \([0,1]\). Ratio \(1\) is a shadow price of that named cap, and ratio \(0\) is the other endpoint. **ELEMENTARY.**
 
-The hope that some natural \(D\) would give \(\lambda^\star=1\) is a **Puzzle** on the locked slice. The break there is that the named sources are not budgets that bind at that price. It is not a puzzle on the erased axis: the same ledger, with the stake independent of \(\theta\), prices \(1\). A \(D\) chosen so the \(\phi=0\) formula equals \(1\) would still be a hand pick, and this note does not make one.
+The hope that some natural \(D\) would give \(\lambda^\star=1\) is an **open miss** on the locked slice. The break there is that the named sources are not budgets that bind at that price. It is not a miss on the erased axis: the same ledger, with the stake independent of \(\theta\), prices \(1\). A \(D\) chosen so the \(\phi=0\) formula equals \(1\) would still be a hand pick, and this note does not make one.
 
 A gravitational floor is a further candidate, scored in its own lock below. It does not supply \(\varepsilon(m)\), and the coefficient it does produce is negative. It is not a reason \(\kappa_D\) cannot be \(0\).
 
