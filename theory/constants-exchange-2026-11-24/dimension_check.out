@@ -1,0 +1,32 @@
+basis M L T Theta
+k_B = L**2*M/(T**2*Theta)
+hbar = L**2*M/T
+c = L/T
+G = L**3/(M*T**2)
+energy = L**2*M/T**2
+power = L**2*M/T**3
+note clock-and-tracking-rate: phase taken dimensionless, so a phase rate and a phase diffusion are both 1/time and their ratio omega^2/D is 1/time; a world variance rate over an error in the same units is 1/time. Neither rate is a new constant.
+note ml-if-named: hbar/(E-E0) is monomial B when that energy is supplied. The cost does not name E-E0, so the tracking use is F3.
+identity erasure: (k_B*T*nats) / target = 1 OK
+score erasure | Landauer | k_B | k_B*T*nats | energy | pass A
+identity ongoing-heat: (k_B*T*(nats/time)) / target = 1 OK
+score ongoing-heat | Horowitz-Esposito | k_B | k_B*T*(nats/time) | power | pass A
+identity tracking: (k_B*T*rate) / target = 1 OK
+score tracking | CT7-OU-telegraph | k_B | k_B*T*rate | power | pass A
+identity clock: (k_B*T*(omega^2/D)) / target = 1 OK
+score clock | Barato-Seifert | k_B | k_B*T*(omega^2/D) | power | pass A
+identity ml-tracking: (hbar/(E-E0)) / target = 1 OK
+score ml-tracking | Margolus-Levitin | hbar | hbar/(E-E0) | time | fail F3
+identity ml-landauer: (hbar/(k_B*T)) / target = 1 OK
+score ml-landauer | Margolus-Levitin+Landauer | k_B+hbar | hbar/(k_B*T) | time | fail F1
+identity mt: (hbar/DeltaE) / target = 1 OK
+score mt | Mandelstam-Tamm | hbar | hbar/DeltaE | time | fail F3
+identity bekenstein-1981: (E*R/(hbar*c)) / target = 1 OK
+score bekenstein-1981 | Bekenstein-1981 | hbar+c | E*R/(hbar*c) | dimensionless | fail F1+F3
+identity stock-printed: (G*mass^2/(hbar*c)) / target = 1 OK
+score stock-printed | SCALE_ENDS-entropy | hbar+c+G | G*mass^2/(hbar*c) | dimensionless | fail F1+F3
+reading lloyd-2000: abstract names c, hbar and G together; no formula dimension-checked; score fail F1+F3
+DIMENSIONS OK
+scientific pass 4
+scientific fail 6
+count includes the lloyd reading; that line is not an identity

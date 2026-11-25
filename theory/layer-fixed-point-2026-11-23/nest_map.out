@@ -1,0 +1,54 @@
+CT34 nesting operator, slack and marginal-cap Rayleigh quotients
+cell MODE_DEPENDENT
+S1 true max_abs 1.7763568394e-15 t0 1.41421356237
+S2 true lemma_b true F0 4.24264068712 target 4.24264068712
+  family A 1 B 1 max_abs 1.7763568394e-15
+  family A 0.3 B 2 max_abs 8.881784197e-16
+  family A 4 B 0.5 max_abs 1.7763568394e-15
+  family A 1 B 3 max_abs 2.6645352591e-15
+  family A 2 B 2 max_abs 1.7763568394e-15
+convex_ok true worst_fsecond 0.00939099249261
+amplitude_gauge_rho 1.44445471207e-12
+slack b=2 window Z=2 N=64 s=1e-4
+  phi1 1.45735693345
+  phi2 2.74769744966
+  phi3 -0.604415921464
+  mean 1.20021282055 spread 3.35211337112
+slack b=2 window Z=3 N=96 s=1e-4
+  phi1 1.4942078352
+  phi2 2.74921627742
+  phi3 -0.630073465393
+  mean 1.20445021574 spread 3.37928974281
+slack b=2 window Z=2 N=64 s=1e-5
+  phi1 1.45755367369
+  phi2 2.74837748607
+  phi3 -0.604438662292
+  mean 1.20049749916 spread 3.35281614836
+slack b=3 window Z=2 N=64 s=1e-4
+  phi1 2.26681080169
+  phi2 6.76937700018
+  phi3 -0.398452155647
+  mean 2.87924521541 spread 7.16782915583
+binding b=2 q=0.5 yhat 5.3033008589 t_c 1.41421356237 F_c 4.24264068712
+binding b=2 q=0.5 window Z=2 N=64
+  phi1 1.45735885108
+  phi2 2.74770829478
+  phi3 -0.604415577787
+  mean 1.20021718936 spread 3.35212387257
+binding b=2 q=2.0 yhat 8.48528137424 t_c 1.41421356237 F_c 4.24264068712
+binding b=2 q=2.0 window Z=2 N=64
+  phi1 1.45735885108
+  phi2 2.74770829478
+  phi3 -0.604415577783
+  mean 1.20021718936 spread 3.35212387256
+binding b=3 q=0.5 window Z=2 N=64
+  phi1 2.26682626692
+  phi2 6.76951549045
+  phi3 -0.398451487652
+  mean 2.87929675657 spread 7.1679669781
+binding b=3 q=2.0 window Z=2 N=64
+  phi1 2.26682626692
+  phi2 6.76951549045
+  phi3 -0.398451487652
+  mean 2.87929675657 spread 7.1679669781
+ALL LAYER-FP CHECKS DONE

@@ -8,7 +8,7 @@ Sunday 15 November 2026, written about 08:10–08:20 AM ET (America/New_York) by
 3. The systems where all quantities can be measured validly, ranked by feasibility with public data (§5).
 4. A fair refutation specification for each main prediction (§6), and the three decisive tests to run next (§7).
 
-**Wording rule (Chad's, kept throughout).** GTAO is a general causal theory of adaptive organization, with the same three costs (memory/upkeep, prediction error, and reads) at every level. Only its hypothesis sentence (THEORY §3, "The law of adaptive organization (hypothesis)") carries the word; nothing else is called a law, and it is never called a theory of everything. *Scope (updated 18 Nov 2026, Chad t1927):* the costs apply from atoms to the cosmos; design predictions apply where selection makes a model pay (THEORY §2.3, `theory/SCALE_ENDS.md`; §1.2 item 4 below).
+**Wording rule (Chad's, kept throughout).** GTAO is a general causal theory of adaptive organization, with the same three costs (memory/upkeep, prediction error, and reads) at every level. Only its hypothesis sentence (THEORY §3, "The law of adaptive organization (hypothesis)") carries the word; nothing else is called a law, and it is never called a theory of everything. *Scope (updated 18 Nov 2026, Chad t1927):* the costs apply from atoms to the cosmos; design predictions apply where selection makes a model pay (THEORY §2.3, `theory/SCALE_ENDS.md`; §1.2 item 4 below). *Process vocabulary (24 Nov 2026, `process/PROCESS.md`, `process/MISS_LOG_TEMPLATE.md`):* prediction errors are logged as misses (prediction ID, outcome, signed size, location, update scaled to stake × information) rather than `'puzzle'` or `'kill'`; irreversible rule violations (editing locked preregs, post-hoc patching) are breaches; say cost (not `'bill'`), and never claim open problems are `'solved'`.
 
 **Citation markers.** Markers carried over from the night-1 reviews keep their meanings: [FULL], [ABS], [OCR], [SEC], [BIB], [DOI], [UNVERIFIED]. New in this file:
 - **[DATA-VERIFIED 15 Nov]**: I confirmed this session that the named public dataset exists at the named location (landing page or search summary). I did **not** download or inspect it unless stated.
@@ -579,7 +579,7 @@ Scored 0–3 on: (A) all inputs measurable (MV3); (B) a sampling choice is obser
 
 ## 6. Fair refutation specifications, one per main prediction (fixed now, before data)
 
-Every spec inherits MV1–MV10 and the admissibility rule (§2.2). A refutation means a Tier-1 failure (a puzzle to diagnose for the class). Tier 2 → DISFAVORED. Tier 3 → logged only.
+Every spec inherits MV1–MV10 and the admissibility rule (§2.2). A refutation means a Tier-1 failure (a qualifying miss to diagnose, locate, and update from for the class; `process/PROCESS.md`). Tier 2 → DISFAVORED. Tier 3 → logged only.
 
 ### 6.1 O1: the level's sensing class sets the onset exponent, e_g = −(1−b_L)/(1−a_L)
 - **System.** A designed AI multi-agent system (preferred), or any system scoring ≥ 2 on A–E in §5.

@@ -1,0 +1,26 @@
+Crossref API https://api.crossref.org/works/<doi>
+Fetched 24 November 2026 (UTC). HTTP 200 on each row.
+Fields: doi, year, title, authors, container, pages.
+
+10.1147/rd.53.0183	1961	Irreversibility and Heat Generation in the Computing Process	R. Landauer	IBM Journal of Research and Development	abstract: none
+10.1103/PhysRevLett.102.250602	2009	Minimal Energy Cost for Thermodynamic Information Processing: Measurement and Information Erasure	Takahiro Sagawa; Masahito Ueda	Physical Review Letters	abstract: none
+10.1103/PhysRevLett.106.189901	2011	Erratum: Minimal Energy Cost for Thermodynamic Information Processing: Measurement and Information Erasure [Phys. Rev. Lett. 102, 250602 (2009)]	Takahiro Sagawa; Masahito Ueda	Physical Review Letters	abstract: none
+10.1103/PhysRevX.4.031015	2014	Thermodynamics with Continuous Information Flow	Jordan M. Horowitz; Massimiliano Esposito	Physical Review X	abstract: none
+10.1016/S0167-2789(98)00054-2	1998	The maximum speed of dynamical evolution	Norman Margolus; Lev B. Levitin	Physica D: Nonlinear Phenomena	abstract: none
+10.1007/978-3-642-74626-0_8	1991	The Uncertainty Relation Between Energy and Time in Non-relativistic Quantum Mechanics	L. Mandelstam; Ig. Tamm	Selected Papers	115-123	abstract: none
+10.1088/1751-8121/aa86c6	2017	Quantum speed limits: from Heisenberg's uncertainty principle to optimal quantum control	Sebastian Deffner; Steve Campbell	Journal of Physics A: Mathematical and Theoretical	abstract: present (Mandelstam-Tamm and Margolus-Levitin named as quantum-speed-limit milestones)
+10.1088/0305-4470/16/13/021	1983	Quantum decay and the Mandelstam-Tamm-energy inequality	K Bhattacharyya	Journal of Physics A: Mathematical and General	2993-2996	abstract: none
+10.1103/PhysRevD.23.287	1981	Universal upper bound on the entropy-to-energy ratio for bounded systems	Jacob D. Bekenstein	Physical Review D	abstract: none
+10.1103/PhysRevD.7.2333	1973	Black Holes and Entropy	Jacob D. Bekenstein	Physical Review D	abstract: none
+10.1103/RevModPhys.74.825	2002	The holographic principle	Raphael Bousso	Reviews of Modern Physics	abstract: none
+10.1088/0264-9381/25/20/205021	2008	Relative entropy and the Bekenstein bound	H Casini	Classical and Quantum Gravity	abstract: none
+10.1038/35023282	2000	Ultimate physical limits to computation	Seth Lloyd	Nature	abstract: none
+10.1103/PhysRevLett.114.158101	2015	Thermodynamic Uncertainty Relation for Biomolecular Processes	Andre C. Barato; Udo Seifert	Physical Review Letters	abstract: none
+10.1103/PhysRevLett.125.100602	2020	Finite-Time Landauer Principle	Karel Proesmans; Jannik Ehrich; John Bechhoefer	Physical Review Letters	abstract: none
+
+arXiv export.arxiv.org abstracts, same day:
+quant-ph/9710043	The maximum speed of dynamical evolution	bound depends only on E-E0; one joule at most about 3e33 operations per second
+quant-ph/9908043	Ultimate physical limits to computation	limits set by c, hbar, and G
+1705.08023	Quantum speed limits	Mandelstam-Tamm and Margolus-Levitin bounds named
+
+No 1945 Crossref works record was returned for the Mandelstam-Tamm journal paper. The 1991 reprint above is the record that resolved.

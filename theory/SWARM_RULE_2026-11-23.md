@@ -88,7 +88,7 @@ with \(D_i^{\text{enf}}\) or \(D_i^{\text{ch}}\) for the kind of tamper on offer
 **What is not derived, and why.**
 - **A part that changes the whole's own objective** (moves \(W\) or the loss itself, as with influenceable rewards; Carroll et al. 2024, arXiv 2405.17713). The rule measures alignment against a fixed whole cost. When the part can rewrite that cost, the benchmark moves with the action, and this cost has no term yet that prices the whole's preferences. OPEN.
 - **A part with private information.** If the part knows something the whole does not, the whole's enforced schedule is not optimal on all the information, and even an aligned part wants to deviate. Honest telling is then the aligned move. With aligned preferences, full revelation is the KNOWN result (Crawford & Sobel 1982, doi [10.2307/1913390](https://doi.org/10.2307/1913390)). The telling price inside this rule (CT16 for a part that tells the whole) is not derived here. OPEN.
-- **The heat floor with feedback.** The physical floor assumes a memory that does not move its signal (`theory/THEOREMS.md:171`). A tampering part does. The decision-level result above does not need the floor, but the floor for such parts is not worked out (information thermodynamics with feedback, Sagawa & Ueda). OPEN.
+- **The heat floor with feedback.** The floor in `theory/THEOREMS.md:171` assumes a memory that does not move its signal. A tampering part does. T61 (`theory/FEEDBACK_FLOOR_2026-11-23.md`) treats a memory that steers its world in named classes: the heat bound holds on the net learning rate, and no design-independent floor on memory heat alone exists. The decision-level result above does not need the floor. Applying T61 to a part that moves the whole's signal is not worked out. OPEN. T61 is not co-adaptation F3/F4.
 - **Values of \(t\), \(q\), \(P\) and \(e\).** These are MEASUREMENTS.
 
 ## 5. Where each clause comes from (file:line in this commit)
@@ -108,7 +108,7 @@ with \(D_i^{\text{enf}}\) or \(D_i^{\text{ch}}\) for the kind of tamper on offer
 | Several memberships | a member joins every shared layer whose test it passes | `theory/FLUID_LAYERS_2026-11-21.md:5` |
 | Freeze, hold or look up | CT11 | `THEORY.md:321` |
 | Tampering | CT29 alignment identity; CT13 robustness; CL18 common mode; the closed loop | `THEORY.md:486`, `THEORY.md:344`, `theory/ROBUSTNESS.md:83`, `theory/ACTING_LOOP_2026-11-22.md` |
-| Heat floor with feedback (open) | no-feedback condition | `theory/THEOREMS.md:171` |
+| Heat floor with feedback (T61 in named classes; applying it to a part that moves the whole's signal is open) | T61 | `theory/FEEDBACK_FLOOR_2026-11-23.md`; `theory/THEOREMS.md:171` |
 
 ## 6. Checks
 
@@ -147,7 +147,7 @@ with \(D_i^{\text{enf}}\) or \(D_i^{\text{ch}}\) for the kind of tamper on offer
 
 ## 9. Not covered
 
-- **A part that rewrites the whole's objective, a part with private information, and the heat floor with feedback.** Each is stated in §4 with the reason it is not derived. Tampering with the signal or with enforcement is covered there.
+- **A part that rewrites the whole's objective, a part with private information, and applying the T61 heat floor to a part that moves the whole's signal.** Each is stated in §4 with the reason it is not derived. Tampering with the signal or with enforcement is covered there. T61 itself is proved in its named classes and is not F3/F4.
 - **Couplings that are not potential games.** CT32 shows that opposed couplings cycle; clause 4 holds only in the potential-game class.
 - **Memory and hysteresis in the part.** The class is memoryless, so persistence after a lever is removed is not modeled.
 - **Revealing stakes.** Clause 4 needs \(w_i\) and \(W\) known.
@@ -156,4 +156,4 @@ with \(D_i^{\text{enf}}\) or \(D_i^{\text{ch}}\) for the kind of tamper on offer
 
 ## 10. What remains measured, and the tests
 
-The theory does not supply \(\lambda\), \(c\), \(s\), \(w\), \(\Phi\), \(W\), \(N\), \(k\), \(\sigma^2\), the lever costs or the ruin hazard. The preregistrable tests are on the case pages: the reversion contour (`applications/CANCER_DEFECTION_2026-11-23.md` §6) and the agent oversight test (`applications/AI_AGENT_OVERSIGHT_2026-11-23.md` §6, T52). Group lifetime against re-forming cost is the dated prediction in `theory/FLUID_LAYERS_2026-11-21.md:15`. A miss is a puzzle for its class.
+The theory does not supply \(\lambda\), \(c\), \(s\), \(w\), \(\Phi\), \(W\), \(N\), \(k\), \(\sigma^2\), the lever costs or the ruin hazard. The preregistrable tests are on the case pages: the reversion contour (`applications/CANCER_DEFECTION_2026-11-23.md` §6) and the agent oversight test (`applications/AI_AGENT_OVERSIGHT_2026-11-23.md` §6, T52). Group lifetime against re-forming cost is the dated prediction in `theory/FLUID_LAYERS_2026-11-21.md:15`. A miss stays open for its class.

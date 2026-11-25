@@ -1,5 +1,7 @@
 # Record-price ratio: four consistency readings, none forces 1
 
+**G2: CONSISTENCY_CHECK.** Each route's value is hand-computable from the locked cost, or it is a known theorem. The note is not a test.
+
 *24 November 2026 (UTC). Desk note. No script. Self-check, not an independent review. `THEORY.md` is unchanged. Open-work row T75. Status words are those at `CORE.md:169`. Nothing here derives general relativity, quantum mechanics, or holography. The qubit, the dephasing channel, and the two record functionals are inputs from draft #252.*
 
 *T74 (`theory/QUANTUM_RECORD_PRICE_2026-11-24.md` on `forge-quantum-record-price` at `1fb7b5b`) asked whether A1–A8 or the ruin cap fixes \(\kappa_D/\kappa\). They do not. The missing sentence named there is one shared coefficient on both record terms. On the antipodal ensemble the record cost is flat in \(\theta\) exactly at ratio 1 (`theory/QUANTUM_RECORD_PRICE_2026-11-24.md` Route 5 and ERRATA E1 on that head; `theory/pointer-basis-stakes-2026-11-24/MEMO.md:64-68` at `e584d8b`). This note asks whether a consistency principle, rather than a further axiom, forces that sentence.*
@@ -125,7 +127,7 @@ The gap vanishes for every \(\theta\) if and only if \(\kappa_D=0\). At ratio 1 
 
 **Every basis.** At \(\theta\in(0,\pi/2]\), the state is already diagonal in \(z\), and \(P_D(\theta)>0\). The two-term cost exceeds the R1 price of that same classical channel by \(\kappa_D P_D(\theta)\). Equality for every \(\theta\) holds if and only if \(\kappa_D=0\).
 
-**What A1 actually says.** A1 is a continuous preorder on the product of resource coordinates (`theory/REPRESENTATION.md:43`). It is not a requirement that the cost be continuous in a decoherence parameter, and it is not a requirement that a quantum extension agree with R1 off the pointer. Debreu's continuity is closed contour sets in that product topology (`theory/REPRESENTATION.md:102`). The decoherence limit is not one of those coordinates.
+**What A1 actually says.** A1 is a continuous preorder on the product of resource coordinates (`theory/REPRESENTATION.md:43`). It is not a requirement that the cost be continuous in a decoherence parameter, and it is not a requirement that a quantum extension agree with R1 off the pointer. Debreu's continuity is closed contour sets in that product topology (`theory/REPRESENTATION.md:108`). The decoherence limit is not one of those coordinates.
 
 **Status. PROVED (in-model).** Matching R1 at the pointer leaves every ratio. Matching R1 for every basis of the fully decohered state forces the endpoint \(\kappa_D=0\). Neither is ratio 1. At ratio 1 the excess over R1, off the pointer, is \(\kappa P_D(\theta)\).
 
@@ -166,7 +168,7 @@ No value of \(\kappa_D/\kappa\) is computed from this paper. The route stops.
 
 **Why A5 does not fire.** A measurement followed by a classical garbling is one record, then a degradation of that record. The mutual informations do not add. The costs of two independent copies would add. These are not independent copies. Concatenation over time prices a duration at a fixed rate. It does not identify the coefficient of a stock with the coefficient of a disturbance.
 
-**Status. Puzzle.** The identity is **PROVED (in-model)** in the scope above. The price reading is the missing sentence, not a consequence of it. A1–A8 do not contain the sentence (`theory/REPRESENTATION.md:177`, `:120`, `:114`).
+**Status. Open miss.** The identity is **PROVED (in-model)** in the scope above. The price reading is the missing sentence, not a consequence of it. A1–A8 do not contain the sentence (`theory/REPRESENTATION.md:177`, `:120`, `:114`).
 
 **Model implication.** Conditional on the shared-coefficient sentence: the record cost equals \(\kappa(H(M)-\mathbb{E}[S(\rho)])\). On the antipodal complete-dephasing ensemble that expression is independent of \(\theta\), and the stake alone sets \(\theta\) (`MEMO.md:68`). Off that ensemble \(H(M)\) can depend on \(\theta\), so ratio 1 need not flatten the record cost. What it does to the minimizing \(\theta\) there is **OPEN**, and it is the unscored lock in `PREREG_2.md` on draft #252. This note does not score it.
 
@@ -176,7 +178,7 @@ Routes A, B, and D are algebra on the closed form already locked and checked on 
 
 If the closed form on draft #252 were withdrawn, the gap in Route A and the pointer match in Route B would be withdrawn with it. The thing to do then is to re-derive the channel identity from whatever closed form replaces it, not to keep the ratio claim. The ledger identity in Route D does not use the antipodal closed form. It uses only that a rank-1 projective measurement leaves a diagonal state whose entropy is the outcome entropy. That step would survive a change of ensemble.
 
-## Puzzle
+## Open miss
 
 Route A has no cycle. The one-way replacement lowers the cost of a channel by \(\kappa_D P_D\), including at ratio 1, and it is available only if classical post-processing is on the menu and the kept record is the final outcome. Route B's continuity either misses \(\kappa_D\), at the pointer, or sets \(\kappa_D=0\), off the pointer. Route C is a known entropy bound on a different functional, and the paper shows the bound does not pass to mutual information. Route D writes the missing sentence as "do not price the split" and does not derive it. A1–A8, the ruin cap, and these four readings do not force \(\kappa_D/\kappa=1\). The shared-coefficient sentence is still missing. The endpoint 0 is what two strengthened readings would say instead, and those strengthenings are not in the axioms either.
 
@@ -189,3 +191,17 @@ Checked on 24 November 2026, and used above only where the text was read:
 - A Crossref query `Fundamental energy cost for quantum measurement` with author Reeb, 24 November 2026, returned 41 works. The first page did not contain a paper of that title. That miss is not a claim that no such paper exists.
 
 No claim is made that a consistency principle of some other kind is absent from the literature. The claim is the one in the answer: these four readings do not force the ratio.
+
+## Ledger
+
+**Lock reference:** no preregistration. Desk note. The closed form it uses is draft #252, head `e584d8b`. `THEORY.md` blob `6caadae569116a94a74563398be94cebf6e99e9b`.
+**Logged at (ET):** 2026-11-24 17:50 ET
+**Breach check:** none
+
+| prediction_id | locked_prediction (value/band; odds if feasible) | outcome | miss (signed size and direction, or HIT + info) | location | stake_x_info | update | breach_check |
+|---|---|---|---|---|---|---|---|
+| T75-A | the same-channel gap is \(\kappa_D P_D(\theta)\), and it is zero for every \(\theta\) only at \(\kappa_D=0\) | that identity, on the complete-dephasing antipodal ensemble | HIT; information about 0 (hand computation from the locked closed form) | model | low | none yet | none |
+| T75-B | matching R1 off the pointer forces \(\kappa_D=0\); at the pointer the costs match at every ratio | that split | HIT; information about 0 | model | low | none yet | none |
+| T75-C | Reeb and Wolf 2014 bound heat by a von Neumann entropy decrease and do not pass the bound to mutual information | the cited theorem (Theorem 3, Corollary 4, section 5.2) | HIT; information about 0 (known theorem; it does not set the ratio) | model | low | none yet | none |
+| T75-D | \(I(W;M)+P_D=H(M)-\mathbb{E}[S(\rho)]\) for this rank-1 measurement | that identity; the chain-rule coefficient is not a price | HIT; information about 0 | model | low | none yet; the shared-coefficient sentence stays missing | none |
+| T75-ratio | a consistency reading forces \(\kappa_D/\kappa=1\) | none of the four readings does | HIT on the question as asked; information about 0, because each reading was fixed before a run | model | low | none yet | none |

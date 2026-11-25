@@ -1,0 +1,85 @@
+SEED 20261124 rng_draws 0
+CALIBRATION r=0.6 D_orth=0.415888308336 r2=0.360000000000 excluded_comparison_not_scored
+C0 PASS CLOSED_FORM max_abs_err=5.551e-17
+CELL g=0 phi=0 w=0.00 price=D theta=0.000000 nmin=1 J=0.00000000e+00 J0=0.00000000e+00
+CELL g=0 phi=0 w=0.01 price=D theta=0.000000 nmin=1 J=1.47600000e-03 J0=1.47600000e-03
+CELL g=0 phi=0 w=0.10 price=D theta=0.000000 nmin=1 J=1.47600000e-02 J0=1.47600000e-02
+CELL g=0 phi=0 w=1.00 price=D theta=0.000000 nmin=1 J=1.47600000e-01 J0=1.47600000e-01
+CELL g=0 phi=0 w=10.00 price=D theta=0.000000 nmin=1 J=1.47600000e+00 J0=1.47600000e+00
+CELL g=0 phi=0 w=100.00 price=D theta=0.000000 nmin=1 J=1.47600000e+01 J0=1.47600000e+01
+CELL g=0 phi=0 w=0.00 price=chi theta=1.570796 nmin=1 J=0.00000000e+00 J0=9.63723785e-02
+CELL g=0 phi=0 w=0.01 price=chi theta=1.570796 nmin=1 J=1.80000000e-03 J0=9.78483785e-02
+CELL g=0 phi=0 w=0.10 price=chi theta=1.570796 nmin=1 J=1.80000000e-02 J0=1.11132379e-01
+CELL g=0 phi=0 w=1.00 price=chi theta=1.570796 nmin=1 J=1.80000000e-01 J0=2.43972379e-01
+CELL g=0 phi=0 w=10.00 price=chi theta=0.000000 nmin=1 J=1.57237238e+00 J0=1.57237238e+00
+CELL g=0 phi=0 w=100.00 price=chi theta=0.000000 nmin=1 J=1.48563724e+01 J0=1.48563724e+01
+CELL g=0 phi=pi/4 w=0.00 price=D theta=0.000000 nmin=1 J=0.00000000e+00 J0=0.00000000e+00
+CELL g=0 phi=pi/4 w=0.01 price=D theta=0.000000 nmin=1 J=1.63800000e-03 J0=1.63800000e-03
+CELL g=0 phi=pi/4 w=0.10 price=D theta=0.000000 nmin=1 J=1.63800000e-02 J0=1.63800000e-02
+CELL g=0 phi=pi/4 w=1.00 price=D theta=0.000000 nmin=1 J=1.63800000e-01 J0=1.63800000e-01
+CELL g=0 phi=pi/4 w=10.00 price=D theta=0.000000 nmin=1 J=1.63800000e+00 J0=1.63800000e+00
+CELL g=0 phi=pi/4 w=100.00 price=D theta=0.000000 nmin=1 J=1.63800000e+01 J0=1.63800000e+01
+CELL g=0 phi=pi/4 w=0.00 price=chi theta=1.570796 nmin=1 J=0.00000000e+00 J0=9.63723785e-02
+CELL g=0 phi=pi/4 w=0.01 price=chi theta=1.570796 nmin=1 J=1.80000000e-03 J0=9.80103785e-02
+CELL g=0 phi=pi/4 w=0.10 price=chi theta=1.570796 nmin=1 J=1.80000000e-02 J0=1.12752379e-01
+CELL g=0 phi=pi/4 w=1.00 price=chi theta=1.570796 nmin=1 J=1.80000000e-01 J0=2.60172379e-01
+CELL g=0 phi=pi/4 w=10.00 price=chi theta=0.000000 nmin=1 J=1.73437238e+00 J0=1.73437238e+00
+CELL g=0 phi=pi/4 w=100.00 price=chi theta=0.000000 nmin=1 J=1.64763724e+01 J0=1.64763724e+01
+CELL g=0 phi=pi/2 w=0.00 price=D theta=0.000000 nmin=1 J=0.00000000e+00 J0=0.00000000e+00
+CELL g=0 phi=pi/2 w=0.01 price=D theta=0.000000 nmin=1 J=1.80000000e-03 J0=1.80000000e-03
+CELL g=0 phi=pi/2 w=0.10 price=D theta=0.000000 nmin=1 J=1.80000000e-02 J0=1.80000000e-02
+CELL g=0 phi=pi/2 w=1.00 price=D theta=0.000000 nmin=1 J=1.80000000e-01 J0=1.80000000e-01
+CELL g=0 phi=pi/2 w=10.00 price=D theta=0.000000 nmin=1 J=1.80000000e+00 J0=1.80000000e+00
+CELL g=0 phi=pi/2 w=100.00 price=D theta=0.000000 nmin=1 J=1.80000000e+01 J0=1.80000000e+01
+CELL g=0 phi=pi/2 w=0.00 price=chi theta=1.570796 nmin=1 J=0.00000000e+00 J0=9.63723785e-02
+CELL g=0 phi=pi/2 w=0.01 price=chi theta=1.570796 nmin=1 J=1.80000000e-03 J0=9.81723785e-02
+CELL g=0 phi=pi/2 w=0.10 price=chi theta=1.570796 nmin=1 J=1.80000000e-02 J0=1.14372379e-01
+CELL g=0 phi=pi/2 w=1.00 price=chi theta=1.570796 nmin=1 J=1.80000000e-01 J0=2.76372379e-01
+CELL g=0 phi=pi/2 w=10.00 price=chi theta=1.570796 nmin=1 J=1.80000000e+00 J0=1.89637238e+00
+CELL g=0 phi=pi/2 w=100.00 price=chi theta=1.570796 nmin=1 J=1.80000000e+01 J0=1.80963724e+01
+CELL g=1/2 phi=0 w=0.00 price=D theta=0.000000 nmin=1 J=2.28502708e-02 J0=2.28502708e-02
+CELL g=1/2 phi=0 w=0.01 price=D theta=0.000000 nmin=1 J=2.43262708e-02 J0=2.43262708e-02
+CELL g=1/2 phi=0 w=0.10 price=D theta=0.000000 nmin=1 J=3.76102708e-02 J0=3.76102708e-02
+CELL g=1/2 phi=0 w=1.00 price=D theta=0.000000 nmin=1 J=1.70450271e-01 J0=1.70450271e-01
+CELL g=1/2 phi=0 w=10.00 price=D theta=0.000000 nmin=1 J=1.49885027e+00 J0=1.49885027e+00
+CELL g=1/2 phi=0 w=100.00 price=D theta=0.000000 nmin=1 J=1.47828503e+01 J0=1.47828503e+01
+CELL g=1/2 phi=0 w=0.00 price=chi theta=1.570796 nmin=1 J=2.28502708e-02 J0=9.63723785e-02
+CELL g=1/2 phi=0 w=0.01 price=chi theta=1.570796 nmin=1 J=2.46502708e-02 J0=9.78483785e-02
+CELL g=1/2 phi=0 w=0.10 price=chi theta=1.570796 nmin=1 J=4.08502708e-02 J0=1.11132379e-01
+CELL g=1/2 phi=0 w=1.00 price=chi theta=1.570796 nmin=1 J=2.02850271e-01 J0=2.43972379e-01
+CELL g=1/2 phi=0 w=10.00 price=chi theta=0.000000 nmin=1 J=1.57237238e+00 J0=1.57237238e+00
+CELL g=1/2 phi=0 w=100.00 price=chi theta=0.000000 nmin=1 J=1.48563724e+01 J0=1.48563724e+01
+CELL g=1/2 phi=pi/4 w=0.00 price=D theta=0.000000 nmin=1 J=2.28502708e-02 J0=2.28502708e-02
+CELL g=1/2 phi=pi/4 w=0.01 price=D theta=0.000000 nmin=1 J=2.44882708e-02 J0=2.44882708e-02
+CELL g=1/2 phi=pi/4 w=0.10 price=D theta=0.008727 nmin=1 J=3.92224311e-02 J0=3.92302708e-02
+CELL g=1/2 phi=pi/4 w=1.00 price=D theta=0.085085 nmin=1 J=1.85954181e-01 J0=1.86650271e-01
+CELL g=1/2 phi=pi/4 w=10.00 price=D theta=0.340339 nmin=1 J=1.63237661e+00 J0=1.66085027e+00
+CELL g=1/2 phi=pi/4 w=100.00 price=D theta=0.449422 nmin=1 J=1.60133115e+01 J0=1.64028503e+01
+CELL g=1/2 phi=pi/4 w=0.00 price=chi theta=1.570796 nmin=1 J=2.28502708e-02 J0=9.63723785e-02
+CELL g=1/2 phi=pi/4 w=0.01 price=chi theta=1.568615 nmin=1 J=2.46097346e-02 J0=9.80103785e-02
+CELL g=1/2 phi=pi/4 w=0.10 price=chi theta=1.557706 nmin=1 J=4.04353024e-02 J0=1.12752379e-01
+CELL g=1/2 phi=pi/4 w=1.00 price=chi theta=1.426807 nmin=1 J=1.97627166e-01 J0=2.60172379e-01
+CELL g=1/2 phi=pi/4 w=10.00 price=chi theta=0.645772 nmin=1 J=1.67216804e+00 J0=1.73437238e+00
+CELL g=1/2 phi=pi/4 w=100.00 price=chi theta=0.479966 nmin=1 J=1.60549544e+01 J0=1.64763724e+01
+CELL g=1/2 phi=pi/2 w=0.00 price=D theta=0.000000 nmin=1 J=2.28502708e-02 J0=2.28502708e-02
+CELL g=1/2 phi=pi/2 w=0.01 price=D theta=0.000000 nmin=1 J=2.46502708e-02 J0=2.46502708e-02
+CELL g=1/2 phi=pi/2 w=0.10 price=D theta=0.000000 nmin=1 J=4.08502708e-02 J0=4.08502708e-02
+CELL g=1/2 phi=pi/2 w=1.00 price=D theta=0.000000 nmin=1 J=2.02850271e-01 J0=2.02850271e-01
+CELL g=1/2 phi=pi/2 w=10.00 price=D theta=1.570796 nmin=1 J=1.81537238e+00 J0=1.82285027e+00
+CELL g=1/2 phi=pi/2 w=100.00 price=D theta=1.570796 nmin=1 J=1.72863724e+01 J0=1.80228503e+01
+CELL g=1/2 phi=pi/2 w=0.00 price=chi theta=1.570796 nmin=1 J=2.28502708e-02 J0=9.63723785e-02
+CELL g=1/2 phi=pi/2 w=0.01 price=chi theta=1.570796 nmin=1 J=2.45692708e-02 J0=9.81723785e-02
+CELL g=1/2 phi=pi/2 w=0.10 price=chi theta=1.570796 nmin=1 J=4.00402708e-02 J0=1.14372379e-01
+CELL g=1/2 phi=pi/2 w=1.00 price=chi theta=1.570796 nmin=1 J=1.94750271e-01 J0=2.76372379e-01
+CELL g=1/2 phi=pi/2 w=10.00 price=chi theta=1.570796 nmin=1 J=1.74185027e+00 J0=1.89637238e+00
+CELL g=1/2 phi=pi/2 w=100.00 price=chi theta=1.570796 nmin=1 J=1.72128503e+01 J0=1.80963724e+01
+C1 PASS P1 RELABEL_COMPLETE p1=true
+C2 PASS P2 TILT_PARTIAL sep=0.449422 gap=3.89538721e-01 theta0=0.000000 theta100=0.449422
+C3 PASS P3 COMMUTE_STABLE p3=true
+C4 PASS P4 ARTIFACT qD=true qChi=false
+C5 PASS P5 COMPLEMENT theta0=0.000000 theta100=1.570796
+C6 PASS P6 HOLEVO_TILT sep=1.090831 theta0=1.570796 theta100=0.479966
+C7 PASS HEADLINE_RULE PRICING_ARTIFACT
+HEADLINE PRICING_ARTIFACT
+FAILS 0
+ALL T73 CHECKS PASS

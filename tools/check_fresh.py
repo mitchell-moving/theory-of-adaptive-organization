@@ -2,10 +2,12 @@
 """Fail if STATUS.md's stated main SHA has drifted too far from main.
 
 The stated SHA is the current-pointer form (`main` is `abc1234`). It must
-be one of the last 5 first-parent commits of main (origin/main if that
-ref exists, else local main, else HEAD). The width is wide enough for a
-few merges before the pointer is rewritten, and tight enough that a65b64e
-fails once the six later first-parent merges through #114 are on main.
+be one of the last 3 first-parent commits of main (origin/main if that
+ref exists, else local main, else HEAD). The width allows the STATUS
+refresh's own merge plus one other merge. It was 5 until 24 November 2026,
+which let four merges (#261, #262, #264, #265) pass with no refresh
+(process/FAILURES.md). Run tools/check_pending.py for the Lean count and
+the open reviewed PRs.
 
 Run from the repo root:  python3 tools/check_fresh.py
 Exit 0 = the pointer is in the window (or the tree is not a git repo
@@ -27,7 +29,7 @@ STATUS_MAIN_RE = re.compile(
     re.I,
 )
 
-WINDOW = 5
+WINDOW = 3
 
 
 def repo_root():

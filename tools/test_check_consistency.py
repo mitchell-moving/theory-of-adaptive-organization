@@ -10,6 +10,7 @@ MUTATIONS = [
     ("STATUS.md", "\n\nThe MV gates become binding once Chad signs off.\n", "gates-await-sign-off"),
     ("README.md", "\n\nThe MATCH1 measles test passed.\n", "unlabeled field verdict"),
     ("THEORY.md", "\n\nGTAO is a theory of everything.\n", "theory-of-everything"),
+    ("STATUS.md", "\n\nGTAO is solved.\n", "solved-claim"),
     ("STATUS.md", "\n\nThe theory is silent on black holes.\n", "stale-scope"),
     ("STATUS.md", "\n\nSee CLAIM_MAP N99.\n", "N-ref"),
     # process rules R1-R5 (reviews/lock_2026-11-18/PROCESS.md)
@@ -31,6 +32,8 @@ MUTATIONS = [
 CLEAN = [
     ("STATUS.md", "\n\nIndependent review 2 superseded the earlier pass in `reviews/reach_2026-11-18/REVIEW.md`.\n"),
     ("STATUS.md", "\n\nInventory pooling follows the square-root law of Maister (1976), which is prior art.\n"),
+    ("STATUS.md", "\n\nThe MATCH1 test logged a miss (signed size -0.12, located in proxy MV2).\n"),
+    ("STATUS.md", "\n\nA qualifying design outside the band is a miss for that class.\n"),
 ]
 # (file, old text, new text, key): replacements that must be caught
 REPLACEMENTS = [

@@ -9,6 +9,30 @@ HERE = os.path.join(ROOT, "theory", "record_ratio_reframes_checks")
 LOCKED_THEORY = "6caadae569116a94a74563398be94cebf6e99e9b"
 LOCKED_PREREG = "5b0846fa823e86d63c71133831ec966ac42f3f3a27f1cff9ec613c392adfa60a"
 
+def _theory_blobs_allowed():
+    """The lock-time blob, THEORY.md on a main ref, and THEORY.md from the main
+    that was merged into this branch. This branch must not edit THEORY.md.
+    Fork main can still hold the lock-time blob after upstream main has moved (#284)."""
+    allowed = {LOCKED_THEORY}
+    for ref in ("origin/main", "upstream/main"):
+        r = subprocess.run(["git", "rev-parse", "--verify", "-q", ref + ":THEORY.md"],
+                           capture_output=True, text=True, cwd=ROOT, timeout=30)
+        if r.returncode == 0:
+            allowed.add(r.stdout.strip())
+    latest = subprocess.run(
+        ["git", "rev-list", "--first-parent", "--merges", "-1", "HEAD"],
+        capture_output=True, text=True, cwd=ROOT, timeout=30,
+    )
+    if latest.returncode == 0 and latest.stdout.strip():
+        parent = subprocess.run(
+            ["git", "rev-parse", "--verify", "-q", latest.stdout.strip() + "^2:THEORY.md"],
+            capture_output=True, text=True, cwd=ROOT, timeout=30,
+        )
+        if parent.returncode == 0:
+            allowed.add(parent.stdout.strip())
+    return allowed
+
+
 
 def _sha256(path):
     h = hashlib.sha256()
@@ -29,7 +53,7 @@ def test_theory_blob_unchanged_repeat():
         capture_output=True, text=True, cwd=ROOT, timeout=30,
     )
     assert r.returncode == 0, r.stderr
-    assert r.stdout.strip() == LOCKED_THEORY
+    assert r.stdout.strip() in _theory_blobs_allowed()
 
 
 def test_repeat_asymptote_checks_match_stored_stdout():

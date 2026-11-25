@@ -1,0 +1,25 @@
+Q-comm PASS frobenius=0.176776695297
+Q-slope PASS min_PD=0.025450 max_PD=0.025714
+Q-pointer PASS PD0=0.025450 PDpi2=0.025450
+Q-garble PASS min_gap=0.150000
+Q-state PASS trace_distance=0.300000
+Q-reuse FAIL I_cond=0.017070 PD_total=0.084896 gap1=0.084896 gap2=0.169791
+Q-rank PASS PD=0.000e+00 I=0.000e+00 ledger_gap=0.346573590280 half_ln2=0.346573590280
+Q-coh PASS PD=0.065406 cost_gap=0.065406
+FAILS 1
+
+# Errata, 24 November 2026 (America/New_York). Q-coh re-scored under the projectors named in PREREG_QUANTUM.md.
+# The original lines above are the stored run at 00e8dfa and are not edited.
+# Commit 9284624 had replaced this file with the re-score alone. The original nine lines are restored here, and the re-score is appended.
+# The locked instrument leaves the coherent block fixed, so P_D=0 and the cost gap is 0.
+# The entropy gap 0.065406 was the gap to diag(1/2,1/4,1/4), not the instrument in the lock.
+# Q-coh is a FAIL. This is a puzzle at that instrument: coherence inside the rank-2 block is not a disturbance this instrument prices, and ratio 0 is not selected by a positive slope.
+Q-comm PASS frobenius=0.176776695297
+Q-slope PASS min_PD=0.025450 max_PD=0.025714
+Q-pointer PASS PD0=0.025450 PDpi2=0.025450
+Q-garble PASS min_gap=0.150000
+Q-state PASS trace_distance=0.300000
+Q-reuse FAIL I_cond=0.017070 PD_total=0.084896 gap1=0.084896 gap2=0.169791
+Q-rank PASS PD=0.000e+00 I=0.000e+00 ledger_gap=0.346573590280 half_ln2=0.346573590280
+Q-coh FAIL PD=0.000000 cost_gap=0.000000
+FAILS 2

@@ -350,9 +350,8 @@ def main():
         fa, fb, fmx, _ = fit_chib
         ls_note = f"ls_alpha={fa:.6f} ls_beta={fb:.6f} ls_max={fmx:.6f}"
         ls_ok = fmx > 0.005
-        if net_min is None or fmx < net_min:
-            net_min = fmx
-            net_at = (fa, fb)
+        # The least-squares point is not a net point. Leave net_min and net_at
+        # as the minimum over the 121 by 121 grid.
     k2_ok = ls_ok and net_min is not None and net_min > 0.005
     rep.add(
         "K2-bound-weight",

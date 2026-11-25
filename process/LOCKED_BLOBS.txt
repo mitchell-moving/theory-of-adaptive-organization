@@ -1,0 +1,10 @@
+# Files that were committed as a lock (before the run or the scoring) and so may not be edited to satisfy
+# the banned-word lint (tools/banned_words.py). One per line: path, the git blob id of the locked bytes, a reason.
+# The exemption holds only while the file's current blob equals the listed blob. A changed file is scanned again.
+# Hash-locked files (named in a *.sha256, SHA256SUMS or LOCK*.txt file) need no entry here: they are exempt while their
+# sha256 still matches.
+# Format: <path> <git blob id> <reason; spaces allowed>
+theory/antifragility_checks/ADDENDUM.md 6075af750ac902e238d67eba958157b86c846a3d locked addendum, reverted to main in #271
+theory/antifragility_checks/RESULTS.md 3f87b38e91c36804556a4bb1e943d0d9da3f6992 locked results, reverted to main in #271
+theory/composite-contest-2026-11-24/PREREG_4.md 6f97e49b0f0d4674726c5558e967903636d24905 committed before the rescore (82a803d before 4514d39); in #253 at 49a2ee8
+theory/menu3_checks/RUN_LOG.md 3a5efc2adf5a498d5f1f9f9403157136c6d880c9 committed before the run; in #253 at 49a2ee8
