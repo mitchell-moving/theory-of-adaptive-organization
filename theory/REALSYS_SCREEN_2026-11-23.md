@@ -14,7 +14,7 @@ What the screen did find is one quantity, the argmin already proved as T49 C4 (r
 
 Read on this base: `STATUS.md`, `OPEN_WORK.md` (§3), `CORE.md`, `measurement/FRAMEWORK.md` §9, `theory/TEST_SEARCH_2026-11-22.md`, `theory/DISCRIMINATING_CANDIDATES_2026-11-21.md`, `theory/NON_GAUSSIAN_FLOOR_2026-11-23.md` (T49), `theory/ANTIFRAGILE_LOOP_2026-11-23.md` (T50), the heads of `theory/FEEDBACK_FLOOR_2026-11-23.md` (T61) and `theory/FREEZE_OR_HOLD_FLOOR_2026-11-23.md`, `tests/README.md`, `tests/BIO1/RESULTS.md`, `prereg/vigil-ona/`, `prereg/SENSE-CELL/RESULTS.md`, and `theory/measured/ecoli/PREREG_Y4.md`. The tree was searched for "vigil", "Meeter", "persister" and "Van den Bergh". The independent review also searched human change-point and volatility tasks (Nassar et al. 2010, 2012; Behrens et al. 2007; later OSF deposits), animal foraging and vigilance deposits, bacterial persister-frequency data, and public electric-fish tracking archives; those checks are in §3. No outcome series was downloaded or opened.
 
-Past attempts, read as puzzles, and the lesson each gives this screen:
+Past attempts, read as open misses, and the lesson each gives this screen:
 
 | Attempt | What happened | Lesson used here |
 |---|---|---|
