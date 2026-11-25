@@ -1,0 +1,21 @@
+{
+  "question": "CONJECTURE: CT34 nesting of the ruin-capped tracking cost has a renormalization fixed point whose linearization yields one dimensionless number from that cost alone",
+  "b_primary": 2,
+  "b_side": 3,
+  "s_primary": 0.0001,
+  "s_check": 1e-5,
+  "q_values": [0.5, 2.0],
+  "windows": [
+    {"Z": 2.0, "N": 64},
+    {"Z": 3.0, "N": 96}
+  ],
+  "stable_tol": 0.02,
+  "expanding_min": 1.05,
+  "family_points": [[1.0, 1.0], [0.3, 2.0], [4.0, 0.5], [1.0, 3.0], [2.0, 2.0]],
+  "family_tol": 1e-8,
+  "fixed_point_tol": 1e-12,
+  "golden_log_bracket": 8.0,
+  "golden_tol": 1e-14,
+  "convex_s": 0.0001,
+  "effect_size": "0.02 absolute on a Rayleigh quotient. An expanding direction means |rho| >= 1.05. This resolves an O(1) Feigenbaum-sized number and ignores a 5 percent wiggle around a marginal eigenvalue of 1."
+}

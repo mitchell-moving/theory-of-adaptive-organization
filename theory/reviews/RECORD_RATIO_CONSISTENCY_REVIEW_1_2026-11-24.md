@@ -100,7 +100,7 @@ Pins on this main (`0f37918`, unchanged by the commit except the three added fil
 
 | Pin | What is there | Check |
 |---|---|---|
-| `CORE.md:169` | PROVED, KNOWN, OPEN, and a puzzle as a miss with a diagnosis and a next test | Holds |
+| `CORE.md:169` | PROVED, KNOWN, OPEN, and a puzzle as a miss with a diagnosis and a next test | Holds | <!-- banned-ok: review record; quotes the memo wording at the reviewed head -->
 | `CORE.md:52` | R1 does not choose the coordinate list; the named coordinate is mutual information; A8 makes prices nonnegative | Holds |
 | `theory/REPRESENTATION.md:43` | A1, closed contour sets on the product of resource coordinates | Holds |
 | `theory/REPRESENTATION.md:53-56` | A5, additivity over durations and over independent copies | Holds |
@@ -140,7 +140,7 @@ Scanned the memo, the new T75 row in `OPEN_WORK.md`, and the new row in `theory/
 - No "theory of everything." The memo header, the T75 row, and `theory/README.md:50` say the note derives neither general relativity, nor quantum mechanics, nor holography. `THEORY.md` is not in the diff. The hypothesis sentence at `THEORY.md:41` is untouched.
 - No "law" in the new prose. The maintained-doc checker reports wording FAILs 0.
 - No "solved." No "bill." The word used for the objective is "cost."
-- No "kill" and no "verdict" in the new prose. The literature-search sentence at memo line 189 calls a missing title a miss and says that miss is not a claim that no such paper exists. Route D and the closing section are labeled **Puzzle**. The off-ensemble angle question is labeled **OPEN**, with the next test named as the unscored lock in `PREREG_2.md`.
+- No "kill" and no "verdict" in the new prose. The literature-search sentence at memo line 189 calls a missing title a miss and says that miss is not a claim that no such paper exists. Route D and the closing section are labeled **Puzzle**. The off-ensemble angle question is labeled **OPEN**, with the next test named as the unscored lock in `PREREG_2.md`. <!-- banned-ok: review record; quotes the memo wording at the reviewed head -->
 - Model implications are labeled, at memo lines 116, 134, and 171, each conditional on the demand that would be added.
 - In-model claims are labeled **PROVED (in-model)** or **ELEMENTARY**. The Reeb and Wolf reading is labeled **KNOWN**. The Crossref lookups are dated 24 November 2026. `ELEMENTARY` is not one of the status words at `CORE.md:169`. It is used for three algebraic steps (memo lines 64, 86, and 110), the same way T74 uses it, and the route statuses themselves are words from that list. Left as an observation.
 - No personal information about Chad in the new prose.

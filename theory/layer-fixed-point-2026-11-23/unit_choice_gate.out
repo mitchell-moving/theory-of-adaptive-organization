@@ -1,0 +1,19 @@
+unit and choice gate on the SUPPORT candidate
+candidate_mean 1.20021282055 tol 0.02
+unit_arm PASS stretch_mean 1.20021282055 move 1.93622895495e-13 fresh_move 0
+  phi1 record 1.45735693345 stretch 1.45735693345 abs_diff 5.77315972805e-15
+  phi2 record 2.74769744966 stretch 2.74769744966 abs_diff 0
+  phi3 record -0.604415921464 stretch -0.604415921464 abs_diff 1.93622895495e-13
+choice_b FAIL b3_mean 2.87924521541 move 4.02167955053
+  phi1 b2 1.45735693345 b3 2.26681080169 abs_diff 0.809453868237
+  phi2 b2 2.74769744966 b3 6.76937700018 abs_diff 4.02167955053
+  phi3 b2 -0.604415921464 b3 -0.398452155647 abs_diff 0.205963765817
+choice_mode FAIL spread 3.35211337112
+choice_window PASS other_mean 1.20445021574 move 0.00423739519431
+choice_cap PASS move 4.36881126009e-06
+  q 0.5 mean 1.20021718936 abs_diff 4.36881000643e-06
+  q 2.0 mean 1.20021718936 abs_diff 4.36881126009e-06
+raw_scale t0_base 1.41421356237 t0_stretch 0.353553390593 t0_expected 0.353553390593 F0_base 4.24264068712 F0_stretch 16.9705627485 F0_expected 16.9705627485 raw_changes true
+gate FAIL_CHOICE
+yielded none
+ALL UNIT-CHOICE CHECKS DONE

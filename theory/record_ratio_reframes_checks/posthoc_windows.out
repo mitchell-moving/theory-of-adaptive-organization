@@ -1,0 +1,50 @@
+POSTHOC not a rescore. Locked FAILS are unchanged.
+Suggested next stakes in PREREG.md C1, not used as a score:
+  ANT w=0.20 theta=1.570796 interior=False
+  ANT w=0.30 theta=1.570796 interior=False
+ANT plant (1, 0.5), w from 1.30 to 1.70 step 0.02
+  w=1.30 theta=1.570796 ntie=1 interior=False
+  w=1.32 theta=1.570796 ntie=1 interior=False
+  w=1.34 theta=1.570796 ntie=1 interior=False
+  w=1.36 theta=1.570796 ntie=1 interior=False
+  w=1.38 theta=1.570796 ntie=1 interior=False
+  w=1.40 theta=1.311179 ntie=1 interior=True
+  w=1.42 theta=1.132282 ntie=2 interior=False
+  w=1.44 theta=1.005746 ntie=1 interior=True
+  w=1.46 theta=0.896663 ntie=1 interior=True
+  w=1.48 theta=0.798488 ntie=1 interior=True
+  w=1.50 theta=0.704677 ntie=1 interior=True
+  w=1.52 theta=0.613047 ntie=1 interior=True
+  w=1.54 theta=0.519235 ntie=1 interior=True
+  w=1.56 theta=0.418879 ntie=1 interior=True
+  w=1.58 theta=0.303251 ntie=1 interior=True
+  w=1.60 theta=0.126536 ntie=2 interior=False
+  w=1.62 theta=0.000000 ntie=1 interior=False
+  w=1.64 theta=0.000000 ntie=1 interior=False
+  w=1.66 theta=0.000000 ntie=1 interior=False
+  w=1.68 theta=0.000000 ntie=1 interior=False
+  w=1.70 theta=0.000000 ntie=1 interior=False
+ANT endpoint-interior det=0.000000e+00
+  delta_hat w=1.40 theta=1.3112 delta=-0.499989
+  delta_hat w=1.50 theta=0.7047 delta=-0.500031
+  delta_hat w=1.58 theta=0.3033 delta=-0.499999
+BIAS plant (1, 0.5), w from 0.450 to 0.530 step 0.005
+  w=0.450 theta=1.570796 ntie=1 interior=False
+  w=0.455 theta=1.570796 ntie=1 interior=False
+  w=0.460 theta=1.570796 ntie=1 interior=False
+  w=0.465 theta=1.570796 ntie=1 interior=False
+  w=0.470 theta=1.570796 ntie=1 interior=False
+  w=0.475 theta=1.466077 ntie=5 interior=False
+  w=0.480 theta=1.132282 ntie=1 interior=True
+  w=0.485 theta=0.955568 ntie=2 interior=False
+  w=0.490 theta=0.815941 ntie=1 interior=True
+  w=0.495 theta=0.691587 ntie=1 interior=True
+  w=0.500 theta=0.573777 ntie=1 interior=True
+  w=0.505 theta=0.453786 ntie=1 interior=True
+  w=0.510 theta=0.318523 ntie=1 interior=True
+  w=0.515 theta=0.102538 ntie=3 interior=False
+  w=0.520 theta=0.000000 ntie=1 interior=False
+  w=0.525 theta=0.000000 ntie=1 interior=False
+  w=0.530 theta=0.000000 ntie=1 interior=False
+BIAS ends w=(0.480,0.510) theta=(1.1323,0.3185) det=4.238555e-04 kappa=1.000444 kappa_D=0.500290
+POSTHOC END

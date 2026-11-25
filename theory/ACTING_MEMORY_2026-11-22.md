@@ -18,7 +18,7 @@ The second derivative \(0.313020858054\) and the spread penalty \(0.001577268119
 
 Two routes lower a cost as \(\theta\) rises, and they have different bookkeeping. One is a shrinking price for a loss that depends on \(\theta\) only through the error fraction \(r\). The other is a capped premium on an expectation that grows with \(\sqrt{\theta}\), with no channel. A mean-square loss, and a payment that does not measure the world, keep a nonnegative slope.
 
-The comparison of \(J^*(8)=4.998066177768\) with \(5\) remains a puzzle. The diagnosis is in §4. The preregistration is not edited.
+The comparison of \(J^*(8)=4.998066177768\) with \(5\) remains an open miss. The diagnosis is in §4. The preregistration is not edited.
 
 ## 1. Already in the repository
 
@@ -163,7 +163,7 @@ The script's root is \(\mathrm{erfcinv}(1/20)=1.385903824350\), equal to \(z_\Ph
 
 **Optionality.** The sign bet has a loss in \(\{0,w\}\). The downside is capped, and so is the upside: the saving against a blind guess cannot exceed \(w/2\). The naked option has a capped premium and an expectation that grows like \(\sqrt{\theta}\), with no finite ceiling. That is the open upside. Its expected cost is convex in \(\theta\), because the second derivative of \(-\sqrt{\theta}\) is positive, so on the repository's reading it is fragile to a spread of \(\theta\) while it gains from the level of \(\theta\). Convexity of \(\max(X,0)\) in the shock \(X\) is a third statement. Taleb and Douady, fetched, title a mathematical definition of antifragility. No abstract was in the Crossref record. The concave-cost reading used here is the one already in `theory/ROBUSTNESS.md` §6. The financial name, applied to the sign bet, is **METAPHOR**: the sign bet does not have the open upside the option has.
 
-**Two routes.** The measurement route is the envelope identity. Fixed observation noise, a probe price that is not proportional to \(\theta\), and a loss that at fixed \(r\) depends on \(\theta\) only through \(r\): the price of that fraction falls as \(1/\theta\), and that fall is \(\mathrm d J^*/\mathrm d\theta\). The option route is separate. A capped premium buys \(\mathbb{E}[\max(X,0)]\), which grows with \(\sqrt{\theta}\), and there is no channel and no heat. The comparison of \(J^*(8)\) with \(5\) stays a puzzle. \(C(1/2)=5\) is an upper bound on the floor, \(\inf C=4.966383544211\), and the crossing is near \(\theta=7.5267\). The diagnosis in §4 stands.
+**Two routes.** The measurement route is the envelope identity. Fixed observation noise, a probe price that is not proportional to \(\theta\), and a loss that at fixed \(r\) depends on \(\theta\) only through \(r\): the price of that fraction falls as \(1/\theta\), and that fall is \(\mathrm d J^*/\mathrm d\theta\). The option route is separate. A capped premium buys \(\mathbb{E}[\max(X,0)]\), which grows with \(\sqrt{\theta}\), and there is no channel and no heat. The comparison of \(J^*(8)\) with \(5\) stays an open miss. \(C(1/2)=5\) is an upper bound on the floor, \(\inf C=4.966383544211\), and the crossing is near \(\theta=7.5267\). The diagnosis in §4 stands.
 
 ## 6. What the literatures state, and what this page does not borrow
 
@@ -184,7 +184,7 @@ The next lock, if one is written, would be a new preregistration. It would freez
 
 ## 8. Checks
 
-`theory/acting_memory_checks/acting_checks.py`. 54 checks, FAILS 0. The prediction miss is printed as `PREDICTION-MISS`. The puzzle is §4 and §5. The locked numbers are the numbers the script prints. The along-path split and the crossing are the derivatives of those closed forms.
+`theory/acting_memory_checks/acting_checks.py`. 54 checks, FAILS 0. The prediction miss is printed as `PREDICTION-MISS`. The open miss is §4 and §5. The locked numbers are the numbers the script prints. The along-path split and the crossing are the derivatives of those closed forms.
 
 ## 9. What this note does not do
 

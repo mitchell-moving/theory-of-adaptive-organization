@@ -1,8 +1,8 @@
 # Does the cost of judgment on a fractal world scale with dimension?
 
-*Sunday 22 November 2026. A self-check, not an independent review. The lock is `theory/fractal_checks/PREREG.md`, commit `5da0f73`, and that file was not edited after the script ran. Checks: `theory/fractal_checks/fractal_checks.py`, run at `nice -n 19`. 161 required checks passed, 0 required checks failed, 4 puzzles. The fetched records are `theory/fractal_checks/crossref.out`.*
+*Sunday 22 November 2026. A self-check, not an independent review. The lock is `theory/fractal_checks/PREREG.md`, commit `5da0f73`, and that file was not edited after the script ran. Checks: `theory/fractal_checks/fractal_checks.py`, run at `nice -n 19`. 161 required checks passed, 0 required checks failed, 4 open misses. The fetched records are `theory/fractal_checks/crossref.out`.*
 
-*Status against current main (23 November 2026). Proposed for main as the follow-up to `theory/HOLOGRAPHIC_2026-11-22.md` on Sierpiński graphs. The lock, the script, and the numbers are unchanged. Labels stay as in §5: identities that the locked script checks are **PROVED** (in-model, class F, code-checked); a dimension law for the cost is **FAILS**; four locked bands remain puzzles. This is still a self-check, not an independent review. OPEN_WORK T54 is that review and those puzzles.*
+*Status against current main (23 November 2026). Proposed for main as the follow-up to `theory/HOLOGRAPHIC_2026-11-22.md` on Sierpiński graphs. The lock, the script, and the numbers are unchanged. Labels stay as in §5: identities that the locked script checks are **PROVED** (in-model, class F, code-checked); a dimension law for the cost is **FAILS**; four locked bands remain open misses. This is still a self-check, not an independent review. OPEN_WORK T54 is that review and those open misses.*
 
 The hypothesis sentence is unchanged:
 
@@ -69,9 +69,9 @@ Periodic square: costs \(208\), \(832\), \(3328\) at sides \(4\), \(8\), \(16\),
 
 **FAILS** as a claim that the per-site cost scales with \(d_s\) or \(d_f\). The gasket and the degree-4 lattice have different dimensions and the same limit \(13\).
 
-**Puzzle, the carpet band.** The lock asks for \(|\text{per site}-13.8|<0.01\) at generation \(4\), and the same lock states the excess \(3.2\,(3/8)^n\). At generation \(4\) that excess is \(0.06328125\), and the code returns \(13.86328125\). The band and the closed form cannot hold together. Next test, degree sum only, outside the lock: generation \(5\) has \(52040\) edges against the same formula, cost \(452976\), per site \(13.823730468750\), excess \(0.023730468750\); generation \(6\) has \(418264\) edges, cost \(3619920\), per site \(13.808898925781\), excess \(0.008898925781\), which is under \(0.01\). The identity was already the result. The band arrives two generations later.
+**Open miss, the carpet band.** The lock asks for \(|\text{per site}-13.8|<0.01\) at generation \(4\), and the same lock states the excess \(3.2\,(3/8)^n\). At generation \(4\) that excess is \(0.06328125\), and the code returns \(13.86328125\). The band and the closed form cannot hold together. Next test, degree sum only, outside the lock: generation \(5\) has \(52040\) edges against the same formula, cost \(452976\), per site \(13.823730468750\), excess \(0.023730468750\); generation \(6\) has \(418264\) edges, cost \(3619920\), per site \(13.808898925781\), excess \(0.008898925781\), which is under \(0.01\). The identity was already the result. The band arrives two generations later.
 
-**Puzzle, the carpet Hausdorff gap.** The lock asks the gap from \(13.8\cdot d_f/2\) to exceed \(2\). The code's gap is \(0.803035\) (alternative \(13.060246\)). At the limit the gap is \(0.739754\), because \(d_f/2=0.946395\). No generation can clear a gap of \(2\). The spectral-dimension comparison does clear it: gap \(4.443316\) from \(9.419965\). The cost that the identity returns is \(17\) minus the mean degree. It is not \(13.8\cdot d_f/2\).
+**Open miss, the carpet Hausdorff gap.** The lock asks the gap from \(13.8\cdot d_f/2\) to exceed \(2\). The code's gap is \(0.803035\) (alternative \(13.060246\)). At the limit the gap is \(0.739754\), because \(d_f/2=0.946395\). No generation can clear a gap of \(2\). The spectral-dimension comparison does clear it: gap \(4.443316\) from \(9.419965\). The cost that the identity returns is \(17\) minus the mean degree. It is not \(13.8\cdot d_f/2\).
 
 ## 3. Only the boundary
 
@@ -103,7 +103,7 @@ The per-named-site achieved cost stays near \(15\) to \(16\). The holographic co
 
 The counting function at \(5^{-4},5^{-3},5^{-2},5^{-1}\) is \(3,6,16,48\). Successive exponents: \(0.430677\), \(0.609423\), \(0.682606\). The last step is \(\log 3/\log 5\). The four-point slope is \(0.577754\), standard error \(0.0405\), inside the locked tolerance \(0.15\) of \(0.682606\). The early bins hold \(3\) and \(6\) modes, which pulls the fit down. The lattice control, exact eigenvalues, has slopes \(1.083170\), \(0.921414\), \(0.987078\) at sides \(32\), \(64\), \(128\), all inside \(0.15\) of \(1\).
 
-**Gap ratio. The slope gate passes. Two early ratios are puzzles.** Smallest positive Laplacian eigenvalues, generations \(0\) through \(6\): \(3\), \(1.69722436\), \(0.570310139\), \(0.134538029\), \(0.0282705251\), \(0.00574195847\), \(0.00115409405\). Ratios of generation \(g\) to \(g+1\) for \(g=3,4,5\): \(4.75895047\), \(4.92349870\), \(4.97529509\). The lock asks each to lie within \(0.05\) of \(5\). Generations \(3\) and \(4\) miss, by \(0.241\) and \(0.076\). Generation \(5\) is inside. The slope of \(\log\lambda_1\) on generations \(3\) through \(6\) is \(-1.58696131\), standard error \(0.00722\), inside \(0.05\) of \(-\log 5=-1.60943791\). The lattice gaps at sides \(16,32,64,128\) reproduce the locked slope \(-1.994169933238\), toward \(-2\), and the doubling ratios are \(3.961571\), \(3.990369\), \(3.997591\), toward \(4\).
+**Gap ratio. The slope gate passes. Two early ratios are open misses.** Smallest positive Laplacian eigenvalues, generations \(0\) through \(6\): \(3\), \(1.69722436\), \(0.570310139\), \(0.134538029\), \(0.0282705251\), \(0.00574195847\), \(0.00115409405\). Ratios of generation \(g\) to \(g+1\) for \(g=3,4,5\): \(4.75895047\), \(4.92349870\), \(4.97529509\). The lock asks each to lie within \(0.05\) of \(5\). Generations \(3\) and \(4\) miss, by \(0.241\) and \(0.076\). Generation \(5\) is inside. The slope of \(\log\lambda_1\) on generations \(3\) through \(6\) is \(-1.58696131\), standard error \(0.00722\), inside \(0.05\) of \(-\log 5=-1.60943791\). The lattice gaps at sides \(16,32,64,128\) reproduce the locked slope \(-1.994169933238\), toward \(-2\), and the doubling ratios are \(3.961571\), \(3.990369\), \(3.997591\), toward \(4\).
 
 Next test, outside the lock: generation \(7\) has \(N=3282\) and \(\lambda_1=2.31192288\times 10^{-4}\). The ratio from generation \(6\) is \(4.99192279\), and \(|\text{ratio}-5|=0.008077\). The approach is monotone and the \(0.05\) band holds one generation after the lock's first miss. The cost identity does not use this ratio.
 
@@ -122,7 +122,7 @@ At \(\alpha=10^{-8}\), \(\lambda_1=1.15409405\times 10^{-3}\), window up to \(0.
 | Boundary cost is the named-site bound, achieved within \(1.15\) on every locked graph | **PROVED** (class F, code-checked) as the bound and the load; **METAPHOR** as a dimension law |
 | Spatial mean at half its prior variance costs \(1\) | **PROVED** (class F, code-checked) |
 | Heat of a set of modes equals the partial sum, with no \(d_s\) factor | **PROVED** (class F, code-checked). A \(d_s\) factor **FAILS** (\(794.926\) against \(542.621\)) |
-| Gap ratio within \(0.05\) of \(5\) at generations \(3\) and \(4\) | Puzzle. Generation \(5\) is inside. Generation \(7\), outside the lock, is inside |
+| Gap ratio within \(0.05\) of \(5\) at generations \(3\) and \(4\) | Open miss. Generation \(5\) is inside. Generation \(7\), outside the lock, is inside |
 | Counting-function slope within \(0.15\) of \(\log 3/\log 5\) | Inside the tolerance. The last step equals the target. Not a cost factor |
 | \(K_U=\lfloor\log R/\log 5\rfloor+1\) counts the decimation bins of this equilibrium field | **FAILS** on both arms |
 | \(K_E=\lfloor\log R/\log 25\rfloor+1\) counts those bins at \(\alpha=10^{-8}\) in the locked window | **PROVED** (class F, code-checked) for that window |
@@ -130,6 +130,6 @@ At \(\alpha=10^{-8}\), \(\lambda_1=1.15409405\times 10^{-3}\), window up to \(0.
 
 ## 6. What is still open
 
-The four puzzles are the two early gap ratios, the generation-\(4\) carpet band, and the impossible gap of \(2\) against \(13.8\cdot d_f/2\). The next tests named for the first two have been run and are in §2 and §4. They do not reopen the identities.
+The four open misses (printed by the script as `PUZZLE`) are the two early gap ratios, the generation-\(4\) carpet band, and the impossible gap of \(2\) against \(13.8\cdot d_f/2\). The next tests named for the first two have been run and are in §2 and §4. They do not reopen the identities.
 
 Not done, and not claimed: a continuum diffusion on the gasket, a non-Gaussian field, a decision whose loss is not a mean square, and any identification of the bismuth experiment with this cost. The carpet's spectral dimension was not a target. The equation in THEORY is unchanged.
