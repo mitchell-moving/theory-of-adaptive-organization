@@ -194,3 +194,88 @@ None.
 - `THEORY.md` and `CORE.md` match upstream `main`.
 
 Blockers remaining: 2
+
+## Delta review, `9af966c`..`49a2ee8`
+
+Head `49a2ee86cda9d9f14bb8ad147afc83da72a06d05`. Range reviewed: `9af966c3fbea33f15608ec04931ce0ef3160f9b0`..that commit. Upstream `main` fetched at `19b6d0cc8b9246659b7762137cf91670615a2ac8`, which is also a parent of the tip. `forge-composite-contest` was not edited by this review.
+
+Contest-authored commits in the range: `9ed72987087e65a981e572c9c057bc2421378150` (parent `9af966c`) and `d3833a65e95ba8ced87a037540f437993755070b` (parent `9af966c`). The tip is three real merges: `d36a56e` (`d3833a6` + upstream `835ea7c`), `2aea04b` (`d36a56e` + `9ed7298`), `49a2ee8` (`2aea04b` + upstream `19b6d0c`). `9af966c` and `c539110` remain ancestors. No history rewrite.
+
+### The two blockers
+
+1. **Resolved.** `DEVIATIONS.md:20` is byte-identical to the D12 row at `9af966c`. The operative location is the appended D12a row at line 32, location `process`. The inadmissible `measurement/code` cell stays in place as the earlier row.
+
+2. **Resolved.** `STATUS.md` at the tip is blob `1a57c9775cfaa41040998b1fd6022bcb2d320335`, the same blob as upstream `19b6d0c` and as `835ea7c`. The pointer is `d2aeb81`. That commit is the first of the last 5 first-parent commits of fork `origin/main` `d2aeb81`, and the 4th of upstream `19b6d0c` (`19b6d0c 835ea7c 652d936 d2aeb81 31aa997`). `tools/check_fresh.py` exits 0. It prints the fork window, which contains the pointer. The upstream window contains it as well.
+
+### D12a
+
+`process/PROCESS.md` and `process/MISS_LOG_TEMPLATE.md` at `19b6d0c` are the copies on the tip. Item 6 is the same guardrail as at `652d936`. The template location is `model`, `measurement/code`, or `process`.
+
+The D12a row at line 32 has eight cells, in the template order:
+
+| Field | Cell |
+|---|---|
+| prediction_id | `D12a` |
+| locked_prediction | Both sentences of `PREREG_4.md:38`, odds not stated, plus the item-6 condition for `measurement/code` |
+| outcome | Both arms never ran. Names `run_menu3.py:416` (WIN when P-gmax fails and P-win holds) and the else-arm (WIN when both hold). Stored file: `:65` P-gmax PASS, `:61` P-win FAIL, `:105` TIE. sha256 `a22aa425…` matches `SHA256SUMS` |
+| miss | signed size 0; not triggered |
+| location | `process`. The decision code was not checked against the locked rule before the run |
+| stake_x_info | `low` |
+| update | add a decision-rule-vs-prereg check before future runs |
+| breach_check | none |
+
+`stake_x_info` is `low`, so the template stops at the row. `PREREG_4.md` is outside the diff `9af966c..49a2ee8`. Breach `none` matches that.
+
+**Admissible.** `process` is an allowed location. The row locates the skipped pre-run comparison of the decision rule to `PREREG_4.md:38`. That is an execution-loop fact of the kind item 6 names (the reporting and execution loop). It leaves the stored headline as TIE. It does not move that headline onto `measurement/code`. The guardrail that blocked D12 still stands for a claim that the unfired arm produced the stored label. D12a does not make that claim. Both unfired arms are named, and the scored pair is the TIE arm.
+
+### The `9ed7298` row
+
+Line 26 is the row that commit appended. It has eight cells. The location cell is `not assigned. The WIN arm did not run, so measurement/code is withdrawn.`
+
+**That location is outside the template.** The template's location field is the three-way set. `not assigned` is not one of the three, so the row does not satisfy `MISS_LOG_TEMPLATE.md`.
+
+**Superseded cleanly.** The `9af966c` deviations file is a byte prefix of the tip. The `9ed7298` appendix and the `d3833a6` appendix are both present, in that order. Line 20 is unchanged. D12a is the following location row. `RUN_LOG.md:25` says the unassigned row stays and D12a is the location row. The correction does not edit the earlier row.
+
+### Append-only
+
+`git diff 9af966c 49a2ee8` touches `theory/menu3_checks/DEVIATIONS.md` and `theory/menu3_checks/RUN_LOG.md` among the logs. No preregistration path is in that diff. Both files at `9af966c` are byte prefixes of the files at the tip (deviations +3166 bytes, run log +512 bytes). `RUN_LOG.md:23` is the `d3833a6` paragraph. `RUN_LOG.md:25` is the merge paragraph. No prior line of either file was edited.
+
+### Merges
+
+| Merge | Parents | Compared with `git merge-tree --write-tree` |
+|---|---|---|
+| `d36a56e` | `d3833a6`, `835ea7c` | trees equal |
+| `49a2ee8` | `2aea04b`, `19b6d0c` | trees equal |
+| `2aea04b` | `d36a56e`, `9ed7298` | automatic merge conflicts in `DEVIATIONS.md` |
+
+The `2aea04b` resolution differs from the conflicted automatic tree only in `DEVIATIONS.md` and `RUN_LOG.md`. The deviations resolution removes the conflict markers and keeps both appendices: the unassigned row, then D12a. Against `d36a56e` that file is 7 insertions and 0 deletions. Against `9ed7298` it is 6 insertions and 0 deletions. The run log gains the paragraph at line 25 and loses nothing. `STATUS.md` is the upstream blob on every side of these merges. No conflict markers remain at the tip. Files at the tip that differ from upstream `19b6d0c` are the contest files already present at `9af966c`, plus the two log appendices.
+
+### `THEORY.md` and `CORE.md`
+
+At `49a2ee8` and at `19b6d0c`:
+
+- `THEORY.md` `6caadae569116a94a74563398be94cebf6e99e9b`
+- `CORE.md` `dbf0d2322ce9fe751a5359e85859ca6f9448ec66`
+
+### Checks on the tip
+
+| Command | Result |
+|---|---|
+| `python3 tools/check_consistency.py` | exit 0. `FAIL: 0`. `RESULT: PASS`. Wording FAILs 0 on 34 maintained docs. Frozen records 521, INFO 30. Section N: 68 rows, 0 mismatches. |
+| `python3 tools/check_fresh.py` | exit 0. `RESULT: PASS`. Pointer `d2aeb81`, inside the fork window `d2aeb81 31aa997 8c48a5b 04e9e5b 0e22302`. |
+| `python3 tools/check_open_work.py` | exit 0. `RESULT: PASS`. Union missing from `OPEN_WORK.md`: 0. |
+| `python3 -m pytest -q --continue-on-collection-errors` | **295 passed, 1 skipped, 1 error**, 684.69 s, exit 1. The skip is `tools/test_lean.py:124` (Lean 4 / lake is not installed). The error is collection of `reviews/night2/CAUSAL_NULL_INVARIANCE/run_test.py` (`numba` is not installed). That path exists on upstream `19b6d0c`. `tools/test_check_fresh.py` passes (13 passed in a direct run of that file with the Lean file). |
+
+Added lines in the two logs contain none of `puzzle`, `kill`, `failure`, `verdict`, `bill`, `solved`, or `theory of everything`.
+
+## Attacks tried
+
+1. **Prefix.** The deviations file and the run log at `9af966c` are byte prefixes of the tip. Line 20 matches. Both commit appendices are substrings of the tip, in order.
+
+2. **Merge-tree.** `d36a56e` and `49a2ee8` match the automatic merge trees. `2aea04b` matches except the conflicted deviations file and two added run-log lines. The conflict diff deletes marker lines and keeps both sides' text.
+
+3. **Windows.** `d2aeb81` was tested against fork `origin/main` and against upstream `19b6d0c`. It sits in both windows of width 5. `check_fresh.py` on the tip exits 0.
+
+4. **Ledger cells.** Lines 20, 26, and 32 each split into eight cells. Line 26's location is outside the three-way set. Line 32's location is `process`, and its outcome names both unfired arms.
+
+Blockers remaining: 0
