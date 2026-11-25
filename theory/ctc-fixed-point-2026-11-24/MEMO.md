@@ -4,7 +4,7 @@
 
 > "The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment." (`CORE.md:7`)
 
-Nothing here derives general relativity, quantum mechanics, holography, or gravity. This is a toy model of Deutsch's fixed-point prescription. It is not a claim about physical time travel. A miss is a puzzle.
+Nothing here derives general relativity, quantum mechanics, holography, or gravity. This is a toy model of Deutsch's fixed-point prescription. It is not a claim about physical time travel. Each bar is logged as a hit or a miss with a signed size, a location and an update (`process/MISS_LOG_TEMPLATE.md`).
 
 ## Why this approach
 
@@ -83,3 +83,5 @@ Reported here, on this toy: 20 of 64 gates need a selector; the discriminating u
 `DEVIATIONS.md`. No bar was missed. The preregistration was not edited.
 
 Appended after the review: the route A identification is a miss, logged in that file. The ten locked bars stay hits.
+
+**Labels, 25 November 2026 (bar by bar, `process/PROCESS.md:28`).** CONSISTENCY_CHECK, an identity that could not miss: P1a, P2-bound, P3-phase, P3-contraction, P4-cycle. Bars that could have missed: P1b-named, P1b-grid, P2-illicit, P3-gap, P4-half. The route A identification is a separate miss located in the model (`DEVIATIONS.md`). No number or bar changed.

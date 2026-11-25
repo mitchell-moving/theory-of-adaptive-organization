@@ -39,3 +39,5 @@ The locked gap is the binary entropy \(h((2+\sqrt{2})/4)\) and the mutual inform
 ### route-A-id
 
 The withdrawn sentence said the scored gap is route A's gap \(\kappa_D P_D\) and is not undercut. Route A `:103` subtracts two designs of one classical channel. Route A `:116` says the minimized cost of that channel has slope 0 in \(\kappa_D\). The score is one DISC design, slope \(0.416495530700\). The difference of the slopes is the miss \(+0.416495530700\). Location `model`: the two objects are different, not a swapped sign in a printout. Update: the identification is withdrawn in the places named in the ledger. The ten locked bars stay. The negative statement that remains is narrower: \(\Delta S(\rho_{CTC})=0\) is not the reverse leg route A says is missing, and this score does not recompute `:103`.
+
+**Labels, 25 November 2026 (bar by bar, `process/PROCESS.md:28`).** CONSISTENCY_CHECK, an identity that could not miss: P1a, P2-bound, P3-phase, P3-contraction, P4-cycle. Bars that could have missed: P1b-named, P1b-grid, P2-illicit, P3-gap, P4-half. The route A identification is a separate miss located in the model (`DEVIATIONS.md`). No number or bar changed.
