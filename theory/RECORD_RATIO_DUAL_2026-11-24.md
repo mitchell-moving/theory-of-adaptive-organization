@@ -1,0 +1,71 @@
+# Record-price ratio: shadow price of a disturbance budget
+
+*24 November 2026 (UTC). Two locks, each committed before its grid. The shadow-price lock is `theory/record_ratio_dual_checks/PREREG.md`, sha256 `4e306d83…25ec`. The floor lock is `PREREG_FLOOR.md`, sha256 `29879441…c73a`. Self-check, not an independent review. `THEORY.md` is unchanged (blob `6caadae569116a94a74563398be94cebf6e99e9b`). Open-work row T77. Status words are those at `CORE.md:169`. Nothing here derives general relativity, quantum mechanics, or holography.*
+
+*T76 showed that \(J\) is linear in \(q=\kappa_D/\kappa\), so minimizing \(J\) over the ratio cannot select an interior value, and on the antipodal menu it selects the boundary \(0\) whenever \(P_D>0\). This note asks whether that coefficient is instead the Lagrange multiplier of a disturbance budget \(P_D\le D\) in \(\min(\kappa I+w L)\).*
+
+## Answer
+
+**Model implication.** On the locked slice, \(\gamma=0\) and \(\phi=0\), ratio \(1\) is not the shadow price of any disturbance cap the repository already names. Ratio \(0\) is the shadow price of a slack cap. A cap that binds on that slice, at a positive stake, prices a ratio strictly below \(1\). The largest such price, at stake \(w\), is \(1-w/w_\star\).
+
+That ceiling is the slice. At \(\phi=\pi/2\) the loss is \(r^2/2\) at every angle, because the estimand is the axis that complete dephasing has erased. Then \(dL=0\) and \(dI=-dP_D\), so every binding cap has shadow price exactly \(1\), at every stake. The ledger cap's subdifferential is \([0,1]\). Ratio \(1\) is a shadow price of that named cap, and ratio \(0\) is the other endpoint. **ELEMENTARY.**
+
+The hope that some natural \(D\) would give \(\lambda^\star=1\) is an **open miss** on the locked slice. The break there is that the named sources are not budgets that bind at that price. It is not a miss on the erased axis: the same ledger, with the stake independent of \(\theta\), prices \(1\). A \(D\) chosen so the \(\phi=0\) formula equals \(1\) would still be a hand pick, and this note does not make one.
+
+A gravitational floor is a further candidate, scored in its own lock below. It does not supply \(\varepsilon(m)\), and the coefficient it does produce is negative. It is not a reason \(\kappa_D\) cannot be \(0\).
+
+## What was scored
+
+Nine lines, `shadow_price_checks.out`, `FAILS 0`. The predictions were the structural consequences. They matched.
+
+**Ledger stock, antipodal, \(\phi=0\).** \(D=P_\chi(0)=0.096372378511\). That number is \(I+P_D\), and it is the maximum of \(P_D\). The cap \(P_D\le D\) removes no design (`H-led`, gap \(0\)). The locked line reports shadow price \(0\) at \(w\in\{1,w_\ast,10\}\), which is the rule in the lock: \(P_D\le D\) means the price is \(0\). At \(w_\ast\) and at \(10\) the pointer has \(P_D=0<D\), so the multiplier is uniquely \(0\). At \(w=1\) the equator saturates the cap. The loosening price is \(0\) and the tightening price is \(1-wr^2=0.64\). The subdifferential is \([0,0.64]\). It contains \(0\) and it does not contain \(1\).
+
+**How large a binding multiplier can get, on \(\gamma=0\), \(\phi=0\).** For \(\delta=\lambda-1<0\) the stationary angle fixes \(\lambda=1-w\cdot 2r^3\cos\theta/\Lambda(\theta)\). On \((0,\pi/2)\) at \(w=1\) the grid maximum is \(0.688377609733\), against the pointer-end ceiling \(1-1/w_\star=0.688377871168\) (`H-bound`). The equator end of the same formula is \(1-wr^2=0.64\) at \(w=1\), and \(1-3\ln 2=-1.079441541680\) at \(w=w_\ast\). A negative value means the cap does not bind. On this slice, at no positive stake does the formula reach \(1\). Reaching \(1\) on this slice would require \(w=0\).
+
+**Derivative check.** At \(\theta=1\), \(w=1\), the formula is \(0.652985548762\) and the difference quotient of \(I+w L\) along \(P_D\) agrees to \(2.242\times 10^{-10}\) (`H-deriv`). The phase boundary is the shadow price. **ELEMENTARY** for the closed form, **NUMERICAL** for the quotient.
+
+**Off the antipodal pair.** The ledger at \(\theta\in\{0,0.4,\pi/2\}\) is \(0.050672\), \(0.057695\), \(0.096372\), range \(0.045701\). There is no single ledger cap. The ratios that level \(\theta=0\) against \(0.4\) and against \(\pi/2\) are \(0.548714\) and \(0.525792\). They are the review's \(0.549\) and \(0.526\), and they are not one price (`H-off`). Those levelers equate \(I+q P_D\) and leave out \(w L\). Putting the stake back in at \(w=1\) moves them to \(0.454812\) and \(0.433431\). They are still not one price, and neither is \(1\). That pair is not a rescore. **Adopted** as the ensemble from review 1 at `21ab5f0`, recomputed here.
+
+**Rank-2 block.** \(P_D=0\), \(I=0\), and the two sides of the identity differ by \(\tfrac12\ln 2=0.346573590280\) (`H-rank`). One instrument has no design multiplier. **Adopted** from the review's state, recomputed here.
+
+**Reeb–Wolf and the ruin cap.** Theorem 3 bounds heat by an entropy change. It does not name a \(P_D\) cap. The ruin cap is \(P(\mathrm{ruin})\le\varepsilon_r\), and this menu does not convert \(\varepsilon_r\) into a disturbance. Both lines are `NO-D` (`H-reeb`, `H-ruin`). Those two lines, and the floor line `NO-EPS`, print a constant token. They cannot fail. The claim they record is the absence of a named number, and that absence is what the locks allowed them to print. **KNOWN** for the theorem, as in T75 Route C. The ruin sentence is A2.
+
+**The stake \(w_\ast\).** \(w_\ast=5.776226504666\) sits \(2.998449\) above \(1/r^2\) and \(2.567212\) above \(w_\star\). At that stake the single-shot minimizer of \(I+w L\) is the pointer, where \(P_D=0\), so the ledger cap is slack (`H-w`). \(w_\ast\) is where a repeated equatorial record stops being cheaper than a resolved one. It is not where a disturbance budget starts to bind.
+
+**No named source prices ratio \(1\).** `H-none` is `NO-NATURAL-D`.
+
+## Where the reading breaks
+
+The step that would produce ratio \(1\) on the locked slice is a binding cap whose multiplier equals \(\kappa\). On \(\gamma=0\), \(\phi=0\), the multiplier of \(P_D\le D\), when it is positive, equals \(1-w/w_\star\) at the pointer end and is smaller at every larger angle. That expression equals \(1\) only at \(w=0\), where the record cost is flat and the multiplier is not a selector. The ledger stock on that slice is the largest \(P_D\). At \(w=1\) the cap is saturated and the subdifferential is \([0,0.64]\), which does not contain \(1\). At \(w_\ast\) and at \(10\) the cap is strictly slack. The off-pair ledger is not one number. The rank-2 block has nothing to price. Reeb–Wolf and the ruin cap are constraints on other quantities.
+
+The ceiling does not survive a change of axis. At \(\phi=\pi/2\), direct differences give \(q=1.00000000\) at \(\theta\in\{0.3,0.767,1.0,1.2\}\), for \(w=1\) and for \(w=10\). Every budget strictly below the ledger binds at price \(1\). Complementary slackness does not separate \(0\) from \(1\) on that axis.
+
+Without dephasing, \(\gamma=1\), the same identity \(dI=-dP_D\) does not keep the price below \(1\). \(P_D\) peaks near \(\theta=\pi/4\) at \(0.099829\). At \(w=1\), \(\theta=1\), \(P_D=0.099236\), the price is \(6.669\). The coherent ledger is \(0.192745\), above every \(P_D\) on that menu, so that named cap stays slack and its multiplier is \(0\). The strict ceiling uses \(\gamma=0\), where dephasing makes \(P_D\) monotone in \(|\cos\theta|\) and \(dL/dP_D>0\). The \(\pm x\) labels at \(\gamma=0\) are the maximally mixed state.
+
+What that says about \(0\) and \(1\). On the locked slice, complementary slackness accounts for ratio \(0\): a cap the minimizer of \(I+w L\) already meets has shadow price \(0\), and the saturated case at \(w=1\) has a subdifferential that stops at \(0.64\). On the erased axis, ratio \(1\) is the price of every binding cap. Ratio \(1\) remains the fixed point of the destruction charge in review 1, which is not this budget.
+
+A later inversion that picks \(D\) so the \(\phi=0\) formula equals \(1\) is the hand pick this lock ruled out. It is not a next test. The erased axis is not that inversion. It is the closed form at the other value of \(\phi\).
+
+**Model implication.** Conditional on \(\gamma=0\), \(\phi=0\), and on \(\min(I+w L)\) subject to \(P_D\le D\) with \(D\) equal to the antipodal ledger: the reported price is \(0\), and at \(w=1\) the subdifferential is \([0,0.64]\), not \(1\). Conditional on a cap that does bind on that slice at stake \(w>0\): the price is at most \(1-w/w_\star<1\). Conditional on \(\phi=\pi/2\) and on \(\gamma=0\): a binding cap prices exactly \(1\). Conditional on \(w=w_\ast\) and \(\phi=0\): the single-shot design is the pointer and the ledger cap is slack. **ELEMENTARY** for the closed-form ceiling and for the erased axis. **NUMERICAL** for the grid maximum, the derivative, the off-pair levelers, and the coherent-quartet price.
+
+## Gravitational floor
+
+**Model implication, not a derivation of gravity.** A record with mass might broadcast part of its state on a channel that cannot be screened. The candidate reading is a floor \(P_D\ge\varepsilon(m)>0\) on every such record, and a reason \(\kappa_D\) cannot be \(0\).
+
+The citation was checked on Crossref on 24 November 2026 before the lock. Groszek, Woffinden, Harvey, White, and Davis, "Unblockable communication with gravity," *Science Advances* 12, issue 47 (2026), doi `10.1126/sciadv.aee0802`. The record is a journal article issued 20 November 2026. The paper reports a binary message encoded by moving a mass and read by a gravimeter through a brick wall, about \(0.7\) m, at about \(1\) bit per minute. That is an experimental communication result. **KNOWN** as that citation. It is not a measurement of \(P_D\).
+
+The floor was allowed to come only from the four sources already named for \(D\): the ledger, Reeb–Wolf / Landauer, the ruin cap, and \(w_\ast\). The bit rate is not one of them. T64's barrier-to-mass step is an assumed input in another note. Using it here would add a free parameter. It was not used.
+
+**Observed against the lock** (`floor_checks.out`, `FAILS 0`).
+
+- **H-eps matches.** The line is `NO-EPS`. No decimal floor is printed.
+- **H-sign matches.** At the probe \(\varepsilon=P_\chi(0)/2\), which is not \(\varepsilon(m)\), and at stake \(w=10\), the central-difference coefficient is \(q_{\mathrm{probe}}=-2.363872\) at \(\theta=0.767426\). It is negative, and it is not \(1\).
+- **H-move matches.** The upper-budget price at the ledger and \(w=10\) is \(0\). The probe coefficient is not that price.
+
+**Where the hope breaks.** A binding lower constraint \(P_D\ge\varepsilon\) carries a multiplier \(\mu\ge 0\) on \(\varepsilon-P_D\). That enters \(J\) as \(q=-\mu\le 0\). The probe is the numerical reading of that sign: about \(-2.36\), not \(+1\). An unscreenable channel, even if granted, prices a floor with the opposite sign from \(\kappa_D>0\). It does not move \(\lambda^\star\) of the upper budget. And nothing in the four sources fixes the size \(\varepsilon(m)\) without a new parameter. The \(1\) bit per minute stays a bit rate.
+
+What that says about \(0\) and \(1\). Ratio \(0\) is still the shadow price of a slack upper cap. The floor does not push the coefficient up through \(0\). It pulls the other way, and only after a size is chosen. Choosing that size by hand is the move the shadow-price lock already ruled out.
+
+The next test would be a formula already written in \(J\) or in one of the four sources that takes a mass and returns a nat of \(P_D\). No such formula is in those objects. Adding a coupling in order to have a number is not that test.
+
+**Model implication.** Conditional on the four named sources: there is no \(\varepsilon(m)\). Conditional on a binding floor: the coefficient of \(P_D\) is nonpositive, and at the locked probe it is \(-2.363872\). Conditional on the ledger cap at \(w=10\): \(\lambda^\star=0\), unchanged. **ELEMENTARY** for the sign of a lower-constraint multiplier. **NUMERICAL** for the probe. The hope that the floor forces \(\kappa_D>0\) is an **open miss**. Not a derivation of gravity.
