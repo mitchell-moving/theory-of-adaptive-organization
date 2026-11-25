@@ -1,0 +1,43 @@
+DIAGNOSTIC G5-parenthetical half_ledger=0.048186189255 max_miss=5.551e-17 (not a locked check)
+G0 PASS max_abs=5.551e-17
+G0b PASS max_abs=5.551e-17
+K1-ledger PASS max_abs=5.551e-17 chi=0.096372378511
+K1-fit-I PASS alpha=1.000000000000e+00 beta=0.000000000000e+00 max_resid=0.000e+00
+K1-fit-chi PASS alpha=1.000000000000e+00 beta=1.000000000000e+00 max_resid=8.327e-17
+K2-ledger PASS max_abs=0.066278 chi=0.126467034034
+K2-gram PASS det=3.835855e+01
+K2-fit-I PASS alpha=1.000000000000e+00 beta=0.000000000000e+00 max_resid=0.000e+00
+K2-bound-weight FAIL net_min=0.0004213774925606595 at=(1.0033319156709788, 0.6581687266183737) n_net=14641 ls_alpha=1.003332 ls_beta=0.658169 ls_max=0.000421
+G1 PASS bad=[] cost_span=0.000e+00
+G2 PASS flat_range=8.327e-17 theta2=0.000000 unique2=True endpoint_gap=0.096372 n_tie_ratio1=721
+G3 PASS theta_w1=1.570796 theta_w10=0.000000 unique10=True
+G4 PASS theta_ratio1=0.464694 theta_ratio100=0.000000 gap=0.464694 n_tie=(1,1)
+G5 FAIL theta_bad=[] literal_miss=4.819e-02 P_chi0=0.096372378511 gaps=[(0.0, 0.048186189255), (0.5, 0.048186189255), (1.0, 0.048186189255), (2.0, 0.048186189255), (4.0, 0.048186189255), (10.0, 0.048186189255)]
+C1 FAIL n_interior=0 deltas=[] dets=[]
+C2 FAIL n_interior=1 thetas=[(0.05, 1.570796), (0.1, 1.570796), (0.2, 1.570796), (0.5, 0.573777), (1.0, 0.0), (2.0, 0.0), (5.0, 0.0)]
+C3 PASS theta_ratio0=1.570796 n0=1 theta_ratio1=0.000000 n1=1
+FAILS 4
+# Errata, 24 November 2026 (America/New_York). K2 net minimum printed separately from the least-squares residual.
+# The original lines above are the stored run and are not edited.
+# The original K2-bound-weight line stored the least-squares residual in net_min. That point is not on the net.
+# The 121 by 121 net minimum and the least-squares residual are printed as different numbers below.
+# The live script stdout is the block under this note, without these comment lines.
+DIAGNOSTIC G5-parenthetical half_ledger=0.048186189255 max_miss=5.551e-17 (not a locked check)
+G0 PASS max_abs=5.551e-17
+G0b PASS max_abs=5.551e-17
+K1-ledger PASS max_abs=5.551e-17 chi=0.096372378511
+K1-fit-I PASS alpha=1.000000000000e+00 beta=0.000000000000e+00 max_resid=0.000e+00
+K1-fit-chi PASS alpha=1.000000000000e+00 beta=1.000000000000e+00 max_resid=8.327e-17
+K2-ledger PASS max_abs=0.066278 chi=0.126467034034
+K2-gram PASS det=3.835855e+01
+K2-fit-I PASS alpha=1.000000000000e+00 beta=0.000000000000e+00 max_resid=0.000e+00
+K2-bound-weight FAIL net_min=0.0014997828907532262 at=(1.0, 0.65) n_net=14641 ls_alpha=1.003332 ls_beta=0.658169 ls_max=0.000421
+G1 PASS bad=[] cost_span=0.000e+00
+G2 PASS flat_range=8.327e-17 theta2=0.000000 unique2=True endpoint_gap=0.096372 n_tie_ratio1=721
+G3 PASS theta_w1=1.570796 theta_w10=0.000000 unique10=True
+G4 PASS theta_ratio1=0.464694 theta_ratio100=0.000000 gap=0.464694 n_tie=(1,1)
+G5 FAIL theta_bad=[] literal_miss=4.819e-02 P_chi0=0.096372378511 gaps=[(0.0, 0.048186189255), (0.5, 0.048186189255), (1.0, 0.048186189255), (2.0, 0.048186189255), (4.0, 0.048186189255), (10.0, 0.048186189255)]
+C1 FAIL n_interior=0 deltas=[] dets=[]
+C2 FAIL n_interior=1 thetas=[(0.05, 1.570796), (0.1, 1.570796), (0.2, 1.570796), (0.5, 0.573777), (1.0, 0.0), (2.0, 0.0), (5.0, 0.0)]
+C3 PASS theta_ratio0=1.570796 n0=1 theta_ratio1=0.000000 n1=1
+FAILS 4

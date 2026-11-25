@@ -18,7 +18,7 @@ or why nothing does. Both coefficients are nonnegative, \(P_D\) is the relative 
 - **Route 2** (minimum over admissible prices) stops on a tie, including a tie of the two endpoints and a tie with the zero price A8 allows. It does not fix \(\kappa_D/\kappa\). **PROVED (in-model).**
 - **Route 3** (selection under the ruin cap) has two readings. If the cap does not depend on the price, it removes nothing. If a reserve must cover the named \(J\), a reserve between the two minima keeps the pinch and drops mutual information, and still ties the pinch with charging nothing. Neither reading fixes an interior ratio. **PROVED (in-model).**
 - **Route 4** (R1's axioms on a GPT state space) is closed as a **KNOWN** stop. Measurement entropy and mixing entropy coincide in quantum theory with no extra assumption there, and they differ on a general probabilistic theory. Adopting von Neumann entropy or Umegaki relative entropy is also **KNOWN**, and it still does not choose the record contraction or the ratio.
-- **Route 5** (one scale on both record terms) does not force \(\kappa_D/\kappa=1\). The one-scale sentence multiplies the whole sum. It does not equate the coefficients. **Puzzle.** The missing sentence is named in that section.
+- **Route 5** (one scale on both record terms) does not force \(\kappa_D/\kappa=1\). The one-scale sentence multiplies the whole sum. It does not equate the coefficients. **Open question.** The missing sentence is named in that section.
 
 ## Where a quantum price is already assumed
 
@@ -141,7 +141,7 @@ Forcing a common currency and then dropping the price with the higher minimized 
 
 **Where it stops.** That \(a\) multiplies the whole sum. It does not set the coefficients inside the sum equal. `theory/REPRESENTATION.md:120` says the price ratios are fixed by the Cauchy equation: each concatenating coordinate is linear (`:110-111`), so each ratio is some constant. The constant is the preorder's marginal rate. The equation does not set it to 1. A6 absorbs one positive constant into the coefficient of the one memory coordinate it names (`:114`). A8 requires each coefficient nonnegative (`:64`, `:92`). No sentence in A1–A8 or R1 equates \(\kappa_D\) with \(\kappa\).
 
-**Status. Puzzle.** The route does not force \(\kappa_D/\kappa=1\). The missing sentence is: both record terms are in the sum, and they carry one shared coefficient, the entropy scale used on both differences. One scale used that way keeps both terms and sets the ratio to 1. It is not the refusal of a second coefficient. Refusing the second coefficient is the endpoint 0, or the undefined ratio at \((0,0)\).
+**Status. Open question.** The route does not force \(\kappa_D/\kappa=1\). The missing sentence is: both record terms are in the sum, and they carry one shared coefficient, the entropy scale used on both differences. One scale used that way keeps both terms and sets the ratio to 1. It is not the refusal of a second coefficient. Refusing the second coefficient is the endpoint 0, or the undefined ratio at \((0,0)\).
 
 **PROVED (in-model), and not a consequence of this route.** On the antipodal ensemble \(P_\chi=c-P_D\), and \(P_D\) is not constant in \(\theta\) for \(r\in(0,1)\) (`MEMO.md:58-62`, and the sign of \(h'\) above). Then
 
@@ -164,7 +164,7 @@ The record cost is independent of \(\theta\) exactly when \(\kappa_D=\kappa\), f
 
 Route 2's comparison, including the comparison of \(\kappa_D/\kappa\), is the sign of \(h'\) and the identity \(P_D+P_\chi=c\) already written on draft #252 (`MEMO.md:58-62`, `PREREG.md:64`). A grid would re-check that sign. It would not define the admissible set, and it would not turn the tie of the endpoints into one ratio. The locked-point costs \(1.476\), \(1.800\), and \(1.572372\) are that same closed form at one published \((r,\phi,w)\). Route 3's reserve comparison uses those two minima. Route 5 is a reading of one sentence in `theory/REPRESENTATION.md`. Route 4 is the published separation of two GPT entropies. None of these fails by a draw from a seed. No preregistration and no run.
 
-## Puzzle
+## Open question
 
 Route 1 is missing a naming axiom, and with only \(I(W;M)\) named there is no ratio \(\kappa_D/\kappa\) to fix. Route 2 is missing a definition of "admissible" that excludes the zero price without already naming the functional; on the simplex that remains, the minimum ties the endpoints \(0\) and \(\infty\) on a large set, and the natural strengthening (Wilming's four axioms) is KNOWN and still leaves the ratio open. Route 3 is missing a fitness that is not the disputed functional. Route 4 is closed: on a general probabilistic theory the two entropies are not one functional, and in quantum theory they coincide without an extra assumption. A known entropy scale is not an exchange rate. Route 5 is missing the sentence that puts both record terms in the sum under one shared coefficient. A1–A8 and the ruin cap do not state any of those missing sentences. Flatness of the antipodal record cost fixes the ratio at 1, and that condition is not one of the axioms.
 

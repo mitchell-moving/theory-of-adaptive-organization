@@ -92,7 +92,7 @@ A linear gap of \(1/10\) leaves the old sign slope negative, at \(-0.08215969649
 
 ## 6. The sign floor, feedback, and the Cox clock
 
-**Sign grid (PROVED (in-model)).** On \(\theta\in\{1/8,1/4,1/2,1,2,4,8\}\) the minimized capped-sign cost lies strictly above \(4.966383544211\). The gap at \(\theta=8\) is \(0.031682633557\). The algebra is \(J^\star=A(r^\star)/\theta+C(r^\star)\) with \(A>0\), so the cost sits strictly above \(\inf C\) at every finite \(\theta\). The comparison of \(J^\star(8)\) with \(5\) remains the puzzle recorded in the acting-memory note. This file does not edit that preregistration. The diagnosis there stands: \(5\) is the heat plus the sign loss at the frozen fraction, and the floor is lower.
+**Sign grid (PROVED (in-model)).** On \(\theta\in\{1/8,1/4,1/2,1,2,4,8\}\) the minimized capped-sign cost lies strictly above \(4.966383544211\). The gap at \(\theta=8\) is \(0.031682633557\). The algebra is \(J^\star=A(r^\star)/\theta+C(r^\star)\) with \(A>0\), so the cost sits strictly above \(\inf C\) at every finite \(\theta\). The comparison of \(J^\star(8)\) with \(5\) remains the open miss recorded in the acting-memory note. This file does not edit that preregistration. The diagnosis there stands: \(5\) is the heat plus the sign loss at the frozen fraction, and the floor is lower.
 
 **Feedback on the sign (PROVED (in-model)).** At the same error variance \(1/2\), the separated gain lowers the correlation from \(1/\sqrt{2}\) to \(\sqrt{\sqrt{2}-1}\). The sign loss rises from \(4\) to \(4.439079197657\). For this loss the closed loop is dearer than sensing alone. Shrinking the state shrinks the signal the sign is read from.
 

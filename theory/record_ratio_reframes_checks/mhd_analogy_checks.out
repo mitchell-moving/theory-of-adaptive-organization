@@ -1,0 +1,7 @@
+H1-lin PASS max_abs_second_diff=2.776e-17
+H1-joint PASS all J*(q) sit at or above J*(0)
+H1-half PASS gap_w1=0.048186 gap_w10=0.000e+00 theta10_q0=0.000000 n0=1 theta10_q05=0.000000 n05=1
+H2-split PASS theta_q0=1.570796 n0=1 theta_q1=0.000000 n1=1 gap=1.570796
+H2-below PASS theta=1.570796 n_tie=1
+H2-move PASS w1_theta=0.000000 n1=1 w05_theta=1.570796 n05=1
+FAILS 0
