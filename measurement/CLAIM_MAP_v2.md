@@ -809,3 +809,148 @@ The table counts the 167 v2 rows only (section N and rows G23–G29 are not in i
 - New rows M1–M4 come from the measurement layer.
 
 **Caveats.** This relabel was done by one executor and is not independently reviewed. M1 and M3 are elementary self-checked derivations. The gates (M2) are treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927; v2.40 note), for every prereg locked from then on; they were written on 15 Nov, before any new data.
+
+**v2.89 note (25 Nov 2026; headline ledger).** No counted row changes status, so the tally is unchanged. This note adds the headline ledger at the end of this file: one plain statement, one mathematical status, a source line, Lean coverage, a review record, and a connects-to edge for each headline result. Front pages carry a derived view. `tools/check_claims.py` fails if that view, or a headline status on a front page, disagrees with this ledger. The hypothesis sentence is unchanged.
+
+<!-- headline-ledger:begin -->
+
+## Headline ledger
+
+Canonical statuses for headline results. A counted row in sections A–Y is unchanged. Review is not a mathematical status. Lean coverage is not the mathematical status. An edge is proved, known, interpretation, open, or conjecture. `formal/lean/AUDIT.json` is one aggregate digest of declarations. It is not per-claim coverage.
+
+### How we got here and what it adds up to
+
+The arc below is taken from `git log --reverse` and from the commits named here. It is not a reading of every parent of every merge.
+
+The original question was practical: what must a system remember, refresh, share, or change to act in time without exhausting its resources? The 12 November post put memory, error, lateness, and ruin in one account (`history/2026-11-12_X_POST.md`). The first THEORY draft (`cbe60a5`) already named reducing the world's drift as a missing lever. Later merges separated theorems inside a model from the hypothesis about nature, and let a world's measured time scales, shared drivers, and coupling set the design (`ca61081`, `c55e960`, `bc9a1ec`). Selection gave conditional routes toward a minimum. Growth on a gapped menu recovers a ranking and does not derive the cost (`2eeab30`, `b16193d`, `f3a8fd0`; `theory/GROWTH_BRIDGE.md`).
+
+Physics then did more than decorate the prices. Information flow bounds memory-bath heat. Exact Ornstein–Uhlenbeck and telegraph frontiers give design thresholds. Frozen storage is not the same as active tracking (`f18f21f`, `b46bf9f`, `d1d6ea5`, `df9fc05`, `615cdb9`). Shared memory, blanket sufficiency, and capacity-bounded boundary flux are different results. None of them derives the holographic bound (`9087656`, `6579901`, `eacac12`, `bdcbaed`). Acting connects that physics to a world whose state responds: T61 keeps the thermodynamic split and loses a universal memory-only heat floor (`4594eef`). Co-adaptation says when design feedback settles or cycles (`b16193d`). Joining those with a two-way boundary is open (`STATUS.md`, row BICAUSAL). Repair floors and later quantum probes constrain particular routes. They do not derive gravitational or quantum theory (`d4a337c`, `d592662`, `26e1490`, `8c48a5b`). Lean checks selected links, not the whole argument (`55e1cb8`, `f559ef3`). No qualified real system has established the hypothesis.
+
+What it adds up to is a method: write the cost in a justified class, find the best design that class allows, and test whether a real selected system approaches it. Open links stay open. A confident summary is not a substitute for them.
+
+### What we have, what's proved, what's open
+
+We have a cost of judgment: heat the memory's bath gives off, plus a stake on being wrong, under a cap on the chance of ruin. In named classes that cost has a floor and a best design. The hypothesis, unchanged, is that strongly selected systems sit near that minimum. No real system has yet been shown to qualify, so the hypothesis is untested.
+
+Proved inside named models, or known from credited papers: the heat of a bipartite memory is at least kT times its net learning rate (known for jump processes, proved in-model for additive-noise diffusions). On the telegraph and in other named classes there are closed forms. When the memory steers the world, in the classes of T61, the heat bound still holds on the net learning rate, and there is no design-independent floor on memory heat alone. Shared memory is cheaper when a decision combines items (T42). At a fixed per-site error a changing field costs heat with volume, and with a cut only when the decision names the cut (T41). In a Markov world with local precision, the blanket is enough for a decision outside a region (T44). Through a boundary of finite-capacity channels, tracked learning rate scales with area when capacity per area is bounded; frozen storage is not capped, and this is not a derivation of the holographic bound (T62). A repair floor for a vanished bit in leaky carriers is proved in its class (T63).
+
+Where several parties, or a party and a world that responds, shape one another's costs, two classes settle. In a beta-potential game the group settles near a Nash point. Shared-driver play reaches that Nash point, and it equals the joint optimum only when cost shares match stakes. A strongly monotone game that is not a potential game can still be stable (CA5). Exact Boltzmann reversibility holds only for an exact potential. A cost of its own is not by itself a joint potential. Opposed coupling can cycle. In the linear copy-gain model, a world that copies the design more than one-for-one runs away, and copying exactly one-for-one loses a confining distribution. Delayed push-back can make stronger selection destabilize. The stay rule for a part following a whole assumes the part does not move the signal.
+
+The world is a party we chose not to model. Holding it fixed is the case of effort g = 0 spent reducing the world's drift intensity, and that lever is still open. Many results are already two-way in a narrower sense: coupled parties (CT29–CT32), co-adaptation, and the heat floor when the memory steers (T61). T61 and the co-adaptation statements F3 and F4 are related and are not the same result. Joining them with a two-way boundary is open. Growth selection ranks designs on a gapped menu and does not derive the cost. Lean checks selected links, including pieces of co-adaptation and a two-state heat floor. It does not check the general diffusion floor, T61, T62, T44, or the physical argument as a whole.
+
+Open, in short: drift-intensity reduction; a joined two-way boundary theorem; which real couplings settle; a floor for every class; and one qualified real system, preregistered before any outcome.
+
+```mermaid
+flowchart TD
+  cost[Cost of judgment]
+  heat[Heat floors in named classes]
+  design[Worked-class designs and boundaries]
+  couple[Coupled parties and co-adaptation]
+  world[World as a party not modelled]
+  gap[Open links: drift intensity, joined boundary, real test]
+  cost --> heat
+  cost --> design
+  cost --> couple
+  world --> couple
+  heat --> gap
+  couple --> gap
+```
+
+### GTAO applied to this repo
+
+This subsection is a design interpretation of the theory, applied to the repository. It is not a theorem, and it does not bound the true rate of public error.
+
+The repo is a memory. Its stake is a public claim, because a reader may act on it. Its ruin is a stale or false public claim left standing. The cost of that miss is high because the claim is reused. So there is one ledger, this section, and the front pages carry a view derived from it. `tools/check_claims.py`, run inside `tools/check_consistency.py`, is the cap for that class of miss: a disagreement fails the check. Refresh is every merge, the cadence scaled to the stake of a public page. A miss is logged with a prediction, an outcome, and a signed size (`process/MISS_LOG_TEMPLATE.md`).
+
+The check reduces one class of summary errors. It does not prove the model claims. It does not bound every later loss. The cap is local. A server-side gate that would block a merge is not installed: this repository has no workflow file, and `process/FAILURES.md` already records that a standing run waited on workflow scope. That missing gate is an open miss of this application.
+
+The scientific gap is separate, and it is not a process error. No theorem yet joins T61's heat accounting to co-adaptation F3 and F4 and a two-way finite-capacity boundary. That item is BICAUSAL, and it is open.
+
+| id | status | plain | source | anchor | lean | review | connects | pages |
+|---|---|---|---|---|---|---|---|---|
+| HYP | hypothesis | Strongly selected systems minimize the cost of judgment. Untested. | THEORY.md:41 | The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment. | not-formalized | no qualified real test | CX2:open | README, CORE, STATUS, ONE_PAGER, THEORY |
+| JP-HEAT | known | For bipartite jump processes the memory bath gives off at least kT times the net learning rate. | CORE.md:70 | **KNOWN** | not-formalized | Horowitz and Esposito 2014, credited | EQ-HEAT:known | README, CORE, STATUS |
+| EQ-HEAT | proved-in-model | For additive-noise diffusions the same heat bound is proved in the model. | CORE.md:70 | PROVED (in-model) | formal/lean/GTAO/HeatFloor.lean is a two-state piece; the general diffusion floor is not-formalized | in-model proof; not the whole physical argument | JP-HEAT:known | CORE, STATUS |
+| T57 | proved-in-model | The general form, heat at least kT times the learning-rate distortion function, is exact wherever the thermodynamic step holds. Closed forms exist only in named classes. | CORE.md:70 | general form of the floor | not-formalized | T57 note; closed forms are named classes only | JP-HEAT:known | CORE |
+| T60 | proved-in-model | A memory that beats chance on a connected finite-state world has a world-only positive floor, one direction only. | CORE.md:72 | one direction only | formal/lean/GTAO/FiniteFloor.lean does not include the pairwise or path bounds | proved in-model, one direction | T57:proved | CORE |
+| T61 | proved-in-model | When the memory steers, in named classes, the heat bound holds on the net learning rate and no design-independent floor on memory heat alone exists. | theory/FEEDBACK_FLOOR_2026-11-23.md:17 | design-independent lower bound | not-formalized | independent review reported in OPEN_WORK; no review record committed | F3:interpretation; BICAUSAL:open | README, CORE, STATUS, ONE_PAGER |
+| T41 | proved-in-model | At a fixed per-site error, tracking a changing field scales with volume, and with a cut only when the decision names the cut. | CORE.md:102 | scales with the volume | not-formalized | reviewed holographic note | T42:interpretation; T62:interpretation | README, CORE |
+| T42 | proved-in-model | One shared memory is cheaper when a decision combines items, and not when each item is read alone. | README.md:40 | one shared memory is cheaper | not-formalized | reviewed holographic-memory note | T41:interpretation | README, CORE |
+| T44 | proved-in-model | In a Markov world with local precision, the blanket is enough for a decision outside a region. | CORE.md:104 | Screening needs a local precision | not-formalized | reviewed boundary note | T62:interpretation | README, CORE |
+| T62 | proved-in-model | Tracked learning rate through a finite-capacity boundary scales with area when capacity per area is bounded. Frozen storage is not capped. This is not a derivation of the holographic bound. | theory/AREA_LAW_PROBE_2026-11-23.md:15 | scales with area | not-formalized | review fixes recorded at d79e766; independent review reported by T63 §1; no standalone review record | T44:proved; BICAUSAL:open | README, CORE, STATUS, ONE_PAGER |
+| T63 | proved-in-model | A repair floor holds for a vanished bit kept in leaky carriers, in the named class. | theory/RECORD_REPAIR_FLOOR_2026-11-23.md:17 | PROVED (in-model) | formal/lean/GTAO/RepairFloor.lean is the one-carrier comparison; the product argument is not-formalized | Independently reviewed (PR #240; commit 911a71c) | T62:proved | CORE, STATUS |
+| CX2 | open | No general theorem says when self-interested parts that shape one another's worlds reach one joint design. Named classes are proved. | THEORY.md:179 | CX2 stays OPEN | formal/lean/GTAO/Coadaptation.lean checks CA1 pieces, not the open general case | reviewed, `reviews/coadaptation_2026-11-21/REVIEW.md`, CONFIRM2 READY at 93add78, merged as b16193d | CT31:proved; CT32:proved; CL11:open | README, CORE, THEORY, ONE_PAGER |
+| CT31 | proved-in-model | Shared-driver play reaches the Nash point. That point equals the joint optimum only when cost shares match stakes. | THEORY.md:491 | Nash equals the joint optimum | not-formalized | Appendix B.10, proved in the model | CX2:open | README, CORE |
+| CT32 | proved-in-model | There is no convergence theorem for arbitrary coupling. Opposed coupling can cycle. With convex own costs the speed ratio does not change stability. | THEORY.md:493 | arbitrary coupling is false | not-formalized | Appendix B.10, proved in the model | CT31:proved; F4:interpretation | THEORY, CORE |
+| CT34 | proved-in-model | Nesting is exact when the parent passes quantities fixed before the team optimizes. The weak-coupling regret is second order when the team's cost is strongly convex and the coupling is Lipschitz. | THEORY.md:497 | second order in the coupling | formal/lean/GTAO/CT34.lean proves the if direction and the weak-coupling bound; the generic converse and the shared-driver case are not-formalized | Appendix B.10 | CX2:open | THEORY |
+| CA1 | proved-in-model | The joint substitution chain is reversible if and only if the beta-scaled game is an exact potential. | theory/COADAPTATION.md:53 | exact potential game | formal/lean/GTAO/Coadaptation.lean theorem ca1_iff; the origination-fixation derivation is not-formalized | CONFIRM2 READY at 93add78 | CX2:open | THEORY |
+| CA5 | proved-in-model | Strongly monotone non-potential games stay stable at all speeds, with the excess controlled by the radial part of a Hodge split. | theory/COADAPTATION.md:9 | monotone non-potential games remain stable | not-formalized | CONFIRM2 READY at 93add78 | CA1:interpretation | README, CORE, ONE_PAGER |
+| F3 | proved-in-model | In the linear copy-gain model a gain above one runs away, and a gain of one loses confinement. A cost of its own is not by itself a joint potential. | theory/COADAPTATION.md:251 | does not assert deterministic runaway at equality | not-formalized | CONFIRM2 READY at 93add78 | T61:interpretation; CL11:open | README, CORE |
+| F4 | proved-in-model | Delayed push-back with gain below minus one can make stronger selection destabilize. | theory/COADAPTATION.md:252 | Stronger selection or faster origination | not-formalized | CONFIRM2 READY at 93add78 | F3:interpretation | CORE |
+| F6 | proved-in-model | With several basins, strong selection settles by resistance trees rather than by lowest cost. | theory/COADAPTATION.md:254 | Young 1993 | not-formalized | CONFIRM2 READY at 93add78 | CX2:open | THEORY |
+| CL11 | open | Effort that lowers the world's drift intensity is not a proved theorem. | THEORY.md:37 | Drift-intensity reduction itself stays open | not-formalized | open lever of section 3 | CX2:open; F3:interpretation | THEORY |
+| SWARM-STAY | proved-in-model | The stay clause is for a part that values the signal by its own loss and does not move it. | theory/SWARM_RULE_2026-11-23.md:45 | does not move it | not-formalized | swarm note, proved in that class | CT31:proved | README, CORE |
+| WORLD-PARTY | interpretation | A responding world may be modelled as one more party. The potential theorems apply only when the beta-scaled game is an exact potential. | theory/COADAPTATION.md:36 | one party is the world | not-formalized | interpretation of the co-adaptation setup | CX2:open; CT34:interpretation | README, CORE, ONE_PAGER |
+| BICAUSAL | open | No theorem yet joins T61, co-adaptation F3 and F4, the speed ratio, the weak-coupling bound, and a two-way finite-capacity boundary. | OPEN_WORK.md:147 | BICAUSAL | not-formalized | open row; pieces are not one result | T61:interpretation; F3:interpretation; T62:interpretation | STATUS |
+| GROWTH | proved-in-model | Weak selection on a gapped finite menu ranks designs. Neither limit derives the master equation. | theory/GROWTH_BRIDGE.md:259 | The master equation is not derived, and it is not derived in either limit. | not-formalized | growth-bridge note | CX2:open | THEORY |
+| T40 | open | The physical cost display is not adopted into THEORY section 3. | OPEN_WORK.md:91 | **Not applied.** | not-formalized | needs a reviewed adoption | JP-HEAT:known | CORE, STATUS |
+| T49 | proved-in-model | Non-Gaussian floors in the named exogenous classes are proved in the model. The item is on main and is not an unstarted next step. | OPEN_WORK.md:100 | Independently reviewed (PR #238) | not-formalized | Independently reviewed (PR #238) | T57:proved | README, CORE, ONE_PAGER |
+| FOUR | proved-in-model | Selection tracks a minimum under four conditions: strong selection, a reachable minimum, a cost that includes what matters, and a coupling that settles. | CORE.md:122 | four conditions | not-formalized | the fourth condition is the proved settling scope, not an if and only if | CA5:proved; F3:proved | README, CORE, ONE_PAGER |
+| IP5 | false | The five-term master equation is not the physical frontier. | STATUS.md:19 | is FALSE | not-formalized | claim-map section Y | T40:open | STATUS |
+| LEAN-SCOPE | open | Lean checks selected links. It does not formalize the general diffusion floor, T61, T62, T44, or the physical argument as a whole. | formal/lean/README.md:193 | None of the following is claimed as proved in Lean. | not-formalized; the audit file is one aggregate digest | batch reviews recorded on main | T61:open; T62:open | STATUS |
+| T31 | open | The quantum-floor program in the directions note is parked. It is not a later probe and not a headline success. | OPEN_WORK.md:82 | quantum floors parked | not-formalized | parked | T74:open | STATUS |
+| T71 | known | The representation axioms do not force information causality on a general no-signaling box. The result is a relabel of the known classical scope. | theory/info-causality-2026-11-24/MEMO.md:37 | Result: relabel. | not-formalized | relabel; classical scope known | IP5:interpretation | STATUS |
+| T73 | proved-in-model | Under complete dephasing the dephasing-axis stake result holds on the slices named in the memo. | theory/pointer-basis-stakes-2026-11-24/MEMO.md:19 | PROVED (in-model) | not-formalized | self-check | T74:open | STATUS |
+| T74 | open | No route forces a unique quantum-record price or a ratio of the two memory prices. | theory/QUANTUM_RECORD_PRICE_2026-11-24.md:9 | No unique quantum-record price. | not-formalized | routes stop | T71:known | STATUS |
+| T72 | open | The composite-contest note is not on main. | OPEN_WORK.md:123 | not on `main` | not-formalized | in flight upstream | T74:open | STATUS |
+| GATE | open | The claims check runs on a local tree. It is not a server-side merge gate. | process/FAILURES.md:22 | The repo has no CI | not-formalized | open miss of the design interpretation in this ledger | HYP:interpretation | STATUS |
+
+<!-- claim-rules:begin -->
+must README.md four conditions
+must README.md no design-independent floor on memory heat alone
+must README.md independent review reported in OPEN_WORK; no review record committed
+must README.md scales with area
+must README.md not the holographic bound
+must README.md coupling that settles
+must README.md strongly monotone
+must README.md match stakes
+must README.md does not move the signal
+must README.md one more party
+forbid README.md Next in the work list is T49
+forbid README.md three conditions, each with a counterexample in our own runs
+forbid README.md every theorem below holds the world fixed
+must CORE.md four conditions
+must CORE.md A coupling that settles
+must CORE.md independent review reported in OPEN_WORK; no review record committed
+must CORE.md review fixes recorded at d79e766
+must CORE.md independently reviewed, PR #240
+must CORE.md does not move the signal
+must CORE.md not by itself a joint potential
+forbid CORE.md T63, in flight
+forbid-near CORE.md T61 self-check, not an independent review
+must ONE_PAGER.md four conditions
+must ONE_PAGER.md coupling that settles
+must ONE_PAGER.md independent review reported in OPEN_WORK; no review record committed
+must ONE_PAGER.md review fixes recorded at d79e766
+must ONE_PAGER.md The live work list is `OPEN_WORK.md`
+must STATUS.md `7cfcd46`
+must STATUS.md v2.89
+must STATUS.md BICAUSAL
+must-near STATUS.md T61 independent review reported in OPEN_WORK; no review record committed
+must-near STATUS.md T62 review fixes recorded at d79e766
+must THEORY.md Drift-intensity reduction itself stays open
+must THEORY.md beta-scaled game is an exact potential
+must THEORY.md strongly convex
+must THEORY.md CONFIRM2 READY at `93add78`
+must THEORY.md B.10 relaxes this
+forbid THEORY.md every theorem below holds the world fixed, g = 0
+must theory/FEEDBACK_FLOOR_2026-11-23.md independent review reported in OPEN_WORK; no review record committed
+must theory/FEEDBACK_FLOOR_2026-11-23.md need not optimize
+forbid theory/FEEDBACK_FLOOR_2026-11-23.md A self-check, not an independent review
+must theory/AREA_LAW_PROBE_2026-11-23.md review fixes recorded at d79e766
+must theory/SWARM_RULE_2026-11-23.md Applying T61 to a part that moves the whole's signal is not worked out
+must OPEN_WORK.md CONFIRM2 READY at `93add78`
+must OPEN_WORK.md | BICAUSAL |
+<!-- claim-rules:end -->
+
+<!-- headline-ledger:end -->

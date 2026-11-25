@@ -42,6 +42,13 @@ about the real world.
   batch-2 confirm nits): 757 declarations, OK
   (635 after the lean-layer-drift review should-fixes, plus batch 2,
   its should-fixes, and the confirm nits).
+  Batch 1 (24 November 2026, branch `forge-lean-batch1`, after the
+  label corrections): 926 declarations, OK. The 169 constants above 757
+  are the four new modules. 75 of them are the source declarations in
+  the batch 1 table; the rest are generated.
+  Batch 2 (24 November 2026, branch `forge-lean-batch2` at `6663d0e`,
+  merged as PR #266): 1185 declarations, OK. The 259 constants above 926
+  are the four batch 2 modules.
 
 ## How to build
 
@@ -130,6 +137,57 @@ wherever `FiniteDesignMenu` is used.
 | `CoadaptationDrift.s8b_lyapunov`, `s8b_regret_party0`, `s8b_regret_party1`, `s8b_naive_party0`, `s8b_naive_party1`, `s8bP0_right_inv`, `s8bP0_lyapunov`, `s8b_static_regret`, `ca7_regret_not_naive` | CLAIM_MAP U11 / CA7 (4) | The exact s8b datum of `tools/coadaptation_checks.py` (`S=[[2,9/10],[9/10,1]]`, `w=[1,2]`, `γ=5`, `V=diag(1,2/5)`, `Q=diag(3/10,3/10)`, `M_{ij}=S_{ij} w_i/γ`); regrets are `½ (g_iᵀ P g_i)/M_{ii}` on a symmetric Lyapunov solution `P` (uniqueness of that symmetric solution is outside Lean) | Lyapunov `V S P + P S V = 2V+2Q` holds for `P=[[2323/1904,−603/476],[−603/476,13757/4760]]`; drift regrets are `10643/80000` and `2557/8000`, against naive uncoupled `13/100` and `7/20`.  At `Q=0`, the quadratic form on `P₀=S⁻¹=[[100/119,−90/119],[−90/119,200/119]]` gives regrets `1/10` and `1/5`, i.e. `1/(2β_i)`.  Faithful for the negative finding on the note's s8b covariance |
 
 
+## Batch 1: representation, the two obstructions, finite partitions
+
+Every declaration added in `GTAO/Cauchy.lean`, `GTAO/Representation.lean`,
+`GTAO/Obstruction.lean`, and `GTAO/ContinuousA6.lean` is labeled against
+the sentence it checks. Debreu's theorem, von Neumann–Morgenstern
+linearity, and the Gelfand–Yaglom–Dobrushin reverse inequality are
+hypotheses. They are not proofs.
+
+| Lean name | Paper | Label |
+|---|---|---|
+| `AdditiveOnPos`, `Concatenates`, `mul_nat`, `below_gap`, `above_gap`, `ratBelow`, `ratAbove`, `ratBelow_bounds`, `ratAbove_bounds`, `tendsto_mul_div`, `tendsto_mul_div_above`, `tendsto_ratBelow`, `tendsto_ratAbove`, `eq_of_squeeze`, `f_one_nonneg_of_nondecreasing`, `f_one_nonpos_of_nonincreasing` | `theory/REPRESENTATION.md:68`–74, the estimates inside Lemma C | **Faithful.** Auxiliary definitions and bounds for the squeeze. The domain stays `(0, ∞)`. |
+| `cauchy_rat`, `cauchy_monotone`, `cauchy_continuous` | Lemma C, lines 68–74 | **Faithful.** Positive rationals need no monotonicity. Either monotone direction gives `f(x) = x f(1)`. Continuity gives the same line. Both signs of `f(1)` are allowed. |
+| `pexider_monotone`, `pexider_continuous` | Lemma P, line 76 | **Faithful.** `g = f + c` is additive, and `f(z) = p z - c` with `p` allowed to be negative. |
+| `cauchy_nat` | Lemma C on the nonnegative integers, line 78 | **Faithful.** `f(0) = 0` and `f(n) = n f(1)`, with no topology. |
+| `slope_nonneg_of_nondecreasing`, `price_zero_of_independent`, `Represents`, `IndependentOf` | Lemma M, line 80 | **Faithful.** A nondecreasing line has nonnegative slope. A coordinate the preorder ignores, on the positive orthant, has price 0. The witnesses are the constant-`1` vector and the vector that is `2` in that coordinate. The linear form is a hypothesis only for strictly positive vectors. |
+| `DebreuAdditive`, `r1_linear_components` | Theorem R1, lines 84 and 102–118 | **Faithful** as packaging. `n ≥ 3`, a sum of continuous coordinate functions, and the Pexider equation are hypotheses. The conclusion is `C(z) = ∑ p_i z_i + b` on positive vectors, prices unsigned. Debreu's theorem is not proved. |
+| `r1_vnm_scale` | lines 100 and 118 | **WEAKER.** Two positive affine writings of one index agree when that index takes two values. Von Neumann–Morgenstern linearity is a hypothesis. Debreu's common scale does not appear, so the declaration does not identify it with the currency regraduation. |
+| `r1_nonneg_of_A8` | lines 92 and 120 | **Faithful.** A8, each concatenating component nondecreasing, gives each price `≥ 0`. |
+| `r1_zero_of_not_essential` | lines 25 and 90 | **Faithful.** Same statement as `price_zero_of_independent`. The linear form and the preorder are used only on the positive orthant. |
+| `r1_with_layer_count` | lines 94 and 112 | **Faithful.** Separability `C(z, K) = C_interval(z) + f(K)` is a hypothesis. Concatenation of counts then gives `h K`. No declaration drops it. |
+| `r1_layer_price_nonneg_of_A8` | line 112 | **Faithful.** A8 on the integer count is the hypothesis that `fn` is nondecreasing. Then `h = fn 1 ≥ 0`. |
+| `negative_price_example` | lines 90 and 64 | **WEAKER.** The declaration is the arithmetic of `z₀ + z₁ - z₂`: the components are continuous and the third price is `-1`. Line 90 also says the example satisfies A1–A7. That check is not in the declaration. |
+| `IsArgmin`, `affine_argmin_iff`, `strictMono_argmin_iff` | line 126 | **Faithful.** For `a > 0`, and for any strictly increasing transform, the argmin on a menu that does not depend on the numerical cost is unchanged. |
+| `affine_excess_scale`, `affine_excess_eq_iff` | lines 128–142 | **Faithful.** On one weight, `E[C] - C* = a (E[J] - J*)` and `b` cancels. Against the fixed Gibbs weight of `J`, `Equipartition.gibbs_excess_quadratic` gives equality with `d/(2β)` if and only if `a = 1`. |
+| `affine_excess_refit` | line 142 | **Faithful.** `β_new = β / a` and `(a • H)` positive definite. The excess of `C` under its own Gibbs weight is `d / (2 β_new)`. |
+| `fractional_excess_scale`, `fractional_excess_shift` | lines 144–150 | **Faithful** for `b = 0`, and for the rationals `E[J] = 2`, `J* = 1`, `b = 1`, which change the fraction from `1` to `1/2`. The general quotient `(a (E[J] - J*)) / (a J* + b)` is not a theorem. |
+| `constrained_argmin_not_affine` | line 152 | **Faithful.** Two designs, costs `1` and `6/5`, variances `4` and `1`, level `3`, threshold `18/100`, shift `17/10`. Both designs are feasible before the shift and the cheaper one is design 0. After the shift only design 1 is feasible. |
+| `sharedGrowth`, `kelly_qstar`, `log_le_tangent`, `log_lt_tangent`, `kelly_foc_sign` | line 160 and `theory/DYNAMICS.md:159` | **Faithful.** `q* = 13/50` is the unique maximizer of shared-shock log growth on `(0, 1]`. The printed growth value `0.128` is not an equality. |
+| `kelly_not_expected_factor` | line 160 | **Faithful.** Lean expected factor `247/200`, robust `417/400`. The linear objective on `[0, 1]` is maximised only at pure lean, which is not `13/50`. |
+| `intervalCost`, `expected_cost_interval` | line 162 | **Faithful.** `LayerLifetime.Tstar 1 (1/20) 1 (1/2) = √(1/10)` is the unique positive minimizer of `c/τ + α τ`. |
+| `phi`, `quintic`, `cubic`, `quintic_eq_phi`, `hasDerivAt_quintic`, `cubic_neg`, `quintic_anti` | the numerator identity behind line 162 | **Faithful.** Exact polynomial arithmetic. `6000 t² φ(t)` is the quintic, and the quintic is strictly decreasing on `[0, 2]`. |
+| `survival_interval_lt` | line 162 | **WEAKER.** The unique zero of `φ` on `(0, 2]` lies in `(23615/100000, 189/800)` and is strictly below `√(1/10)`, which itself lies in `(31622/100000, 31623/100000)`. The printed figures `0.2362` and `0.3162` are not equalities. The sentence also says this zero is the survival-optimal interval. Maximality of `θ` is not proved. That gap is appended in `BATCH1_PLAN.md`. |
+| `klDiv_prob_integral` | `theory/CONTINUOUS_A6_2026-11-23.md:77` | **Faithful.** Probability measures, absolute continuity, and integrability of the log-likelihood are hypotheses. The divergence then equals `ENNReal.ofReal` of the integral. Without integrability Mathlib sets the divergence to `⊤`. |
+| `klDiv_nonneg` | line 77, the interval `[0, ∞]` | **Faithful** to `0 ≤ klDiv` in `ℝ≥0∞`. That order is the codomain. Nonnegativity of the integral is a different fact. |
+| `klDiv_zero_iff_eq` | line 111 | **Faithful** for the divergence: on probability measures it is `0` if and only if the measures are equal. The mutual-information form of that biconditional is not a separate declaration. |
+| `mutualInfo`, `mi_swap`, `mi_data_processing` | line 145, symmetry and data processing | **Faithful.** Symmetry is the coordinate swap. Data processing is Mathlib's `klDiv_map_le` on the product map. |
+| `klDiv_compProd_chain` | line 145 names a chain rule | **Faithful** to Mathlib's kernel identity `klDiv_compProd_eq_add`. It is not the mutual-information chain rule. That identification is a puzzle in `BATCH1_PLAN.md`, not a weaker equation. |
+| `partitionMI`, `partition_mi_le`, `refinement_mono`, `finite_identity_attains`, `FiniteLabel`, `finitePartitionMI`, `finite_partition_le` | lines 99 and 101 | **Faithful.** A finite labeling does not raise mutual information. A coarser labeling, being a measurable function of a finer one, does not raise it either. On a finite alphabet the identity labeling attains the value. |
+| `GYDSup`, `gyd_equiv` | lines 91 and 21 | **Faithful** as a hypothesis. `GYDSup` is the reverse inequality, joint divergence at most the supremum of finite-partition mutual informations. `gyd_equiv` adds that hypothesis to the proved inequality. The supremum is not constructed. |
+
+## Batch 2: heat and repair floors
+
+Declarations in `GTAO/HeatFloor.lean`, `GTAO/FiniteFloor.lean`,
+`GTAO/FiniteFloorBounds.lean`, and `GTAO/RepairFloor.lean`. The two-state
+floor, the finite-alphabet divergence, the class-indicator and 3-cycle
+witnesses, and the one-carrier comparison `L ≥ 4 (log 2 - h)` are checked.
+Four declarations are **WEAKER**, each with the missing clause in
+`INVENTORY.md` and a miss row in `BATCH2_PLAN.md`. The telegraph lower
+bound, the pairwise bound, the path bound, the product inequality on
+`{0,1}^n`, and the two-distribution decoder bound are not declarations.
+
 ## What is not formalized
 
 None of the following is claimed as proved in Lean.
@@ -187,6 +245,14 @@ formal/lean/
   GTAO/CoadaptationUnique.lean  # CA1 uniqueness (max-ratio + uniformization)
   GTAO/CoadaptationExcess.lean  # CA1b / CA1c (U2)
   GTAO/CoadaptationDrift.lean   # CA7 (U11): potential excess and regret counterexample
+  GTAO/Cauchy.lean          # Lemmas C, P, C on the nonnegative integers, M
+  GTAO/Representation.lean  # R1 packaging and the affine block
+  GTAO/Obstruction.lean     # R2: Kelly and the Lundberg interval comparison
+  GTAO/ContinuousA6.lean    # probability-measure klDiv, finite partitions, GYDSup
+  GTAO/HeatFloor.lean       # two-state heat floor, T59
+  GTAO/FiniteFloor.lean     # finite-alphabet learning rate, T60
+  GTAO/FiniteFloorBounds.lean  # connectivity, class indicator, 3-cycle
+  GTAO/RepairFloor.lean     # one-carrier repair comparison, T63
   scripts/AxiomAudit.lean   # every GTAO declaration uses only standard axioms
 ```
 

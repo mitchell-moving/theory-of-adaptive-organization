@@ -21,3 +21,11 @@ public import GTAO.DriftSpeed
 public import GTAO.CoadaptationUnique
 public import GTAO.CoadaptationExcess
 public import GTAO.CoadaptationDrift
+public import GTAO.Cauchy
+public import GTAO.Representation
+public import GTAO.Obstruction
+public import GTAO.ContinuousA6
+public import GTAO.HeatFloor
+public import GTAO.FiniteFloor
+public import GTAO.FiniteFloorBounds
+public import GTAO.RepairFloor
