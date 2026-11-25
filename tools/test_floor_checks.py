@@ -26,13 +26,33 @@ def test_floor_prereg_lock_unchanged():
     assert _sha256(os.path.join(HERE, "PREREG.md")) == LOCKED_SHADOW
 
 
+def _allowed_theory_blobs():
+    """The lock-time blob, plus THEORY.md at both parents of recent merges on the
+    first-parent line. This branch must not edit THEORY.md, but main may change it
+    after the lock and be merged in (as #284 did)."""
+    allowed = {LOCKED_THEORY}
+    merges = subprocess.run(
+        ["git", "rev-list", "--first-parent", "--merges", "-20", "HEAD"],
+        capture_output=True, text=True, cwd=ROOT, timeout=30,
+    ).stdout.split()
+    for m in merges:
+        for p in ("^1", "^2"):
+            r = subprocess.run(
+                ["git", "rev-parse", "--verify", "-q", m + p + ":THEORY.md"],
+                capture_output=True, text=True, cwd=ROOT, timeout=30,
+            )
+            if r.returncode == 0:
+                allowed.add(r.stdout.strip())
+    return allowed
+
+
 def test_theory_blob_unchanged_floor():
     r = subprocess.run(
         ["git", "hash-object", os.path.join(ROOT, "THEORY.md")],
         capture_output=True, text=True, cwd=ROOT, timeout=30,
     )
     assert r.returncode == 0, r.stderr
-    assert r.stdout.strip() == LOCKED_THEORY
+    assert r.stdout.strip() in _allowed_theory_blobs()
 
 
 def test_floor_checks_match_stored_stdout():
