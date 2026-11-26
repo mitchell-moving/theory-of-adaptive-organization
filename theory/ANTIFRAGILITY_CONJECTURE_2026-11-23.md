@@ -71,4 +71,4 @@ The cheapest next test of the conjecture is in-model: score the spread of the mi
 - Rebuild: `theory/antifragility_checks/RESULTS.md` (T43).
 - Barbell: `theory/DYNAMICS.md`.
 - Closed loop with payoff: `theory/ANTIFRAGILE_LOOP_2026-11-23.md`.
-- Open work: T50 in `OPEN_WORK.md`.
+- Open work: T50 in [`OPEN_WORK.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md).

@@ -2,7 +2,7 @@
 
 Written Sat 2026-11-14, about 10:35 PM to 1 AM ET, by a Grok Bot executor for Chad, via Ace. **Not independently reviewed.**
 
-**Read first:** `X_TEXT.txt` v9 (off-repo; the 12 Nov post is archived in `history/2026-11-12_X_POST.md`), `theory/THEOREMS.md`, `theory/MATH_ATTACK.md` and `tests/BIO1/RESULTS.md`. Items BIO1 already covers are mentioned only when they matter here: Kussell-Leibler, Acar, Lan, Mayer, Schnaack-Nourmohammad, Fairhall, Wark, Dussutour and Czaczkes.
+**Read first:** `X_TEXT.txt` v9 (off-repo; the 12 Nov post is archived in [`history/2026-11-12_X_POST.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-12_X_POST.md)), `theory/THEOREMS.md`, `theory/MATH_ATTACK.md` and `tests/BIO1/RESULTS.md`. Items BIO1 already covers are mentioned only when they matter here: Kussell-Leibler, Acar, Lan, Mayer, Schnaack-Nourmohammad, Fairhall, Wark, Dussutour and Czaczkes.
 
 **Verification.** Every DOI below was resolved against Crossref this pass (`verify/VERIFIED_DOIS.txt`), or checked against a fetched abstract or publisher page. Books marked *[classic, not fetched]* were not re-fetched. Nothing here was sent or posted. The public repo and Looper were not touched.
 

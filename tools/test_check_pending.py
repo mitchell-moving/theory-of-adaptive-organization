@@ -25,12 +25,11 @@ def ts(hours_ago):
 
 
 # ---------------------------------------------------------------- (b) Lean
-def _lean_tree(tmp_path, status_count=10, record=10):
+def _lean_tree(tmp_path, record=10):
     root = tmp_path / "r"
     (root / "formal" / "lean" / "GTAO").mkdir(parents=True)
     (root / "formal" / "lean" / "GTAO.lean").write_text("import GTAO.A\n")
     (root / "formal" / "lean" / "GTAO" / "A.lean").write_text("theorem t : True := trivial\n")
-    (root / "STATUS.md").write_text("machine-checks **%d declarations** (AxiomAudit)\n" % status_count)
     if record is not None:
         cp.record_audit(str(root), record, commit="abc1234")
     return root
@@ -45,13 +44,6 @@ def test_lean_count_match_passes(tmp_path):
     assert cp.check_lean(str(root)) == []
 
 
-def test_status_count_mismatch_fails(tmp_path):
-    # The 24 November miss: STATUS kept 757 after the audit count moved.
-    root = _lean_tree(tmp_path, status_count=757, record=1185)
-    fails = cp.check_lean(str(root))
-    assert any("757" in f and "1185" in f for f in fails)
-
-
 def test_lean_source_change_without_new_audit_fails(tmp_path):
     root = _lean_tree(tmp_path)
     (root / "formal" / "lean" / "GTAO" / "B.lean").write_text("theorem u : True := trivial\n")
@@ -64,17 +56,7 @@ def test_missing_audit_file_fails(tmp_path):
     assert any("AUDIT.json is missing" in f for f in cp.check_lean(str(root)))
 
 
-def test_status_without_lean_total_fails(tmp_path):
-    root = _lean_tree(tmp_path)
-    (root / "STATUS.md").write_text("no total here\n")
-    assert any("no '**N declarations**'" in f for f in cp.check_lean(str(root)))
-
-
-def test_status_count_parses_commas():
-    assert cp.status_lean_count("checks **1,185 declarations** today") == 1185
-
-
-# ---------------------------------------------------------------- (a) OPEN_WORK
+# ---------------------------------------------------------------- own row
 def _git(repo, *a):
     e = dict(os.environ, GIT_AUTHOR_NAME="T", GIT_AUTHOR_EMAIL="t@e", GIT_COMMITTER_NAME="T", GIT_COMMITTER_EMAIL="t@e")
     r = subprocess.run(["git", *a], cwd=repo, capture_output=True, text=True, env=e)
@@ -95,19 +77,32 @@ def _repo(tmp_path, n):
     return repo, shas
 
 
-def test_open_work_pointer_in_window_passes(tmp_path):
-    repo, shas = _repo(tmp_path, 4)
-    open(os.path.join(repo, "STATUS.md"), "w").write("`main` is `%s`\n" % shas[-1][:7])
-    open(os.path.join(repo, "OPEN_WORK.md"), "w").write("# OW\n\n**As of:** x, on `main` `%s` (PR #1).\n" % shas[0][:7])
-    assert cp.check_pointers(repo) == []
+def _ow(tmp_path, rows):
+    root = tmp_path / "ow"
+    root.mkdir(exist_ok=True)
+    (root / "README.md").write_text("# Front page\n\n| ID | What | Status | Gate | Where |\n|---|---|---|---|---|\n" + rows)
+    return str(root)
 
 
-def test_open_work_pointer_out_of_window_fails(tmp_path):
-    repo, shas = _repo(tmp_path, cp.OPEN_WORK_WINDOW + 2)
-    open(os.path.join(repo, "STATUS.md"), "w").write("`main` is `%s`\n" % shas[-1][:7])
-    open(os.path.join(repo, "OPEN_WORK.md"), "w").write("# OW\n\n**As of:** x, on `main` `%s`.\n" % shas[0][:7])
-    fails = cp.check_pointers(repo)
-    assert any("OPEN_WORK.md header" in f for f in fails)
+def test_own_row_left_in_flight_fails(tmp_path):
+    # Acceptance: a PR that leaves its own README.md row "In flight" fails --pr N.
+    root = _ow(tmp_path, "| T80 | x | open | In flight (upstream PR #300) | theory/X.md |\n")
+    fails = cp.own_row_check(root, 300)
+    assert len(fails) == 1 and "#300" in fails[0] and "README.md:5" in fails[0]
+
+
+def test_own_row_moved_passes_and_other_rows_are_not_this_prs(tmp_path):
+    root = _ow(tmp_path, "| T80 | x | proved-in-model | **DONE** (PR #300) | theory/X.md |\n"
+                         "| T81 | y | open | In flight (upstream PR #301) | theory/Y.md |\n")
+    assert cp.own_row_check(root, 300) == []
+    assert cp.own_row_check(root, 3000) == [] and cp.own_row_check(root, None) == []
+
+
+def test_own_row_cli_fails_with_pr(tmp_path, monkeypatch, capsys):
+    root = _ow(tmp_path, "| T80 | x | open | In flight (PR #300) | theory/X.md |\n")
+    monkeypatch.setattr(cp, "repo_root", lambda: root)
+    monkeypatch.setattr(cp, "check_lean", lambda root: [])
+    assert cp.main(["--offline", "--pr", "300"]) == 1 and "own row" in capsys.readouterr().out
 
 
 # ---------------------------------------------------------------- (c) pending
@@ -268,7 +263,7 @@ def test_parked_pr_is_exempt(tmp_path):
 def _parked(tmp_path, body):
     root = tmp_path / "p"
     (root / "process").mkdir(parents=True)
-    (root / "process" / "PARKED.md").write_text("# Parked\n\n| PR | reason | date | decided by |\n|---|---|---|---|\n" + body)
+    (root / "process" / "PROCESS.md").write_text("# Process\n\n## 4. One source per fact\n\n| PR | reason | date | decided by |\n|---|---|---|---|\n" + body)
     return str(root)
 
 
@@ -281,50 +276,14 @@ def test_parked_file_parses(tmp_path):
 def test_parked_row_without_date_or_decider_fails(tmp_path):
     root = _parked(tmp_path, "| fork#16 | because | soon |  |\n")
     parked, problems = cp.read_parked(root)
-    assert parked == {} and problems and "PARKED.md" in problems[0]
-
-
-def _status(tmp_path, text):
-    root = tmp_path / "s"
-    root.mkdir(exist_ok=True)
-    (root / "STATUS.md").write_text(text)
-    return str(root)
-
-
-def test_status_list_matches_live_list(tmp_path):
-    root = _status(tmp_path, "x. Open upstream PRs not yet merged: #253 (T72) and #257 (T75). Earlier merge logs are in history.\n")
-    live = [{"number": 253, "title": "a", "created_at": ts(30)}, {"number": 257, "title": "b", "created_at": ts(30)}]
-    assert cp.check_status_list(root, live, {}, now=NOW) == []
-
-
-def test_status_list_missing_an_old_open_pr_fails(tmp_path):
-    root = _status(tmp_path, "Open upstream PRs not yet merged: #253 (T72).\n")
-    live = [{"number": 253, "title": "a", "created_at": ts(30)}, {"number": 263, "title": "gate", "created_at": ts(30)}]
-    fails = cp.check_status_list(root, live, {}, now=NOW)
-    assert len(fails) == 1 and "#263" in fails[0]
-
-
-def test_status_list_ignores_new_or_parked_prs(tmp_path):
-    root = _status(tmp_path, "Open upstream PRs not yet merged: #253 (T72).\n")
-    live = [{"number": 253, "title": "a", "created_at": ts(30)}, {"number": 270, "title": "new", "created_at": ts(2)},
-            {"number": 263, "title": "gate", "created_at": ts(30)}]
-    assert cp.check_status_list(root, live, {("upstream", 263): "r"}, now=NOW) == []
-
-
-def test_status_list_naming_a_closed_pr_fails(tmp_path):
-    # The 24 November #253 error in reverse: STATUS names a PR that is no longer open.
-    root = _status(tmp_path, "Open upstream PRs not yet merged: #253 (T72) and #999 (gone).\n")
-    live = [{"number": 253, "title": "a", "created_at": ts(30)}]
-    fails = cp.check_status_list(root, live, {}, now=NOW)
-    assert len(fails) == 1 and "#999" in fails[0]
+    assert parked == {} and problems and "PROCESS.md" in problems[0]
 
 
 # ---------------------------------------------------------------- result line
 def _run_main(monkeypatch, capsys, argv, online=None, fetch=None):
     monkeypatch.setattr(cp, "fetch_origin", lambda root: fetch)
-    monkeypatch.setattr(cp, "check_pointers", lambda root: [])
     monkeypatch.setattr(cp, "check_lean", lambda root: [])
-    monkeypatch.setattr(cp, "check_online", online or (lambda root: ([], [])))
+    monkeypatch.setattr(cp, "check_online", online or (lambda root, pr=None: ([], [], [])))
     rc = cp.main(argv)
     return rc, capsys.readouterr().out
 
@@ -340,12 +299,12 @@ def test_strict_makes_partial_exit_2(monkeypatch, capsys):
 
 
 def test_no_network_is_partial_not_pass(monkeypatch, capsys):
-    rc, out = _run_main(monkeypatch, capsys, [], online=lambda root: ([], ["open-PR check not run (no network)"]))
+    rc, out = _run_main(monkeypatch, capsys, [], online=lambda root, pr=None: ([], [], ["open-PR check not run (no network)"]))
     assert "RESULT: PARTIAL" in out and "RESULT: PASS" not in out and rc == 2   # not asked for: non-zero
 
 
 def test_no_gh_exits_nonzero_by_default_and_zero_with_allow_partial(monkeypatch, capsys):
-    off = lambda root: ([], ["open-PR check not run (gh not installed)"])  # noqa: E731
+    off = lambda root, pr=None: ([], [], ["open-PR check not run (gh not installed)"])  # noqa: E731
     rc, out = _run_main(monkeypatch, capsys, [], online=off)
     assert rc == 2 and "PARTIAL" in out
     rc, out = _run_main(monkeypatch, capsys, ["--allow-partial"], online=off)
@@ -372,14 +331,14 @@ def test_failure_beats_partial(monkeypatch, capsys):
 def test_api_error_is_partial_not_failure(tmp_path):
     def api(path):
         raise cp.Offline("no network")
-    fails, partial = cp.check_online(str(tmp_path), api=api, now=NOW)
+    fails, _warns, partial = cp.check_online(str(tmp_path), api=api, now=NOW)
     assert fails == [] and partial and "not run" in partial[0]
 
 
 def test_unexpected_api_error_is_partial(tmp_path):
     def api(path):
         raise OSError("boom")
-    fails, partial = cp.check_online(str(tmp_path), api=api, now=NOW)
+    fails, _warns, partial = cp.check_online(str(tmp_path), api=api, now=NOW)
     assert fails == [] and "not run" in partial[0]
 
 
@@ -507,8 +466,64 @@ def test_check_online_includes_the_closing_check(tmp_path):
     g = FakeGH()
     g.pr(cp.UPSTREAM, 270, "STATUS rebuild", "s270", "98d349a", age_h=1)
     g.commits[(cp.UPSTREAM, 270)] = [{"sha": "a" * 40, "commit": {"message": "fix #253"}}]
-    fails, _ = cp.check_online(str(tmp_path), api=g, now=NOW)
+    fails, warns, _ = cp.check_online(str(tmp_path), api=g, now=NOW, pr=270)
     assert any(f.startswith("closing:") for f in fails)
+    fails, warns, _ = cp.check_online(str(tmp_path), api=g, now=NOW, pr=271)
+    assert fails == [] and any(w.startswith("closing:") for w in warns)
+
+
+def _stale_upstream(g):
+    g.pr(cp.UPSTREAM, 280, "Old work", "w280", "6663d0e")
+    g.pr(cp.UPSTREAM, 281, "Review of #280", "r280", "295c968", base_ref="w280")
+    g.review_file(cp.UPSTREAM, 281, pass_text("6663d0e"))
+    return g
+
+
+def test_unrelated_stale_pr_only_warns(tmp_path):
+    # Acceptance: a stale reviewed PR elsewhere never fails another PR's merge.
+    g = _stale_upstream(FakeGH())
+    fails, warns, partial = cp.check_online(str(tmp_path), api=g, now=NOW, pr=291)
+    assert fails == [] and partial == [] and any("upstream#280" in w for w in warns)
+    fails, warns, _ = cp.check_online(str(tmp_path), api=g, now=NOW)
+    assert fails == [] and warns
+
+
+def test_stale_pr_fails_when_it_is_the_one_being_merged(tmp_path):
+    g = _stale_upstream(FakeGH())
+    fails, warns, _ = cp.check_online(str(tmp_path), api=g, now=NOW, pr=280)
+    assert any("upstream#280" in f for f in fails)
+
+
+def test_warn_lines_print_but_pass(monkeypatch, capsys):
+    rc, out = _run_main(monkeypatch, capsys, [], online=lambda root, pr=None: ([], ["pending: upstream#280 (x)"], []))
+    assert rc == 0 and "WARN pending: upstream#280" in out and "RESULT: PASS" in out
+
+
+def test_two_back_to_back_merges_need_no_repair_commit(tmp_path):
+    # Acceptance (simulated): merge PR A, then PR B, each moving only its own row. After each merge every
+    # drift check passes on main as merged, with no follow-up commit, because no page names main or open PRs.
+    import check_fresh
+    repo, _ = _repo(tmp_path, 1)
+    ow = os.path.join(repo, "README.md")
+    rows = {"T90": "In flight (upstream PR #400)", "T91": "In flight (upstream PR #401)"}
+
+    def write():
+        open(ow, "w").write("# Front page\n\nLive state: `python3 tools/brief.py`.\n\n| ID | What | Status | Gate | Where |\n"
+                            "|---|---|---|---|---|\n" + "".join("| %s | x | open | %s | t |\n" % kv for kv in rows.items()))
+    write()
+    _git(repo, "add", ".")
+    _git(repo, "commit", "-m", "base")
+    for ident, pr in (("T90", 400), ("T91", 401)):
+        _git(repo, "checkout", "-q", "-b", "pr%d" % pr, "main")
+        rows[ident] = "**DONE** (PR #%d)" % pr
+        write()
+        _git(repo, "commit", "-qam", "work %d" % pr)
+        assert cp.own_row_check(repo, pr) == []          # the PR's own gate
+        _git(repo, "checkout", "-q", "main")
+        _git(repo, "merge", "-q", "--no-ff", "-m", "Merge pull request #%d" % pr, "pr%d" % pr)
+        assert check_fresh.check(repo) == []             # main right after the merge
+        assert cp.own_row_check(repo, pr) == []
+    assert _git(repo, "log", "--oneline").count("\n") + 1 == 6   # base + init + 2 x (work, merge); no repair commits
 
 
 def test_local_pre_merge_check_reads_commits_and_body(tmp_path):

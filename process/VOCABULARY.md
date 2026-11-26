@@ -6,7 +6,7 @@
 
 **Labels.** **DECIDED** is a naming decision, not a claim about the world (the CLAIM_MAP status of N30). **PROVED (in-model)**, **KNOWN**, **CONJECTURE**, **OPEN**, **INTERPRETATION**, **FAILS**, **SIM-FAIL** are used as in `CORE.md:169`, `theory/SWARM_RULE_2026-11-23.md:7` and the CLAIM_MAP. Each entry says which words are the decision and which are the cited results.
 
-**Scope.** Nothing here says anything about experience or consciousness. That question is parked (`theory/IIT_PATH_2026-11-23.md`; `OPEN_WORK.md:107`, T56: "Open (exploration path, not a result)"). "A person is a model of their world" is an INTERPRETATION, not a measured result (entry 3).
+**Scope.** Nothing here says anything about experience or consciousness. That question is parked (`theory/IIT_PATH_2026-11-23.md`; [`OPEN_WORK.md:107`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L107), T56: "Open (exploration path, not a result)"). "A person is a model of their world" is an INTERPRETATION, not a measured result (entry 3).
 
 ## 1. Memory
 
@@ -28,7 +28,7 @@
 
 **Cost (cited results, not new).**
 - Acquiring or erasing a nat by a measuring tracker costs at least \(kT\) (**KNOWN**, Landauer 1961; `THEORY.md:36`), and the freeze-or-hold note prices a record's one-time write at that floor (`theory/FREEZE_OR_HOLD_FLOOR_2026-11-23.md:101`). A Landauer cost per irreversible reset as a steady floor is **OPEN** there (`:105`).
-- In a frozen or disconnected world a static record can beat a no-memory guess at vanishing ongoing memory-bath heat after the one-time write (**PROVED (in-model)** in the named classes, T57, T59, T60; T59 is on main after independent review, `OPEN_WORK.md:110`; passive retention over a horizon short against the leak time, `theory/FREEZE_OR_HOLD_FLOOR_2026-11-23.md:103`). In the words of `CORE.md:78`: "Storage is cheap. Tracking a changing, connected world is what costs."
+- In a frozen or disconnected world a static record can beat a no-memory guess at vanishing ongoing memory-bath heat after the one-time write (**PROVED (in-model)** in the named classes, T57, T59, T60; T59 is on main after independent review, [`OPEN_WORK.md:110`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L110); passive retention over a horizon short against the leak time, `theory/FREEZE_OR_HOLD_FLOOR_2026-11-23.md:103`). In the words of `CORE.md:78`: "Storage is cheap. Tracking a changing, connected world is what costs."
 - Keeping a record current against a changing, connected world costs heat of at least \(kT\) times the net learning rate (`CORE.md:70`): **KNOWN** for bipartite jump processes, **PROVED (in-model)** for additive-noise diffusions, open beyond those classes. When the memory also steers the world, the thermodynamic step still holds but the exogenous floor is not inherited (`CORE.md:80`).
 
 **Example.** A crystal's isotope ratios are a frozen record of its formation. It is memory in the theory's sense with keeping cost 0, and it is not a model (`theory/SCALE_ENDS.md:106`).
@@ -68,7 +68,7 @@
 
 ## 5. Nesting (three different things)
 
-1. **Cost nesting (CT34), PROVED (in-model).** For parent design \(x\) and team design \(y\): \(\min_{x,y}J=\min_x[F(x)+J^*_T(\theta(x))]\), exactly, where \(\theta\) is what the parent passes down (`THEORY.md:497`). The team's optimized cost is a constant upkeep \(h\) if \(\theta\) does not depend on \(x\) (generically only if). Otherwise it is a value function of \(\theta(x)\), still exact. The *stated error* applies only if the team is frozen at its stand-alone optimum under weak coupling: at most \((\varepsilon L)^2/(2\mu)\), second order in \(\varepsilon\). A shared driver is not weak coupling. **CONJECTURE, not shown:** that real teams coarse-grain to one member with upkeep \(J^*_T\) (`THEORY.md:125`). The dyadic renormalization analogue is BROKEN as preregistered and that "does not settle CT34" (T69, `OPEN_WORK.md:120`).
+1. **Cost nesting (CT34), PROVED (in-model).** For parent design \(x\) and team design \(y\): \(\min_{x,y}J=\min_x[F(x)+J^*_T(\theta(x))]\), exactly, where \(\theta\) is what the parent passes down (`THEORY.md:497`). The team's optimized cost is a constant upkeep \(h\) if \(\theta\) does not depend on \(x\) (generically only if). Otherwise it is a value function of \(\theta(x)\), still exact. The *stated error* applies only if the team is frozen at its stand-alone optimum under weak coupling: at most \((\varepsilon L)^2/(2\mu)\), second order in \(\varepsilon\). A shared driver is not weak coupling. **CONJECTURE, not shown:** that real teams coarse-grain to one member with upkeep \(J^*_T\) (`THEORY.md:125`). The dyadic renormalization analogue is BROKEN as preregistered and that "does not settle CT34" (T69, [`OPEN_WORK.md:120`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L120)).
 2. **Nested versus flat layers.** "Nested beats flat" is not one theorem: **[PROOF for (a), KNOWN for (b), NUMERIC for (c); no general theorem]** (`theory/THEOREMS.md:60-62`, `:111`). Decoupled nesting loses to flat when time scales collapse (T3c).
 3. **A nested tree of members.** The CL15 result in entry 4.
 
@@ -90,7 +90,7 @@
 
 **Status.**
 - Self-similar world and power-law costs give a self-similar optimal architecture: **PROVED (in-model)** as a conditional, close to a tautology (T7b, `theory/THEOREMS.md:175-204`). "The architecture is fractal" is not a theorem (`theory/THEOREMS.md:17`). The CLAIM_MAP status of CL16 is MATH-CORRECTED.
-- A scaling of the heat floor with fractal dimension **FAILS** in the checked class: on the locked Sierpiński gasket and carpet the heat floor follows the sites the decision names and the degree sum, not the Hausdorff or spectral dimension. This is a self-check, not an independent review, in one class (`theory/FRACTAL_WORLD_2026-11-22.md:5`, `OPEN_WORK.md:105`, T54).
+- A scaling of the heat floor with fractal dimension **FAILS** in the checked class: on the locked Sierpiński gasket and carpet the heat floor follows the sites the decision names and the degree sum, not the Hausdorff or spectral dimension. This is a self-check, not an independent review, in one class (`theory/FRACTAL_WORLD_2026-11-22.md:5`, [`OPEN_WORK.md:105`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L105), T54).
 - Geometric spacing of layers that holds across spans: LAYERS1 P2 is **SIM-FAIL** (6 of 12), and geometric levels are proved only in T7b's shared-clock model (`theory/LAYERS.md:21`, `measurement/CLAIM_MAP_v2.md:317`).
 
 **Say / don't say.** Say "self-similar world" for the input. Never say "the theory says time is fractal", "the universe is fractal" or "everything is the same at every level".

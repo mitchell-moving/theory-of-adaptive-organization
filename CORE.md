@@ -1,6 +1,6 @@
 # The core: one cost, one method, one hypothesis
 
-*Sunday 22 November 2026. The full argument behind the front page, with every number. Rewritten as one argument from the previous version (`history/2026-11-22_CORE_before_synthesis.md`); keep, fold, and demote decisions are in `history/2026-11-22_SYNTHESIS_DECISIONS.md`. The picture is [`figures/master_curve.png`](figures/master_curve.png) (claims and sources: `figures/master_curve.md`); the earlier derivation map is `figures/derivation_map.png`.*
+*Sunday 22 November 2026. The full argument behind the front page, with every number. Rewritten as one argument from the previous version ([`history/2026-11-22_CORE_before_synthesis.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-22_CORE_before_synthesis.md)); keep, fold, and demote decisions are in [`history/2026-11-22_SYNTHESIS_DECISIONS.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-22_SYNTHESIS_DECISIONS.md). The picture is [`figures/master_curve.png`](figures/master_curve.png) (claims and sources: `figures/master_curve.md`); the earlier derivation map is `figures/derivation_map.png`.*
 
 Thermodynamics tells an engineer two things about any engine: the best it could possibly do, and how far a real one falls short. This theory aims to do the same for adaptive systems: cells, colonies, brains, teams, firms, AI and robot systems, anything that must act before its world arrives. Its object is the cost of judgment: being wrong or late plus the cost of holding, acquiring, and sharing information, under a cap on the chance of ruin. In the proved physical class, the memory term is bath heat—at least \(kT\) times the rate at which the memory learns, for bipartite chains and additive-noise diffusions—plus the stake on error (a separate display from `THEORY.md`'s five-term sum, open work T40). In worked classes the minimum is computed, in closed form where the class allows, and it says what the best design looks like: how many layers, what to share, where a boundary is enough, when a shock should strengthen a system rather than harm it. If the hypothesis below holds, any adaptive system can be measured against its minimum, and the gap says where it wastes and what would close it.
 
@@ -12,7 +12,7 @@ The theory has two parts, and they are different kinds of claim. **Part 1 is mat
 
 Until a system qualifies under THEORY §3, the working name is a principle: one cost, and the design is what that cost selects. The heat floor, class by class, is §3. The heat floor and its minimizers in the worked class are proved in the class named in §4. The telegraph is in that class. Other Gaussian systems stay open, and other linear systems stay open. The list of what stays open is §7. No system has been shown to qualify.
 
-[`THEORY.md`](THEORY.md) is the canonical statement (v2.9 draft). It still displays the five-term sum. Where this page and `THEORY.md` disagree, `THEORY.md` governs. Putting the physics display into THEORY §3 is open work, T40 in [`OPEN_WORK.md`](OPEN_WORK.md).
+[`THEORY.md`](THEORY.md) is the canonical statement (v2.9 draft). It still displays the five-term sum. Where this page and `THEORY.md` disagree, `THEORY.md` governs. Putting the physics display into THEORY §3 is open work, T40 in [`README.md`, Waiting on Chad](README.md#waiting-on-chad).
 
 ## 1. The cost
 
@@ -77,9 +77,9 @@ A lower bound on the heat at a fixed error is a lower bound on \(J\) at that err
 
 **Frozen or disconnected worlds allow zero ongoing heat.** A static record in a frozen world, or a memory that holds only the label of a disconnected class, can beat a no-memory guess at vanishing ongoing memory-bath heat after a one-time write (T57 §0, §4; T59 §0, §4; T60 §0, §3). The stake on error remains. Storage is cheap. Tracking a changing, connected world is what costs. That is an open boundary of the general floor, stated as such, not a hidden loophole.
 
-**When the memory also steers the world.** The thermodynamic step still holds under feedback, and in a steady state the net learning rate equals the information used to steer (Horowitz and Esposito 2014). The T60 identity and the exogenous floor are not inherited: the occupied flux is then part of the design, and the net learning rate can fall below \(r\,L(\varepsilon)\) or change sign. A design-independent positive floor on memory heat alone, in terms of a task error, is false once the memory may act. A conservative trap of the plant, or a joint conservative coupling, has vanishing ongoing heat at a Boltzmann residual (T57's loophole, now on the plant). In the linear class with additive feedback at fixed process noise, a compensated Kalman–Bucy implementation keeps the exogenous learning rate and a factor-two memory-bath heat, both independent of the gain; the world-bath heat is the actuation cost and diverges as the regulated variance is pushed down to the estimation error. Acting does not reduce that tracking floor. An exogenous coordinate the memory tracks, while it slaves a different plant, keeps the T59 floor. These are **PROVED (in-model)** in the named classes (`theory/FEEDBACK_FLOOR_2026-11-23.md`, T61; independent review reported in OPEN_WORK; no review record committed). T61 prices heat for a passive plant at fixed noise. It is not the co-adaptation statement F3/F4. Dual control, and a closed-form infimum of total heat at fixed variance over all physical designs, stay open.
+**When the memory also steers the world.** The thermodynamic step still holds under feedback, and in a steady state the net learning rate equals the information used to steer (Horowitz and Esposito 2014). The T60 identity and the exogenous floor are not inherited: the occupied flux is then part of the design, and the net learning rate can fall below \(r\,L(\varepsilon)\) or change sign. A design-independent positive floor on memory heat alone, in terms of a task error, is false once the memory may act. A conservative trap of the plant, or a joint conservative coupling, has vanishing ongoing heat at a Boltzmann residual (T57's loophole, now on the plant). In the linear class with additive feedback at fixed process noise, a compensated Kalman–Bucy implementation keeps the exogenous learning rate and a factor-two memory-bath heat, both independent of the gain; the world-bath heat is the actuation cost and diverges as the regulated variance is pushed down to the estimation error. Acting does not reduce that tracking floor. An exogenous coordinate the memory tracks, while it slaves a different plant, keeps the T59 floor. These are **PROVED (in-model)** in the named classes (`theory/FEEDBACK_FLOOR_2026-11-23.md`, T61; independent review reported in [the T61 row of the retired work list](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L112); no review record committed). T61 prices heat for a passive plant at fixed noise. It is not the co-adaptation statement F3/F4. Dual control, and a closed-form infimum of total heat at fixed variance over all physical designs, stay open.
 
-**Still open:** a closed form of the learning-rate–distortion function for a general world (T57 §4; T60 §0, §6); which memories attain the floor outside the telegraph (T60 §5); worlds the memory itself moves, beyond the named classes of T61 (T60 §6; T61); and the remaining items of CX1 (CLAIM_MAP PD8). In a world with no stationary law the information floor is already a flow, in its class: for a linear world with independent shocks, any design must take in new information at least as fast as the drift wears the old away, and for a random walk the error obeys \(D\ge q/(e^{2\bar r}-1)\), met with equality by the Kalman filter (`theory/THEOREM_P_DRIFT.md` §0; CLAIM_MAP PD1; re-confirmed 23 November 2026). The continuous-information A6 extension (T48) is in `theory/CONTINUOUS_A6_2026-11-23.md`. The live work list is `OPEN_WORK.md`. The goal is a floor for every adaptive system. None is claimed for every class here.
+**Still open:** a closed form of the learning-rate–distortion function for a general world (T57 §4; T60 §0, §6); which memories attain the floor outside the telegraph (T60 §5); worlds the memory itself moves, beyond the named classes of T61 (T60 §6; T61); and the remaining items of CX1 (CLAIM_MAP PD8). In a world with no stationary law the information floor is already a flow, in its class: for a linear world with independent shocks, any design must take in new information at least as fast as the drift wears the old away, and for a random walk the error obeys \(D\ge q/(e^{2\bar r}-1)\), met with equality by the Kalman filter (`theory/THEOREM_P_DRIFT.md` §0; CLAIM_MAP PD1; re-confirmed 23 November 2026). The continuous-information A6 extension (T48) is in `theory/CONTINUOUS_A6_2026-11-23.md`. The live work list is [`README.md`, Ranked gaps](README.md#ranked-gaps). The goal is a floor for every adaptive system. None is claimed for every class here.
 
 ## 4. The worked class and what its minimum buys
 
@@ -115,7 +115,7 @@ The barbell is not a general result of this cost. Where the cost-versus-ruin fro
 
 Closing the loop, in the scored linear-quadratic-Gaussian model, shrinks the information stock memory must carry and does not shrink the learning-rate heat. At unit stake and \((a,\theta)=(1,1)\), with heat and probe charged, the loop is dearer than sensing at every fraction, and the minimum is the blind cost \(q\theta\), which rises with volatility. At stake 4 the loop is slightly cheaper, by 0.033889928154 at the minimizing fraction (`theory/ACTING_LOOP_2026-11-22.md`). The spread of the minimizing closed loop was not scored. The conjecture — a bet, not a result — is that antifragility falls out of minimizing the cost once the predict-act-correct loop is closed. The joining theorem is open.
 
-**Acting.** World \(dX=-aX\,dt+b u_a\,dt+\sqrt{2a\theta}\,dW\). With the channel unpriced, the closed loop is cheaper than sensing alone by \((q-2aP(a))\theta\). At unit stake, unit drift, and unit variance that gap is 0.171572875254, against a sensing-alone cost of 1. With the heat floor and the probe price charged, that gap is negative at every fraction when the stake is 1, and at stake 4 the gap at the minimizing fraction is 0.033889928154 (`theory/ACTING_LOOP_2026-11-22.md`). Feedback shrinks the stock \(\tfrac12\log(v/p)\) and does not shrink the learning-rate heat. The separated gain is certainty equivalence for unconstrained linear-quadratic-Gaussian control. A tight variance cap, and a capped loss, each move the gain. An open-loop probe makes the minimized sign cost fall with volatility. The slope equals minus the probe price of the fraction over \(\theta^2\) (`theory/ACTING_MEMORY_2026-11-22.md`). The derivation that puts the action in the drift is merged as [PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203) (OPEN_WORK T47). Theorem R1′ is a representation theorem, the cubic ordering is a conjecture, and the proposal diff is not applied to THEORY.
+**Acting.** World \(dX=-aX\,dt+b u_a\,dt+\sqrt{2a\theta}\,dW\). With the channel unpriced, the closed loop is cheaper than sensing alone by \((q-2aP(a))\theta\). At unit stake, unit drift, and unit variance that gap is 0.171572875254, against a sensing-alone cost of 1. With the heat floor and the probe price charged, that gap is negative at every fraction when the stake is 1, and at stake 4 the gap at the minimizing fraction is 0.033889928154 (`theory/ACTING_LOOP_2026-11-22.md`). Feedback shrinks the stock \(\tfrac12\log(v/p)\) and does not shrink the learning-rate heat. The separated gain is certainty equivalence for unconstrained linear-quadratic-Gaussian control. A tight variance cap, and a capped loss, each move the gain. An open-loop probe makes the minimized sign cost fall with volatility. The slope equals minus the probe price of the fraction over \(\theta^2\) (`theory/ACTING_MEMORY_2026-11-22.md`). The derivation that puts the action in the drift is merged as [PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203) (T47). Theorem R1′ is a representation theorem, the cubic ordering is a conjecture, and the proposal diff is not applied to THEORY.
 
 ## 5. The evolutionary route
 
@@ -150,15 +150,11 @@ A qualifying design outside the preregistered band is a miss for that class. The
 
 ## 7. What remains
 
-In priority order:
-
-1. **The continuous A6 extension (T48).** For random variables on standard Borel spaces with finite mutual information, A6's memory coordinate is the Gelfand–Yaglom–Dobrushin supremum of discrete mutual informations, equivalently the Kullback–Leibler divergence of the joint from the product of the margins. It agrees with finite-law Shannon mutual information and, when the densities exist and the integral is finite, with differential mutual information. Theorem R1 is unchanged. The Aczél–Forte–Ng uniqueness for entropy itself is not extended to differential entropy, and the representation is not applied when mutual information is infinite. The note is `theory/CONTINUOUS_A6_2026-11-23.md` (independently reviewed on PR #237).
-2. **Non-Gaussian closed forms (T49, independently reviewed on PR #238; the live list is `OPEN_WORK.md`).** Derive closed forms for heavy tails, switching, and rare shocks (signals other than exogenous equilibrium OU or telegraph, losses other than mean square or Hamming error, and a memory that changes its world): sharper numbers for later real-data tests, not a change to the theory.
-3. **The decisive evidence (real-data test).** Measure one real strongly selected system against the axioms (qualified before scoring) and test whether it sits near the predicted minimum, preregistered and hash-locked.
-4. **Existing open items and open misses:**
+The ranked work list is in [`README.md`, Ranked gaps](README.md#ranked-gaps).
+**Existing open items and open misses:**
    - Deriving the stake, the link price, or the ruin cap from the heat bound. They stay assumptions.
    - A closed form of the learning-rate–distortion function for a general world, which memories attain the floor outside the telegraph, and worlds the memory itself moves beyond the named classes of T61 (T57, T60, T61; the proved pieces and the open boundary are in §3).
-   - The heat floor on Sierpiński graphs: cost tracks the sites the decision names, not the Hausdorff or spectral dimension (`theory/FRACTAL_WORLD_2026-11-22.md`, OPEN_WORK T54). Identities the locked script checks are **PROVED** (in-model, class F, code-checked); a dimension law for the cost **FAILS**. A self-check, not an independent review. This page does not treat that review as done.
+   - The heat floor on Sierpiński graphs: cost tracks the sites the decision names, not the Hausdorff or spectral dimension (`theory/FRACTAL_WORLD_2026-11-22.md`, T54). Identities the locked script checks are **PROVED** (in-model, class F, code-checked); a dimension law for the cost **FAILS**. A self-check, not an independent review. This page does not treat that review as done.
    - Adopting the acting derivation into THEORY (T47 is merged; the proposal is not applied), and adopting the physics display (T40). Neither edit is made here.
    - The joining theorem that would make a general gain from disorder a consequence of the minimized cost under the closed loop (T50). The cheapest next test is to score the spread of the minimizing closed loop, preregistered before any new computation. No field prediction is ready. The statement is `theory/ANTIFRAGILITY_CONJECTURE_2026-11-23.md`.
    - The integer \(5\%\) radius. It is 2 at \(\tau=1/2\) and at \(\tau=1\), ratio 1, because both crossings of the level 0.05 lie in \((1,2)\). The path of 61 sites, the next test the preregistration named, returned 2 and 2. The smooth crossing on times \(1/4\) and \(1\) is a separate statistic: ratio 2.067863694520, inside \([1.7,2.3]\).
@@ -171,42 +167,4 @@ In priority order:
 The layer-count, lifetime, and local-versus-shared theorems in `THEORY.md` minimize the five-term sum. They are theorems about that sum. Adopting §9 of `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` would not re-prove them under the heat.
 
 
-<!-- claims-view:begin -->
-Derived from the headline ledger in measurement/CLAIM_MAP_v2.md. Refresh this block from that ledger. A disagreement is a miss of a public claim.
-HYP | hypothesis | no qualified real test
-JP-HEAT | known | Horowitz and Esposito 2014, credited
-EQ-HEAT | proved-in-model | in-model proof; not the whole physical argument
-T57 | proved-in-model | T57 note; closed forms are named classes only
-T60 | proved-in-model | proved in-model, one direction
-T61 | proved-in-model | independent review reported in OPEN_WORK; no review record committed
-T41 | proved-in-model | reviewed holographic note
-T42 | proved-in-model | reviewed holographic-memory note
-T44 | proved-in-model | reviewed boundary note
-T62 | proved-in-model | review fixes recorded at d79e766; independent review reported by T63 §1; no standalone review record
-T63 | proved-in-model | Independently reviewed (PR #240; commit 911a71c)
-CX2 | open | reviewed, `reviews/coadaptation_2026-11-21/REVIEW.md`, CONFIRM2 READY at 93add78, merged as b16193d
-CT31 | proved-in-model | Appendix B.10, proved in the model
-CT32 | proved-in-model | Appendix B.10, proved in the model
-CT34 | proved-in-model | Appendix B.10
-CA1 | proved-in-model | CONFIRM2 READY at 93add78
-CA5 | proved-in-model | CONFIRM2 READY at 93add78
-F3 | proved-in-model | CONFIRM2 READY at 93add78
-F4 | proved-in-model | CONFIRM2 READY at 93add78
-F6 | proved-in-model | CONFIRM2 READY at 93add78
-CL11 | open | open lever of section 3
-SWARM-STAY | proved-in-model | swarm note, proved in that class
-WORLD-PARTY | interpretation | interpretation of the co-adaptation setup
-BICAUSAL | open | open row; pieces are not one result
-GROWTH | proved-in-model | growth-bridge note
-T40 | open | needs a reviewed adoption
-T49 | proved-in-model | Independently reviewed (PR #238)
-FOUR | proved-in-model | the fourth condition is the proved settling scope, not an if and only if
-IP5 | false | claim-map section Y
-LEAN-SCOPE | open | batch reviews recorded on main
-T31 | open | parked
-T71 | known | relabel; classical scope known
-T73 | proved-in-model | self-check
-T74 | open | routes stop
-T72 | open | in flight upstream
-GATE | open | open miss of the design interpretation in this ledger
-<!-- claims-view:end -->
+Claim statuses: [`measurement/CLAIM_MAP_v2.md`](measurement/CLAIM_MAP_v2.md) (headline ledger).

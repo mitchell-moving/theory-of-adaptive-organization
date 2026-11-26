@@ -1,6 +1,6 @@
 # A Theory of Adaptive Organization: the cost of judgment — v2.9 draft (20 November 2026)
 
-Author: Chad Mitchell (X: [@torusflow](https://x.com/torusflow)). Public domain (CC0). Not peer reviewed. v2.3 was independently reviewed once (outcome NOT READY: four statements of scope too wide); v2.4 restates those, and the restatements and the new results (CT30–CT34) have not been reviewed. **This file is the one canonical statement of the theory; where anything else in the repository disagrees, this file governs.** The main text (§1–§10) reads in about 15 minutes. Appendix A fixes the model and notation, Appendix B proves every numbered result, and Appendix C maps each result to its claim row and its derivation. Claim statuses: `measurement/CLAIM_MAP_v2.md` (v2.89). The previous core is frozen at `reference/THEORY_v2.0.md`; the changelog and the full record of tests and reviews are in `reference/` and the folders it indexes.
+Author: Chad Mitchell (X: [@torusflow](https://x.com/torusflow)). Public domain (CC0). Not peer reviewed. v2.3 was independently reviewed once (outcome NOT READY: four statements of scope too wide); v2.4 restates those, and the restatements and the new results (CT30–CT34) have not been reviewed. **This file is the one canonical statement of the theory; where anything else in the repository disagrees, this file governs.** The main text (§1–§10) reads in about 15 minutes. Appendix A fixes the model and notation, Appendix B proves every numbered result, and Appendix C maps each result to its claim row and its derivation. Claim statuses: `measurement/CLAIM_MAP_v2.md` (v2.89). The previous core is frozen at [`reference/THEORY_v2.0.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/reference/THEORY_v2.0.md); the changelog and the full record of tests and reviews are in [`reference/`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/tree/1eed183f3888e8e3eead5956bbf1e8cb4233510a/reference) and the folders it indexes.
 
 **Status words.** *Proved in-model*: a theorem inside the stated model, which says nothing by itself about nature. *Known*: a published result, credited. *Open*: untested, not refuted. *Passed/failed on proxy*: a locked prediction scored on an instrument that fails at least one validity gate, which is a result about that instrument, not about the theory. *Not a test*: a field result whose system was not shown to qualify under the pre-written definition (§3), so it says nothing about the hypothesis either way; its proxy result is kept as history.
 
@@ -36,7 +36,7 @@ $$
 - **One currency per system** (heat, attention, money, compute). Physics sets floors on the prices (at least kT per nat acquired or erased by a measuring tracker, and kT·(I_mem − I_pred) for memory that does not predict: Landauer 1961, Still et al. 2012), not exchange rates between systems. In each system's own units the equation is the same problem at every scale: only dimensionless ratios matter, and the optimal cost shares are currency-free (CT24); the distance from the floor is one measured number per system.
 - **Open lever, and where the world responds.** Effort g spent making the world drift less (homeostasis, buffers, contracts) belongs in the problem, but it makes the world depend on the design. Except for the coupled-party results of B.10 (CT29–CT32), the theorems of this file hold the outer world fixed at this g = 0. Modelling a responding world as one more party is available. A potential or reversibility theorem applies only when the beta-scaled game is an exact potential: the linear copy-gain model is one, and an arbitrary pair of costs need not be. That model has a confining potential only for a copy gain below one; a gain above one runs away, and a gain of one loses confinement (`theory/COADAPTATION.md` F3). Delayed push-back is a different statement and can destabilize strong selection (F4, gain below −1). Strongly monotone coupling can settle without being a potential game (CA5). Results with the action in the world's state, including the heat floor when the memory steers, are in `theory/ACTING_LOOP_2026-11-22.md` and `theory/FEEDBACK_FLOOR_2026-11-23.md` (T61). T61 and F3/F4 are related two-way structures and are not the same result. Drift-intensity reduction itself stays open (CL11).
 
-The equation is assembled from known parts; the repository already wrote it as Axiom 5 of `reviews/night1/formal/AXIOMS.md`. It is the theory's statement of the problem, not a theorem. When that form is forced, and when it is not, is `theory/REPRESENTATION.md`: on a product of intervals the cost is additive up to a positive affine transformation, nonnegative prices need the further assumption that each concatenating coordinate is a bad, and a discrete layer count is not part of the cited Debreu theorem. Storing, predicting, acting and staying solvent do not force it. Whether the equation is a limit of growth selection is `theory/GROWTH_BRIDGE.md` (CLAIM_MAP section X). On a gapped finite menu, weak selection recovers the ranking only. The diffusion limit keeps \(\mu-\sigma^2/2\). An interior stake separates the argmaxes. The term list and the cap are inputs. Whether dissipation forces those terms is `theory/INFO_PHYSICS.md` (CLAIM_MAP section Y). It does not: a free-energy rate is bounded below by an information flow, the bound is not the cost, and the term list, the cap, and the linear prices stay assumptions. **Note (22 November 2026; not an edit of the display above).** Inside the class where the heat floor is proved, the physical cost is a different object: J_phys = Q̇ + w·E[ℓ] under the ruin cap, which stays an assumption: the heat of the memory's bath plus the stake on the loss (`theory/GENERAL_FORM_PHYSICS_2026-11-22.md`). The claim that the display above is the physical frontier is false (CLAIM_MAP IP5). Theorem R1 (`theory/REPRESENTATION.md`, axioms A1–A7) gives an additive priced sum on an assumed coordinate list; it does not choose these five terms, nonnegative prices need A8, and h·K needs an extra separability assumption. Reconciling the two objects in this section is open work T40 (`OPEN_WORK.md`). Until a reviewed proposal is adopted, the display above stands as the definition.
+The equation is assembled from known parts; the repository already wrote it as Axiom 5 of `reviews/night1/formal/AXIOMS.md`. It is the theory's statement of the problem, not a theorem. When that form is forced, and when it is not, is `theory/REPRESENTATION.md`: on a product of intervals the cost is additive up to a positive affine transformation, nonnegative prices need the further assumption that each concatenating coordinate is a bad, and a discrete layer count is not part of the cited Debreu theorem. Storing, predicting, acting and staying solvent do not force it. Whether the equation is a limit of growth selection is `theory/GROWTH_BRIDGE.md` (CLAIM_MAP section X). On a gapped finite menu, weak selection recovers the ranking only. The diffusion limit keeps \(\mu-\sigma^2/2\). An interior stake separates the argmaxes. The term list and the cap are inputs. Whether dissipation forces those terms is `theory/INFO_PHYSICS.md` (CLAIM_MAP section Y). It does not: a free-energy rate is bounded below by an information flow, the bound is not the cost, and the term list, the cap, and the linear prices stay assumptions. **Note (22 November 2026; not an edit of the display above).** Inside the class where the heat floor is proved, the physical cost is a different object: J_phys = Q̇ + w·E[ℓ] under the ruin cap, which stays an assumption: the heat of the memory's bath plus the stake on the loss (`theory/GENERAL_FORM_PHYSICS_2026-11-22.md`). The claim that the display above is the physical frontier is false (CLAIM_MAP IP5). Theorem R1 (`theory/REPRESENTATION.md`, axioms A1–A7) gives an additive priced sum on an assumed coordinate list; it does not choose these five terms, nonnegative prices need A8, and h·K needs an extra separability assumption. Reconciling the two objects in this section is open work T40 ([`README.md`, Waiting on Chad](README.md#waiting-on-chad)). Until a reviewed proposal is adopted, the display above stands as the definition.
 
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
@@ -130,7 +130,7 @@ The world's pattern of change is a **measured input**, not part of the theory, s
 
 ## 7. Uses: design and diagnosis
 
-**Design.** Measure the world's pattern of change, price the reads, upkeep and stakes, and solve J for the number of layers, their memories, the read rates and what to share. For monitors, caches, sensor fleets, inventory and forecasting this is a calculator today (`theory/MASTER_EQUATION.md` §2). The seven design rules of the 12 November post (archived in `history/`) came first, as requirements; pushing on them led to the master equation, and now they are its corollaries, so the derivation runs from J to the rules. Their status follows; an earlier sentence called all seven solutions of J, which was too strong for rules 1 and 6, and rules 3 and 4 are known or near-tautological rather than new theorems.
+**Design.** Measure the world's pattern of change, price the reads, upkeep and stakes, and solve J for the number of layers, their memories, the read rates and what to share. For monitors, caches, sensor fleets, inventory and forecasting this is a calculator today (`theory/MASTER_EQUATION.md` §2). The seven design rules of the 12 November post (archived in [`history/`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/tree/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history)) came first, as requirements; pushing on them led to the master equation, and now they are its corollaries, so the derivation runs from J to the rules. Their status follows; an earlier sentence called all seven solutions of J, which was too strong for rules 1 and 6, and rules 3 and 4 are known or near-tautological rather than new theorems.
 
 | # | Rule | Status | Where | Fails when |
 |---|---|---|---|---|
@@ -600,42 +600,4 @@ Every numbered result, with its status (as in `measurement/CLAIM_MAP_v2.md` sect
 Lemma B3 (opposite effects of shared and private drift) is CLAIM_MAP C1, Lemma B2 (the spectrum map) is the rows of `reference/THEORY_v1.4.29.md` §2.2, and the empirical claims of §4 and §6–§8 are CLAIM_MAP N13, J6, J9, J15, J16, N27, N51, N52, N57, K4 and K7.
 
 
-<!-- claims-view:begin -->
-Derived from the headline ledger in measurement/CLAIM_MAP_v2.md. Refresh this block from that ledger. A disagreement is a miss of a public claim.
-HYP | hypothesis | no qualified real test
-JP-HEAT | known | Horowitz and Esposito 2014, credited
-EQ-HEAT | proved-in-model | in-model proof; not the whole physical argument
-T57 | proved-in-model | T57 note; closed forms are named classes only
-T60 | proved-in-model | proved in-model, one direction
-T61 | proved-in-model | independent review reported in OPEN_WORK; no review record committed
-T41 | proved-in-model | reviewed holographic note
-T42 | proved-in-model | reviewed holographic-memory note
-T44 | proved-in-model | reviewed boundary note
-T62 | proved-in-model | review fixes recorded at d79e766; independent review reported by T63 §1; no standalone review record
-T63 | proved-in-model | Independently reviewed (PR #240; commit 911a71c)
-CX2 | open | reviewed, `reviews/coadaptation_2026-11-21/REVIEW.md`, CONFIRM2 READY at 93add78, merged as b16193d
-CT31 | proved-in-model | Appendix B.10, proved in the model
-CT32 | proved-in-model | Appendix B.10, proved in the model
-CT34 | proved-in-model | Appendix B.10
-CA1 | proved-in-model | CONFIRM2 READY at 93add78
-CA5 | proved-in-model | CONFIRM2 READY at 93add78
-F3 | proved-in-model | CONFIRM2 READY at 93add78
-F4 | proved-in-model | CONFIRM2 READY at 93add78
-F6 | proved-in-model | CONFIRM2 READY at 93add78
-CL11 | open | open lever of section 3
-SWARM-STAY | proved-in-model | swarm note, proved in that class
-WORLD-PARTY | interpretation | interpretation of the co-adaptation setup
-BICAUSAL | open | open row; pieces are not one result
-GROWTH | proved-in-model | growth-bridge note
-T40 | open | needs a reviewed adoption
-T49 | proved-in-model | Independently reviewed (PR #238)
-FOUR | proved-in-model | the fourth condition is the proved settling scope, not an if and only if
-IP5 | false | claim-map section Y
-LEAN-SCOPE | open | batch reviews recorded on main
-T31 | open | parked
-T71 | known | relabel; classical scope known
-T73 | proved-in-model | self-check
-T74 | open | routes stop
-T72 | open | in flight upstream
-GATE | open | open miss of the design interpretation in this ledger
-<!-- claims-view:end -->
+Claim statuses: [`measurement/CLAIM_MAP_v2.md`](measurement/CLAIM_MAP_v2.md) (headline ledger).

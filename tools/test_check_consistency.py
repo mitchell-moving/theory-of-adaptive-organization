@@ -5,35 +5,35 @@ planted error was detected and the clean copy passes."""
 import os, shutil, subprocess, sys, tempfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MUTATIONS = [
-    ("STATUS.md", "\n\nN26 OPEN.\n", "N-status"),
+    ("README.md", "\n\nN26 OPEN.\n", "N-status"),
     ("README.md", "\n\nGTAO is a universal law of adaptive organization.\n", "law"),
-    ("STATUS.md", "\n\nThe MV gates become binding once Chad signs off.\n", "gates-await-sign-off"),
+    ("README.md", "\n\nThe MV gates become binding once Chad signs off.\n", "gates-await-sign-off"),
     ("README.md", "\n\nThe MATCH1 measles test passed.\n", "unlabeled field verdict"),
     ("THEORY.md", "\n\nGTAO is a theory of everything.\n", "theory-of-everything"),
-    ("STATUS.md", "\n\nGTAO is solved.\n", "solved-claim"),
-    ("STATUS.md", "\n\nThe theory is silent on black holes.\n", "stale-scope"),
-    ("STATUS.md", "\n\nSee CLAIM_MAP N99.\n", "N-ref"),
+    ("README.md", "\n\nGTAO is solved.\n", "solved-claim"),
+    ("README.md", "\n\nThe theory is silent on black holes.\n", "stale-scope"),
+    ("README.md", "\n\nSee CLAIM_MAP N99.\n", "N-ref"),
     # process rules R1-R5 (reviews/lock_2026-11-18/PROCESS.md)
-    ("STATUS.md", "\n\nThe independent review `reviews/reach_2026-11-18/REVIEW.md` passed.\n", "self-review-called-independent"),
+    ("README.md", "\n\nThe independent review `reviews/reach_2026-11-18/REVIEW.md` passed.\n", "self-review-called-independent"),
     ("README.md", "\n\n| a | b |\n|---|---|\n| x | y | z |\n", "table-cells"),
     ("applications/README.md", "\n\nColonies follow the √N law.\n", "law-named"),
     ("tests/README.md", "\n\nThe repository is private.\n", "stale-private"),
     # added in the independent review of the lock pass (INDEPENDENT_REVIEW.md)
-    ("STATUS.md", "\n\nThe lock audit `reviews/lock_2026-11-18/LOCK_AUDIT.md` is an independent review.\n", "self-review-called-independent"),
-    ("STATUS.md", "\n\nAn independent hostile referee pass is in `reviews/night2/SCALE_ENDS_REVIEW.md`.\n", "self-review-called-independent"),
-    ("STATUS.md", "\n\nSee `reviews/reach_2026-11-18/REVIEW.md`, which is independent.\n", "self-review-called-independent"),
-    ("STATUS.md", "\n\nShared trails obey a √N scaling law.\n", "law-named"),
-    ("STATUS.md", "\n\nThe repository remains private.\n", "stale-private"),
+    ("README.md", "\n\nThe lock audit `reviews/lock_2026-11-18/LOCK_AUDIT.md` is an independent review.\n", "self-review-called-independent"),
+    ("README.md", "\n\nAn independent hostile referee pass is in `reviews/night2/SCALE_ENDS_REVIEW.md`.\n", "self-review-called-independent"),
+    ("README.md", "\n\nSee `reviews/reach_2026-11-18/REVIEW.md`, which is independent.\n", "self-review-called-independent"),
+    ("README.md", "\n\nShared trails obey a √N scaling law.\n", "law-named"),
+    ("README.md", "\n\nThe repository remains private.\n", "stale-private"),
     # core rules R6-R8 (THEORY v2.0, 19 Nov 2026)
     ("THEORY.md", "\n| CT99 | An unlisted result | §0 | OPEN | CT99 | none |\n", "core-index"),
-    ("STATUS.md", "\n\n| Way | Pays |\n|---|---|\n| **Keep** (frozen) | Nothing |\n| **Hold** (self-regulating) | A flow |\n", "spine-duplicate"),
+    ("CORE.md", "\n\n| Way | Pays |\n|---|---|\n| **Keep** (frozen) | Nothing |\n| **Hold** (self-regulating) | A flow |\n", "spine-duplicate"),
 ]
 # (file, text): sentences that must NOT be flagged (known false positives, now fixed)
 CLEAN = [
-    ("STATUS.md", "\n\nIndependent review 2 superseded the earlier pass in `reviews/reach_2026-11-18/REVIEW.md`.\n"),
-    ("STATUS.md", "\n\nInventory pooling follows the square-root law of Maister (1976), which is prior art.\n"),
-    ("STATUS.md", "\n\nThe MATCH1 test logged a miss (signed size -0.12, located in proxy MV2).\n"),
-    ("STATUS.md", "\n\nA qualifying design outside the band is a miss for that class.\n"),
+    ("README.md", "\n\nIndependent review 2 superseded the earlier pass in `reviews/reach_2026-11-18/REVIEW.md`.\n"),
+    ("README.md", "\n\nInventory pooling follows the square-root law of Maister (1976), which is prior art.\n"),
+    ("README.md", "\n\nThe MATCH1 test logged a miss (signed size -0.12, located in proxy MV2).\n"),
+    ("README.md", "\n\nA qualifying design outside the band is a miss for that class.\n"),
 ]
 # (file, old text, new text, key): replacements that must be caught
 REPLACEMENTS = [
@@ -86,9 +86,9 @@ def run_all():
     # version drift
     import re
     cur = re.search(r"^# .*? v(\d+\.\d+(?:\.\d+)?[a-z]?) draft", open(os.path.join(ROOT, "THEORY.md"), encoding="utf-8").read(), re.M).group(1)
-    d = copy(); p = os.path.join(d, "README.md"); s = open(p, encoding="utf-8").read().replace("(v%s draft" % cur, "(v1.4.0 draft"); open(p, "w", encoding="utf-8").write(s)
+    d = copy(); p = os.path.join(d, "CORE.md"); s = open(p, encoding="utf-8").read().replace("(v%s draft" % cur, "(v1.4.0 draft"); open(p, "w", encoding="utf-8").write(s)
     rc, out = run(d); shutil.rmtree(d); caught = rc != 0 and "versions" in out
-    print("planted %-24s in %-10s -> %s" % ("stale version pointer", "README.md", "caught" if caught else "MISSED")); ok &= caught
+    print("planted %-24s in %-10s -> %s" % ("stale version copy", "CORE.md", "caught" if caught else "MISSED")); ok &= caught
     print("RESULT:", "PASS" if ok else "FAIL")
     return ok
 

@@ -2,7 +2,7 @@
 
 *Draft by the executor subagent, Sat 14 Nov 2026 (~11 PM ET). Self-checked only. There has been **no independent, blind review** of this file.*
 
-> **Status banner (19 Nov 2026, ET; added with THEORY v2.0).** Frozen derivation, public in this repository since 18 Nov 2026. Off-repo paths below: `checks/` is `theory/theorem-v2-checks/`; `attack/math/REVIEW.md` is `reviews/math-attack/REVIEW.md`. I5 is core result CT6 of `THEORY.md` v2.0 (CLAIM_MAP section O).
+> **Status banner (19 Nov 2026, ET; added with THEORY v2.0).** Frozen derivation, public in this repository since 18 Nov 2026. Off-repo paths below: `checks/` is `theory/theorem-v2-checks/`; `attack/math/REVIEW.md` is `reviews/math-attack/REVIEW.md`. I5 is core result CT6 of THEORY v2.0 (CLAIM_MAP section O).
 *Labels: **PROOF** (proved here, checked numerically), **KNOWN** (in the literature; the source was fetched), **CONJECTURE**, **FAILS** (refuted or excluded). **UNCONFIRMED novelty** means I found no prior art, which is not evidence that none exists.*
 *Checks: `checks/i1_internal_model.py`, `i2_maintenance_sdpi.py`, `i3_throughput_scaling.py`, `i4_nonstationary_datarate.py`, each with a `.out` file. All four print `ALL OK`. `run_all.sh` re-runs them with c1–c8.*
 

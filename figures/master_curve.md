@@ -20,7 +20,7 @@ From `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` §5 (lines 84–87): blind when
 | J = heat + w·E[loss], P(ruin) ≤ ε | README.md:17; theory/GENERAL_FORM_PHYSICS_2026-11-22.md:26 | worked class (physics-grounded); w and cap assumed (GFP:155–158) |
 | heat ≥ kT × learning rate, approached in a limit | GFP:21, GFP:29, GFP:56–64 (IP11) | worked class |
 | R1: under A1–A7, ≥3 essential coordinates, a continuous representing cost is an additive price sum, and only that | README.md:31; theory/REPRESENTATION.md:19 | general |
-| Five-term master equation is a stated decomposition; terms stay assumptions; IP5; T40 open | GFP:39, GFP:241, OPEN_WORK.md:92 | stated, not derived |
+| Five-term master equation is a stated decomposition; terms stay assumptions; IP5; T40 open | GFP:39, GFP:241, [OPEN_WORK.md:92](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L92) | stated, not derived |
 | Curve: x ≤ 1 blind, 2√x − 1 above; error v/√x | GFP:84–87 | worked class (IP11) |
 | Below the curve unreachable | GFP:62 (floor kT R(ε)); checks §4 | worked class |
 | 240 random worlds on the curve | computed here (`brute_min`), not data | computed |

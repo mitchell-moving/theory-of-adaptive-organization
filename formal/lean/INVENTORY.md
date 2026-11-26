@@ -1,6 +1,6 @@
 # Inventory of Lean declarations
 
-**Current audit count on `main`: 1185** (batch 2, build at `6663d0e`, merged as PR #266; `formal/lean/README.md:37-51`). The 757 below is the baseline counted before batch 1, kept as the record of that count; the batch 1 and batch 2 sections at the end give 926 and 1185.
+**Current audit count: 1370** (LEAN-PHYS, build at `07bffb7` on branch `forge-lean-phys`; `formal/lean/README.md:37-54`). On `main` before LEAN-PHYS it was 1185 (batch 2, build at `6663d0e`, merged as PR #266). The 757 below is the baseline counted before batch 1, kept as the record of that count; the batch 1, batch 2 and LEAN-PHYS sections at the end give 926, 1185 and 1370.
 
 Counted on upstream `main` `d2aeb81` before the batch 1 proofs.
 The axiom audit (`formal/lean/scripts/AxiomAudit.lean`) reports **757**
@@ -567,69 +567,75 @@ in the list above is not a formalization of a later claim.
 
 ### Batch 2: heat and repair floors, T59, T60, T63
 
-- **T59** (`OPEN_WORK.md:110`). Under Proposition JP-heat with local detailed
+- **T59** ([`OPEN_WORK.md:110`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L110)). Under Proposition JP-heat with local detailed
   balance, memory-bath heat satisfies `Q̇_M ≥ kT · r · L(ε)` in that class.
   At `r = 0` a static bias is at equilibrium and the ongoing floor is 0.
   Metastable retention is a lifetime, not a steady heat floor.
-- **T60** (`OPEN_WORK.md:111`). For an exogenous finite-state world,
+- **T60** ([`OPEN_WORK.md:111`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L111)). For an exogenous finite-state world,
   `I_alt = ∑ π(x) W_X(x→x') D_KL(p(M|x) ‖ p(M|x'))`. The claim that this flow
   is strictly positive whenever the world is not frozen and the Bayes error
   is below `ε_0` is false. On a strongly connected occupied flux graph,
   `I_alt = 0` implies `ε = ε_0`. On the telegraph, `I_alt ≥ r L(ε)`.
-- **T63** (`OPEN_WORK.md:114`). Repair floor in class RF: averaged dissipated
+- **T63** ([`OPEN_WORK.md:114`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L114)). Repair floor in class RF: averaged dissipated
   power is at least `4 kT Γ (ln 2 − h(ε)) − kT S_max/τ` for carriers that each
   leak at rate at least `Γ`. One carrier gives the telegraph floor. A finite
   fully leaky scheme forgets. The cooperative-media loophole in `d = 2, 3` is
   part of the claim and is not formalized.
 
+Update (LEAN-PHYS): the T60 pairwise and path bounds, the telegraph lower
+bound, and the T63 product inequality on `{0,1}^n` now have declarations;
+see **LEAN-PHYS declarations** at the end. The telegraph equality and its
+converse, the decoder bound for two record distributions, and the
+Schnakenberg integral are still not declarations.
+
 ### Batch 3: T58, T50, T68, the OU lift, and the clock
 
-- **T58** (`OPEN_WORK.md:109`). For an overdamped Einstein spring coupled to a
+- **T58** ([`OPEN_WORK.md:109`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L109)). For an overdamped Einstein spring coupled to a
   random walk, the Kalman–Bucy-matched choice pays bath heat `2 kT r̄`. A fast
   spring at the same error drives the heat to the infimum `kT σ²/(2ε)`, where
   that identification does not hold. `DriftSelection` is not this statement:
   it takes the OU moment equations as inputs and proves a trace identity.
-- **T50** (`OPEN_WORK.md:101`). Joining the predict-act-correct loop:
+- **T50** ([`OPEN_WORK.md:101`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L101)). Joining the predict-act-correct loop:
   AF-scale, AF-convex, the bet-class value, AF-homeostatic, and AF-rate, in
   the named class. Not as a general claim outside that class.
-- **T68** (`OPEN_WORK.md:119`). Class CK: an internal clock is optimal if and
+- **T68** ([`OPEN_WORK.md:119`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L119)). Class CK: an internal clock is optimal if and
   only if the look price exceeds a stated multiple of `κ kT b/a` (6, 4, or
   the Poisson variant). The onset is a scoring convention inside that class.
   `LayerLifetime` is a refresh interval for a lumpy layer, not this clock.
 
 ### Batch 4: T73 and T74, quantum record price
 
-- **T73** (`OPEN_WORK.md:123`). Class PB, one projective record of a dephased
+- **T73** ([`OPEN_WORK.md:123`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L123)). Class PB, one projective record of a dephased
   qubit. At complete dephasing the relative-entropy minimizer is `θ = 0` for
   every stake. The Holevo predicate is false. A stake off the dephasing axis
   moves the relative-entropy minimizer only in the partial-dephasing numerical
   case. At equal coefficients the record terms are flat in `θ`.
-- **T74** (`OPEN_WORK.md:124`). No route among the five fixes `κ_D/κ`. The
+- **T74** ([`OPEN_WORK.md:124`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L124)). No route among the five fixes `κ_D/κ`. The
   one-scale sentence multiplies the whole sum. The ratio stays a free
   nonnegative price. Batch 1's one-scale declaration is that multiplier. It
   is not a formalization of T74, and it does not set the ratio.
 
 ### Batch 5: structural lemmas T32, T33, T44, T51, T64, T65
 
-- **T32** (`OPEN_WORK.md:83`). Lyapunov lemma for the general form under
+- **T32** ([`OPEN_WORK.md:83`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L83)). Lyapunov lemma for the general form under
   H1–H3. Occupation of the front is not proved. GF5 is not a certificate.
   This is not CT32; CT32 is a different item and is also not formalized.
-- **T33** (`OPEN_WORK.md:84`). Growth bridge: on a gapped finite menu, weak
+- **T33** ([`OPEN_WORK.md:84`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L84)). Growth bridge: on a gapped finite menu, weak
   selection recovers the ranking only; the diffusion limit keeps `μ − σ²/2`;
   an interior stake separates the argmaxes. GB2, GB3, GB5, and GB6 are false
   as unscoped identities. This T33 is not THEORY CT33. CT33 is already in
   `GTAO/CT33.lean`.
-- **T44** (`OPEN_WORK.md:95`). In the equilibrium Gaussian field, the
+- **T44** ([`OPEN_WORK.md:95`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L95)). In the equilibrium Gaussian field, the
   conditional distribution of the exterior given the region and the blanket
   equals the distribution given the blanket. Interior decisions are not
   boundary-sufficient.
-- **T51** (`OPEN_WORK.md:102`). Swarm rule in the telegraph class: stay
+- **T51** ([`OPEN_WORK.md:102`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L102)). Swarm rule in the telegraph class: stay
   condition `λ s c < w Φ`, alignment `s = w/W`, and tampering priced as one
   more action. Unshared collateral or a binding ruin cap is outside that case.
-- **T64** (`OPEN_WORK.md:115`). Barrier route: retention error is at least
+- **T64** ([`OPEN_WORK.md:115`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L115)). Barrier route: retention error is at least
   `π(A1) (1 − e^{−λ₂ τ})` for a reversible medium, and the Eyring–Kramers
   reading needs a barrier at least `kT ln(ν τ / ε)`. A1 is not automatic.
-- **T65** (`OPEN_WORK.md:116`). A1 fails in the destruction channel for a
+- **T65** ([`OPEN_WORK.md:116`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L116)). A1 fails in the destruction channel for a
   sphaleron-protected record, under the stated Standard Model inputs. The
   cap without A1 stays open in the transport channel.
 
@@ -777,3 +783,60 @@ The axiom audit after these declarations reports 1185 `GTAO` constants,
 up from 926, and only `propext`, `Classical.choice`, and `Quot.sound`.
 The audit counts every generated constant, so 1185 is larger than 354 + 75 + 125.
 
+## LEAN-PHYS declarations
+
+Planned in `formal/lean/LEAN_PHYS_PLAN.md` before any proof (commit
+`07ce4e5`). Labels as in the batch 2 section. Each **WEAKER** row is a miss
+in the miss log of that plan. The aggregate audit count is not per-claim
+coverage; the rows below are.
+
+LEAN-PHYS adds 71 source declarations: 67 **Faithful** and 4 **WEAKER**.
+
+### `GTAO/DiffusionHeat.lean` (10)
+
+| Name | Label |
+|---|---|
+| `current`, `learningRate`, `shannonRate`, `entropyProduction`, `EQHeatHyp` | **Faithful** definitions. `EQHeatHyp` names every assumption: `D > 0`, `p > 0`, the score split, integration by parts, the marginal-entropy identity, and five integrability facts. |
+| `entropyProduction_nonneg`, `integrand_eq` | **Faithful.** |
+| `eq_heat_identity`, `eq_heat_steady`, `eq_heat_floor` | **WEAKER.** `Σ = Sr − İ + dS`, `İ ≤ Sr` when `dS = 0`, and `kT İ ≤ D Sr` when `kT = D`, on any measure space. Integration by parts and the marginal-entropy identity are hypotheses, not derived from the SDE. Miss LP-eqheat. `DiffusionHeat.lean:102`. |
+
+### `GTAO/FiniteFloorPairwise.lean` (16)
+
+All **Faithful**. `log_sum_le`, `edge_superadd`, `overlap`,
+`klSum_eq_sum_log_of_ac`, `binary_jeffreys`, `jeffreys_ge_two_L`,
+`overlap_le_bayes`, `edges_le_iAltReal`, `edges_le_iAlt`,
+`ofReal_edges_le_iAlt`, `pairwise_L_edges`, `pairwise_L`,
+`pairwise_L_ennreal`, `telegraphπ`, `telegraphW`, `pairwise_telegraph`.
+`pairwise_L_ennreal` is the paper's pairwise bound on `iAlt` with no
+extra hypothesis; `pairwise_L` is its real form under absolute
+continuity in both directions. `pairwise_telegraph` is the telegraph
+lower bound `r L(ε) ≤ I_alt` for `ε < 1/2`; equality and the converse are
+not declarations.
+
+### `GTAO/FiniteFloorPath.lean` (34)
+
+All **Faithful**. `binKl`, `logitGap`, `logitGap_mono`, `pinskerGap`,
+`binKl_eq_gap`, `continuous_pinskerGap`, `hasDerivAt_pinskerGap`,
+`binary_pinsker`, `mul_log_div_anti`, `pinsker`, `totalVariation_self`,
+`totalVariation_triangle`, `totalVariation_eq_sum_pos`, `walkEdges`,
+`walkEnd`, `tv_walk_le`, `list_sum_eq_count`, `joint_sum`,
+`bayes_le_chance`, `chance_sub_bayes_le`, `PathSystem`, `pathWeight`,
+`pathK`, `pathWeight_nonneg`, `flux_pos_of_weight`,
+`chance_sub_bayes_le_weights`, `path_pinsker_edges`, `path_pinsker`,
+`path_pinsker_ennreal`, `walk_of_reach`, `pathSystem_exists`,
+`path_pinsker_stronglyConnected`, `telegraphPaths`, `telegraph_K`.
+`pathWeight` counts an edge with its multiplicity in a walk; on walks
+with no repeated edge it is `√2 c_e`. `path_pinsker` takes absolute
+continuity on used edges; `path_pinsker_ennreal` takes none.
+
+### `GTAO/RepairTensor.lean` (11)
+
+| Name | Label |
+|---|---|
+| `flipAt`, `cubeSigma`, `cubeD`, `flipAt_zero_cons`, `flipAt_succ_cons`, `sum_cube_succ`, `cubeSigma_smul`, `cubeSigma_succ`, `one_carrier_bound`, `cubeD_succ` | **Faithful.** |
+| `cube_tensorization` | **WEAKER.** `4 g D(p‖u) ≤ σ_Γ[p]` for every `n` and leak rates `Γ_i ≥ g ≥ 0`, for strictly positive `p`. The zero-atom case, where the note's `σ` is `+∞`, is miss LP-tensor-zero. `RepairTensor.lean:162`. |
+
+The axiom audit after these declarations reports 1370 `GTAO` constants,
+up from 1185, and only `propext`, `Classical.choice`, and `Quot.sound`.
+The audit counts every generated constant, so 1370 is larger than
+354 + 75 + 125 + 71.

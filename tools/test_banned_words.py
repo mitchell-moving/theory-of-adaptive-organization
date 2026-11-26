@@ -98,10 +98,8 @@ def test_non_markdown_files_are_ignored(tmp_path):
 
 
 def test_maintained_docs_have_no_puzzle():
-    import re
-    s = open(os.path.join(ROOT, "tools", "check_consistency.py")).read()
-    block = s[s.index("MAINTAINED = ["): s.index("MAINTAINED = [f for f")]
-    files = re.findall(r'"([^"]+\.md)"', block)
+    from check_consistency import MAINTAINED_DOCS
+    files = [f for f in MAINTAINED_DOCS if os.path.exists(os.path.join(ROOT, f))]
     assert files and bw.check_puzzle(ROOT, files) == []
 
 
@@ -203,3 +201,10 @@ def test_blob_list_is_read_from_origin_main_not_the_working_tree():
         assert listed == {}
     else:
         assert listed == bw.parse_blob_list(shown.stdout)
+
+
+def test_standalone_entry_point(capsys):
+    # Ace nit: banned_words.py has a real entry point.
+    rc = bw.main(["banned_words.py", ROOT])
+    out = capsys.readouterr().out
+    assert rc in (0, 2) and "RESULT:" in out

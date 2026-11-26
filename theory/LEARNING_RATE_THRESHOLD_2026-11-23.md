@@ -35,7 +35,7 @@
 
 - **Equilibrium cross-cut MI.**
   - The repository already has the equilibrium cross-cut MI area law, as "the field's own" quantity (Wolf et al. 2008, `theory/HOLOGRAPHIC_2026-11-22.md:116`).
-  - It also has the interface learning-rate floor (Proposition H-iface, `theory/HOLOGRAPHIC_2026-11-22.md:40`, T41), and T44's blanket sufficiency for exterior decisions (`OPEN_WORK.md:95`).
+  - It also has the interface learning-rate floor (Proposition H-iface, `theory/HOLOGRAPHIC_2026-11-22.md:40`, T41), and T44's blanket sufficiency for exterior decisions ([`OPEN_WORK.md:95`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L95)).
 - **Area cap and heat floor.** There is T62's class AL area cap on tracked flux, with a packing input (`theory/AREA_LAW_PROBE_2026-11-23.md:15`), and the heat floor \(\dot Q_M\ge kT\,\dot I_M\) (`CORE.md:70`).
 - **Already cited.** Horowitz–Esposito 2014 and Hartich–Barato–Seifert 2014 are cited across `THEORY.md` and the theory notes. Jacobson 1995 is in `theory/AREA_LAW_PROBE_2026-11-23.md:51`.
 - **Not in the repository before this note:** Jacobson 2016, Kim–Kuwahara–Saito 2025, Allahverdyan–Janzing–Mahler 2009, Demko–Moss–Smith 1984, and the words "judge inside" / "judge-inside" and "T67".

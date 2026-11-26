@@ -2,7 +2,7 @@
 """Live current-state brief for the GTAO repository.
 
 Computed from git and the canonical files, so it cannot go stale the way a
-hand-written STATUS.md pointer can. Stdlib plus git; gh is used for open
+hand-kept pointer can (no page keeps one since 25 November 2026). Stdlib plus git; gh is used for open
 PRs when available and is skipped when it is not.
 
 Run from the repo root:  python3 tools/brief.py
@@ -18,9 +18,6 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 
 ET = ZoneInfo("America/New_York")
-
-
-POINTER_FILES = ("STATUS.md", "OPEN_WORK.md", "CORE.md")
 
 
 def repo_root():
@@ -42,9 +39,8 @@ def git(root, *args, check=True):
 def resolve_main(root):
     """Return (ref, full SHA) for main.
 
-    origin/main wins when it exists. A local main left behind after a
-    fetch is the stale pointer this brief exists to catch, and
-    allowed_pointer_shas() would otherwise treat that SHA as fresh.
+    origin/main wins when it exists: a local main left behind after a
+    fetch is stale.
     """
     for ref in ("refs/remotes/origin/main", "refs/heads/main", "HEAD"):
         r = git(root, "rev-parse", "--verify", ref, check=False)
@@ -269,7 +265,7 @@ def open_work_undone(text):
     i, rows = 0, []
     while i < len(lines):
         cells = split_cells(lines[i]) if lines[i].startswith("|") else []
-        if cells and cells[0] == "ID" and "Item" in cells:
+        if cells and cells[0] == "ID" and ("Item" in cells or "gap" in cells):
             headers = cells
             i += 1
             if i < len(lines) and re.match(r"^\|[\s:|-]+$", lines[i]):
@@ -278,6 +274,8 @@ def open_work_undone(text):
                 gate_idx = headers.index("Gate")
             elif "State" in headers:
                 gate_idx = headers.index("State")
+            elif "rank" in headers:
+                gate_idx = headers.index("rank")
             else:
                 gate_idx = 2
             while i < len(lines) and lines[i].startswith("|"):
@@ -306,76 +304,20 @@ def hypothesis(text):
     return m.group(0).strip() if m else None
 
 
-# Patterns that always count as a current pointer, wherever they appear.
-ALWAYS_POINTER_RE = re.compile(
-    r"(?:`main`\s+is\s+`([0-9a-f]{7,40})`"
-    r"|\bmain\s+is\s+(?:`([0-9a-f]{7,40})`|([0-9a-f]{7,40})\b)"
-    r"|current to\s+`?\bmain\b`?\s+(?:`([0-9a-f]{7,40})`|([0-9a-f]{7,40})\b))",
-    re.I,
-)
-# "on/beside main SHA" is a current pointer only in an As-of header.
-# Table rows use the same words historically ("locked beside main SHA").
-ASOF_POINTER_RE = re.compile(
-    r"(?:on\s+`main`\s+`([0-9a-f]{7,40})`"
-    r"|beside\s+`main`\s+`([0-9a-f]{7,40})`)",
-    re.I,
-)
-ASOF_PARA_RE = re.compile(r"^\*\*As of:\*\*.*(?:\n(?!\n|\#|\|).*)*", re.M)
+def stale_reviewed_prs(root):
+    """WARN lines for open PRs reviewed with no blockers but unmerged > 24h (check_pending's rule).
 
-
-def pointer_hits(text):
-    """Yield (sha, span) for current-pointer mentions in text."""
-    for m in ALWAYS_POINTER_RE.finditer(text):
-        sha = next(g for g in m.groups() if g)
-        yield sha, m.group(0)
-    for para in ASOF_PARA_RE.finditer(text):
-        for m in ASOF_POINTER_RE.finditer(para.group(0)):
-            sha = next(g for g in m.groups() if g)
-            yield sha, m.group(0)
-
-
-def allowed_pointer_shas(root, head, n_merges=3):
-    """HEAD plus the last n first-parent merge SHAs, as full hashes."""
-    allowed = {head}
-    for item in last_merges(root, head, n_merges):
-        allowed.add(item["sha"])
-    # Also allow main itself when the working tree is on a side branch.
+    Warning only: a stale PR elsewhere never fails another PR's merge (25 November 2026)."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     try:
-        _, main_sha = resolve_main(root)
-        allowed.add(main_sha)
-    except RuntimeError:
-        pass
-    return allowed
-
-
-def sha_in_set(root, short, allowed):
-    full = expand_sha(root, short)
-    if full and full in allowed:
-        return True
-    # Prefix match if the object is missing (still useful in tests).
-    return any(s.startswith(short) or short.startswith(s[:len(short)]) for s in allowed)
-
-
-def stale_pointers(root, head, files=POINTER_FILES):
-    """Return warning strings for stale main-is-X / As-of pointers."""
-    allowed = allowed_pointer_shas(root, head, 3)
-    warnings = []
-    for rel in files:
-        path = os.path.join(root, rel)
-        if not os.path.exists(path):
-            continue
-        text = open(path, encoding="utf-8").read()
-        seen = set()
-        for sha, snippet in pointer_hits(text):
-            if sha in seen:
-                continue
-            seen.add(sha)
-            if not sha_in_set(root, sha, allowed):
-                warnings.append(
-                    "STALE: %s pointer %r is not HEAD (%s) or a merge among the last 3 merges."
-                    % (rel, snippet, head[:7])
-                )
-    return warnings
+        import check_pending as cp
+        parked, _problems = cp.read_parked(root)
+        pending, _open = cp.collect(cp.gh_api, parked=parked, is_merged=lambda sha: cp.in_main(root, sha))
+    except Exception as e:  # offline, no gh: say so, never fail
+        return ["Stale reviewed PRs: not checked (%s)" % (str(e).split("\n")[0][:80] or type(e).__name__)]
+    if not pending:
+        return ["Stale reviewed PRs: none"]
+    return ["WARN stale reviewed PR (merge, park in process/PROCESS.md §4, or close): %s" % x for x in pending]
 
 
 def render(root=None):
@@ -445,7 +387,7 @@ def render(root=None):
     lines.append("Hypothesis")
     lines.append("  %s" % (hypo or "(unparsed)"))
 
-    ow = _read(root, "OPEN_WORK.md") or ""
+    ow = _read(root, "README.md") or ""
     undone = open_work_undone(ow)
     lines.append("")
     lines.append("Open work (gate not DONE): %d" % len(undone))
@@ -455,16 +397,8 @@ def render(root=None):
             gate_one = gate_one[:97] + "..."
         lines.append("  %s  %s" % (ident, gate_one))
 
-    # Stale pointers are judged against the working-tree files and main HEAD,
-    # plus the last 3 merges (and HEAD if this checkout is a side branch).
-    head_r = git(root, "rev-parse", "HEAD")
-    work_head = head_r.stdout.strip()
-    warnings = stale_pointers(root, work_head)
     lines.append("")
-    if warnings:
-        lines.extend(warnings)
-    else:
-        lines.append("Pointers: OK")
+    lines.extend(stale_reviewed_prs(root))
     return "\n".join(lines) + "\n"
 
 

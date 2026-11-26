@@ -1,4 +1,4 @@
-# Lean 4 formalization of the GTAO core (OPEN_WORK T19)
+# Lean 4 formalization of the GTAO core (T19)
 
 This directory is a Lean 4 + Mathlib project.  It machine-checks a
 finite-menu fragment of the core in `THEORY.md` (canonical) and `CORE.md`,
@@ -37,18 +37,8 @@ about the real world.
 - Axiom audit: `scripts/AxiomAudit.lean` (run by `tools/check_lean.sh`
   after the build) checks that every declaration in a `GTAO.*` module
   depends only on `propext`, `Classical.choice` and `Quot.sound`.  A
-  `sorry` anywhere would show up as `sorryAx` and fail the check.  Last
-  run (22 November 2026, branch `lean-batch2-2026-11-21`, after the
-  batch-2 confirm nits): 757 declarations, OK
-  (635 after the lean-layer-drift review should-fixes, plus batch 2,
-  its should-fixes, and the confirm nits).
-  Batch 1 (24 November 2026, branch `forge-lean-batch1`, after the
-  label corrections): 926 declarations, OK. The 169 constants above 757
-  are the four new modules. 75 of them are the source declarations in
-  the batch 1 table; the rest are generated.
-  Batch 2 (24 November 2026, branch `forge-lean-batch2` at `6663d0e`,
-  merged as PR #266): 1185 declarations, OK. The 259 constants above 926
-  are the four batch 2 modules.
+  `sorry` anywhere would show up as `sorryAx` and fail the check.  The
+  current total is `audit_count` in `AUDIT.json`, its one source.
 
 ## How to build
 
@@ -74,7 +64,7 @@ Hypotheses are part of the claim.  A finite nonempty design set, and a
 stake-independent menu (ruin slack or absent), are standing hypotheses
 wherever `FiniteDesignMenu` is used.
 
-"CORE §" numbers below refer to earlier versions of the one-pager, kept in `history/` (`2026-11-21_CORE_before_onepage.md`, `2026-11-21_CORE_before_shannon.md`, `2026-11-22_CORE_before_front.md`). The current `CORE.md` was rewritten on 22 November 2026 and has different section numbers.
+"CORE §" numbers below refer to earlier versions of the one-pager, kept in git history ([`2026-11-21_CORE_before_onepage.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-21_CORE_before_onepage.md), [`2026-11-21_CORE_before_shannon.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-21_CORE_before_shannon.md), [`2026-11-22_CORE_before_front.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-22_CORE_before_front.md)). The current `CORE.md` was rewritten on 22 November 2026 and has different section numbers.
 
 | Lean name | THEORY / source | What is assumed | What is proved |
 |---|---|---|---|
@@ -188,6 +178,23 @@ Four declarations are **WEAKER**, each with the missing clause in
 bound, the pairwise bound, the path bound, the product inequality on
 `{0,1}^n`, and the two-distribution decoder bound are not declarations.
 
+## LEAN-PHYS: diffusion heat step, T60 pairwise and path, T63 product
+
+Declarations in `GTAO/DiffusionHeat.lean`, `GTAO/FiniteFloorPairwise.lean`,
+`GTAO/FiniteFloorPath.lean`, and `GTAO/RepairTensor.lean`, planned in
+`LEAN_PHYS_PLAN.md` before any proof (commit `07ce4e5`). This adds to the
+Batch 2 paragraph above: the pairwise bound, the path bound, and the
+product inequality on `{0,1}^n` are now declarations. Every assumption is
+a named hypothesis or structure field.
+
+| Declaration | Paper sentence | Label |
+|---|---|---|
+| `eq_heat_identity`, `eq_heat_steady`, `eq_heat_floor` | `theory/GENERALITY_2026-11-22.md:39-68`, Proposition EQ-heat | **WEAKER.** Integration by parts and the marginal-entropy identity are fields of `EQHeatHyp`, not derived from the SDE. Miss LP-eqheat. |
+| `pairwise_L_ennreal` | `theory/GENERAL_FLOOR_FINITE_2026-11-23.md:115` | **Faithful** on the extended sum `iAlt`, no extra hypothesis. `pairwise_L` is the real form under absolute continuity. |
+| `path_pinsker_ennreal`, `path_pinsker_stronglyConnected`, `telegraph_K` | `theory/GENERAL_FLOOR_FINITE_2026-11-23.md:117-129` | **Faithful.** `pathWeight` counts each edge with its multiplicity. `path_pinsker` is the real form under absolute continuity on used edges. |
+| `pairwise_telegraph` | `theory/GENERAL_FLOOR_FINITE_2026-11-23.md:107` | **Faithful** to the lower bound `I_alt ≥ r L(ε)` for `ε < 1/2`. Equality and the converse are not declarations. |
+| `cube_tensorization` | `theory/RECORD_REPAIR_FLOOR_2026-11-23.md:75` | **WEAKER.** Strictly positive `p`; the zero-atom case, where the note's `σ` is `+∞`, is miss LP-tensor-zero. |
+
 ## What is not formalized
 
 None of the following is claimed as proved in Lean.
@@ -253,6 +260,10 @@ formal/lean/
   GTAO/FiniteFloor.lean     # finite-alphabet learning rate, T60
   GTAO/FiniteFloorBounds.lean  # connectivity, class indicator, 3-cycle
   GTAO/RepairFloor.lean     # one-carrier repair comparison, T63
+  GTAO/DiffusionHeat.lean   # EQ-heat step on any measure space, named hypotheses
+  GTAO/FiniteFloorPairwise.lean  # log-sum, Jeffreys, pairwise L bound, T60
+  GTAO/FiniteFloorPath.lean # Pinsker, walks, path bound, K = 1/(4r), T60
+  GTAO/RepairTensor.lean    # product inequality on {0,1}^n, T63
   scripts/AxiomAudit.lean   # every GTAO declaration uses only standard axioms
 ```
 

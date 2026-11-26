@@ -205,3 +205,16 @@ is a row here. Formal labels stay in `INVENTORY.md`.
 | B2-path | `I_alt ≥ (ε_0 − ε)^2 / K_X`, and `K_X = 1/(4r)` on the fair telegraph. Lines 117–129 | no declaration | short by the whole bound | model | medium | not substituted by a different quadratic | none |
 | B2-decoder | `D(p_0‖u) + D(p_1‖u) ≥ 2 (log 2 − h(ε))` when both decoded errors are at most `ε`. `theory/RECORD_REPAIR_FLOOR_2026-11-23.md:77` | `decoder_half`, `decoder_pair`, and `decoder_pair_lower` for one binary source | short by the data-processing step from two record distributions to their decoded masses | model | medium | one-source identities checked | none |
 | B2-tensor | `σ_Γ[p] ≥ 4 Γ D(p‖u)` for every distribution on `{0,1}^n`. `theory/RECORD_REPAIR_FLOOR_2026-11-23.md:75` | `L_ge_four_entropy` and `one_carrier_floor` for one carrier | short by every `n > 1`; the product inequality is not a declaration | model | medium | `n = 1` checked; the uniform bound over every code is not claimed | none |
+
+**Update, 25 November 2026 ET (LEAN-PHYS, plan commit `07ce4e5`,
+`formal/lean/LEAN_PHYS_PLAN.md`).** The rows above are unchanged. Three of
+them now have declarations on branch `forge-lean-phys`. B2-pairwise:
+`pairwise_L_ennreal` (`GTAO/FiniteFloorPairwise.lean`). B2-path:
+`path_pinsker_stronglyConnected` and `telegraph_K`
+(`GTAO/FiniteFloorPath.lean`). B2-tensor: `cube_tensorization`
+(`GTAO/RepairTensor.lean`), for strictly positive `p`; the zero-atom
+case is miss LP-tensor-zero. B2-telegraph: the lower bound `I_alt ≥
+r L(ε)` for `ε < 1/2` is `pairwise_telegraph`; equality at the symmetric
+copy and `I_alt = 0` iff `ε = 1/2` are still not declarations.
+B2-decoder, B2-destruction, B2-stationary-rate, B2-repair-average, and
+B2-forget-trajectory are unchanged.

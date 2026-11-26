@@ -1,4 +1,4 @@
-"""Runs theory/learning_rate_threshold_checks/learning_rate_threshold_checks.py (OPEN_WORK T67)."""
+"""Runs theory/learning_rate_threshold_checks/learning_rate_threshold_checks.py (T67)."""
 import os
 import subprocess
 import sys

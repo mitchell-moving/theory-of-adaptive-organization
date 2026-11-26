@@ -34,6 +34,7 @@ import hashlib
 import os
 import re
 import subprocess
+import sys
 
 WORD = re.compile(r"\b(puzzles?|bills?|billed|billing|kill(?:s|ed|ing)?|dead|verdicts?)\b", re.I)
 PUZZLE = re.compile(r"\bpuzzles?\b", re.I)
@@ -216,3 +217,31 @@ def check_puzzle(root, maintained):
             if puzzle_hits(text, p):
                 fails.append("puzzle in maintained doc %s:%d: %s" % (p, i, text.strip()[:140]))
     return fails
+
+
+def main(argv=None):
+    """Standalone entry point: both checks (A and B above). Exit 0 = PASS, 1 = FAIL, 2 = PARTIAL."""
+    argv = sys.argv if argv is None else argv
+    root = argv[1] if len(argv) > 1 else os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from check_consistency import MAINTAINED_DOCS
+    fails = check_puzzle(root, MAINTAINED_DOCS)
+    added, note = check_added(root)
+    fails += added
+    for f in fails:
+        print("  FAIL " + f)
+    if note:
+        print("  PARTIAL " + note)
+    print("banned words: maintained docs %d, %d FAIL(s)" % (len(MAINTAINED_DOCS), len(fails)))
+    if fails:
+        print("RESULT: FAIL")
+        return 1
+    if note:
+        print("RESULT: PARTIAL (not everything was checked)")
+        return 2
+    print("RESULT: PASS")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

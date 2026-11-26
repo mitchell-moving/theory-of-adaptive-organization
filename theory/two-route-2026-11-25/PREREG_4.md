@@ -1,0 +1,79 @@
+# Preregistration v4: two routes on the coupled world (supersedes A-T1″ only)
+
+*Wednesday 25 November 2026 (America/New_York). Branch `forge-two-route-prereg`. Append-only update to `PREREG_3.md` (lock `78ff15a`, sha256 `06610e7a…54c8d`, untouched), `PREREG_2.md` (lock `64c8b53`, sha256 `57d1caab…e01ce293`, untouched), and `PREREG.md` (lock `b159d0f`, sha256 `9e42fe0a…9e54`, untouched). This file supersedes **A-T1″ only** (relabeled **A-T1″′**) to answer the 1 blocking item and 7 non-blocking items of the v3 independent gate read (`gate_read_287_v3.md`). All other items from `PREREG_3.md` and `PREREG_2.md` (A-C3, A-C4, A-C5, B-C1, B-C2, B-C3, B-C4, B-T2′, §2, §3, §5, §6, §7, and the dropped A-T2′ entry) carry over by reference, with the A-C5 caveat and §6 wording clarification noted below. Gate per draft PR #263 (`process/PREREG_GATE.md` at `8c4b3c0`). Locked in its own commit with `PREREG_4.sha256`. **Nothing in A-T1″′ or B-T2′ runs until a fresh independent reader passes this Gate.** `THEORY.md`, `CORE.md` and the locked blobs are not edited. No real-world data.*
+
+**The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
+
+(Byte for byte from `CORE.md:7`.) Labels: **HYPOTHESIS** is a bet locked here. **OBSERVED** is on `main` or already logged in this folder. **PAPER** is a value or identity computed by hand or by a closed-form one-line minimization before any run.
+
+## Gate
+
+| ID | Label | G1 miss (honest odds) | G2 not an identity (paper attempt) | G3 rival: same quantity, its value, gap, resolution | G4 reach | G5 next step |
+|---|---|---|---|---|---|---|
+| A-C3 | **CONSISTENCY_CHECK** (carried from v2, not run) | — | Fails G2: \(p^*=\sqrt{\theta a kT/w}\), elasticity \(-1/2\) (`theory/FEEDBACK_FLOOR_2026-11-23.md:27`) | — | — | Logged only |
+| A-C4 | **CONSISTENCY_CHECK** (carried from v2, not run) | — | Fails G2: `PREREG_2.md` §1.2 (F3, F4, CA1; detailed balance iff \(agD_M=\gamma cD\)) | — | — | Logged only |
+| A-C5 | **CONSISTENCY_CHECK** (carried from v2, not run) | — | Fails G2: `PREREG_2.md` §1.3 (CL11-cold: no minimizer with \(\eta\) free; at \(\eta=1\), PAPER slope \(-0.507\) vs RI \(-1/2\)). Caveat (v2 gate read row 2): the overdamped heat-current formula \(\dot Q_c=\eta\Delta T/(1+\eta)^2\) is model-specific; with inertia kept, "\(W\to0\) as \(\eta\to\infty\)" fails while the structural \(-1/2\) scaling holds (inertial slope \(-0.5097\)) | — | — | Logged; CL11 needs a non-thermal family |
+| **A-T1″′** (supersedes A-T1″) | **TEST** | Hit iff \(G\ge0.10\) at **all three** \(w_x\in\{0.5,1,2\}\) (settled and interior). Miss if \(G<0.10\) at all three, or mixed (`sensitivity-dependent` open miss), or `"no settling"` (open miss), or `"boundary-hit"` (open miss). Total miss odds **0.65** (0.35 clean all-three miss + 0.20 sensitivity-dependent + 0.09 no-settling + 0.01 boundary-hit; hit odds **0.35**) | Two-party design game on W2 with both bath heats and a **shared** quadratic excursion cost \(w_x\mathbb E[x^2]\) paid by **both** \(J_m\) and \(J_w\), run at \(w_x\in\{0.5,1,2\}\) (reference \(w_x=1\)): a Nash point of a non-potential, non-reversible game with no closed form. PAPER (§1.2): at \(w_x\in\{0.5,1,2\}\), 1-step world reply is interior (\(gc\approx 0.672, 0.574, 0.450\)), memory reply across \(g\in[0.5,1.1]\) stays interior (\(gc\le 0.656, 0.544, 0.409\)), joint minimum is interior (\(gc\approx 0.631, 0.491, 0.313\)), and 1D own-gradient surplus at the joint minimum is \(\sim 0.04\) before \(c\)-shifts | **Joint-minimum reading (weak)** (CA1/CT31 with cost shares equal to stakes): \(G=0\), labeled **weak** because each party omits its cross-externality on the other's bath heat and tracking/copy loss, so \(G=0\) holds only by coincidence. No prior rival predicts a value in \((0,0.10)\); a miss in \((0.02,0.10)\) rejects both \(G\ge0.10\) and \(G=0\) together. Gap to our band edge: 0.10. Resolution: 0.01 (resolved threshold \(2\times0.01=0.02\)). RI per party is the Nash best-response map itself, so it predicts the **Nash point** and is silent on \(G\) | (b) `CORE.md:127` (coupling that settles); `CORE.md:80` (two baths); qualified link to `CORE.md:27` (the shared \(w_x\mathbb E[x^2]\) term is a modeling choice standing in for a Gaussian ruin/confinement constraint, not derived from `CORE.md:27`) | Hit (\(G\ge0.10\) at all three \(w_x\)): BICAUSAL gets a robust sized Nash gap with both baths under shared excursion confinement. Clean miss (\(G<0.10\) at all three): per-party and joint readings agree within 0.10 across the \(w_x\) sweep. Mixed (`sensitivity-dependent` open miss): report all three \(G(w_x)\) and flag \(w_x\) sensitivity. `"no settling"`: W2 counterexample to settling for CX2. `"boundary-hit"`: open miss flagged at the guard/box edge |
+| B-C1 | **CONSISTENCY_CHECK** (carried from v2, not run) | — | Fails G2: CA1 regret \(d_i/(2\beta_i)\); joint efficiency iff cost shares equal stakes | — | — | Logged only |
+| B-C2 | **CONSISTENCY_CHECK** (carried from v2, not run) | — | Fails G2: Theorem GB (`theory/GROWTH_BRIDGE.md:255`) | — | — | Logged only |
+| B-C3 | **CONSISTENCY_CHECK** (carried from v2; code gate only, §4) | — | Fails G2: equal strengths give a reversible chain, so the stochastic-potential minimizer is the global minimum (Freidlin–Wentzell) | — | — | Code gate: \(f\neq0\) at \(c=(1,1)\) fires a `measurement/code` location |
+| B-C4 (was B-T1) | **CONSISTENCY_CHECK** (carried from v2, not run) | — | Fails G2: PAPER `PREREG_2.md` §1.5 gives \(R(k)\approx x^{*2}/k\) and \(X/R\approx 40\) from the locked map (and fails G1 with miss odds \(\approx 0\)). Relabeled per #263 and the v1 gate read | — | — | Logged only; the reading of §3 stays an unscored deliverable |
+| **B-T2′** | **TEST** (carried from v2/v3) | \(f\notin[0.10,0.35]\) (odds 0.45). Lower edge 0.10 is kept only for the 0.10 gap rule against \(f=0\), not on theoretical grounds | Random-landscape enumeration of stochastic potentials; no closed form. PAPER heuristic, `PREREG_2.md` §1.6: \(f\approx0.1\)–\(0.2\) | Joint-minimum reading: \(f=0\) (**weak** — qualitatively contrary to F6, kept only as the zero-mismatch baseline), gap 0.10. Random-basin null (primary non-weak rival): \(f=0.5\), gap 0.15. Stated resolution: \(2\,\mathrm{SE}\le0.032\) at 1,000 qualifying draws (\(\mathrm{SE}\le0.016\)). RI is silent: both basins are Nash points, which per-party RI does not rank | (b) `CORE.md:127`; `measurement/CLAIM_MAP_v2.md:890` (F6) | Hit: a size for how often mismatched strengths pick the worse Nash point. Miss: report \(f\) and its direction; the band was wrong |
+
+## 1. Shared confinement modeling choice, paper interiority, and quantitative odds
+
+### 1.1 Why A-T1″ failed the v3 gate read, and the shared-term fix
+
+In `PREREG_3.md` (A-T1″), \(w_x\mathbb E[x^2]\) entered \(J_w\) only, leaving \(J_m=\dot Q_M+w\mathbb E[(x-m)^2]\) with the \(g=c=1\) translation zero mode. As the v3 gate read showed (`gate_read_287_v3.md` row 10), at fixed world gain \(g\) the memory best reply rose to \(gc=0.950\) at \(g=0.97\) and hit the \(gc=0.999\) guard at \(g=1.00\), near the 1-step world reply \(g\approx 0.969\). Also, `PREREG_3.md` §1.2 had two minor paper-number slips on the v3 world-only \(g=c\) slice: the minimum is at \(gc\approx 0.641\) (\(J_{\mathrm{tot}}\approx 14.11\), not \(\approx 0.70\)), and at \(gc=0.999\) along \(g=c\) the v3 value is \(840.8\approx 841\) (not \(>900\)).
+
+To eliminate the zero mode for **both** parties, A-T1″′ places the quadratic excursion term \(w_x\,\mathbb E[x^2]\) into **both** party costs:
+
+\[
+J_m=\dot Q_M+w\,\mathbb E[(x-m)^2]+w_x\,\mathbb E[x^2],\qquad
+J_w=\dot Q_X+w_w\,\mathbb E[(x-gm)^2]+w_x\,\mathbb E[x^2],\qquad
+J_{\mathrm{tot}}=J_m+J_w,
+\]
+
+with \(a=D=D_M=1\), \(w=w_w=10\), and the robustness grid \(w_x\in\{0.5,1,2\}\) (reference point \(w_x=1\)). Thus \(J_{\mathrm{tot}}\) carries \(2w_x\,\mathbb E[x^2]\).
+
+**Honest status as a modeling choice:** As `gate_read_287_v3.md` row 8 points out, `CORE.md:5, 27, 66` state a **chance constraint** \(P(\text{ruin})\le\varepsilon\)—which for Gaussian \(x\) is a variance cap on \(\Sigma_{xx}\), not a quadratic penalty—and \(w_x=1\) is a choice of units rather than a derivation. Moreover, F3's loss of confinement at \(gc=1\) is a genuine model phenomenon (`OPEN_WORK.md:249`), not "unphysical". Accordingly, the shared \(w_x\,\mathbb E[x^2]\) term is explicitly labeled a **modeling choice**: a shared Lagrangian stand-in for excursion confinement with free multiplier \(w_x\), tested across a factor-of-two sweep \(w_x\in\{0.5,1,2\}\) to prevent \(w_x=1\) alone from deciding the outcome.
+
+### 1.2 Paper verification of interiority and quantitative miss-odds argument (no Nash search run, no \(G\) computed)
+
+Using the exact closed-form Lyapunov formulas verified in `PREREG_3.md` §1.1 (`gate_read_287_v3.md` row 2):
+
+1. **Both parties' best replies and the joint minimum stay strictly interior for all \(w_x\in\{0.5,1,2\}\):**
+   - **Joint minimum (PAPER):** At \(w_x=0.5\) (\(2w_x=1\)): \(\gamma^*\approx 5.720,\, c^*\approx 0.8583,\, g^*\approx 0.7347,\, gc^*\approx 0.6306,\, J_{\mathrm{tot}}^*\approx 14.009\). At \(w_x=1.0\) (\(2w_x=2\)): \(\gamma^*\approx 5.779,\, c^*\approx 0.8030,\, g^*\approx 0.6118,\, gc^*\approx 0.4913,\, J_{\mathrm{tot}}^*\approx 16.119\). At \(w_x=2.0\) (\(2w_x=4\)): \(\gamma^*\approx 5.939,\, c^*\approx 0.7282,\, g^*\approx 0.4293,\, gc^*\approx 0.3126,\, J_{\mathrm{tot}}^*\approx 19.277\). Along the \(g=c\) slice at \(w_x=1\), \(\min_\gamma J_{\mathrm{tot}}\) sits at \(gc\approx 0.512\) (\(16.31\)), rising to \(44.41\) at \(gc=0.95\) and \(1669.5\) at \(gc=0.999\).
+   - **1-step world best reply** from the logged \(g=0\) memory optimum (\(\gamma=6.884105,\, c=0.592273\), where \(\Sigma_{xx}=1\) is independent of \((\gamma,c)\) so \(w_x\) leaves the \(g=0\) memory optimum unchanged): \(g\approx 1.1338\) (\(gc\approx 0.6715\)) at \(w_x=0.5\); \(g\approx 0.9686\) (\(gc\approx 0.5737\)) at \(w_x=1\); \(g\approx 0.7603\) (\(gc\approx 0.4503\)) at \(w_x=2\).
+   - **Memory best reply at fixed world gains \(g\in\{0.5,0.7,0.9,0.95,0.97,1.00,1.02,1.10\}\):** Because \(J_m\) now contains \(w_x\,\Sigma_{xx}\sim(1-gc)^{-1}\), \(gc_{\mathrm{BR}}\) never approaches the \(0.999\) guard:
+     - \(w_x=0.5\): \(gc_{\mathrm{BR}}\) rises from \(0.356\) (\(g=0.50\)) to a peak of \(0.656\) (\(g=0.95\)), then falls to \(0.652\) (\(g=0.97\)), \(0.641\) (\(g=1.00\)), and \(0.560\) (\(g=1.10\)).
+     - \(w_x=1.0\): \(gc_{\mathrm{BR}}\) rises from \(0.343\) (\(g=0.50\)) to a peak of \(0.544\) (\(g=0.90\)), then falls to \(0.531\) (\(g=0.95\)), \(0.522\) (\(g=0.97\)), \(0.504\) (\(g=1.00\)), and \(0.415\) (\(g=1.10\)).
+     - \(w_x=2.0\): \(gc_{\mathrm{BR}}\) rises from \(0.317\) (\(g=0.50\)) to a peak of \(0.409\) (\(g=0.70\)), then falls to \(0.359\) (\(g=0.95\)), \(0.344\) (\(g=0.97\)), \(0.319\) (\(g=1.00\)), and \(0.211\) (\(g=1.10\)).
+     At every \(w_x\in\{0.5,1,2\}\) and across the entire gain range bracketing the 1-step world replies, \(gc_{\mathrm{BR}}\le 0.66\ll 0.999\).
+
+2. **Quantitative basis for the outcome split and miss odds (0.65):**
+   - At each joint minimum \(\theta^*=(\ln\gamma^*,c^*,g^*)\), \(\nabla J_{\mathrm{tot}}(\theta^*)=0\) implies \(\partial_g J_w(\theta^*)=-\partial_g J_m(\theta^*)\) and \(\partial_c J_m(\theta^*)=-\partial_c J_w(\theta^*)\). Computing these exact local gradients and curvatures at \(\theta^*\) gives:
+     - \(w_x=0.5\): \(\partial_g J_w=-2.859,\,\partial_c J_w=-4.550\); curvatures \(\partial_g^2 J_{\mathrm{tot}}=34.38,\,\partial_c^2 J_{\mathrm{tot}}=52.43\).
+     - \(w_x=1.0\): \(\partial_g J_w=-2.808,\,\partial_c J_w=-3.699\); curvatures \(\partial_g^2 J_{\mathrm{tot}}=24.12,\,\partial_c^2 J_{\mathrm{tot}}=39.39\).
+     - \(w_x=2.0\): \(\partial_g J_w=-2.783,\,\partial_c J_w=-2.478\); curvatures \(\partial_g^2 J_{\mathrm{tot}}=17.12,\,\partial_c^2 J_{\mathrm{tot}}=31.33\).
+   - A 1D own-gradient step along \(g\) alone (\(\Delta g=-\partial_g J_w/\partial_g^2 J_w\approx +0.18,+0.23,+0.31\)) already generates a fractional \(J_{\mathrm{tot}}\) surplus \(\frac{1}{2}(\partial_g^2 J_{\mathrm{tot}})(\Delta g)^2/J_{\mathrm{tot}}^*\approx 0.038, 0.041, 0.042\) before adding the memory's opposing \(c\)-shift (\(\partial_c J_m=|\partial_c J_w|\approx 2.5\)–\(4.6\) against \(\partial_c^2 J_{\mathrm{tot}}\approx 31\)–\(52\)) and cross-coupling. Thus the Nash surplus sits in the \(\sim 0.04\)–\(0.15\) regime straddling the \(0.10\) threshold, while \(w_x\in\{0.5,1,2\}\) shifts \(J_{\mathrm{tot}}^*\) by \(-13\%\) to \(+20\%\) relative to \(w_x=1\).
+   - **Pre-committed outcome probabilities (summing to 1.00):**
+     - **HIT** (\(G\ge 0.10\) at all three \(w_x\in\{0.5,1,2\}\), settled and interior): **0.35**.
+     - **MISS (clean all-three)** (\(G<0.10\) at all three \(w_x\in\{0.5,1,2\}\), settled and interior; signed size \(\max_{w_x}G(w_x)-0.10\), location `model`): **0.35**.
+     - **MISS (`sensitivity-dependent`, mixed)** (some \(w_x\in\{0.5,1,2\}\) give \(G\ge 0.10\) and others \(G<0.10\), all settled and interior; logged as an **open miss**, label `sensitivity-dependent`, signed size \(G(1)-0.10\) with all three \(G(w_x)\) reported, location `model`): **0.20**.
+     - **OPEN MISS (`no settling`)** (any \(w_x\in\{0.5,1,2\}\) fails to stop in 200+200 alternating rounds; size `"undefined"`, location `model`): **0.09**.
+     - **OPEN MISS (`boundary-hit`)** (any joint minimum or Nash point at any \(w_x\in\{0.5,1,2\}\) lands on a box edge or the \(gc=0.999\) numerical guard; size `"undefined"`, location `measurement/code` or `model`): **0.01** (near zero because both best replies and the joint minimum stay inside \(gc\le 0.68\ll 0.999\)).
+   - Total non-HIT (miss) probability: **0.65**.
+
+## 2. Updates to `PREREG_3.md` §2.1 and §2.2 (other sections carried over by reference)
+
+### 2.1 Robustness sweep, boundary rule, and tolerances for A-T1″′
+
+- **Sweep:** Run the A-T1″′ joint minimum, Nash search, and half-tolerance resolution check independently at each \(w_x\in\{0.5,1,2\}\), using the boxes and grids of `PREREG_3.md` §2.1 (\(\ln\gamma\in[-3,5]\), \(c\in[-2,3]\), \(g\in[0,3]\), numerical stability guard \(gc\le 0.999\), tolerances \(10^{-6}\) on design and \(10^{-8}\) relative on \(J\)).
+- **Boundary-hit rule (contradiction removed):** If any joint minimum or Nash point at any \(w_x\in\{0.5,1,2\}\) lands on a box edge or on \(gc=0.999\), the outcome is an **open miss (`boundary-hit`)** whose §6 resolution score is **0** (unresolved). If any \(w_x\) fails the half-tolerance resolution check (\(\Delta G>0.01\)), the bar is flagged `measurement/code` **not-resolved** (also 0 under §6) rather than scored.
+- **Primary reference reporting:** Report \(G(0.5)\), \(G(1)\), and \(G(2)\) together; \(G(1)\) is the reference-point value used for the §6 \(|G-0|>0.02\) resolution check when the outcome is HIT or clean MISS.
+
+### 2.2 Shared criterion (`PREREG_3.md` §2.2 updated for A-T1″′)
+
+- Under `PREREG_3.md` §2.2's score \(S\), **A-T1″′** counts as **resolved (1)** iff the outcome is **HIT** or **clean all-three MISS** (with \(|G(w_x)-0|>0.02\) and half-tolerance checks passing at all three \(w_x\), or at \(w_x=1\) with \(|G(1)-0|>0.02\)), or **`"no settling"`** (at any \(w_x\)). Both **`sensitivity-dependent`** (mixed across \(w_x\)) and **`boundary-hit`** open misses count as **unresolved (0 toward \(S\))**, because the outcome depends on the free multiplier \(w_x\) or the numerical guard.
+- Everything else in `PREREG_3.md` §2.2 (no pre-banked PAPER points from `PREREG_2.md` §1.3/§1.5; B-T2′ resolved iff \(|f-0.5|>4\,\mathrm{SE}\) measured from \(f=0.5\); B-T2′ \(0.10\) lower edge kept only for the gap rule) and §2.3 (carried-over sections, with step 0 now a fresh gate read of this file before A-T1″′ or B-T2′ runs) stands unchanged.

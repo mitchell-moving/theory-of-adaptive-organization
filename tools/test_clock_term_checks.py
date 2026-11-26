@@ -1,4 +1,4 @@
-"""Runs theory/clock_term_checks/clock_term_checks.py (OPEN_WORK T68), the cheap subset of the clock-term checks."""
+"""Runs theory/clock_term_checks/clock_term_checks.py (T68), the cheap subset of the clock-term checks."""
 import os
 import subprocess
 import sys

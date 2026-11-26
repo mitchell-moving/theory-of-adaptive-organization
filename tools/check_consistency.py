@@ -6,7 +6,8 @@ Exit code 0 = no FAIL in the maintained (canonical) documents.
 
 What it checks
   1. Versions: THEORY.md's title version and CLAIM_MAP_v2.md's latest "vN note"
-     agree with every maintained pointer (README, STATUS, THEORY header).
+     agree with the two copies in files this repo may not edit (CORE.md, THEORY.md);
+     every other copy is a hand pointer (tools/check_fresh.py).
   2. Banned wording in maintained docs:
        - "law" used of GTAO (any bare 'law' not in an allow-listed compound
          such as 'power law', 'area law', 'law firm', a named physical law,
@@ -46,6 +47,20 @@ INFO only: those files are dated records and are not edited.
 """
 import glob, os, re, sys
 
+# Maintained docs: edited to stay current. check_fresh.py and check_claims.py import this list.
+MAINTAINED_DOCS = [
+    "README.md", "THEORY.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/FAILURES.md", "process/MISS_LOG_TEMPLATE.md",
+    "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
+    "theory/SCALE_ENDS.md", "theory/PHYSICS_CHAIN_2026-11-23.md",
+    "applications/README.md", "tests/README.md", "reviews/README.md",
+    "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
+    "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
+    "theory/REACH.md", "theory/HT_INDEX.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
+    "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/COADAPTATION.md", "theory/REPRESENTATION.md", "theory/MATH_ATTACK.md",
+    "reviews/night1/formal/AXIOMS.md", "reviews/night1/formal/THEOREMS.md", "reviews/night1/formal/checks/README.md",
+    "process/LOCK_ERRATA.md",
+]
+
 
 def main(argv=None):
     """Run every check from the repo root; return the exit code (0 = no FAIL).
@@ -55,21 +70,10 @@ def main(argv=None):
     ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     os.chdir(ROOT)
 
-    MAINTAINED = [
-        "README.md", "STATUS.md", "THEORY.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/FAILURES.md", "process/MISS_LOG_TEMPLATE.md", "process/QUEUE.md",
-        "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
-        "theory/README.md", "theory/SCALE_ENDS.md",
-        "applications/README.md", "tests/README.md", "reviews/README.md",
-        "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
-        "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
-        "theory/REACH.md", "theory/HT_INDEX.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
-        "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/COADAPTATION.md", "theory/REPRESENTATION.md", "theory/MATH_ATTACK.md", "reference/CHANGELOG.md",
-        "reviews/night1/formal/AXIOMS.md", "reviews/night1/formal/THEOREMS.md", "reviews/night1/formal/checks/README.md",
-        "process/LOCK_ERRATA.md",
-    ]
+    MAINTAINED = list(MAINTAINED_DOCS)
     MAINTAINED = [f for f in MAINTAINED if os.path.exists(f)]
     ALL_MD = sorted(p for p in glob.glob("**/*.md", recursive=True))
-    FROZEN = [p for p in ALL_MD if p not in MAINTAINED and not p.startswith("history/")]
+    FROZEN = [p for p in ALL_MD if p not in MAINTAINED]
 
     fails, infos = [], []
 
@@ -93,21 +97,15 @@ def main(argv=None):
         fails.append("versions: could not read THEORY or CLAIM_MAP version")
 
     # Pointer patterns: (file, regex, which) -- each must match at least once and every match must agree.
-    POINTERS = [
-        ("README.md", r"canonical statement of the theory \(v(\d+\.\d+(?:\.\d+)?[a-z]?)", "T"),
-        ("README.md", r"THEORY\.md\s+The theory, v(\d+\.\d+(?:\.\d+)?[a-z]?)", "T"),
-        ("README.md", r"CLAIM_MAP_v2\.md` \(v(2\.\d+)\)", "C"),
-        ("STATUS.md", r"\*\*As of:\*\*.*?`THEORY\.md` v(\d+\.\d+(?:\.\d+)?[a-z]?)", "T"),
-        ("STATUS.md", r"\*\*As of:\*\*.*?`measurement/CLAIM_MAP_v2\.md` v(2\.\d+)", "C"),
-        ("STATUS.md", r"`THEORY\.md` — the theory \(v(\d+\.\d+(?:\.\d+)?[a-z]?)\)", "T"),
-        ("STATUS.md", r"`measurement/CLAIM_MAP_v2\.md` \(v(2\.\d+);", "C"),
+    POINTERS = [  # the only version copies left: both sit in files this repo may not edit (tools/check_fresh.py ALLOW)
+        ("CORE.md", r"is the canonical statement \(v(\d+\.\d+(?:\.\d+)?[a-z]?) draft\)", "T"),
         ("THEORY.md", r"Claim statuses: `measurement/CLAIM_MAP_v2\.md` \(v(2\.\d+)\)", "C"),
     ]
     for f, rx, which in POINTERS:
         if not os.path.exists(f):
             fails.append("versions: %s missing" % f); continue
         want = THEORY_V if which == "T" else CM_V
-        found = re.findall(rx, read(f), re.S if "As of" in rx else 0)
+        found = re.findall(rx, read(f))
         if not found:
             fails.append("versions: %s has no pointer matching /%s/" % (f, rx)); continue
         bad = [v for v in found if v != want]
@@ -458,24 +456,10 @@ def main(argv=None):
     print("  core-rule FAILs: %d" % len(cf))
     fails.extend("FAIL " + x for x in cf)
 
-    # Freshness of STATUS.md's stated main SHA (see tools/check_fresh.py).
-    # No-op on trees without .git, so mutation copies in test_check_consistency
-    # are unchanged.
-    try:
-        from check_fresh import check as _fresh_check
-    except ImportError:
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-        from check_fresh import check as _fresh_check
-    for x in _fresh_check(ROOT):
-        print("  FAIL " + x)
-        fails.append("FAIL " + x)
-
-    # OPEN_WORK.md pointer and the Lean total against formal/lean/AUDIT.json
-    # (see tools/check_pending.py; the network part runs only there).
-    from check_fresh import is_git_repo as _is_git
+    # Lean sources against formal/lean/AUDIT.json (tools/check_pending.py (b)); skipped without .git.
+    from check_pending import check_lean as _lean_check, is_git_repo as _is_git
     if _is_git(ROOT):
-        from check_pending import check_lean as _lean_check, check_pointers as _ptr_check
-        for x in [y for y in _ptr_check(ROOT) if y.startswith("pending:")] + _lean_check(ROOT):
+        for x in _lean_check(ROOT):
             print("  FAIL " + x)
             fails.append("FAIL " + x)
 

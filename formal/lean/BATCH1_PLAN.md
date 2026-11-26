@@ -164,7 +164,7 @@ as a puzzle with file and line. The declaration is not weakened to make
 the build pass, and it is not left out without a line in this file. The
 next step is to name the assumption in the note that states the claim,
 or to mark the Lean declaration WEAKER in `formal/lean/README.md` and
-`OPEN_WORK.md` with the reason, before any later batch uses it.
+[`OPEN_WORK.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md) with the reason, before any later batch uses it.
 `THEORY.md` and `CORE.md` stay untouched either way.
 
 ## Appendix (appended only)

@@ -183,3 +183,7 @@ The script `theory/repair_floor_checks/repair_floor_checks.py` checks, as code i
 DOIs: `theory/repair_floor_checks/crossref.out`. Toom 1980 has no Crossref works record and is cited by its journal.
 
 This note does not edit `THEORY.md`, `CORE.md`, `theory/SCALE_ENDS.md`, or the hypothesis sentence. It does not add a CLAIM_MAP row. It does not claim to derive general relativity, quantum mechanics, the holographic bound, the Bekenstein–Hawking coefficient, or the Page curve. It does not treat an in-model statement as a fact about a real system. It does not contradict T41, T44, T59, T60, T61 or T62: static records against a present reference remain free, tracked flux remains area-capped under a capacity input, and the area law remains an input of the black-hole classification.
+
+## Class summary (moved here from the retired [`STATUS.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/STATUS.md), 25 November 2026)
+
+*Record-repair floor and cooperative loophole* (T63, proved-in-model, `theory/RECORD_REPAIR_FLOOR_2026-11-23.md:11-21, 114-116, 174`): keeping a vanished bit in leaky carriers costs at least \(4kT\,\Gamma(\ln 2-h(\varepsilon))-kT\,S_{\max}/\tau\) (generally \(kT\,\rho(\ln 2-h)\)), bounded under repetition coding; 2D/3D classical cooperative media (and 4D quantum, with 3D quantum open) evade the linear-in-volume floor via exponential spectral-gap decay.

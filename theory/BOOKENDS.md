@@ -47,7 +47,7 @@ Every blocker, major and high finding is addressed here. The disposition, findin
 **Identifiers.** IDs are prefixed with their file: SE- for SCALE_ENDS (SE-E1…SE-E4, SE9), GT- for GENERAL_THEOREM (GT-P0…GT-P3), IM- for INTERNAL_MODEL (IM-I5), CM- for CLAIM_MAP rows (CM-N25, CM-H8), TH- for `theory/THEOREMS.md` (TH-T3a, TH-T7), and H- for the local hypothesis file. This file's own items are BK-….
 
 **Sources read.**
-- Repo: THEORY.md v1.4.19 (status block, §0, §2.1–§2.3, §3–§7, §10); `theory/SCALE_ENDS.md` (all); `theory/GENERAL_THEOREM.md` §0–§2 and §5; `reviews/night1/formal/AXIOMS.md`; `theory/THEOREMS.md` T3 and T7; `theory/MATH_ATTACK.md` §3.2–§3.6; `measurement/CLAIM_MAP_v2.md` (rows cited); `measurement/FRAMEWORK.md` §1, §2, §3.10, §3.11; `BRIEF.md` (now `history/2026-11-18_BRIEF.md`); `litmap/LITMAP.md`, `PRIOR_ART.md`, `THREATS.md`.
+- Repo: THEORY.md v1.4.19 (status block, §0, §2.1–§2.3, §3–§7, §10); `theory/SCALE_ENDS.md` (all); `theory/GENERAL_THEOREM.md` §0–§2 and §5; `reviews/night1/formal/AXIOMS.md`; `theory/THEOREMS.md` T3 and T7; `theory/MATH_ATTACK.md` §3.2–§3.6; `measurement/CLAIM_MAP_v2.md` (rows cited); `measurement/FRAMEWORK.md` §1, §2, §3.10, §3.11; `BRIEF.md` (now [`history/2026-11-18_BRIEF.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-18_BRIEF.md)); `litmap/LITMAP.md`, `PRIOR_ART.md`, `THREATS.md`.
 - Local: the hypothesis files (H1, H2, H8, H9, H37, H80, and C13 in the reviewed core file). No personal content is reproduced.
 - The 12 Nov X post supplies the spine.
 - Primary sources opened by this author are listed under References. Each is marked "abstract", "page" or "metadata only".

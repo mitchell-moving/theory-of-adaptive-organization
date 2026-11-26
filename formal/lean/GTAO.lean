@@ -29,3 +29,7 @@ public import GTAO.HeatFloor
 public import GTAO.FiniteFloor
 public import GTAO.FiniteFloorBounds
 public import GTAO.RepairFloor
+public import GTAO.DiffusionHeat
+public import GTAO.FiniteFloorPairwise
+public import GTAO.FiniteFloorPath
+public import GTAO.RepairTensor

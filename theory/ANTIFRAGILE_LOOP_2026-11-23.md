@@ -170,7 +170,7 @@ The barbell keeps the confident memory states (for \(r\le0.2\) and \(\eta\ge10^{
 
 ## 12. What this note does not do
 
-It does not edit `THEORY.md`, `CORE.md`, or the hypothesis sentence. It does not add a CLAIM_MAP row. It changes only the T50 row in `OPEN_WORK.md`, a pointer in `theory/ANTIFRAGILITY_CONJECTURE_2026-11-23.md`, and the index in `theory/README.md`. It does not treat an in-model statement as a fact about a real system. No system has been shown to qualify under THEORY §3.
+It does not edit `THEORY.md`, `CORE.md`, or the hypothesis sentence. It does not add a CLAIM_MAP row. It changes only the T50 row in [`OPEN_WORK.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md), a pointer in `theory/ANTIFRAGILITY_CONJECTURE_2026-11-23.md`, and the index in [`theory/README.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/theory/README.md). It does not treat an in-model statement as a fact about a real system. No system has been shown to qualify under THEORY §3.
 
 ## 13. References
 

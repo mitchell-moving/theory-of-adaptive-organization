@@ -2,7 +2,7 @@
 
 Sunday 2026-11-15; final revision 02:22 ET, by a Grok Bot executor for Chad (via Ace). Private working file. Nothing was posted, sent or committed. The theory repo was only read.
 
-> **Status banner (19 Nov 2026, ET; added with THEORY v2.0).** Frozen derivation, public in this repository since 18 Nov 2026; the "private working file" line above is from its drafting. The check scripts it cites as `checks/s*.py` are now in `reviews/night1/formal/checks/` (recovered and re-run byte-identically; see that folder's README). The canonical statement is `THEORY.md` v2.0.
+> **Status banner (19 Nov 2026, ET; added with THEORY v2.0).** Frozen derivation, public in this repository since 18 Nov 2026; the "private working file" line above is from its drafting. The check scripts it cites as `checks/s*.py` are now in `reviews/night1/formal/checks/` (recovered and re-run byte-identically; see that folder's README). The canonical statement is `THEORY.md`; these axioms were written against THEORY v2.0.
 
 **What this file is.** A minimal, explicit set of assumptions (the model class 𝓜). Every theorem in `THEOREMS.md` is a statement about 𝓜, with the axioms it uses named. Whether a real cell, colony, firm or AI system satisfies these axioms is an empirical question; `CLAIM_MAP.md` keeps that separate. Notation is fixed here once and used unchanged everywhere else.
 

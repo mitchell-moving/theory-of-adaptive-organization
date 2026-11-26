@@ -1,50 +1,36 @@
 #!/usr/bin/env python3
-"""Pending-work and pointer check for the GTAO repository.
+"""Pending-work check for the GTAO repository.
 
-Added 24 November 2026 after a process miss: reviewed Lean batches sat
-unmerged on the fork while STATUS.md still printed the old Lean total and
-every existing check passed (check_fresh.py only compares STATUS.md with
-main; nothing looked at the Lean count or at open, reviewed PRs).
+Added 24 November 2026 after reviewed Lean batches sat unmerged on the fork
+(process/FAILURES.md, REPO-CURRENT-1). Since 25 November 2026 no page keeps the
+main SHA or the open-PR list by hand (tools/check_fresh.py), so this check no
+longer compares them.
 
 Checks
-  (a) pointers: STATUS.md's `main` is `SHA` is among the last
-      check_fresh.WINDOW first-parent commits of main, and OPEN_WORK.md's
-      header names a main SHA among the last OPEN_WORK_WINDOW.
-  (b) Lean count: formal/lean/AUDIT.json records the AxiomAudit count and a
-      sha256 of the Lean sources (GTAO.lean, GTAO/*.lean, the audit script,
-      lakefile and toolchain pins). The sources must still hash to the
-      recorded value (otherwise rerun tools/check_lean.sh in /tmp/gtao-lean
-      and record the new count with --record-audit N), and STATUS.md's
-      "**N declarations**" must equal the recorded count. The count is
-      attested by whoever ran the Lean build (a build is too heavy for CI);
-      the source hash only proves the sources have not changed since.
-  (c) pending reviewed work (network, via gh): every open PR on the
-      upstream repo and the fork whose latest independent review says
-      "Blockers remaining: 0" and is older than PENDING_HOURS fails, unless
-      the PR is listed in process/PARKED.md (reason, date, who decided).
-      A review is found by content, not by PR title: a PR whose changes are
-      all added review files, one of whose text has a "Blockers remaining: N" line is a review record, and
-      so is a comment with that line. A review is matched to the work PR
-      whose commits contain the reviewed head, or whose head branch is the
-      review's base branch, or whose head branch the review names.
-      Also fails when STATUS.md's "Open upstream PRs not yet merged" list
-      names a PR that is not open, or omits an open upstream PR older than
-      PENDING_HOURS that is not parked.
+  (b) Lean: formal/lean/AUDIT.json records the AxiomAudit count and a sha256 of
+      the Lean sources; the sources must still hash to it (otherwise rerun
+      tools/check_lean.sh in /tmp/gtao-lean and --record-audit N).
+  own row (--pr N): the PR's own README.md row is no longer "In flight".
+  summary (--body-file F): the PR body passes check_claims.summary_fails.
+  (c) live, via gh: an open PR whose latest independent review says
+      "Blockers remaining: 0" and is older than PENDING_HOURS, unless parked in
+      the parked-PR table in process/PROCESS.md §4; and closing keywords in open upstream PRs. Only findings
+      about the PR named by --pr fail; the rest print as WARN (tools/brief.py
+      lists them too). A review is found by content: a PR whose changes are all
+      added review files, one of whose text has a "Blockers remaining: N" line,
+      is a review record, and so is a comment with that line.
 
-Before comparing, the run does `git fetch origin main` so a stale clone
-cannot pass. If it cannot fetch, or has no network or no gh, the result is
-PARTIAL, never PASS.
+Before comparing, the run does `git fetch origin main`. If it cannot fetch, or
+has no network or no gh, the result is PARTIAL, never PASS.
 
 Run from the repo root:
-  python3 tools/check_pending.py              # (a), (b), (c)
-  python3 tools/check_pending.py --offline    # (a), (b) only: PARTIAL
+  python3 tools/check_pending.py [--pr N] [--body-file F]
+  python3 tools/check_pending.py --offline    # (b) and own row only: PARTIAL
   python3 tools/check_pending.py --strict     # PARTIAL exits 2
   python3 tools/check_pending.py --closing-keywords [RANGE] [--pr N] [--body-file F]
-                                              # pre-merge: closing keywords in commits and body
-  python3 tools/check_pending.py --record-audit 1185
+  python3 tools/check_pending.py --record-audit 1370
 Exit 0 = PASS (or PARTIAL because --offline was asked for), 1 = FAIL, 2 = PARTIAL that was not
-asked for (no gh, no network, an API error, or origin could not be fetched). `--allow-partial`
-makes that exit 0 again; the RESULT line still says PARTIAL.
+asked for. `--allow-partial` makes that exit 0 again; the RESULT line still says PARTIAL.
 """
 from __future__ import annotations
 
@@ -61,16 +47,12 @@ from datetime import datetime, timedelta, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-import check_fresh as fresh  # noqa: E402
 
 UPSTREAM = "Chad-Mitchell/theory-of-adaptive-organization"
 FORK = "mitchell-moving/theory-of-adaptive-organization"
 PENDING_HOURS = 24
-OPEN_WORK_WINDOW = 10
 AUDIT_FILE = os.path.join("formal", "lean", "AUDIT.json")
 
-OPEN_WORK_MAIN_RE = re.compile(r"on\s+`main`\s+`([0-9a-f]{7,40})`", re.I)
-STATUS_LEAN_RE = re.compile(r"\*\*(\d[\d,]*)\s+declarations\*\*")
 BLOCKERS_RE = re.compile(r"Blockers remaining:?\**\s*\**(\d+)", re.I)
 REVIEWED_HEAD_RE = re.compile(r"(?:Reviewed head|^Head|^Re-check of head)\s+`([0-9a-f]{7,40})`", re.I | re.M)
 
@@ -79,26 +61,30 @@ def repo_root():
     return os.path.dirname(HERE)
 
 
-# ------------------------------------------------------------------ (a)
-def check_pointers(root):
-    fails = list(fresh.check(root))
-    path = os.path.join(root, "OPEN_WORK.md")
-    if not os.path.exists(path) or not fresh.is_git_repo(root):
-        return fails
-    head = "\n".join(open(path, encoding="utf-8").read().split("\n")[:5])
-    m = OPEN_WORK_MAIN_RE.search(head)
-    if not m:
-        fails.append("pending: OPEN_WORK.md header has no 'on `main` `SHA`' pointer")
-        return fails
-    full = fresh.expand_sha(root, m.group(1))
-    if not full:
-        fails.append("pending: OPEN_WORK.md main SHA %s is not a commit in this repo" % m.group(1))
-        return fails
-    window = fresh.first_parent_window(root, fresh.history_tip(root), OPEN_WORK_WINDOW)
-    if full not in window:
-        fails.append(
-            "pending: OPEN_WORK.md header names main %s, not among the last %d first-parent commits"
-            % (m.group(1), OPEN_WORK_WINDOW))
+def git(root, *args):
+    return subprocess.run(["git", "-C", root, *args], capture_output=True, text=True)
+
+
+def is_git_repo(root):
+    """True inside a git work tree (moved here from the retired pointer check, 25 November 2026)."""
+    try:
+        return git(root, "rev-parse", "--is-inside-work-tree").stdout.strip() == "true"
+    except OSError:
+        return False
+
+
+# ------------------------------------------------------------------ own row
+def own_row_check(root, pr):
+    """A PR moves its own README.md row in the same PR: fail if a row naming upstream #pr is still 'In flight'."""
+    path = os.path.join(root, "README.md")
+    if pr is None or not os.path.exists(path):
+        return []
+    rx = re.compile(r"(?:\bPR\s+|\bupstream\s+(?:draft\s+)?(?:PR\s+)?|/pull/)#?%d\b" % pr, re.I)
+    fails = []
+    for ln, line in enumerate(open(path, encoding="utf-8").read().split("\n"), 1):
+        if line.startswith("|") and rx.search(line) and re.search(r"\bin flight\b", line, re.I):
+            fails.append("own row: README.md:%d still marks the row for #%d 'In flight'; move it in this PR as if "
+                         "it were the one merged" % (ln, pr))
     return fails
 
 
@@ -122,11 +108,6 @@ def lean_sources_sha256(root):
     return h.hexdigest()
 
 
-def status_lean_count(text):
-    m = STATUS_LEAN_RE.search(text)
-    return int(m.group(1).replace(",", "")) if m else None
-
-
 def check_lean(root):
     lean_dir = os.path.join(root, "formal", "lean")
     if not os.path.exists(os.path.join(lean_dir, "GTAO.lean")):
@@ -142,14 +123,6 @@ def check_lean(root):
             "lean: Lean sources changed since the recorded audit (%s); rerun tools/check_lean.sh in "
             "/tmp/gtao-lean and record the count with: python3 tools/check_pending.py --record-audit N"
             % audit.get("audited_at", "?"))
-    status = os.path.join(root, "STATUS.md")
-    if os.path.exists(status):
-        n = status_lean_count(open(status, encoding="utf-8").read())
-        if n is None:
-            fails.append("lean: STATUS.md has no '**N declarations**' Lean total")
-        elif n != audit.get("audit_count"):
-            fails.append("lean: STATUS.md says %d declarations; the recorded AxiomAudit count is %s"
-                         % (n, audit.get("audit_count")))
     return fails
 
 
@@ -157,7 +130,7 @@ def record_audit(root, count, commit=None):
     data = {
         "audit_count": int(count),
         "sources_sha256": lean_sources_sha256(root),
-        "audited_at": commit or (fresh.git(root, "rev-parse", "--short", "HEAD").stdout.strip() or "?"),
+        "audited_at": commit or (git(root, "rev-parse", "--short", "HEAD").stdout.strip() or "?"),
         "how": "tools/check_lean.sh in /tmp/gtao-lean; AxiomAudit 'N GTAO declarations'",
     }
     with open(os.path.join(root, AUDIT_FILE), "w", encoding="utf-8") as fh:
@@ -167,13 +140,13 @@ def record_audit(root, count, commit=None):
 
 
 # ------------------------------------------------------------------ parked
-PARKED_FILE = os.path.join("process", "PARKED.md")
+PARKED_FILE = os.path.join("process", "PROCESS.md")  # parked-PR table, section 4
 PARKED_ROW_RE = re.compile(r"^\|\s*(upstream|fork)#(\d+)\s*\|(.*)\|\s*$", re.I)
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 def read_parked(root):
-    """({('upstream'|'fork', n): reason}, [problems]) from process/PARKED.md."""
+    """({('upstream'|'fork', n): reason}, [problems]) from the parked-PR table in process/PROCESS.md."""
     path = os.path.join(root, PARKED_FILE)
     parked, problems = {}, []
     if not os.path.exists(path):
@@ -218,6 +191,15 @@ def paged(api, path):
         if len(chunk) < 100:
             return out
         page += 1
+
+
+def open_pr_heads(api=gh_api):
+    """{head SHA: 'upstream#N' or 'fork#N'} for every open PR in both repos (the live PR list). Raises Offline."""
+    out = {}
+    for label, repo in (("upstream", UPSTREAM), ("fork", FORK)):
+        for p in paged(api, "/repos/%s/pulls?state=open" % repo):
+            out[p["head"]["sha"]] = "%s#%d" % (label, p["number"])
+    return out
 
 
 def parse_time(s):
@@ -358,31 +340,6 @@ def collect(api=gh_api, now=None, hours=PENDING_HOURS, parked=None, is_merged=No
     return sorted(out), open_upstream
 
 
-STATUS_LIST_RE = re.compile(r"Open upstream PRs not yet merged:(.*?)(?:Earlier merge logs|\n|$)", re.S)
-
-
-def check_status_list(root, open_upstream, parked, now=None, hours=PENDING_HOURS):
-    """STATUS.md's open-PR list against the live open upstream PRs."""
-    path = os.path.join(root, "STATUS.md")
-    if not os.path.exists(path):
-        return []
-    m = STATUS_LIST_RE.search(open(path, encoding="utf-8").read())
-    if not m:
-        return ["pending: STATUS.md has no 'Open upstream PRs not yet merged:' list"]
-    listed = {int(x) for x in re.findall(r"#(\d+)", m.group(1))}
-    live = {p["number"]: p for p in open_upstream}
-    now = now or datetime.now(timezone.utc)
-    fails = []
-    for n in sorted(listed - set(live)):
-        fails.append("pending: STATUS.md lists upstream #%d as open, but it is not open" % n)
-    for n, p in sorted(live.items()):
-        old = now - parse_time(p["created_at"]) > timedelta(hours=hours)
-        if n not in listed and old and ("upstream", n) not in parked:
-            fails.append("pending: open upstream #%d (%s) is neither in STATUS.md's open-PR list nor in %s"
-                         % (n, p["title"][:50], PARKED_FILE))
-    return fails
-
-
 # ------------------------------------------------------------------ closing keywords
 # GitHub closes the referenced issue or PR when a commit message or PR body that reaches the default branch
 # says close/fix/resolve (any tense) followed by #N. On 24 November 2026 a commit headline "fix #253 ..." in
@@ -431,7 +388,7 @@ def check_closing_texts(items, self_number=None):
 def local_closing_check(root, rev_range, self_number=None, body_file=None):
     """Pre-merge check on a local branch: commit messages in rev_range (default origin/main..HEAD) and an
     optional PR body file."""
-    r = fresh.git(root, "log", "--format=%H%x1f%B%x1e", rev_range)
+    r = git(root, "log", "--format=%H%x1f%B%x1e", rev_range)
     if r.returncode != 0:
         return ["closing keywords: git log %s failed: %s" % (rev_range, r.stderr.strip()[:120])]
     items = []
@@ -459,10 +416,10 @@ def check_closing_online(api=gh_api):
 
 def fetch_origin(root):
     """None if origin/main was refreshed, else the reason it was not."""
-    if not fresh.is_git_repo(root):
+    if not is_git_repo(root):
         return None
     try:
-        r = fresh.git(root, "fetch", "-q", "origin", "main")
+        r = git(root, "fetch", "-q", "origin", "main")
     except Exception as e:  # pragma: no cover
         return str(e)
     return None if r.returncode == 0 else ("git fetch origin main failed: " + (r.stderr.strip()[:120] or "?"))
@@ -470,29 +427,37 @@ def fetch_origin(root):
 
 def in_main(root, sha):
     """True when the commit is an ancestor of origin/main (False if unknown locally)."""
-    if not fresh.is_git_repo(root):
+    if not is_git_repo(root):
         return False
-    r = fresh.git(root, "merge-base", "--is-ancestor", sha, "refs/remotes/origin/main")
+    r = git(root, "merge-base", "--is-ancestor", sha, "refs/remotes/origin/main")
     return r.returncode == 0
 
 
-def check_online(root, api=gh_api, now=None):
-    """(fails, partial_reasons) for part (c) and the STATUS list."""
+def _about(finding, pr):
+    return pr is not None and finding.startswith("upstream#%d " % pr)
+
+
+def check_online(root, api=gh_api, now=None, pr=None):
+    """(fails, warns, partial_reasons) for part (c) and closing keywords.
+
+    Only findings about the PR being merged (--pr N) fail. Other open PRs' findings are warnings: a stale
+    PR elsewhere must not make main or an unrelated PR fail (25 November 2026; tools/brief.py shows them)."""
     parked, problems = read_parked(root)
     try:
-        pending, open_upstream = collect(api, now=now, parked=parked, is_merged=lambda sha: in_main(root, sha))
+        pending, _open = collect(api, now=now, parked=parked, is_merged=lambda sha: in_main(root, sha))
     except Offline as e:
-        return problems, ["open-PR check not run (%s)" % e]
+        return problems, [], ["open-PR check not run (%s)" % e]
     except Exception as e:
-        return problems, ["open-PR check not run (%s: %s)" % (type(e).__name__, e)]
-    fails = list(problems)
-    fails += ["pending: reviewed but unmerged > %dh: %s" % (PENDING_HOURS, x) for x in pending]
-    fails += check_status_list(root, open_upstream, parked, now=now)
+        return problems, [], ["open-PR check not run (%s: %s)" % (type(e).__name__, e)]
+    fails, warns = list(problems), []
+    for x in pending:
+        (fails if _about(x, pr) else warns).append("pending: reviewed but unmerged > %dh: %s" % (PENDING_HOURS, x))
     try:
-        fails += ["closing: " + x for x in check_closing_online(api)]
+        for x in check_closing_online(api):
+            (fails if pr is not None and x.startswith("closing keyword") and (" in #%d " % pr) in x else warns).append("closing: " + x)
     except Exception as e:
-        return fails, ["closing-keyword check not run (%s: %s)" % (type(e).__name__, e)]
-    return fails, []
+        return fails, warns, ["closing-keyword check not run (%s: %s)" % (type(e).__name__, e)]
+    return fails, warns, []
 
 
 def main(argv=None):
@@ -508,25 +473,36 @@ def main(argv=None):
         rng = argv[i + 1] if i + 1 < len(argv) and not argv[i + 1].startswith("--") else "origin/main..HEAD"
         pr = int(argv[argv.index("--pr") + 1]) if "--pr" in argv else None
         body = argv[argv.index("--body-file") + 1] if "--body-file" in argv else None
-        fl = local_closing_check(root, rng, pr, body)
+        fl = local_closing_check(root, rng, pr, body) + own_row_check(root, pr)
+        if body:
+            from check_claims import summary_fails
+            fl += ["summary: " + x for x in summary_fails(open(body, encoding="utf-8").read(), root, "the PR body")]
         for f in fl:
             print("  FAIL " + f)
         print("RESULT:", "FAIL" if fl else "PASS")
         return 1 if fl else 0
-    fails, partial = [], []
+    pr = int(argv[argv.index("--pr") + 1]) if "--pr" in argv else None
+    body = argv[argv.index("--body-file") + 1] if "--body-file" in argv else None
+    fails, warns, partial = [], [], []
     online = "--offline" not in argv
     if online:
         err = fetch_origin(root)
         if err:
-            partial.append(err + " (pointer checks use the local origin/main)")
+            partial.append(err)
     else:
         partial.append("open-PR check not run (--offline)")
-    fails += check_pointers(root)
     fails += check_lean(root)
+    fails += own_row_check(root, pr)
+    if body:
+        from check_claims import summary_fails
+        fails += ["summary: " + x for x in summary_fails(open(body, encoding="utf-8").read(), root, "the PR body")]
     if online:
-        f, w = check_online(root)
+        f, w, p = check_online(root, pr=pr)
         fails += f
-        partial += w
+        warns += w
+        partial += p
+    for w in warns:
+        print("  WARN " + w)
     for w in partial:
         print("  PARTIAL " + w)
     for f in fails:

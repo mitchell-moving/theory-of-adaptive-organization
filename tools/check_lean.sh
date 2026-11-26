@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build the Lean 4 formalization of the GTAO core (OPEN_WORK T19).
+# Build the Lean 4 formalization of the GTAO core (T19).
 # Run from the repo root:  tools/check_lean.sh
 # Repo rule: run it only in the dedicated checkout /tmp/gtao-lean, never in an
 # ordinary clone (the Mathlib cache it unpacks is several GB).

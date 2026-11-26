@@ -2,7 +2,7 @@
 
 *Tuesday 24 November 2026 (America/New_York). Checked by [`tools/verify_locks.py`](../tools/verify_locks.py), which runs inside `tools/check_consistency.py`. No locked file is edited by this page or by that script, and git history is not rewritten.*
 
-A lock is a `*.sha256`, `SHA256SUMS*` or `LOCK*.txt` file made before a result was computed. On `main` at `c341c5e` there are 222 lock lines: **163 verify**, **17 do not match** and **42 name files that are not in the repository**. This page accounts for the 17 and the 42. A plain `sha256sum -c` shows the 17 as mismatches, which looks like editing after the lock. For 13 of them the cause is one commit that changed only box paths. The other 4 and the 42 are described plainly below.
+A lock is a `*.sha256`, `SHA256SUMS*` or `LOCK*.txt` file made before a result was computed. When this page was written (24 November 2026) there were 222 lock lines: **163 verify**, **17 do not match** and **42 name files that are not in the repository**. This page accounts for the 17 and the 42. A plain `sha256sum -c` shows the 17 as mismatches, which looks like editing after the lock. For 13 of them the cause is one commit that changed only box paths. The other 4 and the 42 are described plainly below.
 
 ## 1. Scrub only: 13 files, proved
 
