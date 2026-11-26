@@ -8,7 +8,7 @@ The law of adaptive organization (hypothesis): strongly selected systems minimiz
 
 ## 0. Bottom line
 
-The general heat-floor attempt (`theory/GENERAL_FLOOR_ATTEMPT_2026-11-23.md`, T57) broke at a frozen world. If the world never mixes, a one-time write can leave a small tracking error at vanishing steady heat. That is not a random gap. It is the freeze corner the theory already has (H9 in `history/2026-11-18_CURRENT_BRIEF.md`; CT11; `theory/SCALE_ENDS.md`; the frozen class in `reference/THEORY_v2.0.md`).
+The general heat-floor attempt (`theory/GENERAL_FLOOR_ATTEMPT_2026-11-23.md`, T57) broke at a frozen world. If the world never mixes, a one-time write can leave a small tracking error at vanishing steady heat. That is not a random gap. It is the freeze corner the theory already has (H9 in [`history/2026-11-18_CURRENT_BRIEF.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-18_CURRENT_BRIEF.md); CT11; `theory/SCALE_ENDS.md`; the frozen class in [`reference/THEORY_v2.0.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/reference/THEORY_v2.0.md)).
 
 This note asks whether thermal escape of the record closes that loophole. It does not, not under the thermodynamic step the repo already uses. Three cases have to be kept apart.
 

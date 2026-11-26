@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests for tools/brief.py and its stale-pointer warnings.
+"""Tests for tools/brief.py (the live brief; no page keeps a hand pointer since 25 November 2026).
 
 Run:  python3 -m pytest -q tools/test_brief.py
 """
@@ -11,10 +11,14 @@ import subprocess
 import sys
 import textwrap
 
+import pytest
+
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 import brief
+
+REAL_STALE = brief.stale_reviewed_prs
 
 
 def _git(repo, *args, env=None):
@@ -35,7 +39,7 @@ def _git(repo, *args, env=None):
 
 
 def _init_repo(dest, n_merges=4):
-    """A small repo with main, THEORY/CLAIM_MAP/CORE/STATUS/OPEN_WORK, and n PR merges."""
+    """A small repo with main, THEORY/CLAIM_MAP/CORE/README, and n PR merges."""
     os.makedirs(dest)
     _git(dest, "init", "-b", "main")
     _git(dest, "config", "user.name", "Test")
@@ -68,19 +72,15 @@ def _init_repo(dest, n_merges=4):
     write(
         "CORE.md",
         textwrap.dedent("""\
-        *Header: current to `main` `PLACEHOLDER`.*
-
         ## 3. The hypothesis
 
         **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
         """),
     )
     write(
-        "OPEN_WORK.md",
+        "README.md",
         textwrap.dedent("""\
-        # OPEN_WORK
-
-        **As of:** Saturday 21 November 2026, beside `main` `PLACEHOLDER`.
+        # Front page
 
         | ID | Item | State | Gate | Where |
         |---|---|---|---|---|
@@ -94,7 +94,6 @@ def _init_repo(dest, n_merges=4):
         | H2 | finished | **DONE** in this PR | file |
         """),
     )
-    write("STATUS.md", "# STATUS\n\n**As of:** today. `main` is `PLACEHOLDER` (PR #1).\n")
     _git(dest, "add", ".")
     _git(dest, "commit", "-m", "seed")
 
@@ -129,11 +128,10 @@ def _init_repo(dest, n_merges=4):
     return dest, merges
 
 
-def _set_pointers(repo, sha7):
-    for rel in ("STATUS.md", "OPEN_WORK.md", "CORE.md"):
-        path = os.path.join(repo, rel)
-        text = open(path, encoding="utf-8").read().replace("PLACEHOLDER", sha7)
-        open(path, "w", encoding="utf-8").write(text)
+@pytest.fixture(autouse=True)
+def _no_live_gh(monkeypatch, request):
+    if "live_gh" not in request.keywords:
+        monkeypatch.setattr(brief, "stale_reviewed_prs", lambda root: ["Stale reviewed PRs: none"])
 
 
 def test_brief_from_real_repo_runs():
@@ -141,7 +139,7 @@ def test_brief_from_real_repo_runs():
     assert "GTAO live brief" in out
     assert "America/New_York" in out
     assert "THEORY.md v2.9" in out
-    assert "CLAIM_MAP v2.88" in out
+    assert "CLAIM_MAP v2.89" in out
     assert "tally: total 392" in out
     assert "strongly selected systems minimize the cost of judgment" in out
     head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
@@ -151,7 +149,6 @@ def test_brief_from_real_repo_runs():
 
 def test_brief_lists_merges_hypothesis_and_open_work(tmp_path):
     repo, merges = _init_repo(tmp_path / "r", n_merges=4)
-    _set_pointers(repo, merges[-1][:7])
     out = brief.render(repo)
     assert "Feature 4 title" in out
     assert "Feature 1 title" in out
@@ -168,80 +165,25 @@ def test_brief_lists_merges_hypothesis_and_open_work(tmp_path):
     assert "H1  needs Chad" in out
     assert "W1  " not in out.split("Open work")[1]  # DONE row omitted
     assert "H2  " not in out.split("Open work")[1]
-    assert "Pointers: OK" in out
+    assert "Stale reviewed PRs: none" in out
 
 
-def test_stale_pointer_warns_when_older_than_last_three_merges(tmp_path):
-    repo, merges = _init_repo(tmp_path / "r", n_merges=4)
-    # merges[0] is the oldest of 4; last 3 are merges[1:].
-    _set_pointers(repo, merges[0][:7])
-    out = brief.render(repo)
-    assert "STALE:" in out
-    assert "STATUS.md" in out
-    assert "OPEN_WORK.md" in out
-    assert "CORE.md" in out
-    assert "Pointers: OK" not in out
-
-
-def test_pointer_to_recent_merge_is_ok(tmp_path):
-    repo, merges = _init_repo(tmp_path / "r", n_merges=4)
-    # Third-most-recent merge is still inside the last-3 window.
-    _set_pointers(repo, merges[-3][:7])
-    out = brief.render(repo)
-    assert "STALE:" not in out
-    assert "Pointers: OK" in out
+def test_stale_reviewed_pr_is_a_warning_in_the_brief(tmp_path, monkeypatch):
+    # Acceptance: an unrelated stale PR only warns (brief.py), it never fails a check.
+    import check_pending
+    monkeypatch.setattr(check_pending, "collect", lambda api, **k: (["upstream#280 (Old work): reviewed 30h ago"], []))
+    monkeypatch.setattr(check_pending, "read_parked", lambda root: ({}, []))
+    out = REAL_STALE(str(tmp_path))
+    assert out == ["WARN stale reviewed PR (merge, park in process/PROCESS.md §4, or close): upstream#280 (Old work): reviewed 30h ago"]
+    monkeypatch.setattr(check_pending, "collect", lambda api, **k: (_ for _ in ()).throw(check_pending.Offline("no network")))
+    assert REAL_STALE(str(tmp_path))[0].startswith("Stale reviewed PRs: not checked")
 
 
 def test_brief_degrades_when_gh_missing(tmp_path, monkeypatch):
     repo, merges = _init_repo(tmp_path / "r", n_merges=1)
-    _set_pointers(repo, merges[-1][:7])
     monkeypatch.setattr(brief.shutil, "which", lambda name: None)
     out = brief.render(repo)
     assert "gh unavailable; skipped" in out
-
-
-def test_historical_on_main_at_sha_is_not_a_pointer(tmp_path):
-    repo, merges = _init_repo(tmp_path / "r", n_merges=4)
-    _set_pointers(repo, merges[-1][:7])
-    # An old SHA in a historical "on main at" sentence must not warn.
-    path = os.path.join(repo, "STATUS.md")
-    with open(path, "a", encoding="utf-8") as fh:
-        fh.write("\nLater merges pointed them at v2.9 on `main` at `%s`.\n" % merges[0][:7])
-    out = brief.render(repo)
-    assert "STALE:" not in out
-
-
-def test_historical_beside_main_in_a_table_row_is_not_a_pointer(tmp_path):
-    repo, merges = _init_repo(tmp_path / "r", n_merges=4)
-    _set_pointers(repo, merges[-1][:7])
-    path = os.path.join(repo, "OPEN_WORK.md")
-    text = open(path, encoding="utf-8").read()
-    text += (
-        "\n| W14 | lock note | Prereg locked beside `main` `%s`. Official comparison not run | needs data | file |\n"
-        % merges[0][:7]
-    )
-    open(path, "w", encoding="utf-8").write(text)
-    out = brief.render(repo)
-    assert "STALE:" not in out
-    assert "Pointers: OK" in out
-
-
-def test_unquoted_main_is_feedback_is_not_a_pointer():
-    assert list(brief.pointer_hits("The word main is feedback in prose.")) == []
-    hits = list(brief.pointer_hits("main is deadbeef"))
-    assert len(hits) == 1 and hits[0][0] == "deadbeef"
-
-
-def test_unbackticked_current_to_main_is_a_pointer():
-    hits = list(brief.pointer_hits("current to main deadbeef"))
-    assert len(hits) == 1 and hits[0][0] == "deadbeef"
-    hits = list(brief.pointer_hits("current to `main` `deadbeef`"))
-    assert len(hits) == 1 and hits[0][0] == "deadbeef"
-    assert list(brief.pointer_hits("domain is deadbeef")) == []
-    assert list(brief.pointer_hits("remain is deadbeef")) == []
-    hits = list(brief.pointer_hits("domain is deadbeef. `main` is `2c32ade`."))
-    assert len(hits) == 1 and hits[0][0] == "2c32ade"
-
 
 
 def test_pr_number_covers_merge_handwritten_and_squash_subjects():

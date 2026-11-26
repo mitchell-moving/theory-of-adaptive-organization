@@ -1,4 +1,4 @@
-"""Runs theory/constants-exchange-2026-11-24/dimension_check.py (OPEN_WORK T70)."""
+"""Runs theory/constants-exchange-2026-11-24/dimension_check.py (T70)."""
 import hashlib
 import os
 import subprocess

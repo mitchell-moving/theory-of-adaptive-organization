@@ -1,0 +1,8 @@
+Rel on 2: copy natural for 9/16 relations; natural exactly for the partial functions? fails e.g. [[(1, 0), (1, 1)], [(0, 1), (1, 0), (1, 1)], [(0, 0), (1, 0), (1, 1)]]
+Set on 2: copy natural for all 4 functions: True
+FinStoch on 2: copy natural for 0/2000 random stochastic maps, 4/4 deterministic maps
+Reading: copy is natural exactly on the deterministic (sharp-record) maps. Indefinite processes break it.
+Abramsky 2009: in a compact closed category, a natural diagonal forces triviality. Rel is compact closed and its copy is
+not natural (above); FinStoch is not compact closed (its 'cap' is not a stochastic map), yet copy still fails naturality.
+So: failure of uniform copying already happens in classical-probabilistic and relational worlds; it is the INDEFINITE
+processes that break it, matching A1 (self-reference forces indefinite states).

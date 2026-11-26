@@ -1,0 +1,17 @@
+{
+ "candidate_basis_assignments_checked": 128,
+ "linear_symmetries": 128,
+ "symmetries_where_B_image_depends_on_A_input (includes swaps)": 64,
+ "symmetries_that_write_A_x0_answer_into_blank_B": 0,
+ "symmetries_mapping_a_product_vertex_to_a_PR_box": 0,
+ "symmetries_that_MOVE_A_answer_into_B_leaving_A_without_it (swap family)": 32,
+ "affine_relation_D00+D11-D01-D10_norm": 0.0,
+ "record_LP_feasible": true,
+ "best_wiring_success_for_t": 1.0,
+ "best_wiring": "('A-first', 1, (0, 1), (0, 0, 1, 0))",
+ "full_effect_guess_success_for_t_given_best_wiring_map": {
+  "0": 1.0,
+  "1": 1.0
+ },
+ "classical_analogue": "A = two classical bits (s,t) (4-simplex): copy s onto blank B with a controlled flip; t untouched; success for t = 1.0; reversible"
+}

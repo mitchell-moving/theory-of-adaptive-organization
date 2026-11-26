@@ -1,0 +1,61 @@
+{
+ "PR_box": {
+  "H_AB": 1.0,
+  "H_B": 1.0,
+  "H_A_given_B": 0.0,
+  "Hplus_A_given_B": 0.0,
+  "I_AB": 1.0
+ },
+ "Bell_pair": {
+  "H_AB": 3.2034265038149176e-16,
+  "H_B": 1.0,
+  "H_A_given_B": -0.9999999999999997,
+  "Hplus_A_given_B": 0.0,
+  "I_AB": 1.9999999999999998
+ },
+ "classical_correlated_bits": {
+  "H_AB": 1.0,
+  "H_B": 1.0,
+  "H_A_given_B": 0.0,
+  "Hplus_A_given_B": 0.0,
+  "I_AB": 1.0
+ },
+ "classical_independent_bits": {
+  "H_AB": 2.0,
+  "H_B": 1.0,
+  "H_A_given_B": 1.0,
+  "Hplus_A_given_B": 1.0,
+  "I_AB": 0.0
+ },
+ "two_answer_record_boxworld_SW37": {
+  "H_X0_given_Z": 0.0,
+  "H_X1_given_Z": 0.0,
+  "H_X0X1_given_Z": 1.0,
+  "I_X0_Z": 1.0,
+  "I_X1_Z": 1.0,
+  "I_X0X1_Z": 1.0,
+  "subadditivity_gap_H(X0X1|Z)-H(X0|Z)-H(X1|Z)": 1.0,
+  "per_record_info_sum_minus_joint_info": 1.0
+ },
+ "two_answer_record_qubit_RAC": {
+  "H_X0_given_Z": 0.600876,
+  "H_X1_given_Z": 0.600876,
+  "H_X0X1_given_Z": 1.0,
+  "I_X0_Z": 0.399124,
+  "I_X1_Z": 0.399124,
+  "I_X0X1_Z": 1.0,
+  "I_acc_per_answer": 0.399124,
+  "subadditivity_gap_H(X0X1|Z)-H(X0|Z)-H(X1|Z)": -0.201752,
+  "per_record_info_sum_minus_joint_info": -0.201752
+ },
+ "two_answer_record_classical_1bit_Z=x0": {
+  "H_X0_given_Z": 0,
+  "H_X1_given_Z": 1,
+  "H_X0X1_given_Z": 1,
+  "I_X0_Z": 1,
+  "I_X1_Z": 0,
+  "I_X0X1_Z": 1,
+  "subadditivity_gap": 0,
+  "per_record_info_sum_minus_joint_info": 0
+ }
+}

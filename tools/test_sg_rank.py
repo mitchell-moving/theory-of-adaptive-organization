@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Tests for process/queue/sg_rank.py (run: python3 -m pytest -q tools/test_sg_rank.py)."""
+"""Tests for tests/SG_RANK/sg_rank.py (run: python3 -m pytest -q tools/test_sg_rank.py)."""
 import importlib.util, json, os, sys, textwrap
 
 import pytest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SG_PATH = os.path.join(ROOT, "process", "queue", "sg_rank.py")
+SG_PATH = os.path.join(ROOT, "tests", "SG_RANK", "sg_rank.py")
 
 
 def load_sg():

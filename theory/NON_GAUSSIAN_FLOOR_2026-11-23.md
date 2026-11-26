@@ -232,7 +232,7 @@ T50 conjectures that antifragility falls out of minimizing the cost of judgment 
 
 ## 9. What this note does not do
 
-It does not edit `THEORY.md`, `CORE.md`, or the hypothesis sentence. It does not add a CLAIM_MAP row. It does not change T48, T50, or T57–T61, apart from the T49 row in `OPEN_WORK.md`. It does not prove a floor for a world the memory moves, a loss other than mean square, or a hidden-regime label task. It does not treat an in-model statement as a fact about a real system. No system has been shown to qualify under THEORY §3.
+It does not edit `THEORY.md`, `CORE.md`, or the hypothesis sentence. It does not add a CLAIM_MAP row. It does not change T48, T50, or T57–T61, apart from the T49 row in [`OPEN_WORK.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md). It does not prove a floor for a world the memory moves, a loss other than mean square, or a hidden-regime label task. It does not treat an in-model statement as a fact about a real system. No system has been shown to qualify under THEORY §3.
 
 ## 10. References
 

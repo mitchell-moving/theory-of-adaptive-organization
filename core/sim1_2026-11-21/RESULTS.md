@@ -79,6 +79,6 @@ Established **in-model**, on this rehearsal mechanism, with the ruin cap slack a
 - They simulate zero below a stakes threshold at which the model and the first rollout pay (P2; theorem, exact check).
 - At high selection strength, a weak-mutation Moran search finds that \(m^\star\) within the locked tolerance (P4; numerical, 3/3).
 
-Not established: anything about nature; the Lundberg-cap regime, where CT33 can fail; joint monotone \(m^\star\) once \(K\) is also chosen; a field test of SIM-1. The hypothesis in `OPEN_WORK.md` (SIM-1) and the sentence in `CORE.md` §3 are unchanged. The official record of this prereg is PASS.
+Not established: anything about nature; the Lundberg-cap regime, where CT33 can fail; joint monotone \(m^\star\) once \(K\) is also chosen; a field test of SIM-1. The hypothesis in [`OPEN_WORK.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md) (SIM-1) and the sentence in `CORE.md` §3 are unchanged. The official record of this prereg is PASS.
 
 World parameters, ladders, occupation summaries, and exact-Boltzmann diagnostics are in `run_sim1.json`.

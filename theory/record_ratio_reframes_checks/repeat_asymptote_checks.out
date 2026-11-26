@@ -1,0 +1,6 @@
+R-class PASS I16=0.713026 H=0.326695 identity_gap=8.882e-16
+R-low FAIL theta=1.570796 n_tie=1 gap0=0.000802 gapeq=-0.858918
+R-high FAIL w=4 theta=1.468258 n_tie=1 J0-Jc=0.000548 | w=10 theta=1.005746 n_tie=1 J0-Jc=0.000040
+R-pos PASS q=1 theta=0.000000 n_tie=1 | q=0.5 theta=0.000000 n_tie=1
+R-ratio PASS max gap above J*(0) kept; second_diff=-1.776e-15
+FAILS 2

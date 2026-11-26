@@ -1,4 +1,4 @@
-"""Runs theory/repair_floor_checks/repair_floor_checks.py (OPEN_WORK T63)."""
+"""Runs theory/repair_floor_checks/repair_floor_checks.py (T63)."""
 import os
 import subprocess
 import sys

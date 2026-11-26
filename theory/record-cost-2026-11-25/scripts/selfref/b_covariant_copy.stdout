@@ -1,0 +1,34 @@
+COPIER EXISTS  residual=3.331e-16 | classical bit (segment, d=1); dynamics {id,flip}; orbit of vertex = {0,1}
+COPIER EXISTS  residual=3.951e-16 | classical trit (triangle, d=2); dynamics S3; orbit = 3 vertices
+NO COPIER      residual=5.000e-01 | 4-gon (d=2); dynamics C_4; orbit = 4 vertices
+NO COPIER      residual=5.000e-01 | 5-gon (d=2); dynamics C_5; orbit = 5 vertices
+NO COPIER      residual=5.000e-01 | 6-gon (d=2); dynamics C_6; orbit = 6 vertices
+NO COPIER      residual=5.000e-01 | 8-gon (d=2); dynamics C_8; orbit = 8 vertices
+NO COPIER      residual=5.000e-01 | disk/rebit (d=2); continuous drift SO(2); orbit of z+ = circle (24 samples)
+NO COPIER      residual=1.223e-04 | disk, drift known to within +-0.1 rad; orbit = short arc (8 samples)
+COPIER EXISTS  residual=4.441e-16 | ball/qubit (d=3); drift about z; target z+ and z- (fixed points)
+NO COPIER      residual=5.000e-01 | ball; drift about z; target x+ (orbit = equator)
+NO COPIER      residual=1.250e-01 | ball; drift about z; target tilted state at 30deg from z (orbit = a latitude circle)
+NO COPIER      residual=6.797e-01 | ball; drift SO(3) (no conserved axis); orbit of z+ = whole sphere (sampled)
+
+General 4-point argument (holds in any finite-dim GPT): an orbit of a compact connected drift through a moved point
+is a closed curve around its centroid c; points at phases 0,pi and pi/2,3pi/2 average to c, so
+T(c) = (p0p0+p2p2)/2 = (p1p1+p3p3)/2 is required; a product effect f(x)f separates them whenever f's slope differs on the two diameters.
+   disk: (f(x)f) on clone-of-diameter-1 = 0.500, on clone-of-diameter-2 = 0.250  -> contradiction: True
+
+Dimension count: smallest state space with (i) finite capacity N, (ii) a continuous reversible drift moving some pure state,
+(iii) N jointly distinguishable pure states fixed by the drift (a copyable record that survives the drift).
+Claim [PROVED-TOY]: affine dimension d >= N+1. Table:
+   classical N-simplex    d=N-1    fails (no continuous symmetry)
+   disk/rebit, N=2        d=2      fails (SO(2) fixes only the centre)
+   ball/qubit, N=2        d=3      meets d=N+1 with equality
+   double cone, N=2       d=3      meets (apexes fixed)
+   quantum, N levels      d=N^2-1  >= N+1, equality only N=2
+
+Quantum check: dimension of the connected drift group that fixes two basis states and acts nontrivially (Lie algebra count)
+   real QM, N=2: dim = 0
+   real QM, N=3: dim = 0
+   real QM, N=4: dim = 1
+   complex QM, N=2: dim = 1
+   complex QM, N=3: dim = 2
+   complex QM, N=4: dim = 5

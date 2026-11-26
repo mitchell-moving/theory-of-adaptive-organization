@@ -1,4 +1,4 @@
-"""Runs theory/pointer_basis_stakes_checks/pointer_basis_stakes_checks.py (OPEN_WORK T73)."""
+"""Runs theory/pointer_basis_stakes_checks/pointer_basis_stakes_checks.py (T73)."""
 import os
 import subprocess
 import sys

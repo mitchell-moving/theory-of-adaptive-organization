@@ -32,7 +32,7 @@ The world equation contains no action. The scored object is an open-loop intensi
 
 ### Rebuild under the ruin cap (PROVED (in-model), T43)
 
-Under the ruin cap, replacing identical units can lower the long-run cost: at rate 1, cost 15.473978 with ruin probability 0.020940, against the inadmissible zero at cost 16 (`theory/antifragility_checks/RESULTS.md`). The unconstrained grid minimum is inadmissible. The heterogeneous arm minimizes at no shock, cost 13. The puzzle at this cap: heat is proportional to precision, and the admissible points keep the more precise units.
+Under the ruin cap, replacing identical units can lower the long-run cost: at rate 1, cost 15.473978 with ruin probability 0.020940, against the inadmissible zero at cost 16 (`theory/antifragility_checks/RESULTS.md`). The unconstrained grid minimum is inadmissible. The heterogeneous arm minimizes at no shock, cost 13. The open miss at this cap: heat is proportional to precision, and the admissible points keep the more precise units.
 
 A failure time independent of the world adds nothing about the world. A failure that depends on the state cuts the variance, in the one Cox comparison that was scored (`theory/ACTING_LOOP_2026-11-22.md` §6, T46), and the part is then gone.
 
@@ -71,4 +71,4 @@ The cheapest next test of the conjecture is in-model: score the spread of the mi
 - Rebuild: `theory/antifragility_checks/RESULTS.md` (T43).
 - Barbell: `theory/DYNAMICS.md`.
 - Closed loop with payoff: `theory/ANTIFRAGILE_LOOP_2026-11-23.md`.
-- Open work: T50 in `OPEN_WORK.md`.
+- Open work: T50 in [`OPEN_WORK.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md).

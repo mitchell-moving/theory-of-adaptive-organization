@@ -1,0 +1,122 @@
+{
+ "q=4.0,lam=0.05": [
+  {
+   "Theta": 0,
+   "classical pair": 5.0,
+   "boxworld pair": 3.0,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "boxworld pair"
+  },
+  {
+   "Theta": 0.3,
+   "classical pair": 5.404,
+   "boxworld pair": 3.519,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "boxworld pair"
+  },
+  {
+   "Theta": 1,
+   "classical pair": 6.366,
+   "boxworld pair": 4.781,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "real-QM pair"
+  },
+  {
+   "Theta": 2,
+   "classical pair": 7.347,
+   "boxworld pair": 6.202,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "real-QM pair"
+  },
+  {
+   "Theta": 3,
+   "classical pair": 8.0,
+   "boxworld pair": 7.634,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "real-QM pair"
+  },
+  {
+   "Theta": 10,
+   "classical pair": 8.0,
+   "boxworld pair": 8.0,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "real-QM pair"
+  },
+  {
+   "Theta": 30,
+   "classical pair": 8.0,
+   "boxworld pair": 8.0,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "real-QM pair"
+  }
+ ],
+ "q=4.0,lam=0.005": [
+  {
+   "Theta": 0,
+   "classical pair": 5.0,
+   "boxworld pair": 3.0,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "boxworld pair"
+  },
+  {
+   "Theta": 0.3,
+   "classical pair": 5.129,
+   "boxworld pair": 3.165,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "boxworld pair"
+  },
+  {
+   "Theta": 1,
+   "classical pair": 5.422,
+   "boxworld pair": 3.558,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "boxworld pair"
+  },
+  {
+   "Theta": 2,
+   "classical pair": 5.767,
+   "boxworld pair": 4.072,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "real-QM pair"
+  },
+  {
+   "Theta": 3,
+   "classical pair": 6.284,
+   "boxworld pair": 4.595,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "real-QM pair"
+  },
+  {
+   "Theta": 10,
+   "classical pair": 8.0,
+   "boxworld pair": 7.787,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "real-QM pair"
+  },
+  {
+   "Theta": 30,
+   "classical pair": 8.0,
+   "boxworld pair": 8.0,
+   "real-QM pair": 4.039,
+   "QM pair": 4.039,
+   "cheapest": "real-QM pair"
+  }
+ ],
+ "local_only_pair_equals_2x_single (lam=0.05, Theta=1)": {
+  "boxworld": 4.109,
+  "QM": 3.454
+ }
+}

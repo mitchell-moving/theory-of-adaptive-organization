@@ -1,0 +1,61 @@
+rows {'n': 4, 'lp_worst_case_r': 0.70710678, 'closed_form_cos_pi_over_n': np.float64(0.70710678), 'worst_theta_over_2pi_n': np.float64(1.5), 'max_abs_translation_b': 0.0, 'bits_lost_of_1bit': 0.60088, 'cost_in_kappa_ln2_units': 0.60088}
+{'n': 6, 'lp_worst_case_r': 0.8660254, 'closed_form_cos_pi_over_n': np.float64(0.8660254), 'worst_theta_over_2pi_n': np.float64(5.5), 'max_abs_translation_b': 0.0, 'bits_lost_of_1bit': 0.35458, 'cost_in_kappa_ln2_units': 0.35458}
+{'n': 8, 'lp_worst_case_r': 0.92387953, 'closed_form_cos_pi_over_n': np.float64(0.92387953), 'worst_theta_over_2pi_n': np.float64(1.5), 'max_abs_translation_b': 0.0, 'bits_lost_of_1bit': 0.23333, 'cost_in_kappa_ln2_units': 0.23333}
+{'n': 12, 'lp_worst_case_r': 0.96592583, 'closed_form_cos_pi_over_n': np.float64(0.96592583), 'worst_theta_over_2pi_n': np.float64(2.5), 'max_abs_translation_b': 0.0, 'bits_lost_of_1bit': 0.12446, 'cost_in_kappa_ln2_units': 0.12446}
+{'n': 24, 'lp_worst_case_r': 0.99144486, 'closed_form_cos_pi_over_n': np.float64(0.99144486), 'worst_theta_over_2pi_n': np.float64(12.5), 'max_abs_translation_b': 0.0, 'bits_lost_of_1bit': 0.03982, 'cost_in_kappa_ln2_units': 0.03982}
+classical_bit_segment {
+ "n": 2,
+ "r_star": 0.0,
+ "bits_lost_of_1bit": 1.0,
+ "note": "inradius of a segment is 0: an unboundedly drifting direction cannot be carried at all; best lagging strategy has alignment |cos(theta)|, zero at theta=pi/2"
+}
+disk_rebit {
+ "r_star": 1.0,
+ "bits_lost_of_1bit": 0.0,
+ "note": "SO(2) rotations are reversible symmetries of the disk"
+}
+ball_qubit {
+ "r_star": 1.0,
+ "bits_lost_of_1bit": 0.0,
+ "note": "SO(3) rotations (unitaries) are reversible symmetries of the Bloch ball"
+}
+lag_strategy_mean_alignment {
+ "2": 0.63662,
+ "4": 0.90032,
+ "6": 0.95493,
+ "8": 0.9745,
+ "12": 0.98862,
+ "24": 0.99715,
+ "64": 0.9996,
+ "256": 0.99997
+}
+asymptotic_check {
+ "64": [
+  0.0073113,
+  0.0073129
+ ],
+ "256": [
+  0.0006076,
+  0.0006077
+ ],
+ "1024": [
+  4.74e-05,
+  4.74e-05
+ ]
+}
+tick_composition_check
+{'n': 4, 'd': 0.01, 'R_d_is_positive': False}
+{'n': 4, 'd': 0.1, 'R_d_is_positive': False}
+{'n': 4, 'd': 1.5708, 'R_d_is_positive': True}
+{'n': 6, 'd': 0.01, 'R_d_is_positive': False}
+{'n': 6, 'd': 0.1, 'R_d_is_positive': False}
+{'n': 6, 'd': 1.0472, 'R_d_is_positive': True}
+{'n': 8, 'd': 0.01, 'R_d_is_positive': False}
+{'n': 8, 'd': 0.1, 'R_d_is_positive': False}
+{'n': 8, 'd': 0.7854, 'R_d_is_positive': True}
+{'n': 12, 'd': 0.01, 'R_d_is_positive': False}
+{'n': 12, 'd': 0.1, 'R_d_is_positive': False}
+{'n': 12, 'd': 0.5236, 'R_d_is_positive': True}
+{'n': 24, 'd': 0.01, 'R_d_is_positive': False}
+{'n': 24, 'd': 0.1, 'R_d_is_positive': False}
+{'n': 24, 'd': 0.2618, 'R_d_is_positive': True}

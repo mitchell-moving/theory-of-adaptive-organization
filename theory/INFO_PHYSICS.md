@@ -35,7 +35,7 @@ What is forced, and what is not:
 
 Class P is the class the theorems below talk about.
 
-- **P-X.** The world \(X\) is an exogenous stationary Markov process. The memory does not act back on \(X\). This is the repository's standing exogenous world, and it is Still's no-back-action hypothesis. Worlds the system moves are CX2, **OPEN**, and are outside this note.
+- **P-X.** The world \(X\) is an exogenous stationary Markov process. The memory does not act back on \(X\). This is the repository's standing exogenous world, and it is Still's no-back-action hypothesis. Worlds the system moves are CX2, **OPEN**, and are outside this note. The heat floor under feedback, in named classes, is T61 (`theory/FEEDBACK_FLOOR_2026-11-23.md`). T61 is not the co-adaptation statement.
 - **P-B.** The memory \(M\) is either a finite-state continuous-time Markov chain or a linear diffusion, coupled to one heat bath at temperature \(T\). A memory jump obeys local detailed balance: the logarithm of the rate ratio is the entropy the bath receives, in units of \(k\). The checks set \(kT=1\) and report nats.
 - **P-S.** The joint process is stationary.
 - **P-L.** The action is a function of \(M\). The task loss \(\ell\) is not assumed to be a thermodynamic work. A weight \(w\) that puts \(\ell\) in energy units is an input.

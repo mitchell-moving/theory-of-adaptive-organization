@@ -1,7 +1,7 @@
 # SPF-RIGIDITY-OOS — MV10 power gate: GATE NOT MET (no prereg locked, no outcome computed)
 
 Executor `queue-pick20` (for Ace; Chad t1914), Sunday 15 Nov 2026, about 4:50–5:15 PM ET (America/New_York). Queue protocol v2,
-post-protocol pick 20, UNIFORM slot (ledger 96 unaided order, 97 rule_rank, 98 pick; outcome entry in `process/queue/LEDGER.jsonl`).
+post-protocol pick 20, UNIFORM slot (ledger 96 unaided order, 97 rule_rank, 98 pick; outcome entry in `tests/SG_RANK/LEDGER.jsonl`).
 THEORY.md not edited. **No CLAIM_MAP status changes; N13 stays OPEN; vigilance stays OPEN.**
 
 ## The item

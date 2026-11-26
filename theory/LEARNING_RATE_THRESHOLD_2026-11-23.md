@@ -16,11 +16,11 @@
 |---|---|---|---|---|
 | 1D, HOT | 1.079 ± 0.026 | 1.007 ± 0.026 | −0.073 | EQUAL |
 | 1D, COLD | 1.005 ± 0.053 | 0.964 ± 0.043 | −0.041 | EQUAL |
-| 2D, HOT | 1.690 ± 0.040 | 1.529 ± 0.041 | −0.162 | P-b MISS (puzzle) |
+| 2D, HOT | 1.690 ± 0.040 | 1.529 ± 0.041 | −0.162 | P-b MISS (open) |
 | 2D, COLD | 1.470 ± 0.094 | 1.446 ± 0.062 | −0.024 | EQUAL |
 
 - **P-a met in both dimensions.** The equilibrium threshold of \(I\) is 1.048 ± 0.037 in 1D (window [0.85, 1.15]) and 1.604 ± 0.058 in 2D (window [1.35, 1.65]). This matches Kim–Kuwahara–Saito's \((d+1)/2\).
-- **Two puzzles, both in 2D HOT.**
+- **Two open misses, both in 2D HOT.**
   - P-a′: \(I_{\rm HOT}\) breaks at 1.690, outside [1.35, 1.65].
   - P-b: \(\Delta=-0.162<-0.15\).
 - **P-c met everywhere.** Above \(d+1+0.2\), no learning rate grows faster than the boundary (maximum \(s\) is −2.36 in 1D and −1.005 in 2D).
@@ -35,7 +35,7 @@
 
 - **Equilibrium cross-cut MI.**
   - The repository already has the equilibrium cross-cut MI area law, as "the field's own" quantity (Wolf et al. 2008, `theory/HOLOGRAPHIC_2026-11-22.md:116`).
-  - It also has the interface learning-rate floor (Proposition H-iface, `theory/HOLOGRAPHIC_2026-11-22.md:40`, T41), and T44's blanket sufficiency for exterior decisions (`OPEN_WORK.md:95`).
+  - It also has the interface learning-rate floor (Proposition H-iface, `theory/HOLOGRAPHIC_2026-11-22.md:40`, T41), and T44's blanket sufficiency for exterior decisions ([`OPEN_WORK.md:95`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L95)).
 - **Area cap and heat floor.** There is T62's class AL area cap on tracked flux, with a packing input (`theory/AREA_LAW_PROBE_2026-11-23.md:15`), and the heat floor \(\dot Q_M\ge kT\,\dot I_M\) (`CORE.md:70`).
 - **Already cited.** Horowitz–Esposito 2014 and Hartich–Barato–Seifert 2014 are cited across `THEORY.md` and the theory notes. Jacobson 1995 is in `theory/AREA_LAW_PROBE_2026-11-23.md:51`.
 - **Not in the repository before this note:** Jacobson 2016, Kim–Kuwahara–Saito 2025, Allahverdyan–Janzing–Mahler 2009, Demko–Moss–Smith 1984, and the words "judge inside" / "judge-inside" and "T67".
@@ -132,9 +132,9 @@ The sign is as expected everywhere: the hot judge forgets (\(\dot I_A<0\)) and t
 
 **The naive estimator (descriptive only).** The log-log slope of \(y\) crossing 0.05 gives \(p_c\) values 0.2–1.0 higher in every case, the usual rounding of a slow approach. This is why the preregistered estimator uses the approach exponent instead.
 
-## 5. The puzzles, diagnosed (POST HOC, not preregistered)
+## 5. The open misses, diagnosed (POST HOC, not preregistered)
 
-**The puzzles.** In 2D HOT, \(I_{\rm HOT}\) breaks at 1.690, outside its window, and so \(\Delta=-0.162\) falls just past −0.15. The predictions are not patched. Three diagnostics follow.
+**The open misses.** In 2D HOT, \(I_{\rm HOT}\) breaks at 1.690, outside its window, and so \(\Delta=-0.162\) falls just past −0.15. The predictions are not patched. Three diagnostics follow.
 
 1. **Corner-free strip judge at larger sizes** (`posthoc_strip.py`, exact transverse-Fourier decomposition, validated against the dense code to \(3\times10^{-15}\)). The judge is a band \(\{x<L\}\) on an \(n\times n\) torus, with boundary \(2n\), and the same estimator is used.
 
@@ -193,7 +193,7 @@ The sign is as expected everywhere: the hot judge forgets (\(\dot I_A<0\)) and t
 | Equilibrium area-law stock carries zero ongoing cost; Gibbs-preserving circulation gives zero flow | ELEMENTARY (reviewed) |
 | P-a: \(p_c(I_{\rm EQ})=(d+1)/2\pm0.15\) in 1D and 2D | NUMERICAL, preregistered, met |
 | \(p_c(\dot I)=p_c(I)\) within 0.15 in 1D HOT, 1D COLD, 2D COLD | NUMERICAL, preregistered, EQUAL |
-| 2D HOT: \(p_c(I_{\rm HOT})=1.690\) outside window; \(\Delta=-0.162\) | NUMERICAL, preregistered, puzzle |
+| 2D HOT: \(p_c(I_{\rm HOT})=1.690\) outside window; \(\Delta=-0.162\) | NUMERICAL, preregistered, open miss |
 | No faster-than-boundary learning rate above \(d+1+0.2\) | NUMERICAL, preregistered, met |
 | Strip geometry puts 2D HOT/COLD in the EQUAL band | NUMERICAL, post hoc |
 | 2D offset is a slow approach in the non-extensive regime | CONJECTURE |

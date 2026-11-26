@@ -1,4 +1,4 @@
-# Lean 4 formalization of the GTAO core (OPEN_WORK T19)
+# Lean 4 formalization of the GTAO core (T19)
 
 This directory is a Lean 4 + Mathlib project.  It machine-checks a
 finite-menu fragment of the core in `THEORY.md` (canonical) and `CORE.md`,
@@ -37,11 +37,8 @@ about the real world.
 - Axiom audit: `scripts/AxiomAudit.lean` (run by `tools/check_lean.sh`
   after the build) checks that every declaration in a `GTAO.*` module
   depends only on `propext`, `Classical.choice` and `Quot.sound`.  A
-  `sorry` anywhere would show up as `sorryAx` and fail the check.  Last
-  run (22 November 2026, branch `lean-batch2-2026-11-21`, after the
-  batch-2 confirm nits): 757 declarations, OK
-  (635 after the lean-layer-drift review should-fixes, plus batch 2,
-  its should-fixes, and the confirm nits).
+  `sorry` anywhere would show up as `sorryAx` and fail the check.  The
+  current total is `audit_count` in `AUDIT.json`, its one source.
 
 ## How to build
 
@@ -67,7 +64,7 @@ Hypotheses are part of the claim.  A finite nonempty design set, and a
 stake-independent menu (ruin slack or absent), are standing hypotheses
 wherever `FiniteDesignMenu` is used.
 
-"CORE §" numbers below refer to earlier versions of the one-pager, kept in `history/` (`2026-11-21_CORE_before_onepage.md`, `2026-11-21_CORE_before_shannon.md`, `2026-11-22_CORE_before_front.md`). The current `CORE.md` was rewritten on 22 November 2026 and has different section numbers.
+"CORE §" numbers below refer to earlier versions of the one-pager, kept in git history ([`2026-11-21_CORE_before_onepage.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-21_CORE_before_onepage.md), [`2026-11-21_CORE_before_shannon.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-21_CORE_before_shannon.md), [`2026-11-22_CORE_before_front.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-22_CORE_before_front.md)). The current `CORE.md` was rewritten on 22 November 2026 and has different section numbers.
 
 | Lean name | THEORY / source | What is assumed | What is proved |
 |---|---|---|---|
@@ -130,6 +127,74 @@ wherever `FiniteDesignMenu` is used.
 | `CoadaptationDrift.s8b_lyapunov`, `s8b_regret_party0`, `s8b_regret_party1`, `s8b_naive_party0`, `s8b_naive_party1`, `s8bP0_right_inv`, `s8bP0_lyapunov`, `s8b_static_regret`, `ca7_regret_not_naive` | CLAIM_MAP U11 / CA7 (4) | The exact s8b datum of `tools/coadaptation_checks.py` (`S=[[2,9/10],[9/10,1]]`, `w=[1,2]`, `γ=5`, `V=diag(1,2/5)`, `Q=diag(3/10,3/10)`, `M_{ij}=S_{ij} w_i/γ`); regrets are `½ (g_iᵀ P g_i)/M_{ii}` on a symmetric Lyapunov solution `P` (uniqueness of that symmetric solution is outside Lean) | Lyapunov `V S P + P S V = 2V+2Q` holds for `P=[[2323/1904,−603/476],[−603/476,13757/4760]]`; drift regrets are `10643/80000` and `2557/8000`, against naive uncoupled `13/100` and `7/20`.  At `Q=0`, the quadratic form on `P₀=S⁻¹=[[100/119,−90/119],[−90/119,200/119]]` gives regrets `1/10` and `1/5`, i.e. `1/(2β_i)`.  Faithful for the negative finding on the note's s8b covariance |
 
 
+## Batch 1: representation, the two obstructions, finite partitions
+
+Every declaration added in `GTAO/Cauchy.lean`, `GTAO/Representation.lean`,
+`GTAO/Obstruction.lean`, and `GTAO/ContinuousA6.lean` is labeled against
+the sentence it checks. Debreu's theorem, von Neumann–Morgenstern
+linearity, and the Gelfand–Yaglom–Dobrushin reverse inequality are
+hypotheses. They are not proofs.
+
+| Lean name | Paper | Label |
+|---|---|---|
+| `AdditiveOnPos`, `Concatenates`, `mul_nat`, `below_gap`, `above_gap`, `ratBelow`, `ratAbove`, `ratBelow_bounds`, `ratAbove_bounds`, `tendsto_mul_div`, `tendsto_mul_div_above`, `tendsto_ratBelow`, `tendsto_ratAbove`, `eq_of_squeeze`, `f_one_nonneg_of_nondecreasing`, `f_one_nonpos_of_nonincreasing` | `theory/REPRESENTATION.md:68`–74, the estimates inside Lemma C | **Faithful.** Auxiliary definitions and bounds for the squeeze. The domain stays `(0, ∞)`. |
+| `cauchy_rat`, `cauchy_monotone`, `cauchy_continuous` | Lemma C, lines 68–74 | **Faithful.** Positive rationals need no monotonicity. Either monotone direction gives `f(x) = x f(1)`. Continuity gives the same line. Both signs of `f(1)` are allowed. |
+| `pexider_monotone`, `pexider_continuous` | Lemma P, line 76 | **Faithful.** `g = f + c` is additive, and `f(z) = p z - c` with `p` allowed to be negative. |
+| `cauchy_nat` | Lemma C on the nonnegative integers, line 78 | **Faithful.** `f(0) = 0` and `f(n) = n f(1)`, with no topology. |
+| `slope_nonneg_of_nondecreasing`, `price_zero_of_independent`, `Represents`, `IndependentOf` | Lemma M, line 80 | **Faithful.** A nondecreasing line has nonnegative slope. A coordinate the preorder ignores, on the positive orthant, has price 0. The witnesses are the constant-`1` vector and the vector that is `2` in that coordinate. The linear form is a hypothesis only for strictly positive vectors. |
+| `DebreuAdditive`, `r1_linear_components` | Theorem R1, lines 84 and 102–118 | **Faithful** as packaging. `n ≥ 3`, a sum of continuous coordinate functions, and the Pexider equation are hypotheses. The conclusion is `C(z) = ∑ p_i z_i + b` on positive vectors, prices unsigned. Debreu's theorem is not proved. |
+| `r1_vnm_scale` | lines 100 and 118 | **WEAKER.** Two positive affine writings of one index agree when that index takes two values. Von Neumann–Morgenstern linearity is a hypothesis. Debreu's common scale does not appear, so the declaration does not identify it with the currency regraduation. |
+| `r1_nonneg_of_A8` | lines 92 and 120 | **Faithful.** A8, each concatenating component nondecreasing, gives each price `≥ 0`. |
+| `r1_zero_of_not_essential` | lines 25 and 90 | **Faithful.** Same statement as `price_zero_of_independent`. The linear form and the preorder are used only on the positive orthant. |
+| `r1_with_layer_count` | lines 94 and 112 | **Faithful.** Separability `C(z, K) = C_interval(z) + f(K)` is a hypothesis. Concatenation of counts then gives `h K`. No declaration drops it. |
+| `r1_layer_price_nonneg_of_A8` | line 112 | **Faithful.** A8 on the integer count is the hypothesis that `fn` is nondecreasing. Then `h = fn 1 ≥ 0`. |
+| `negative_price_example` | lines 90 and 64 | **WEAKER.** The declaration is the arithmetic of `z₀ + z₁ - z₂`: the components are continuous and the third price is `-1`. Line 90 also says the example satisfies A1–A7. That check is not in the declaration. |
+| `IsArgmin`, `affine_argmin_iff`, `strictMono_argmin_iff` | line 126 | **Faithful.** For `a > 0`, and for any strictly increasing transform, the argmin on a menu that does not depend on the numerical cost is unchanged. |
+| `affine_excess_scale`, `affine_excess_eq_iff` | lines 128–142 | **Faithful.** On one weight, `E[C] - C* = a (E[J] - J*)` and `b` cancels. Against the fixed Gibbs weight of `J`, `Equipartition.gibbs_excess_quadratic` gives equality with `d/(2β)` if and only if `a = 1`. |
+| `affine_excess_refit` | line 142 | **Faithful.** `β_new = β / a` and `(a • H)` positive definite. The excess of `C` under its own Gibbs weight is `d / (2 β_new)`. |
+| `fractional_excess_scale`, `fractional_excess_shift` | lines 144–150 | **Faithful** for `b = 0`, and for the rationals `E[J] = 2`, `J* = 1`, `b = 1`, which change the fraction from `1` to `1/2`. The general quotient `(a (E[J] - J*)) / (a J* + b)` is not a theorem. |
+| `constrained_argmin_not_affine` | line 152 | **Faithful.** Two designs, costs `1` and `6/5`, variances `4` and `1`, level `3`, threshold `18/100`, shift `17/10`. Both designs are feasible before the shift and the cheaper one is design 0. After the shift only design 1 is feasible. |
+| `sharedGrowth`, `kelly_qstar`, `log_le_tangent`, `log_lt_tangent`, `kelly_foc_sign` | line 160 and `theory/DYNAMICS.md:159` | **Faithful.** `q* = 13/50` is the unique maximizer of shared-shock log growth on `(0, 1]`. The printed growth value `0.128` is not an equality. |
+| `kelly_not_expected_factor` | line 160 | **Faithful.** Lean expected factor `247/200`, robust `417/400`. The linear objective on `[0, 1]` is maximised only at pure lean, which is not `13/50`. |
+| `intervalCost`, `expected_cost_interval` | line 162 | **Faithful.** `LayerLifetime.Tstar 1 (1/20) 1 (1/2) = √(1/10)` is the unique positive minimizer of `c/τ + α τ`. |
+| `phi`, `quintic`, `cubic`, `quintic_eq_phi`, `hasDerivAt_quintic`, `cubic_neg`, `quintic_anti` | the numerator identity behind line 162 | **Faithful.** Exact polynomial arithmetic. `6000 t² φ(t)` is the quintic, and the quintic is strictly decreasing on `[0, 2]`. |
+| `survival_interval_lt` | line 162 | **WEAKER.** The unique zero of `φ` on `(0, 2]` lies in `(23615/100000, 189/800)` and is strictly below `√(1/10)`, which itself lies in `(31622/100000, 31623/100000)`. The printed figures `0.2362` and `0.3162` are not equalities. The sentence also says this zero is the survival-optimal interval. Maximality of `θ` is not proved. That gap is appended in `BATCH1_PLAN.md`. |
+| `klDiv_prob_integral` | `theory/CONTINUOUS_A6_2026-11-23.md:77` | **Faithful.** Probability measures, absolute continuity, and integrability of the log-likelihood are hypotheses. The divergence then equals `ENNReal.ofReal` of the integral. Without integrability Mathlib sets the divergence to `⊤`. |
+| `klDiv_nonneg` | line 77, the interval `[0, ∞]` | **Faithful** to `0 ≤ klDiv` in `ℝ≥0∞`. That order is the codomain. Nonnegativity of the integral is a different fact. |
+| `klDiv_zero_iff_eq` | line 111 | **Faithful** for the divergence: on probability measures it is `0` if and only if the measures are equal. The mutual-information form of that biconditional is not a separate declaration. |
+| `mutualInfo`, `mi_swap`, `mi_data_processing` | line 145, symmetry and data processing | **Faithful.** Symmetry is the coordinate swap. Data processing is Mathlib's `klDiv_map_le` on the product map. |
+| `klDiv_compProd_chain` | line 145 names a chain rule | **Faithful** to Mathlib's kernel identity `klDiv_compProd_eq_add`. It is not the mutual-information chain rule. That identification is a puzzle in `BATCH1_PLAN.md`, not a weaker equation. |
+| `partitionMI`, `partition_mi_le`, `refinement_mono`, `finite_identity_attains`, `FiniteLabel`, `finitePartitionMI`, `finite_partition_le` | lines 99 and 101 | **Faithful.** A finite labeling does not raise mutual information. A coarser labeling, being a measurable function of a finer one, does not raise it either. On a finite alphabet the identity labeling attains the value. |
+| `GYDSup`, `gyd_equiv` | lines 91 and 21 | **Faithful** as a hypothesis. `GYDSup` is the reverse inequality, joint divergence at most the supremum of finite-partition mutual informations. `gyd_equiv` adds that hypothesis to the proved inequality. The supremum is not constructed. |
+
+## Batch 2: heat and repair floors
+
+Declarations in `GTAO/HeatFloor.lean`, `GTAO/FiniteFloor.lean`,
+`GTAO/FiniteFloorBounds.lean`, and `GTAO/RepairFloor.lean`. The two-state
+floor, the finite-alphabet divergence, the class-indicator and 3-cycle
+witnesses, and the one-carrier comparison `L ≥ 4 (log 2 - h)` are checked.
+Four declarations are **WEAKER**, each with the missing clause in
+`INVENTORY.md` and a miss row in `BATCH2_PLAN.md`. The telegraph lower
+bound, the pairwise bound, the path bound, the product inequality on
+`{0,1}^n`, and the two-distribution decoder bound are not declarations.
+
+## LEAN-PHYS: diffusion heat step, T60 pairwise and path, T63 product
+
+Declarations in `GTAO/DiffusionHeat.lean`, `GTAO/FiniteFloorPairwise.lean`,
+`GTAO/FiniteFloorPath.lean`, and `GTAO/RepairTensor.lean`, planned in
+`LEAN_PHYS_PLAN.md` before any proof (commit `07ce4e5`). This adds to the
+Batch 2 paragraph above: the pairwise bound, the path bound, and the
+product inequality on `{0,1}^n` are now declarations. Every assumption is
+a named hypothesis or structure field.
+
+| Declaration | Paper sentence | Label |
+|---|---|---|
+| `eq_heat_identity`, `eq_heat_steady`, `eq_heat_floor` | `theory/GENERALITY_2026-11-22.md:39-68`, Proposition EQ-heat | **WEAKER.** Integration by parts and the marginal-entropy identity are fields of `EQHeatHyp`, not derived from the SDE. Miss LP-eqheat. |
+| `pairwise_L_ennreal` | `theory/GENERAL_FLOOR_FINITE_2026-11-23.md:115` | **Faithful** on the extended sum `iAlt`, no extra hypothesis. `pairwise_L` is the real form under absolute continuity. |
+| `path_pinsker_ennreal`, `path_pinsker_stronglyConnected`, `telegraph_K` | `theory/GENERAL_FLOOR_FINITE_2026-11-23.md:117-129` | **Faithful.** `pathWeight` counts each edge with its multiplicity. `path_pinsker` is the real form under absolute continuity on used edges. |
+| `pairwise_telegraph` | `theory/GENERAL_FLOOR_FINITE_2026-11-23.md:107` | **Faithful** to the lower bound `I_alt ≥ r L(ε)` for `ε < 1/2`. Equality and the converse are not declarations. |
+| `cube_tensorization` | `theory/RECORD_REPAIR_FLOOR_2026-11-23.md:75` | **WEAKER.** Strictly positive `p`; the zero-atom case, where the note's `σ` is `+∞`, is miss LP-tensor-zero. |
+
 ## What is not formalized
 
 None of the following is claimed as proved in Lean.
@@ -157,6 +222,38 @@ None of the following is claimed as proved in Lean.
 - LAYER_CONVEXITY: N60 started from `k_0 > 0` (the from-1 formula); Theorem B for a continuous frequency measure (only finitely many cells with positive weights are formalized); the identification of the finite-cell minimum `bandE` with the staircase cost `BandCounterexample.cost`; the corollary that `K*_0` equals the leftmost argmin in 𝓑; the Wiener-gain reading `W = 1/(1+N/S)`; Model S convexity for `J≥3`; Model S convexity for `J≤2` (N64(iii); Kalman/Wiener, not formalized in this batch).
 - DRIFT_SELECTION: the generator expansion from the origination–fixation chain to the Langevin equation (L), existence and uniqueness of the stationary law and the ergodic theorem (time average = stationary mean); DS1(b) for a general mutation matrix `M` (`d/(2β) + Tr(M^{-1} Q)/(2β)`); DS1(c) as the single excess `d/(2β) + vᵀH⁻¹v/(2 β² D_m²)` (only the mean-lag term is formalized; the fluctuation `d/(2β)` is not supplied here by `Equipartition`); the jump-process construction behind the DS2 mean-speed bound; S2's `E[|L|]`, `E[J−J*]`, and time average (the formalized DS2 lag, cost, and half-window theorems are WEAKER: they bound `|E[L]|`, give a Rayleigh lower bound on a free quadratic, and have no time-average statement); DS3; Corollary DS1c (the fractional form with `β = σ N_e / J*`); the topological limit `γ→∞` in DS1(d).
 - COADAPTATION: the origination–fixation derivation of the log-linear rate ratio; CA2–CA4 and CA5–CA6; CA7 (2) the blockwise virial and CA7 (3) the team mismatch bracket (order-preserving Lyapunov inverse from CA3); the Hurwitz half of CA7 (1) (`−VK` is Hurwitz); the §6 counterexamples; U2's per-party `E[R_i]=d_i/(2β_i)` and `E[Φ]−Φ*=d/(2γ)` (not declarations); the A2-L identification `γ = σ N_e / J_T*` and the derivation of equal-`σ N_e`; uniqueness of the symmetric s8b Lyapunov solution.  CA1 uniqueness and the CA7 (1) excess identity are Faithful in this batch.  CA1b's shift, Boltzmann, and Gibbs quadratic excess are Faithful; the team split is WEAKER (the second-moment contraction is an input).  CA1c's potential and summed-cost identity are Faithful; `ca1c_gap_zero` and `ca1c_fraction` are WEAKER (`J_T(x^Ψ)=min`, and cancellation of `J_T*` between `d/(2γ)` and `γ = σ N_e / J_T*`).  CA7 (4) is the s8b negative finding, Faithful on that datum, including the `Q=0` quadratic-form static regrets.
+
+## RND-RECORD-COST: copy ban under drift, dimension bound, pricing (side R&D)
+
+Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
+from a private Lake project with the same pins. Paper:
+`theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
+`#print axioms` on the 62 exported theorems; each depends only on
+`propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
+input is a named hypothesis, a structure field, or a definition. None is a
+Lean `axiom`. The named assumptions NA1–NA6 are those of §5 of the paper (the
+"NA" prefix keeps them apart from the theory's axioms A1–A8): NA1 the SO(3)
+connected-subgroup classification, NA2 the inner-product-preserving drift, NA3
+the polygon `V` and `σ` as definitions, NA4 "the disk pays 0" as a definition,
+NA5 the Lie setting, NA6 the modelling fields (`CopyModel`, the tensor property
+in `gbit_no_local_write`, the cost-dial refresh term).
+
+| Declaration | Paper step | Label |
+|---|---|---|
+| `GTAORnd.SelfRef.fourier_core`, `no_linear_clone_gpt`, `no_linear_clone_circle` | S1 (copy ban on a moved circle orbit) | **Faithful** to the trigonometric and GPT forms. That a compact connected drift contains such a circle orbit is the setting (assumption NA5), not a declaration. |
+| `GTAORnd.SelfRef.R3_full`, `dim_bound` | S2 (`d ≥ N + 1`) | **WEAKER.** "H compact" is replaced by the declared hypothesis `hinv`: the drift's linear parts preserve one inner product and depend continuously on the group element (assumption NA2). |
+| `GTAORnd.ring_bound`, `factor_ge_two`, `discrete_oneParam_trivial`, `disk_oneParam`, `disk_strictly_cheaper` | S3 (polygon cost `≥ 2Θ²/V`) | **WEAKER.** `V`, `σ` and "the disk pays 0" are definitions (assumptions NA3, NA4), not derived from a path measure. |
+| `GTAORnd.SelfRef.normal_fixer_bot`, `normal_nontrivial_fixes_nothing`, `SelfRefRun.normal_fixer_trivial` | S4 (ball in `d = 3`) | **Partial.** Group step only. Ball uniqueness rests on the SO(3) connected-subgroup classification, not in Mathlib (assumption NA1). |
+| `GTAORnd.Composition.P1`, `log_additive_iff`, `P2_entries` | S5 (additive price is `c log` count) | **Faithful.** |
+| `GTAORnd.CopyModel.lemmaB1`, `lemmaB1_k`, `clone2_to_k` | S6 (Lemma B1) | **Faithful** under the `CopyModel` fields; capacity is weakened to `≤ N` (a stronger lemma); the 1→2 form needs at least one effect; the `CopyModel` fields are assumption NA6. Controls: `unitModel_clones`, `square_B1_hypotheses`. |
+| `SelfRefRun.perm_periodic`, `SelfRefRun.no_zero_drift_while_recording` | S7, S8 | **Faithful.** |
+| `GTAORnd.SelfRef.liar_half`, `sharp_flip_no_fixed` | S9 | **Faithful.** |
+| `GTAORnd.SelfRef.Jdial_stationary_iff`, `Jdial_midpoint`, `Jdial_midpoint_60` | S10 (cost dial) | **WEAKER.** Stationarity only; the global minimum is open. The refresh term is a modelling choice (assumption NA6). |
+
+Not formalized here: the SO(3) classification and the convex-geometry steps
+of S4; Haar averaging behind `hinv`; the scripted counts (boxworld's 128
+symmetries, the complete-record table, the zero-drift prices); a Lean
+witness that the qubit ball attains `d = N + 1`.
 
 ## Layout
 
@@ -187,6 +284,18 @@ formal/lean/
   GTAO/CoadaptationUnique.lean  # CA1 uniqueness (max-ratio + uniformization)
   GTAO/CoadaptationExcess.lean  # CA1b / CA1c (U2)
   GTAO/CoadaptationDrift.lean   # CA7 (U11): potential excess and regret counterexample
+  GTAO/Cauchy.lean          # Lemmas C, P, C on the nonnegative integers, M
+  GTAO/Representation.lean  # R1 packaging and the affine block
+  GTAO/Obstruction.lean     # R2: Kelly and the Lundberg interval comparison
+  GTAO/ContinuousA6.lean    # probability-measure klDiv, finite partitions, GYDSup
+  GTAO/HeatFloor.lean       # two-state heat floor, T59
+  GTAO/FiniteFloor.lean     # finite-alphabet learning rate, T60
+  GTAO/FiniteFloorBounds.lean  # connectivity, class indicator, 3-cycle
+  GTAO/RepairFloor.lean     # one-carrier repair comparison, T63
+  GTAO/DiffusionHeat.lean   # EQ-heat step on any measure space, named hypotheses
+  GTAO/FiniteFloorPairwise.lean  # log-sum, Jeffreys, pairwise L bound, T60
+  GTAO/FiniteFloorPath.lean # Pinsker, walks, path bound, K = 1/(4r), T60
+  GTAO/RepairTensor.lean    # product inequality on {0,1}^n, T63
   scripts/AxiomAudit.lean   # every GTAO declaration uses only standard axioms
 ```
 

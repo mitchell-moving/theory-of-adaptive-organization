@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Layer-counting rule for real systems (OPEN_WORK T15; measurement/LAYER_COUNT_RULE.md).
+"""Layer-counting rule for real systems (T15; measurement/LAYER_COUNT_RULE.md).
 
 Two sides, kept separate:
 

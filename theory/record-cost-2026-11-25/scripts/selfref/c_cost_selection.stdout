@@ -1,0 +1,26 @@
+(1) optimal record angle alpha* (0 = conserved axis, beta = stake direction); beta = 60 deg
+   rho= 0.00  alpha*= 60.0 deg   P_D=0.000
+   rho= 0.05  alpha*= 57.4 deg   P_D=0.001
+   rho= 0.20  alpha*= 48.6 deg   P_D=0.010
+   rho= 0.50  alpha*= 32.9 deg   P_D=0.055
+   rho= 1.00  alpha*= 20.0 deg   P_D=0.117
+   rho= 2.00  alpha*= 11.1 deg   P_D=0.171
+   rho= 5.00  alpha*=  4.7 deg   P_D=0.215
+   rho=20.00  alpha*=  1.2 deg   P_D=0.241
+   stationarity: sin(beta-alpha) = rho*sin(2alpha)/... ; alpha*=beta/2 exactly when rho = 1/(2cos(beta/2)) = 0.5774 -> check: 30.0 deg
+   reading: rho grows with readers R and drift D. Many readers / fast drift push records onto the conserved (copyable) axis;
+   few readers / high stakes keep records on the stake direction, which is drifting and therefore not copyable for free.
+
+(2) readers needed before the record moves halfway to the conserved axis (beta=60deg, w*D/(q*kappa)=0.05): 6
+
+(3) state-space comparison (capacity N=2 for all; all can store one bit). Terms per unit time:
+    irreversibility to follow continuous drift: lam*2*Theta^2/V for spaces with no continuous reversible group (sibling C3, TUR) ;
+    record term: w*R*D if no record survives the drift (no drift-fixed distinguishable pair), else 0;
+    dimension price (rival pricing, sibling OM3): kK*log2(K), K = affine dim + 1.
+   lam=0.05,Theta=1,V=0.1,w=0.1,R=3,D=1,kK=0: classical=1.000, square=1.000, disk/rebit=0.300, ball/qubit=0.000  -> cheapest: ball/qubit
+   lam=0.05,Theta=1,V=0.1,w=0.1,R=3,D=1,kK=0.2: classical=1.200, square=1.317, disk/rebit=0.617, ball/qubit=0.400  -> cheapest: ball/qubit
+   lam=0.05,Theta=0.3,V=0.1,w=0.1,R=1,D=0.1,kK=0.2: classical=0.290, square=0.407, disk/rebit=0.327, ball/qubit=0.400  -> cheapest: classical bit (segment)
+   lam=0,Theta=0,V=0.1,w=0.1,R=3,D=1,kK=0: classical=0.000, square=0.000, disk/rebit=0.300, ball/qubit=0.000  -> cheapest: classical bit (segment)
+   lam=0.05,Theta=1,V=0.1,w=0.1,R=3,D=0,kK=0: classical=1.000, square=1.000, disk/rebit=0.000, ball/qubit=0.000  -> cheapest: disk/rebit
+   note: at Theta=0 and D=0 (no drift) the classical bit ties at zero with every space under N-pricing; with kK>0 it wins.
+   the classical bit 'has records' only because its dynamics is discrete; following continuous drift costs it irreversibility.

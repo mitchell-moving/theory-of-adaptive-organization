@@ -1,0 +1,34 @@
+{
+ "q_threshold_single_rival_beats_ball": {
+  "square (gbit)": 17.64,
+  "pentagon": 12.38,
+  "hexagon": 12.85,
+  "octagon": 13.17,
+  "classical N=4": 17.64,
+  "classical N=3": 39.82
+ },
+ "q_threshold_boxworld_pair_beats_QM_pair": 7.7,
+ "C1_crosscheck": {
+  "N=2": {
+   "real_QM": 0,
+   "complex_QM": 1
+  },
+  "N=3": {
+   "real_QM": 0,
+   "complex_QM": 2
+  },
+  "N=4": {
+   "real_QM": 0,
+   "complex_QM": 3
+  },
+  "N=6": {
+   "real_QM": 0,
+   "complex_QM": 5
+  },
+  "N=9": {
+   "real_QM": 0,
+   "complex_QM": 8
+  }
+ },
+ "C1_note": "N=4,6,9 are the 2x2, 2x3, 3x3 composites. real QM: 0 for every N (fails); complex QM: N-1 (passes), matching selfref C1."
+}

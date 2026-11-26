@@ -1,0 +1,176 @@
+{
+ "P_rec_polygons": [
+  {
+   "n": 4,
+   "k_bits": 2,
+   "sum_I_acc_bits": 2.0,
+   "encoding": [
+    0,
+    1,
+    3,
+    2
+   ]
+  },
+  {
+   "n": 4,
+   "k_bits": 3,
+   "sum_I_acc_bits": 2.0,
+   "encoding": [
+    0,
+    0,
+    1,
+    1,
+    3,
+    3,
+    2,
+    2
+   ]
+  },
+  {
+   "n": 5,
+   "k_bits": 2,
+   "sum_I_acc_bits": 1.070431,
+   "encoding": [
+    0,
+    0,
+    2,
+    3
+   ]
+  },
+  {
+   "n": 6,
+   "k_bits": 2,
+   "sum_I_acc_bits": 1.188722,
+   "encoding": [
+    0,
+    1,
+    4,
+    3
+   ]
+  },
+  {
+   "n": 6,
+   "k_bits": 3,
+   "sum_I_acc_bits": 1.188722,
+   "encoding": [
+    0,
+    0,
+    1,
+    1,
+    4,
+    4,
+    3,
+    3
+   ]
+  },
+  {
+   "n": 8,
+   "k_bits": 2,
+   "sum_I_acc_bits": 1.127571,
+   "encoding": [
+    0,
+    1,
+    5,
+    4
+   ]
+  }
+ ],
+ "single_system_zero_drift_P_rec": [
+  [
+   1.7268,
+   "ball (qubit)",
+   1.0
+  ],
+  [
+   1.7268,
+   "disk (rebit)",
+   1.0
+  ],
+  [
+   1.7744,
+   "pentagon",
+   1.0704
+  ],
+  [
+   1.8156,
+   "octagon",
+   1.1276
+  ],
+  [
+   1.8567,
+   "hexagon",
+   1.1887
+  ],
+  [
+   2.0,
+   "classical N=2",
+   1.0
+  ],
+  [
+   2.253,
+   "classical N=3",
+   1.585
+  ],
+  [
+   2.5,
+   "classical N=4",
+   2.0
+  ],
+  [
+   2.5,
+   "square (gbit)",
+   2.0
+  ]
+ ],
+ "single_system_zero_drift_logN": [
+  [
+   1.5,
+   "square (gbit)"
+  ],
+  [
+   1.668,
+   "hexagon"
+  ],
+  [
+   1.688,
+   "octagon"
+  ],
+  [
+   1.704,
+   "pentagon"
+  ],
+  [
+   1.7268,
+   "ball (qubit)"
+  ],
+  [
+   1.7268,
+   "disk (rebit)"
+  ],
+  [
+   2.0,
+   "classical N=2"
+  ],
+  [
+   2.253,
+   "classical N=3"
+  ],
+  [
+   2.5,
+   "classical N=4"
+  ]
+ ],
+ "bipartite_zero_drift_P_rec (boxworld price is a lower bound: product of two gbits; PR correlations can only raise it)": {
+  "classical pair": 5.0,
+  "boxworld pair": 5.0,
+  "real-QM pair": 4.039,
+  "QM pair": 4.039
+ },
+ "bipartite_zero_drift_logN (round 1)": {
+  "classical pair": 5.0,
+  "boxworld pair": 3.0,
+  "real-QM pair": 4.039,
+  "QM pair": 4.039
+ },
+ "boxworld_pair_wins_again_if_q_exceeds": 7.697
+}

@@ -24,7 +24,7 @@
 - **Needs a stake or a price ratio.** Monotone comparative statics (CT33, Master Theorem (ii)) need single crossing in a stake variable, so they are not fully price-free. K\*(R), the cost shares (CT24) and the selection gap d/(2β) need a ratio or a scalar cost.
 - **Prior art.** Pareto efficiency and weighted-sum scalarization are standard (Debreu 1951; Farrell 1957; Geoffrion 1968). Low-dimensional trait fronts in evolution are Shoval et al. 2012. The repository's Shannon note (S2, S3) already has a price-free frontier. The GTAO-specific part is computing the front from the world's statistics and the information floors, rather than fitting a front to traits.
 
-**1.3 Why it may matter for past data.** Several field attempts stalled on the same gate: prices measured independently, in fitness units (VIS-1F; *E. coli*; partly GRID-CROSS; `OPEN_WORK.md` §8). A frontier test asks only about dominance and direction:
+**1.3 Why it may matter for past data.** Several field attempts stalled on the same gate: prices measured independently, in fitness units (VIS-1F; *E. coli*; partly GRID-CROSS; [`OPEN_WORK.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md) §8). A frontier test asks only about dominance and direction:
 - Is a selected system strictly inside the front with no measurable reason?
 - Which way does it move along the front when stakes or drift change?
 

@@ -271,7 +271,7 @@ A row is one named result. "(A)" means the proof of that statement does not use 
 
 ### 2.4 CORE.md and FRAMEWORK.md
 
-*Dated note (sweep, 22 November 2026): this table audits `CORE.md` as it stood before the front-page rewrite of PR #206, now `history/2026-11-22_CORE_before_front.md`; "CORE §5" below is that file's section. The current `CORE.md` prints the heat-plus-stake cost and the five-term sum of THEORY §3 as different objects.*
+*Dated note (sweep, 22 November 2026): this table audits `CORE.md` as it stood before the front-page rewrite of PR #206, now [`history/2026-11-22_CORE_before_front.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-22_CORE_before_front.md); "CORE §5" below is that file's section. The current `CORE.md` prints the heat-plus-stake cost and the five-term sum of THEORY §3 as different objects.*
 
 | Result | Class | Assumptions | Class-specific step |
 |---|---|---|---|

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Build the Lean 4 formalization of the GTAO core (OPEN_WORK T19).
+# Build the Lean 4 formalization of the GTAO core (T19).
 # Run from the repo root:  tools/check_lean.sh
 # Repo rule: run it only in the dedicated checkout /tmp/gtao-lean, never in an
 # ordinary clone (the Mathlib cache it unpacks is several GB).
 # tools/test_lean.py enforces that.
 # Exit 0 = lake build succeeded, no forbidden token occurs in project
-#          sources (GTAO.lean, GTAO/*.lean), and the axiom audit
+#          sources (GTAO.lean, GTAO/**/*.lean), and the axiom audit
 #          (formal/lean/scripts/AxiomAudit.lean) finds that every GTAO
 #          declaration depends only on propext, Classical.choice and
 #          Quot.sound (so no sorryAx).
@@ -35,10 +35,11 @@ fi
 
 # Project sources only.  Prefer an explicit path list so a warm cache
 # cannot be grepped even if exclude flags are ignored.
-shopt -s nullglob
+# globstar: modules in subfolders (GTAO/Rnd/**) are project sources too.
+shopt -s nullglob globstar
 SOURCES=("$LEAN_DIR/GTAO.lean")
-SOURCES+=("$LEAN_DIR/GTAO"/*.lean)
-shopt -u nullglob
+SOURCES+=("$LEAN_DIR/GTAO"/**/*.lean)
+shopt -u nullglob globstar
 if [[ ${#SOURCES[@]} -eq 0 || ! -f "$LEAN_DIR/GTAO.lean" ]]; then
   echo "check_lean.sh: no project Lean sources under $LEAN_DIR" >&2
   exit 1

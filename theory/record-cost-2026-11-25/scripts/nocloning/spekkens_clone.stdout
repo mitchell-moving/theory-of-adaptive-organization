@@ -1,0 +1,14 @@
+KB-respecting pure epistemic states (6 pairs): perfect cloner exists? False
+  input ontic (1, 1) -> allowed images [(1, 1)]
+  input ontic (1, 2) -> allowed images [(1, 1)]
+  input ontic (2, 1) -> allowed images [(2, 2)]
+  input ontic (2, 2) -> allowed images [(2, 2)]
+  input ontic (3, 1) -> allowed images [(3, 3)]
+  input ontic (3, 2) -> allowed images [(3, 3)]
+  input ontic (4, 1) -> allowed images [(4, 4)]
+  input ontic (4, 2) -> allowed images [(4, 4)]
+Singleton (maximal-knowledge) states with blank {1}: cloner exists? True (ontic CNOT-like permutation)
+Disjoint pair {12},{34} only: cloner exists? True
+priced KB, c=0.1: measure-prepare clone cost = 0.1 (1 extra bit) -> finite; strict KB = infinite
+priced KB, c=1: measure-prepare clone cost = 1.0 (1 extra bit) -> finite; strict KB = infinite
+priced KB, c=10: measure-prepare clone cost = 10.0 (1 extra bit) -> finite; strict KB = infinite

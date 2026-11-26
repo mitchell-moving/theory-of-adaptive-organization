@@ -1,4 +1,4 @@
-> **FROZEN REFERENCE (19 November 2026).** This is THEORY v1.4.29, the canonical statement until 19 November 2026, moved here unchanged when [`THEORY.md`](../THEORY.md) v2.0 replaced it. It no longer governs: where the two differ, `THEORY.md` v2.0 does. It is kept for its detail, its prior-art list and its test history. The changelog is continued in [`CHANGELOG.md`](CHANGELOG.md).
+> **FROZEN REFERENCE (19 November 2026).** This is THEORY v1.4.29, the canonical statement until 19 November 2026, moved here unchanged when [`THEORY.md`](../THEORY.md) v2.0 replaced it. It no longer governs: where the two differ, `THEORY.md` v2.0 does. It is kept for its detail, its prior-art list and its test history. The changelog is continued in [`CHANGELOG.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/reference/CHANGELOG.md).
 >
 > **Erratum (19 Nov 2026), §0 line "stars hold themselves up on a flow but track nothing outside".** Read: stars regulate themselves (convection, dynamos, layered composition, self-regulating fusion) but anticipate nothing outside them. They are the "hold" class, not inert. Same fix as in `theory/BOOKENDS.md`, `theory/REACH.md` and THEORY v2.0 §1.
 >
@@ -20,7 +20,7 @@
 > | §10 Prior art credited | §8 (short form); full list stays here |
 > | §11 Next tests | `STATUS.md`, §7 |
 > | §12 Source files | Appendix C |
-> | §13 Changelog | [`CHANGELOG.md`](CHANGELOG.md) |
+> | §13 Changelog | [`CHANGELOG.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/reference/CHANGELOG.md) |
 
 # A Theory of Adaptive Organization — v1.4.29 draft
 

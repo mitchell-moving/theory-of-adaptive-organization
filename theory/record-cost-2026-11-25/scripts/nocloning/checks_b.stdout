@@ -1,0 +1,5 @@
+simplex N=2: alternating-opt error=0.2496  vs 1/(2N)=0.2500
+simplex N=3: alternating-opt error=0.1665  vs 1/(2N)=0.1667
+simplex N=4: alternating-opt error=0.1250  vs 1/(2N)=0.1250
+disk MC error=0.1814  analytic=0.1817
+1/sqrt2=0.7071

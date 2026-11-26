@@ -1,0 +1,16 @@
+{
+ "classical_dilation": {
+  "p": 0.2,
+  "H_global_in": 1.7219280948873623,
+  "H_global_out": 1.7219280948873623,
+  "info_system_keeps_about_input_bits": 0.278072,
+  "info_moved_into_SE_correlation_bits": 0.721928,
+  "reading": "the system keeps 1-h(p) bits and loses h(p) bits of its own record, but nothing is destroyed globally; the ancilla must be a mixed coin, i.e. randomness is supplied, not derived"
+ },
+ "classical_min_H(SE)-H(S)_over_grid": 0.0,
+ "quantum_bell": {
+  "H_SE": 0.0,
+  "H_S": 1.0,
+  "H_S_given_E": -1.0
+ }
+}

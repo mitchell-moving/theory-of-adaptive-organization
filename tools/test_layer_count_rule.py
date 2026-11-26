@@ -1,4 +1,4 @@
-"""Tests for the layer-counting rule (OPEN_WORK T15; measurement/LAYER_COUNT_RULE.md).
+"""Tests for the layer-counting rule (T15; measurement/LAYER_COUNT_RULE.md).
 
 Run: nice -n 19 python3 -m pytest -q tools/test_layer_count_rule.py
 """

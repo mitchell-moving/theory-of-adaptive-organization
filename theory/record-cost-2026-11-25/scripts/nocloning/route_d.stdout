@@ -1,0 +1,11 @@
+a=1, q=10 throughout. Columns: drift p, copy cost c, copy noise eps -> lam*, mean cost per member, cost spread acquirer-vs-copier
+  p=0.00 c=0.0 eps=0.00 -> lam*=0.0000, copier err=0.0000, mean J=0.0000
+  p=0.00 c=0.5 eps=0.00 -> lam*=0.0000, copier err=0.0000, mean J=0.5000
+  p=0.05 c=0.0 eps=0.00 -> lam*=0.4444, copier err=0.1000, mean J=1.0000
+  p=0.05 c=0.0 eps=0.05 -> lam*=0.9383, copier err=0.1000, mean J=1.0000
+  p=0.05 c=0.5 eps=0.00 -> lam*=1.0000, copier err=0.0500, mean J=1.0000
+  p=0.20 c=0.0 eps=0.00 -> lam*=1.0000, copier err=0.2000, mean J=1.0000
+  p=0.00 c=0.0 eps=0.05 -> lam*=0.4444, copier err=0.1000, mean J=1.0000
+Reading: with no drift and perfect free copying (row 1) lam*->0 and mean J->0: one early read
+serves everyone forever (CORE line 78: frozen worlds allow zero ongoing cost). With drift, lam*>0
+and J>0 even when copying is perfect and free: the cost comes from acquiring NEW distinctions.

@@ -6,7 +6,8 @@ Exit code 0 = no FAIL in the maintained (canonical) documents.
 
 What it checks
   1. Versions: THEORY.md's title version and CLAIM_MAP_v2.md's latest "vN note"
-     agree with every maintained pointer (README, STATUS, THEORY header).
+     agree with the two copies in files this repo may not edit (CORE.md, THEORY.md);
+     every other copy is a hand pointer (tools/check_fresh.py).
   2. Banned wording in maintained docs:
        - "law" used of GTAO (any bare 'law' not in an allow-listed compound
          such as 'power law', 'area law', 'law firm', a named physical law,
@@ -16,11 +17,15 @@ What it checks
        - "solved" claimed of GTAO / the theory unless negated or quoted as a rule;
        - a field-test name next to passed/failed/confirmed/refuted/killed in
          the same sentence without a proxy / in-model / gate / tier label
-         ('miss' is allowed; 'puzzle' is not added to the banned list);
+         ('miss' is allowed; puzzle, bill, kill, dead and verdict are banned by
+         tools/banned_words.py, below);
        - the MV gates described as awaiting Chad's sign-off (they bind as of
          18 Nov 2026, Chad t1927).
        - stale scope phrases ('silent on black holes', 'nothing is keeping
          score', 'no predictions about black holes').
+  2b. Banned words (tools/banned_words.py): 'puzzle' in any maintained doc, and
+     puzzle, bill, kill, dead or verdict on any .md line added since origin/main,
+     unless quoted, in backticks, or marked <!-- banned-ok: reason -->.
   3. CLAIM_MAP N-rows: every 'N<k>' cited with a CLAIM_MAP context in a
      maintained doc exists in CLAIM_MAP section N, and wherever a maintained
      doc states a status right after a CLAIM_MAP N-number, the base status
@@ -42,6 +47,20 @@ INFO only: those files are dated records and are not edited.
 """
 import glob, os, re, sys
 
+# Maintained docs: edited to stay current. check_fresh.py and check_claims.py import this list.
+MAINTAINED_DOCS = [
+    "README.md", "THEORY.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/FAILURES.md", "process/MISS_LOG_TEMPLATE.md",
+    "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
+    "theory/SCALE_ENDS.md", "theory/PHYSICS_CHAIN_2026-11-23.md",
+    "applications/README.md", "tests/README.md", "reviews/README.md",
+    "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
+    "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
+    "theory/REACH.md", "theory/HT_INDEX.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
+    "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/COADAPTATION.md", "theory/REPRESENTATION.md", "theory/MATH_ATTACK.md",
+    "reviews/night1/formal/AXIOMS.md", "reviews/night1/formal/THEOREMS.md", "reviews/night1/formal/checks/README.md",
+    "process/LOCK_ERRATA.md",
+]
+
 
 def main(argv=None):
     """Run every check from the repo root; return the exit code (0 = no FAIL).
@@ -51,20 +70,10 @@ def main(argv=None):
     ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     os.chdir(ROOT)
 
-    MAINTAINED = [
-        "README.md", "STATUS.md", "THEORY.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/MISS_LOG_TEMPLATE.md", "process/QUEUE.md",
-        "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
-        "theory/README.md", "theory/SCALE_ENDS.md",
-        "applications/README.md", "tests/README.md", "reviews/README.md",
-        "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
-        "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
-        "theory/REACH.md", "theory/HT_INDEX.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
-        "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/COADAPTATION.md", "theory/REPRESENTATION.md", "theory/MATH_ATTACK.md", "reference/CHANGELOG.md",
-        "reviews/night1/formal/AXIOMS.md", "reviews/night1/formal/THEOREMS.md", "reviews/night1/formal/checks/README.md",
-    ]
+    MAINTAINED = list(MAINTAINED_DOCS)
     MAINTAINED = [f for f in MAINTAINED if os.path.exists(f)]
     ALL_MD = sorted(p for p in glob.glob("**/*.md", recursive=True))
-    FROZEN = [p for p in ALL_MD if p not in MAINTAINED and not p.startswith("history/")]
+    FROZEN = [p for p in ALL_MD if p not in MAINTAINED]
 
     fails, infos = [], []
 
@@ -88,21 +97,15 @@ def main(argv=None):
         fails.append("versions: could not read THEORY or CLAIM_MAP version")
 
     # Pointer patterns: (file, regex, which) -- each must match at least once and every match must agree.
-    POINTERS = [
-        ("README.md", r"canonical statement of the theory \(v(\d+\.\d+(?:\.\d+)?[a-z]?)", "T"),
-        ("README.md", r"THEORY\.md\s+The theory, v(\d+\.\d+(?:\.\d+)?[a-z]?)", "T"),
-        ("README.md", r"CLAIM_MAP_v2\.md` \(v(2\.\d+)\)", "C"),
-        ("STATUS.md", r"\*\*As of:\*\*.*?`THEORY\.md` v(\d+\.\d+(?:\.\d+)?[a-z]?)", "T"),
-        ("STATUS.md", r"\*\*As of:\*\*.*?`measurement/CLAIM_MAP_v2\.md` v(2\.\d+)", "C"),
-        ("STATUS.md", r"`THEORY\.md` — the theory \(v(\d+\.\d+(?:\.\d+)?[a-z]?)\)", "T"),
-        ("STATUS.md", r"`measurement/CLAIM_MAP_v2\.md` \(v(2\.\d+);", "C"),
+    POINTERS = [  # the only version copies left: both sit in files this repo may not edit (tools/check_fresh.py ALLOW)
+        ("CORE.md", r"is the canonical statement \(v(\d+\.\d+(?:\.\d+)?[a-z]?) draft\)", "T"),
         ("THEORY.md", r"Claim statuses: `measurement/CLAIM_MAP_v2\.md` \(v(2\.\d+)\)", "C"),
     ]
     for f, rx, which in POINTERS:
         if not os.path.exists(f):
             fails.append("versions: %s missing" % f); continue
         want = THEORY_V if which == "T" else CM_V
-        found = re.findall(rx, read(f), re.S if "As of" in rx else 0)
+        found = re.findall(rx, read(f))
         if not found:
             fails.append("versions: %s has no pointer matching /%s/" % (f, rx)); continue
         bad = [v for v in found if v != want]
@@ -110,6 +113,15 @@ def main(argv=None):
         print("  %-4s %-26s %s -> %s (want v%s)" % (status, f, "THEORY" if which == "T" else "CLAIM_MAP", ",".join("v" + v for v in found), want))
         if bad:
             fails.append("versions: %s points to %s, current is v%s" % (f, ",".join(bad), want))
+
+    # Hash locks: every lock verifies or is accounted for (process/LOCK_ERRATA.md).
+    # Needs the real checkout: the mutation test copies only .md and .py files (no .git), so it is skipped there.
+    if os.path.exists(os.path.join(ROOT, ".git")):
+        from verify_locks import verify as _verify_locks
+        lock_fails, _lc, _ln = _verify_locks(ROOT)
+        for x in lock_fails:
+            print("  FAIL " + x)
+            fails.append("FAIL " + x)
 
     # ---------------------------------------------------------------- 2. wording
     LAW_OK = re.compile(
@@ -124,7 +136,7 @@ def main(argv=None):
     SOLVED_NEG = re.compile(r"\b(not|never|isn\'t|is not|nor|no)\b[^.;|]{0,20}\bsolved\b|[\'\"“‘]solved[\'\"”’]", re.I)
     FIELD = re.compile(r"\b(MATCH1|DECISIVE|banks?|glucose|populations|F1|C3b?|BIO1|COLLAPSE1|DRIFT1|measles|PIAAC|Enron|VIGIL[_-]ONA|GITHUB-UPSTREAM|WIKIDATA-BAND|CAISO|SPF|VIX|SENSE-CELL|LANG1|MEASURE-SELF|news(-| )recall|D3S?)\b")
     VERDICT = re.compile(r"(\b(passed|failed|confirmed|refuted|killed|kill fired)\b|\bHIT\b)")
-    LABEL = re.compile(r"(failed[- ]bank|proxy|PROXY|in-model|in model|SIM-|simulat|synthetic|dry run|gate|MV\d|Tier|known-groups|prereg|locked|lock |kill rule|joint (kill )?rule|refutation (condition|rule|test)|fair refutation|fails if|qualifying miss|miss to (diagnose|locate)|signed miss|process miss|puzzle to diagnose|literal|referee|review|power|not a (theory-specific )?hit|sign-only|INCONCLUSIVE|NOT EVIDENCE|MATH-CORRECTED|withdrawn|premise|by construction|reproduce|replicate|own code|own MC|Monte Carlo|pass rule|wrong-pass|[\"“][^\"”]{0,12}(hit|passed|failed)[^\"”]{0,3}[\"”])", re.I)
+    LABEL = re.compile(r"(failed[- ]bank|proxy|PROXY|in-model|in model|SIM-|simulat|synthetic|dry run|gate|MV\d|Tier|known-groups|prereg|locked|lock |kill rule|joint (kill )?rule|refutation (condition|rule|test)|fair refutation|fails if|qualifying miss|miss to (diagnose|locate)|signed miss|process miss|literal|referee|review|power|not a (theory-specific )?hit|sign-only|INCONCLUSIVE|NOT EVIDENCE|MATH-CORRECTED|withdrawn|premise|by construction|reproduce|replicate|own code|own MC|Monte Carlo|pass rule|wrong-pass|[\"“][^\"”]{0,12}(hit|passed|failed)[^\"”]{0,3}[\"”])", re.I)
     SIGNOFF = re.compile(r"(sign[- ]?off|signs off|signed off|once Chad|until Chad|await(s|ing)? Chad)", re.I)
     GATECTX = re.compile(r"(gate|MV\d|M2\b|binding)", re.I)
     STALE = re.compile(r"(silent on black holes|nothing (is )?keeping score|no predictions? about black holes|makes no predictions about black holes)", re.I)
@@ -177,6 +189,18 @@ def main(argv=None):
         scan_wording(p, fi, "INFO")
     infos.extend(fi)
     print("  frozen records scanned: %d; INFO hits (not edited, dated records): %d" % (len(FROZEN), len(fi)))
+
+    # 2b. banned words (tools/banned_words.py): puzzle in maintained docs; five words on added lines
+    sys.path.insert(0, os.path.join(ROOT, "tools"))
+    import banned_words as _bw
+    bw_fails = _bw.check_puzzle(ROOT, MAINTAINED)
+    bw_added, bw_note = _bw.check_added(ROOT)
+    for x in bw_fails + bw_added:
+        print("  FAIL " + x)
+        fails.append("FAIL " + x)
+    if bw_note:
+        print("  NOTE " + bw_note)
+    print("  banned words: %d FAIL(s)%s" % (len(bw_fails) + len(bw_added), "; added-line check skipped" if bw_note else ""))
 
     # ---------------------------------------------------------------- 3. N rows
     print("\n== 3. CLAIM_MAP section N")
@@ -432,17 +456,21 @@ def main(argv=None):
     print("  core-rule FAILs: %d" % len(cf))
     fails.extend("FAIL " + x for x in cf)
 
-    # Freshness of STATUS.md's stated main SHA (see tools/check_fresh.py).
-    # No-op on trees without .git, so mutation copies in test_check_consistency
-    # are unchanged.
-    try:
-        from check_fresh import check as _fresh_check
-    except ImportError:
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-        from check_fresh import check as _fresh_check
-    for x in _fresh_check(ROOT):
+    # Lean sources against formal/lean/AUDIT.json (tools/check_pending.py (b)); skipped without .git.
+    from check_pending import check_lean as _lean_check, is_git_repo as _is_git
+    if _is_git(ROOT):
+        for x in _lean_check(ROOT):
+            print("  FAIL " + x)
+            fails.append("FAIL " + x)
+
+    # Headline ledger vs front pages (tools/check_claims.py).
+    from check_claims import check as _claims_check
+    claim_fails = _claims_check(ROOT)
+    print("\n== 6. Headline ledger")
+    for x in claim_fails:
         print("  FAIL " + x)
         fails.append("FAIL " + x)
+    print("  claims: %d FAIL(s)" % len(claim_fails))
 
     # ---------------------------------------------------------------- summary
     print("\n== Summary")

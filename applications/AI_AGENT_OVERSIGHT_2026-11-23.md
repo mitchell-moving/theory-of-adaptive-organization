@@ -93,7 +93,7 @@ Predictions:
 - check-ins that rise with no collapse;
 - sabotage above control in the aligned arm.
 
-A miss is a puzzle for this class. Off-the-shelf models were not selected on this cost, so a miss bears mostly on the mapping, not on the hypothesis.
+A miss stays open for this class. Off-the-shelf models were not selected on this cost, so a miss bears mostly on the mapping, not on the hypothesis.
 
 ## 7. Prior art, and the new part
 

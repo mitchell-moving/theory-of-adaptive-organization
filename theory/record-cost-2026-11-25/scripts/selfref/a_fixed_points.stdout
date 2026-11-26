@@ -1,0 +1,22 @@
+(1) Set: fraction of endomaps of an n-set with a fixed point (exhaustive for n<=6)
+   n=1: 1/1 = 1.0000   (1-1/e = 0.6321); NOT-like derangements exist: False
+   n=2: 3/4 = 0.7500   (1-1/e = 0.6321); NOT-like derangements exist: True
+   n=3: 19/27 = 0.7037   (1-1/e = 0.6321); NOT-like derangements exist: True
+   n=4: 175/256 = 0.6836   (1-1/e = 0.6321); NOT-like derangements exist: True
+   n=5: 2101/3125 = 0.6723   (1-1/e = 0.6321); NOT-like derangements exist: True
+   n=6: 31031/46656 = 0.6651   (1-1/e = 0.6321); NOT-like derangements exist: True
+   => for n>=2 no rule assigns a consistent state to every loop; (Set, x) admits no trace (Hasegawa: trace on cartesian = Conway fixpoint operator).
+(2) Convex worlds: random stochastic maps on n outcomes always have a fixed distribution
+   max residual |Mp-p| or negativity over 8000 maps: 7.22e-16
+   fixed state of the flip: [0.5 0.5]  -> P(record=1) = 0.500 exactly; any GPT: e(Tw)=1-e(w), Tw=w => e(w)=1/2
+(3) Copier of sharp records, extended linearly, on the liar's fixed state
+   D(u) = [0.5 0.  0.  0.5]  vs  u(x)u = [0.25 0.25 0.25 0.25]  -> cloned? False
+   marginals of D(u): [0.5 0.5], [0.5 0.5] -> broadcast? True
+   naturality check D o NOT == (NOT x NOT) o D on all states: True (copy IS natural w.r.t. the flip; it fails only on the non-sharp fixed state as a CLONE)
+(4a) Rel on {0,1}: states = subsets; nonempty fixed subsets of the flip relation:
+    [[0, 1]]
+    diagonal on {0,1}: [(0, 0), (1, 1)]   vs  {0,1}x{0,1}: [(0, 0), (0, 1), (1, 0), (1, 1)]
+(4b) Qubit: X fixes |+>; z-copier |i>->|ii> on |+> gives Bell state
+    overlap |<++|C|+>|^2 = 0.5 (clone would be 1)
+(5) Every random CPTP qubit map has a fixed state (Brouwer), so the trace/Lawvere obstruction is DISSOLVED, not triggered, in convex worlds
+   max fixed-state residual over 500 random channels: 8.2e-16

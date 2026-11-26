@@ -1,0 +1,30 @@
+(2) closed form check, simulated rings:
+  n=  4 x=5.000: V*Sigma/Theta^2 sim=2.4160 formula=2.4142 (>=2)
+  n= 12 x=1.333: V*Sigma/Theta^2 sim=2.0108 formula=2.0138 (>=2)
+  n= 64 x=1.034: V*Sigma/Theta^2 sim=1.9973 formula=2.0002 (>=2)
+
+(4) min J over V; kappa=1 per bit, q=4.0, lam=0.05 per nat; blind option J=q/2=2.0
+  Theta(rad) | best classical (N,V) J | square-bit ring J | disk J | cheapest
+       0 | classical N=2 V=0.001 J=2.000 | 1.500 | 1.727 | square
+       1 | classical N=2 V=0.3 J=2.449 | 2.068 | 1.727 | disk
+       3 | classical N=2 V=inf J=3.000 | 2.936 | 1.727 | disk
+      10 | classical N=2 V=inf J=3.000 | 3.000 | 1.727 | disk
+      30 | classical N=2 V=inf J=3.000 | 3.000 | 1.727 | disk
+     100 | classical N=2 V=inf J=3.000 | 3.000 | 1.727 | disk
+
+(4) min J over V; kappa=1 per bit, q=4.0, lam=0.005 per nat; blind option J=q/2=2.0
+  Theta(rad) | best classical (N,V) J | square-bit ring J | disk J | cheapest
+       0 | classical N=2 V=0.001 J=2.000 | 1.500 | 1.727 | square
+       1 | classical N=2 V=0.1 J=2.136 | 1.688 | 1.727 | square
+       3 | classical N=2 V=0.3 J=2.429 | 2.011 | 1.727 | disk
+      10 | classical N=2 V=inf J=3.000 | 3.000 | 1.727 | disk
+      30 | classical N=2 V=inf J=3.000 | 3.000 | 1.727 | disk
+     100 | classical N=2 V=inf J=3.000 | 3.000 | 1.727 | disk
+
+(5) many readers: R readers each get a fresh random later question.
+  disk with sequential projective reads (rebit Lueders rule) vs classical 1-bit record (copyable)
+  R= 1: disk mean error/reader=0.1813 (first 0.1813, last 0.1813); classical 1-bit copyable record=0.2500 each
+  R= 2: disk mean error/reader=0.2613 (first 0.1816, last 0.3411); classical 1-bit copyable record=0.2500 each
+  R= 3: disk mean error/reader=0.3140 (first 0.1808, last 0.4203); classical 1-bit copyable record=0.2500 each
+  R= 5: disk mean error/reader=0.3764 (first 0.1812, last 0.4802); classical 1-bit copyable record=0.2500 each
+  R=10: disk mean error/reader=0.4367 (first 0.1816, last 0.5005); classical 1-bit copyable record=0.2500 each

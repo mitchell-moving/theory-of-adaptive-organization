@@ -86,7 +86,7 @@ That slope is a dimensional consequence. \(\lambda\) only rescales time and \(c\
 3. **Heterogeneity.** The cell heterogeneity that makes a 50% contour must not depend on \((\lambda,c)\).
 4. **A slope tolerance, set in advance.** An after-the-fact rescue by "other clocks" is not allowed.
 
-*Against it:* under those conditions, a slope outside the preregistered tolerance, reversion that is not monotone in \(\pi\), or a reversion that lasts after the lever is removed without a terminal state. A miss is a puzzle for this class.
+*Against it:* under those conditions, a slope outside the preregistered tolerance, reversion that is not monotone in \(\pi\), or a reversion that lasts after the lever is removed without a terminal state. A miss stays open for this class.
 
 **P2 (retrospective, CONJECTURE).** Differentiation and reversion therapies should work where the drivers act on \(w\), \(s\), \(\lambda\) or \(\Phi\), or where a drug reads through a block. They should do poorly where the receptor channel itself is destroyed. Candidate data: published differentiation-therapy cohorts. No numbers were pulled for this page.
 

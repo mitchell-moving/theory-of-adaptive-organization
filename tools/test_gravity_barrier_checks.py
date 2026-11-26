@@ -1,4 +1,4 @@
-"""Runs theory/gravity_barrier_checks/gravity_barrier_checks.py (OPEN_WORK T64)."""
+"""Runs theory/gravity_barrier_checks/gravity_barrier_checks.py (T64)."""
 import os
 import subprocess
 import sys

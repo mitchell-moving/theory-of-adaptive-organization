@@ -1,0 +1,11 @@
+(1) |A|=3: diagonal predicate found in image of a random A->2^A in 0/2000 trials (expect 0)
+(1) |A|=4: diagonal predicate found in image of a random A->2^A in 0/2000 trials (expect 0)
+(1) |A|=5: diagonal predicate found in image of a random A->2^A in 0/2000 trials (expect 0)
+(2) recorder bit copies rest-bit 0 exactly via a reversible CNOT: True
+(2) recorder bit copies rest-bit 1 exactly via a reversible CNOT: True
+(2) a 1-bit recorder cannot hold a copy of the 3-bit whole: 2^1 < 2^3 states (counting)
+(3) fine-query share f=0.2: error by recorder size  m=0:0.500 m=1:0.100 m=2:0.080 m=3:0.060 m=4:0.040 m=5:0.020 m=6:0.000
+(3) fine-query share f=0.8: error by recorder size  m=0:0.500 m=1:0.400 m=2:0.320 m=3:0.240 m=4:0.160 m=5:0.080 m=6:0.000
+(3) Reading: the cheapest bounded self-record keeps coarse distinctions and leaves fine ones
+    UNRECORDED; every fine bit stays individually copyable (CNOT). That is 'not all at once',
+    not no-cloning.

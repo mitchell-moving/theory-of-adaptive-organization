@@ -1,0 +1,113 @@
+{
+ "gbit_pair_capacity_N_AB": 4,
+ "witness_vertices": [
+  0,
+  1,
+  4,
+  5
+ ],
+ "additivity": {
+  "classical bit": {
+   "N_A": 2,
+   "N_AB": 4,
+   "K_A": 2,
+   "K_AB": 4,
+   "logN_additive": true,
+   "logK_additive": true,
+   "linearK_additive": true,
+   "Kminus1_additive": false
+  },
+  "qubit": {
+   "N_A": 2,
+   "N_AB": 4,
+   "K_A": 4,
+   "K_AB": 16,
+   "logN_additive": true,
+   "logK_additive": true,
+   "linearK_additive": false,
+   "Kminus1_additive": false
+  },
+  "rebit": {
+   "N_A": 2,
+   "N_AB": 4,
+   "K_A": 3,
+   "K_AB": 10,
+   "logN_additive": true,
+   "logK_additive": false,
+   "linearK_additive": false,
+   "Kminus1_additive": false
+  },
+  "gbit": {
+   "N_A": 2,
+   "N_AB": 4,
+   "K_A": 3,
+   "K_AB": 9,
+   "logN_additive": true,
+   "logK_additive": true,
+   "linearK_additive": false,
+   "Kminus1_additive": false
+  }
+ },
+ "sibling_table_reranked_q4": {
+  "log2 N": [
+   [
+    1.5,
+    "square (gbit)"
+   ],
+   [
+    1.668,
+    "hexagon"
+   ],
+   [
+    1.7268,
+    "ball (qubit)"
+   ],
+   [
+    1.7268,
+    "disk (rebit)"
+   ],
+   [
+    2.0,
+    "classical N=2"
+   ],
+   [
+    2.253,
+    "classical N=3"
+   ],
+   [
+    2.5,
+    "classical N=4"
+   ]
+  ],
+  "log2 K": [
+   [
+    2.0,
+    "classical N=2"
+   ],
+   [
+    2.085,
+    "square (gbit)"
+   ],
+   [
+    2.253,
+    "classical N=3"
+   ],
+   [
+    2.253,
+    "hexagon"
+   ],
+   [
+    2.3118,
+    "disk (rebit)"
+   ],
+   [
+    2.5,
+    "classical N=4"
+   ],
+   [
+    2.7268,
+    "ball (qubit)"
+   ]
+  ]
+ }
+}

@@ -1,4 +1,4 @@
-"""Runs theory/barrier_mass_checks/barrier_mass_checks.py (OPEN_WORK T65)."""
+"""Runs theory/barrier_mass_checks/barrier_mass_checks.py (T65)."""
 import os
 import subprocess
 import sys

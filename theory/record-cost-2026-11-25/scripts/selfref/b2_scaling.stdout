@@ -1,0 +1,19 @@
+(a) ball, target x+, drift about z known to +-delta (copier must work on the whole arc, 41 samples)
+   delta= 0.01  err=1.852e-07
+   delta= 0.02  err=1.482e-06
+   delta= 0.05  err=2.314e-05
+   delta= 0.10  err=1.848e-04
+   delta= 0.20  err=1.469e-03
+   delta= 0.50  err=2.192e-02
+   delta= 1.00  err=1.481e-01
+   small-delta scaling exponent ~ 3.00
+(b) ball, full drift orbit (latitude circle) of a state at tilt theta from the conserved axis
+   theta=0.010  err=5.000e-05   sin^2(theta)/2=5.000e-05
+   theta=0.020  err=2.000e-04   sin^2(theta)/2=2.000e-04
+   theta=0.050  err=1.249e-03   sin^2(theta)/2=1.249e-03
+   theta=0.100  err=4.983e-03   sin^2(theta)/2=4.983e-03
+   theta=0.200  err=1.973e-02   sin^2(theta)/2=1.973e-02
+   theta=0.400  err=7.582e-02   sin^2(theta)/2=7.582e-02
+   theta=0.800  err=2.573e-01   sin^2(theta)/2=2.573e-01
+   theta=1.571  err=5.000e-01   sin^2(theta)/2=5.000e-01
+   small-theta scaling exponent ~ 2.00

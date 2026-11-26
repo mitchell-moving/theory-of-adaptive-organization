@@ -1,6 +1,6 @@
 # SIM-1 / T28: simulation is already inside \(J\)
 
-*21 November 2026 (America/New_York). Package `core/sim1_2026-11-21/`. This package does not change `CORE.md` or the hypothesis sentence in `OPEN_WORK.md` (SIM-1). In-model. Field-untested.*
+*21 November 2026 (America/New_York). Package `core/sim1_2026-11-21/`. This package does not change `CORE.md` or the hypothesis sentence in [`OPEN_WORK.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md) (SIM-1). In-model. Field-untested.*
 
 ## Already in the repository (not new)
 
