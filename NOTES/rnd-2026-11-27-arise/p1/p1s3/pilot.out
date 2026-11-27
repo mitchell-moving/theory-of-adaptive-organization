@@ -1,0 +1,2 @@
+EXTINCTION ONLY (evolving arms, T=30000, seed 106): [('P_on', None), ('P_off', None), ('P_sieve', 595.02), ('U_on', None), ('High_on', None)]
+DESIGNED REFERENCES dA_u (fixed monocultures, T=5000, seed 106): [('judge', 0.34777581269834956, None), ('reflex', 0.03290376469297218, None), ('sieve', None, 62.14)]

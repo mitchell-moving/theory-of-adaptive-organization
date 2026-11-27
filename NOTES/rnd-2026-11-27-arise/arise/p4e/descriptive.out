@@ -1,0 +1,6 @@
+1e-05 MI_final median ON 0.0 | mode lags ON Counter({-1: 3, 10: 2, 5: 2, 1: 1, 6: 1, 7: 1}) | NOCUE f_2to6 0.002 reader_share NOCUE 0.002 | OFF f_2to6 0.0 | PRICE f_2to6 0.051
+0.0001 MI_final median ON 0.0992 | mode lags ON Counter({6: 3, 5: 3, 3: 2, 4: 1, 9: 1}) | NOCUE f_2to6 0.047 reader_share NOCUE 0.194 | OFF f_2to6 0.001 | PRICE f_2to6 0.694
+0.001 MI_final median ON 0.0992 | mode lags ON Counter({4: 5, 5: 3, 6: 1, 3: 1}) | NOCUE f_2to6 0.154 reader_share NOCUE 0.82 | OFF f_2to6 0.005 | PRICE f_2to6 0.976
+0.01 MI_final median ON 0.0992 | mode lags ON Counter({5: 7, 4: 3}) | NOCUE f_2to6 0.277 reader_share NOCUE 0.917 | OFF f_2to6 0.044 | PRICE f_2to6 0.874
+MI series mu1e-3 ON mean: [np.float64(0.053), np.float64(0.098), np.float64(0.098), np.float64(0.094), np.float64(0.094), np.float64(0.098), np.float64(0.094), np.float64(0.096), np.float64(0.098), np.float64(0.099)]
+MI series mu1e-4 ON mean: [np.float64(0.007), np.float64(0.033), np.float64(0.059), np.float64(0.066), np.float64(0.074), np.float64(0.087), np.float64(0.085), np.float64(0.087), np.float64(0.089), np.float64(0.089)]

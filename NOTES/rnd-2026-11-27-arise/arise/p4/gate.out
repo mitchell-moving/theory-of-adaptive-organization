@@ -1,0 +1,9 @@
+delta=0.1 P=20.0 c=0.0 | anticipator freq [1.0, 1.0, 1.0, 1.0, 1.0] | 5/5 | PASS
+delta=0.1 P=20.0 c=0.2 | anticipator freq [1.0, 1.0, 1.0, 1.0, 1.0] | 5/5 | PASS
+delta=0.1 P=60.0 c=0.0 | anticipator freq [1.0, 1.0, 1.0, 1.0, 1.0] | 5/5 | PASS
+delta=0.1 P=60.0 c=0.2 | anticipator freq [1.0, 1.0, 1.0, 1.0, 1.0] | 5/5 | PASS
+delta=0.3 P=20.0 c=0.0 | anticipator freq [1.0, 1.0, 1.0, 1.0, 1.0] | 5/5 | PASS
+delta=0.3 P=20.0 c=0.2 | anticipator freq [1.0, 1.0, 1.0, 1.0, 1.0] | 5/5 | PASS
+delta=0.3 P=60.0 c=0.0 | anticipator freq [1.0, 1.0, 1.0, 1.0, 1.0] | 5/5 | PASS
+delta=0.3 P=60.0 c=0.2 | anticipator freq [1.0, 1.0, 1.0, 1.0, 1.0] | 5/5 | PASS
+CHOSEN (largest c, then smallest delta, then smallest P): {'delta': 0.1, 'P': 20.0, 'c': 0.2}

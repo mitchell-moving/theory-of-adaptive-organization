@@ -1,0 +1,5 @@
+ON {'reader_freq': 0.454, 'AI': 0.053, 'H': 0.029, 'H_parent': 0.991, 'growth': 0.76}
+OFF {'reader_freq': 0.489, 'AI': 0.015, 'H': 0.014, 'H_parent': 0.918, 'growth': 0.355}
+SIEVE {'reader_freq': 0.321, 'AI': 0.0, 'H': 0.148, 'H_parent': 0.989, 'growth': 0.712}
+RANDOM {'reader_freq': 0.381, 'AI': -0.001, 'H': 0.037, 'H_parent': 0.991, 'growth': 0.746}
+PRICE {'reader_freq': 0.397, 'AI': 0.023, 'H': 0.026, 'H_parent': 0.991, 'growth': 0.75}

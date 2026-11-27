@@ -1,0 +1,38 @@
+ON 501 {'reader': 0.827, 'hedger': 0.0, 'plain': 0.17, 'excl': 0.997, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.071, 'D_at_toxin': 0.015, 'n_pairs': 21402}
+ON 502 {'reader': 0.781, 'hedger': 0.211, 'plain': 0.006, 'excl': 0.998, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.069, 'D_at_toxin': 0.015, 'n_pairs': 20632}
+ON 503 {'reader': 0.0, 'hedger': 0.961, 'plain': 0.035, 'excl': 0.995, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.067, 'D_at_toxin': 0.001, 'n_pairs': 20044}
+ON 504 {'reader': 0.964, 'hedger': 0.035, 'plain': 0.0, 'excl': 0.999, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.068, 'D_at_toxin': 0.018, 'n_pairs': 20265}
+ON 505 {'reader': 0.795, 'hedger': 0.183, 'plain': 0.02, 'excl': 0.999, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.069, 'D_at_toxin': 0.016, 'n_pairs': 20589}
+ON MEAN {'reader': 0.673, 'hedger': 0.278, 'plain': 0.046, 'excl': 0.998, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.069, 'D_at_toxin': 0.013, 'n_pairs': 20586.4}
+OFF 501 {'reader': 0.25, 'hedger': 0.248, 'plain': 0.497, 'excl': 0.995, 'kappa': -0.003, 'switch': 0.752, 'growth': 0.071, 'D_at_toxin': 0.005, 'n_pairs': 21259}
+OFF 502 {'reader': 0.248, 'hedger': 0.248, 'plain': 0.5, 'excl': 0.996, 'kappa': -0.003, 'switch': 0.752, 'growth': 0.068, 'D_at_toxin': 0.005, 'n_pairs': 20334}
+OFF 503 {'reader': 0.247, 'hedger': 0.248, 'plain': 0.501, 'excl': 0.995, 'kappa': 0.005, 'switch': 0.746, 'growth': 0.067, 'D_at_toxin': 0.005, 'n_pairs': 19950}
+OFF 504 {'reader': 0.245, 'hedger': 0.253, 'plain': 0.496, 'excl': 0.995, 'kappa': 0.007, 'switch': 0.745, 'growth': 0.067, 'D_at_toxin': 0.005, 'n_pairs': 20017}
+OFF 505 {'reader': 0.247, 'hedger': 0.245, 'plain': 0.503, 'excl': 0.995, 'kappa': 0.003, 'switch': 0.748, 'growth': 0.068, 'D_at_toxin': 0.005, 'n_pairs': 20372}
+OFF MEAN {'reader': 0.247, 'hedger': 0.249, 'plain': 0.5, 'excl': 0.995, 'kappa': 0.002, 'switch': 0.749, 'growth': 0.068, 'D_at_toxin': 0.005, 'n_pairs': 20386.4}
+RANDOM 501 {'reader': 0.215, 'hedger': 0.0, 'plain': 0.769, 'excl': 0.985, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.07, 'D_at_toxin': 0.0, 'n_pairs': 21057}
+RANDOM 502 {'reader': 0.057, 'hedger': 0.012, 'plain': 0.923, 'excl': 0.992, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.067, 'D_at_toxin': 0.0, 'n_pairs': 20202}
+RANDOM 503 {'reader': 0.0, 'hedger': 0.721, 'plain': 0.274, 'excl': 0.995, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.067, 'D_at_toxin': 0.001, 'n_pairs': 19957}
+RANDOM 504 {'reader': 0.0, 'hedger': 0.0, 'plain': 0.994, 'excl': 0.994, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.066, 'D_at_toxin': 0.0, 'n_pairs': 19859}
+RANDOM 505 {'reader': 0.004, 'hedger': 0.0, 'plain': 0.989, 'excl': 0.993, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.068, 'D_at_toxin': 0.0, 'n_pairs': 20317}
+RANDOM MEAN {'reader': 0.055, 'hedger': 0.147, 'plain': 0.79, 'excl': 0.992, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.068, 'D_at_toxin': 0.0, 'n_pairs': 20278.4}
+PRICE 501 {'reader': 0.001, 'hedger': 0.481, 'plain': 0.515, 'excl': 0.996, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.07, 'D_at_toxin': 0.001, 'n_pairs': 21134}
+PRICE 502 {'reader': 0.0, 'hedger': 0.0, 'plain': 0.996, 'excl': 0.996, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.068, 'D_at_toxin': 0.0, 'n_pairs': 20371}
+PRICE 503 {'reader': 0.0, 'hedger': 0.115, 'plain': 0.88, 'excl': 0.995, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.066, 'D_at_toxin': 0.0, 'n_pairs': 19850}
+PRICE 504 {'reader': 0.0, 'hedger': 0.0, 'plain': 0.995, 'excl': 0.995, 'kappa': 0.996, 'switch': 0.0, 'growth': 0.066, 'D_at_toxin': 0.0, 'n_pairs': 19879}
+PRICE 505 {'reader': 0.01, 'hedger': 0.253, 'plain': 0.733, 'excl': 0.995, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.068, 'D_at_toxin': 0.001, 'n_pairs': 20271}
+PRICE MEAN {'reader': 0.002, 'hedger': 0.17, 'plain': 0.824, 'excl': 0.996, 'kappa': 0.999, 'switch': 0.0, 'growth': 0.068, 'D_at_toxin': 0.0, 'n_pairs': 20301.0}
+SIEVE 501 {'reader': 0.0, 'hedger': 0.95, 'plain': 0.042, 'excl': 0.992, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.07, 'D_at_toxin': 0.0, 'n_pairs': 21088}
+SIEVE 502 {'reader': 0.0, 'hedger': 0.002, 'plain': 0.991, 'excl': 0.993, 'kappa': 0.987, 'switch': 0.0, 'growth': 0.068, 'D_at_toxin': 0.0, 'n_pairs': 20272}
+SIEVE 503 {'reader': 0.272, 'hedger': 0.0, 'plain': 0.72, 'excl': 0.993, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.066, 'D_at_toxin': 0.0, 'n_pairs': 19881}
+SIEVE 504 {'reader': 0.794, 'hedger': 0.198, 'plain': 0.0, 'excl': 0.992, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.066, 'D_at_toxin': 0.0, 'n_pairs': 19857}
+SIEVE 505 {'reader': 0.467, 'hedger': 0.052, 'plain': 0.471, 'excl': 0.99, 'kappa': 1.0, 'switch': 0.0, 'growth': 0.067, 'D_at_toxin': 0.0, 'n_pairs': 20223}
+SIEVE MEAN {'reader': 0.307, 'hedger': 0.24, 'plain': 0.445, 'excl': 0.992, 'kappa': 0.997, 'switch': 0.0, 'growth': 0.068, 'D_at_toxin': 0.0, 'n_pairs': 20264.2}
+(i-a) exclusivity excl_ON>=0.8: 5/5 -> PASS
+(i-b) kappa_ON>=0.5 and kappa_ON-kappa_OFF>=0.4: 5/5 -> PASS
+(i-c) Vasas core switching switch_ON>=0.001: 0/5 -> FAIL
+(ii-a) reader_ON>=0.5 and >=hedger_ON+0.1: 4/5 -> PASS
+(ii-b) reader_ON-reader_OFF>=0.25: 4/5 -> PASS
+(ii-c) reader_RANDOM<=0.30 and reader_ON-reader_RANDOM>=0.25: 4/5 -> PASS
+(iii) reader_PRICE<=0.10: 5/5 -> PASS
+(s) growth_ON>=1.02*growth_SIEVE: 1/5 -> FAIL

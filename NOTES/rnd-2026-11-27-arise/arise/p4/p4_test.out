@@ -1,0 +1,32 @@
+ON 401 {'reader_freq': 0.445, 'AI': 0.054, 'n_switch': 11, 'H': 0.028, 'H_parent': 0.992, 'growth': 0.768, 'label_freq': 0.0}
+ON 402 {'reader_freq': 0.466, 'AI': 0.054, 'n_switch': 12, 'H': 0.029, 'H_parent': 0.991, 'growth': 0.757, 'label_freq': 0.0}
+ON 403 {'reader_freq': 0.487, 'AI': 0.054, 'n_switch': 13, 'H': 0.035, 'H_parent': 0.991, 'growth': 0.759, 'label_freq': 0.0}
+ON 404 {'reader_freq': 0.468, 'AI': 0.055, 'n_switch': 13, 'H': 0.03, 'H_parent': 0.992, 'growth': 0.76, 'label_freq': 0.0}
+ON 405 {'reader_freq': 0.405, 'AI': 0.049, 'n_switch': 13, 'H': 0.022, 'H_parent': 0.991, 'growth': 0.756, 'label_freq': 0.0}
+OFF 401 {'reader_freq': 0.491, 'AI': 0.015, 'n_switch': 11, 'H': 0.015, 'H_parent': 0.919, 'growth': 0.355, 'label_freq': 0.0}
+OFF 402 {'reader_freq': 0.489, 'AI': 0.013, 'n_switch': 12, 'H': 0.014, 'H_parent': 0.918, 'growth': 0.355, 'label_freq': 0.0}
+OFF 403 {'reader_freq': 0.489, 'AI': 0.015, 'n_switch': 13, 'H': 0.014, 'H_parent': 0.919, 'growth': 0.355, 'label_freq': 0.0}
+OFF 404 {'reader_freq': 0.488, 'AI': 0.019, 'n_switch': 13, 'H': 0.014, 'H_parent': 0.917, 'growth': 0.355, 'label_freq': 0.0}
+OFF 405 {'reader_freq': 0.49, 'AI': 0.014, 'n_switch': 13, 'H': 0.014, 'H_parent': 0.918, 'growth': 0.355, 'label_freq': 0.0}
+SIEVE 401 {'reader_freq': 0.299, 'AI': 0.0, 'n_switch': 11, 'H': 0.16, 'H_parent': 0.99, 'growth': 0.726, 'label_freq': 0.0}
+SIEVE 402 {'reader_freq': 0.342, 'AI': 0.0, 'n_switch': 12, 'H': 0.135, 'H_parent': 0.989, 'growth': 0.707, 'label_freq': 0.0}
+SIEVE 403 {'reader_freq': 0.34, 'AI': 0.0, 'n_switch': 13, 'H': 0.151, 'H_parent': 0.989, 'growth': 0.709, 'label_freq': 0.0}
+SIEVE 404 {'reader_freq': 0.328, 'AI': 0.0, 'n_switch': 13, 'H': 0.155, 'H_parent': 0.989, 'growth': 0.712, 'label_freq': 0.0}
+SIEVE 405 {'reader_freq': 0.298, 'AI': 0.0, 'n_switch': 13, 'H': 0.139, 'H_parent': 0.989, 'growth': 0.705, 'label_freq': 0.0}
+RANDOM 401 {'reader_freq': 0.379, 'AI': -0.0, 'n_switch': 11, 'H': 0.033, 'H_parent': 0.992, 'growth': 0.755, 'label_freq': 0.0}
+RANDOM 402 {'reader_freq': 0.388, 'AI': 0.001, 'n_switch': 12, 'H': 0.036, 'H_parent': 0.991, 'growth': 0.742, 'label_freq': 0.0}
+RANDOM 403 {'reader_freq': 0.289, 'AI': -0.0, 'n_switch': 13, 'H': 0.049, 'H_parent': 0.991, 'growth': 0.744, 'label_freq': 0.0}
+RANDOM 404 {'reader_freq': 0.445, 'AI': -0.0, 'n_switch': 13, 'H': 0.04, 'H_parent': 0.991, 'growth': 0.745, 'label_freq': 0.0}
+RANDOM 405 {'reader_freq': 0.406, 'AI': -0.007, 'n_switch': 13, 'H': 0.027, 'H_parent': 0.991, 'growth': 0.743, 'label_freq': 0.0}
+PRICE 401 {'reader_freq': 0.389, 'AI': 0.023, 'n_switch': 11, 'H': 0.028, 'H_parent': 0.992, 'growth': 0.759, 'label_freq': 0.0}
+PRICE 402 {'reader_freq': 0.398, 'AI': 0.021, 'n_switch': 12, 'H': 0.033, 'H_parent': 0.99, 'growth': 0.748, 'label_freq': 0.0}
+PRICE 403 {'reader_freq': 0.439, 'AI': 0.026, 'n_switch': 13, 'H': 0.028, 'H_parent': 0.99, 'growth': 0.747, 'label_freq': 0.0}
+PRICE 404 {'reader_freq': 0.402, 'AI': 0.022, 'n_switch': 13, 'H': 0.026, 'H_parent': 0.991, 'growth': 0.751, 'label_freq': 0.0}
+PRICE 405 {'reader_freq': 0.359, 'AI': 0.023, 'n_switch': 13, 'H': 0.016, 'H_parent': 0.99, 'growth': 0.746, 'label_freq': 0.0}
+(i) H_on>=0.10 and H_on-H_off>=0.10: 0/5 -> FAIL
+(ii-a) reader_freq_on>=0.75: 0/5 -> FAIL
+(ii-a2) AI_on-AI_sieve>=0.02: 5/5 -> PASS
+(ii-b) reader_on-reader_off>=0.25: 0/5 -> FAIL
+(ii-c) random cue reader_freq<=0.30: 1/5 -> FAIL
+(iii) price c=1.0 reader_freq<=0.30: 0/5 -> FAIL
+(s) growth_on>=1.10*growth_sieve: 0/5 -> FAIL

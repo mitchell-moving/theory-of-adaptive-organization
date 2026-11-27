@@ -1,0 +1,33 @@
+cell seed extinct births dA_z dA_u r2_body ruin_hz budget_hz h_mean logk_med
+P_low_on     1 -  102270 +0.0051 +0.0078 0.3819 0.02062 0.00000 0.651 -1.651
+P_low_on     2 -  104360 +0.1024 +0.1007 0.2115 0.02316 0.00012 0.625 -0.908
+P_low_on     3 -  104237 +0.0182 +0.1021 0.3707 0.03067 0.00004 0.763 -1.483
+P_low_on 4 EXTINCT 1863.68
+P_low_on 5 EXTINCT 1768.16
+P_low_off 1 EXTINCT 26.72
+P_low_off 2 EXTINCT 110.22
+P_low_off 3 EXTINCT 1080.6200000000001
+P_low_off 4 EXTINCT 63.160000000000004
+P_low_off 5 EXTINCT 1853.44
+P_low_sieve 1 EXTINCT 916.4200000000001
+P_low_sieve 2 EXTINCT 319.46
+P_low_sieve  3 -  165200 +0.0000 +0.0000 0.4725 0.01793 0.00000 0.388 -2.315
+P_low_sieve 4 EXTINCT 123.22
+P_low_sieve 5 EXTINCT 176.72
+U_low_on     1 -  116825 +0.0000 +0.0002 0.0015 0.01827 0.00000 0.446 -1.179
+U_low_on     2 -  118645 +0.0001 +0.0000 0.0008 0.01629 0.00000 0.515 -1.126
+U_low_on     3 -  118490 +0.0000 +0.0002 0.0018 0.01295 0.00000 0.632 -1.303
+U_low_on     4 -  117868 +0.0000 +0.0000 0.0025 0.01897 0.00000 0.281 -1.368
+U_low_on     5 -  117882 +0.0000 +0.0000 0.0005 0.01263 0.00000 0.523 -1.128
+P_high_on 1 EXTINCT 2322.36
+P_high_on 2 EXTINCT 11.200000000000001
+P_high_on 3 EXTINCT 1110.74
+P_high_on 4 EXTINCT 667.36
+P_high_on 5 EXTINCT 344.98
+H-A dA_z(P_low_on)>=0.05: 1/5 -> FAIL   s1:0.0051-; s2:0.1024+; s3:0.0182-; s4:None-; s5:None-
+H-B dA_z on-off>=0.03: 0/5 -> FAIL   s1:None-; s2:None-; s3:None-; s4:None-; s5:None-
+H-C ruin(on)/ruin(sieve)<=0.7: 0/5 -> FAIL   s1:None-; s2:None-; s3:1.711-; s4:None-; s5:None-
+H-D ruin(off)/ruin(on)>=1.3: 0/5 -> FAIL   s1:None-; s2:None-; s3:None-; s4:None-; s5:None-
+H-E h(P)-h(U)>=0.15: 1/5 -> FAIL   s1:0.2046+; s2:0.1101-; s3:0.1307-; s4:None-; s5:None-
+H-F high price logk<=-3 & |dA_z|<0.05: 0/5 -> FAIL   s1:None-; s2:None-; s3:None-; s4:None-; s5:None-
+PRIMARY (Qe): OPEN MISS

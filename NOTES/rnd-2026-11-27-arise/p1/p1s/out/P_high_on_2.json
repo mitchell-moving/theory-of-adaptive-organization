@@ -1,0 +1,8 @@
+{
+ "cell": "P_high_on",
+ "seed": 2,
+ "T": 3000.0,
+ "extinct_t": 11.200000000000001,
+ "births": 9,
+ "wall_s": 1.0
+}

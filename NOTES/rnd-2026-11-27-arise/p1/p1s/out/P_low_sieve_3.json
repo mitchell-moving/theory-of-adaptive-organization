@@ -1,0 +1,16 @@
+{
+ "cell": "P_low_sieve",
+ "seed": 3,
+ "T": 3000.0,
+ "extinct_t": null,
+ "births": 165200,
+ "dA_z": 0.0,
+ "dA_u": 0.0,
+ "r2_body": 0.4724682857089605,
+ "ruin_hazard": 0.017927864310885958,
+ "budget_hazard": 0.0,
+ "h_mean": 0.3884116699184261,
+ "logk_median": -2.3148315530125156,
+ "n_obs": 127952,
+ "wall_s": 16.4
+}

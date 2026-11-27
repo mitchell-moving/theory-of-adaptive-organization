@@ -1,0 +1,11 @@
+{
+ "extinct_t": 129.06,
+ "ruin": 0,
+ "starve": 0,
+ "rand": 0,
+ "cull": 0,
+ "births": 0,
+ "agent_time": 0.0,
+ "cell": "P_sieve",
+ "seed": 305
+}

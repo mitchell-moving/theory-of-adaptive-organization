@@ -1,0 +1,10 @@
+delta=0.1 P=20.0 c=0.0 | reader freq [1.0, 1.0, 1.0, 0.29, 1.0] | 4/5 | PASS
+delta=0.1 P=20.0 c=0.2 | reader freq [0.0, 0.0, 0.0, 0.0, 1.0] | 1/5 | -
+delta=0.1 P=60.0 c=0.0 | reader freq [1.0, 1.0, 1.0, 1.0, 0.0] | 4/5 | PASS
+delta=0.1 P=60.0 c=0.2 | reader freq [1.0, 1.0, 1.0, 1.0, 0.0] | 4/5 | PASS
+delta=0.3 P=20.0 c=0.0 | reader freq [0.06, 1.0, 1.0, 1.0, 1.0] | 4/5 | PASS
+delta=0.3 P=20.0 c=0.2 | reader freq [0.0, 0.49, 0.0, 0.0, 1.0] | 1/5 | -
+delta=0.3 P=60.0 c=0.0 | reader freq [1.0, 1.0, 1.0, 1.0, 0.38] | 4/5 | PASS
+delta=0.3 P=60.0 c=0.2 | reader freq [0.0, 1.0, 1.0, 0.0, 1.0] | 3/5 | -
+CHOSEN: {'delta': 0.1, 'P': 60.0, 'c': 0.2}
+validity (random cue): [0.0, 0.0, 0.0, 1.0, 0.0] 1/5 VALID

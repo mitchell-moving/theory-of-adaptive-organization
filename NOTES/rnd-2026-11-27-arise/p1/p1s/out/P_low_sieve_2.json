@@ -1,0 +1,8 @@
+{
+ "cell": "P_low_sieve",
+ "seed": 2,
+ "T": 3000.0,
+ "extinct_t": 319.46,
+ "births": 15026,
+ "wall_s": 2.2
+}

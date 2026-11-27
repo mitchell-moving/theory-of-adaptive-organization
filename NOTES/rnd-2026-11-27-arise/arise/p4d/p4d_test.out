@@ -1,0 +1,34 @@
+mu | reader ON NOCUE OFF RANDOM PRICE | hedger_ON | kappa_ON switch_ON | appear ON/10 NOCUE/10 | S=ON-NOCUE
+0.001 | 0.625 0.129 0.244 0.104 0.220 | 0.073 | 0.993 0.0031 | 10 10 | +0.496
+0.003 | 0.577 0.243 0.246 0.179 0.249 | 0.122 | 0.982 0.0097 | 10 10 | +0.334
+0.01 | 0.359 0.234 0.243 0.228 0.257 | 0.208 | 0.959 0.0293 | 10 10 | +0.125
+0.03 | 0.283 0.237 0.242 0.229 0.235 | 0.233 | 0.901 0.0739 | 10 10 | +0.046
+0.1 | 0.243 0.230 0.236 0.227 0.219 | 0.227 | 0.820 0.1347 | 10 10 | +0.012
+  mu=0.001 ON>hedger: p=9.134e-05 Holm-reject=True
+  mu=0.001 ON>NOCUE: p=0.0001649 Holm-reject=True
+  mu=0.001 ON>OFF: p=9.134e-05 Holm-reject=True
+  mu=0.001 ON>RANDOM: p=9.134e-05 Holm-reject=True
+  mu=0.001 ON>PRICE: p=0.001101 Holm-reject=True
+  mu=0.003 ON>hedger: p=9.134e-05 Holm-reject=True
+  mu=0.003 ON>NOCUE: p=0.0002198 Holm-reject=True
+  mu=0.003 ON>OFF: p=9.134e-05 Holm-reject=True
+  mu=0.003 ON>RANDOM: p=0.0001231 Holm-reject=True
+  mu=0.003 ON>PRICE: p=0.0001649 Holm-reject=True
+  mu=0.01 ON>hedger: p=0.0001231 Holm-reject=True
+  mu=0.01 ON>NOCUE: p=0.0002914 Holm-reject=True
+  mu=0.01 ON>OFF: p=9.134e-05 Holm-reject=True
+  mu=0.01 ON>RANDOM: p=0.0002198 Holm-reject=True
+  mu=0.01 ON>PRICE: p=0.0008531 Holm-reject=True
+  mu=0.03 ON>hedger: p=0.0001231 Holm-reject=True
+  mu=0.03 ON>NOCUE: p=0.0002914 Holm-reject=True
+  mu=0.03 ON>OFF: p=9.134e-05 Holm-reject=True
+  mu=0.03 ON>RANDOM: p=0.0002198 Holm-reject=True
+  mu=0.03 ON>PRICE: p=0.0003843 Holm-reject=True
+  mu=0.1 ON>hedger: p=0.004554 Holm-reject=True
+  mu=0.1 ON>NOCUE: p=0.0008531 Holm-reject=True
+  mu=0.1 ON>OFF: p=0.002293 Holm-reject=True
+  mu=0.1 ON>RANDOM: p=0.001414 Holm-reject=True
+  mu=0.1 ON>PRICE: p=9.134e-05 Holm-reject=True
+mu* = 0.001; (P1) interior optimum: FAIL
+(P2) reader appears at mu*: 10/10 -> PASS
+(P3) at mu*, ON beats hedger, NOCUE, OFF, RANDOM, PRICE (all 5 Holm-significant in 25-test family): PASS

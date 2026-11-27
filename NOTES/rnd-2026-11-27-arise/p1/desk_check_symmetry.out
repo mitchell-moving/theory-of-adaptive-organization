@@ -1,0 +1,18 @@
+period average of a*Varx+b*Varp: (V_p + V_x)*(a + b)/2
+period average of ZHP purity-loss rate / D: 2*V_p + 2*V_x
+loss a=1 b=0  horizon T=  0.250  optimal |squeeze r|=1.3139  J=0.07187
+loss a=1 b=0  horizon T=  1.000  optimal |squeeze r|=0.6131  J=0.27015
+loss a=1 b=0  horizon T=  6.283  optimal |squeeze r|=0.0000  J=0.50000
+loss a=1 b=0  horizon T= 62.832  optimal |squeeze r|=0.0000  J=0.50000
+loss a=0 b=1  horizon T=  0.250  optimal |squeeze r|=1.3139  J=0.07187
+loss a=0 b=1  horizon T=  1.000  optimal |squeeze r|=0.6131  J=0.27015
+loss a=0 b=1  horizon T=  6.283  optimal |squeeze r|=0.0000  J=0.50000
+loss a=0 b=1  horizon T= 62.832  optimal |squeeze r|=0.0000  J=0.50000
+loss a=1 b=1  horizon T=  0.250  optimal |squeeze r|=0.0000  J=1.00000
+loss a=1 b=1  horizon T=  1.000  optimal |squeeze r|=0.0000  J=1.00000
+loss a=1 b=1  horizon T=  6.283  optimal |squeeze r|=0.0000  J=1.00000
+loss a=1 b=1  horizon T= 62.832  optimal |squeeze r|=0.0000  J=1.00000
+loss a=3 b=1  horizon T=  0.250  optimal |squeeze r|=0.2712  J=1.73800
+loss a=3 b=1  horizon T=  1.000  optimal |squeeze r|=0.2243  J=1.81437
+loss a=3 b=1  horizon T=  6.283  optimal |squeeze r|=0.0000  J=2.00000
+loss a=3 b=1  horizon T= 62.832  optimal |squeeze r|=0.0000  J=2.00000
