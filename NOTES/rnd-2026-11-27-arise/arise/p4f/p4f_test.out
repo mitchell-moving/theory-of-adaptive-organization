@@ -1,0 +1,25 @@
+mu | A: ON OFF RANDOM NOCUE C0.1 C1 C10 | f_inf: ON NOCUE OFF | eff: ON C0.1 C1 C10 | modelag ON in L_inf
+1e-05 | ON=0.0024 | ON=0.118 | ON=0.064 | 3 /10
+0.0001 | ON=0.0121 OFF=0.0000 RANDOM=0.0000 NOCUE=0.0000 C0.1=0.0113 C1=0.0000 C10=0.0000 | ON=0.705 OFF=0.000 NOCUE=0.006 | ON=0.363 C0.1=0.258 C1=0.001 C10=0.000 | 9 /10
+0.001 | ON=0.0201 OFF=0.0001 RANDOM=-0.0002 NOCUE=0.0000 C0.1=0.0254 C1=0.0003 C10=0.0000 | ON=0.980 OFF=0.004 NOCUE=0.282 | ON=0.500 C0.1=0.413 C1=0.008 C10=0.000 | 10 /10
+0.01 | ON=0.0226 OFF=0.0007 RANDOM=-0.0000 NOCUE=0.0000 C0.1=0.0326 C1=0.0034 C10=0.0000 | ON=0.902 OFF=0.044 NOCUE=0.278 | ON=0.508 C0.1=0.492 C1=0.070 C10=0.002 | 10 /10
+  mu=0.0001 F1 A ON>OFF: p=0.01287 Holm=True
+  mu=0.0001 F1 A ON>RANDOM: p=0.01287 Holm=True
+  mu=0.0001 F2 f_inf ON>NOCUE: p=0.0002914 Holm=True
+  mu=0.0001 F3 eff ON>C1: p=9.134e-05 Holm=True
+  mu=0.0001 F3 eff ON>C10: p=8.633e-05 Holm=True
+  mu=0.001 F1 A ON>OFF: p=9.134e-05 Holm=True
+  mu=0.001 F1 A ON>RANDOM: p=9.134e-05 Holm=True
+  mu=0.001 F2 f_inf ON>NOCUE: p=9.083e-05 Holm=True
+  mu=0.001 F3 eff ON>C1: p=9.134e-05 Holm=True
+  mu=0.001 F3 eff ON>C10: p=9.134e-05 Holm=True
+  mu=0.01 F1 A ON>OFF: p=9.134e-05 Holm=True
+  mu=0.01 F1 A ON>RANDOM: p=9.134e-05 Holm=True
+  mu=0.01 F2 f_inf ON>NOCUE: p=9.134e-05 Holm=True
+  mu=0.01 F3 eff ON>C1: p=9.134e-05 Holm=True
+  mu=0.01 F3 eff ON>C10: p=9.134e-05 Holm=True
+F1 (A ON > OFF and > RANDOM at all 3 mu): PASS
+F2 (f_inf ON > NOCUE at all 3 mu): PASS
+F3 (price caps read effort: ON > C1 and > C10 at all 3 mu): PASS
+F4 interior optimum of median A over mu in {1e-5,1e-4,1e-3,1e-2}: {1e-05: np.float64(0.0), 0.0001: np.float64(0.0114), 0.001: np.float64(0.017), 0.01: np.float64(0.0219)} argmax 0.01 FAIL
+F5 (lag convergence: mode lag in L_inf >= 8/10 at all 3 mu): PASS

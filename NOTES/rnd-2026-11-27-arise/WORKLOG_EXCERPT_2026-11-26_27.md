@@ -45,3 +45,7 @@
 - 2026-11-27T00:07:44-05:00 — P4e IMPLICATIONS_AND_NEXT_P4e_2026-11-26.md SHA-256 92818f67a907ee1745920b04a74dd6d5fde6db2bfcc463b7824a33344bb740d3.
 - 2026-11-27T00:07:44-05:00 — P4e scored: (a) PASS, (b) FAIL, (c) FAIL, (d) PASS-by-rule but tie-break artifact (MI ceiling).
 - 2026-11-27T00:11:02-05:00 — REFLECTION rnd/arise/REFLECTION_2026-11-27.md SHA-256 9560ffe1af94c7e990475709390a731be2b22670e6f1b6a9bcecb2e3d1f9951a (Chad t191u/t193u). 7 DOIs re-verified (crossref_reflection.out).
+- 2026-11-27T00:12:12-05:00 — BACKUP: new fork branch forge-rnd-arise-2026-11-27 from fork main 19b6d0cc; commit 6dd497c32676e2f9a41873d2a04af41d6d4c3093 (Chad Mitchell) adds NOTES/rnd-2026-11-27-arise/ (rnd/p1 + rnd/arise, WORKLOG excerpt, reflection, SHA256SUMS 247 files). Pushed that branch only; no PR; #295 branch forge-rnd-record-cost-2 untouched at 8997e234. Fresh-clone verify: ALL 247 HASHES OK.
+- 2026-11-27T00:12:26-05:00 — P4f (Chad t193u: keep going by judgment rule). Gate spec rnd/arise/p4f/GATE_SPEC_P4f_2026-11-27.md SHA-256 e6a18a3f22dbb0217e6be72858b2d3575c5f31b975eaaf68e0e3db06f5772c53 hashed before gate.
+- 2026-11-27T00:13:25-05:00 — P4f gate PASS (L_inf {2..6}; validity 2/5, edge). PREREG_P4f_2026-11-27.md SHA-256 847a5827e5e7647c433025810bffdbdc35e8af5971cf41bb7e6198da63586371 locked before run.
+- 2026-11-27T00:18:03-05:00 — P4f run (p4f_test.out): F1 PASS, F2 PASS, F3 PASS, F4 FAIL (A monotone up to mu 1e-2), F5 PASS; all 15 Holm rejected. RESULTS_AND_REVIEW_P4f_2026-11-27.md SHA-256 190a42bf162a03b5f30f104821cac03195ba16e4babf40bcf4d4db886c78f704.
