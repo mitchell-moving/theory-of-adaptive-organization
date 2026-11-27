@@ -1,0 +1,63 @@
+2026-11-27T01:15:55-05:00
+--- drift r=0
+mu=3e-06 | mean A -0.0000 median 0.0000 | share lags 0-4 0.000 7-11 0.000 | growth 0.0543
+mu=1e-05 | mean A 0.0007 median -0.0000 | share lags 0-4 0.041 7-11 0.018 | growth 0.0547
+mu=3e-05 | mean A 0.0113 median 0.0000 | share lags 0-4 0.336 7-11 0.089 | growth 0.0587
+mu=0.0001 | mean A 0.0174 median 0.0158 | share lags 0-4 0.596 7-11 0.267 | growth 0.0629
+mu=0.0003 | mean A 0.0185 median 0.0185 | share lags 0-4 0.648 7-11 0.330 | growth 0.0647
+mu=0.001 | mean A 0.0209 median 0.0185 | share lags 0-4 0.656 7-11 0.327 | growth 0.0672
+mu=0.003 | mean A 0.0233 median 0.0218 | share lags 0-4 0.646 7-11 0.325 | growth 0.0677
+mu=0.01 | mean A 0.0216 median 0.0209 | share lags 0-4 0.611 7-11 0.315 | growth 0.0674
+mu=0.03 | mean A 0.0167 median 0.0162 | share lags 0-4 0.519 7-11 0.280 | growth 0.0652
+mu=0.1 | mean A 0.0048 median 0.0048 | share lags 0-4 0.325 7-11 0.255 | growth 0.0642
+mu=0.3 | mean A 0.0029 median 0.0027 | share lags 0-4 0.262 7-11 0.214 | growth 0.0677
+--- drift r=0.001
+mu=3e-06 | mean A -0.0000 median 0.0000 | share lags 0-4 0.000 7-11 0.000 | growth 0.0543
+mu=1e-05 | mean A 0.0003 median -0.0000 | share lags 0-4 0.135 7-11 0.001 | growth 0.0549
+mu=3e-05 | mean A 0.0026 median 0.0000 | share lags 0-4 0.195 7-11 0.070 | growth 0.0558
+mu=0.0001 | mean A 0.0034 median 0.0002 | share lags 0-4 0.558 7-11 0.159 | growth 0.0581
+mu=0.0003 | mean A 0.0104 median 0.0091 | share lags 0-4 0.635 7-11 0.324 | growth 0.0607
+mu=0.001 | mean A 0.0142 median 0.0152 | share lags 0-4 0.608 7-11 0.359 | growth 0.0624
+mu=0.003 | mean A 0.0150 median 0.0149 | share lags 0-4 0.562 7-11 0.375 | growth 0.0637
+mu=0.01 | mean A 0.0155 median 0.0152 | share lags 0-4 0.519 7-11 0.360 | growth 0.0640
+mu=0.03 | mean A 0.0115 median 0.0110 | share lags 0-4 0.439 7-11 0.312 | growth 0.0631
+mu=0.1 | mean A 0.0046 median 0.0046 | share lags 0-4 0.310 7-11 0.262 | growth 0.0642
+mu=0.3 | mean A 0.0030 median 0.0029 | share lags 0-4 0.256 7-11 0.221 | growth 0.0677
+--- drift r=0.01
+mu=3e-06 | mean A 0.0000 median 0.0000 | share lags 0-4 0.002 7-11 0.000 | growth 0.0543
+mu=1e-05 | mean A 0.0008 median 0.0000 | share lags 0-4 0.091 7-11 0.042 | growth 0.0548
+mu=3e-05 | mean A 0.0020 median 0.0000 | share lags 0-4 0.351 7-11 0.052 | growth 0.0556
+mu=0.0001 | mean A 0.0038 median 0.0028 | share lags 0-4 0.425 7-11 0.313 | growth 0.0573
+mu=0.0003 | mean A 0.0067 median 0.0070 | share lags 0-4 0.664 7-11 0.272 | growth 0.0588
+mu=0.001 | mean A 0.0100 median 0.0093 | share lags 0-4 0.633 7-11 0.328 | growth 0.0596
+mu=0.003 | mean A 0.0084 median 0.0085 | share lags 0-4 0.628 7-11 0.296 | growth 0.0602
+mu=0.01 | mean A 0.0074 median 0.0070 | share lags 0-4 0.489 7-11 0.320 | growth 0.0596
+mu=0.03 | mean A 0.0050 median 0.0051 | share lags 0-4 0.365 7-11 0.303 | growth 0.0601
+mu=0.1 | mean A 0.0037 median 0.0036 | share lags 0-4 0.301 7-11 0.270 | growth 0.0640
+mu=0.3 | mean A 0.0027 median 0.0027 | share lags 0-4 0.257 7-11 0.224 | growth 0.0677
+controls r=0.01 mu=3e-06: median A OFF 0.0000 RANDOM 0.0000
+controls r=0.01 mu=1e-05: median A OFF -0.0000 RANDOM -0.0000
+controls r=0.01 mu=3e-05: median A OFF -0.0000 RANDOM -0.0000
+controls r=0.01 mu=0.0001: median A OFF 0.0000 RANDOM 0.0000
+controls r=0.01 mu=0.0003: median A OFF 0.0000 RANDOM 0.0000
+controls r=0.01 mu=0.001: median A OFF 0.0001 RANDOM -0.0000
+controls r=0.01 mu=0.003: median A OFF 0.0002 RANDOM -0.0000
+controls r=0.01 mu=0.01: median A OFF 0.0006 RANDOM -0.0000
+controls r=0.01 mu=0.03: median A OFF 0.0019 RANDOM -0.0000
+controls r=0.01 mu=0.1: median A OFF 0.0032 RANDOM -0.0000
+controls r=0.01 mu=0.3: median A OFF 0.0028 RANDOM -0.0003
+r=0: centroid -2.793 | edges low -4.491160770333081 high -1.3013986379489262 | tie-rule peak loc -2.2614393726401687 top set [0.003, 0.01]
+r=0.001: centroid -2.469 | edges low -3.705194510111676 high -1.2393063624931204 | tie-rule peak loc -2.5076262484267793 top set [0.001, 0.003, 0.01]
+r=0.01: centroid -2.587 | edges low -3.8020683585894974 high -1.5004151173718383 | tie-rule peak loc -3.0 top set [0.001]
+D1 centroid shift fast-static 0.206 (boot 95% 0.053..0.354; 2000/2000) -> FAIL
+D1m monotone centroid -2.793 < -2.469 < -2.587 -> FAIL
+D2 low-edge shift 0.689 (boot 95% 0.127..1.096; 2000/2000) -> PASS
+D3 high-edge shift -0.199 (boot 95% -0.369..0.065; 2000/2000) -> PASS
+  D4a fast peak > lowest mu: p=9.701e-10 Holm-reject=True
+  D4b fast peak > highest mu: p=1.532e-09 Holm-reject=True
+  C1 ON > OFF at fast peak: p=9.507e-08 Holm-reject=True
+  C2 ON > RANDOM at fast peak: p=9.507e-08 Holm-reject=True
+D4 two-sided band at fast drift (peak grid mu 0.001; end medians 0.0000, 0.0027 vs 0.0093) -> PASS
+C1+C2 -> PASS
+PRIMARY (D1): FAIL | ALL (D1, D1m, D2, D3, D4, C1+C2): FAIL
+2026-11-27T01:45:38-05:00

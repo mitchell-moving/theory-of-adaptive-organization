@@ -1,0 +1,47 @@
+2026-11-27T01:50:44-05:00
+--- drift r=0.01
+mu=3e-06 | mean A 0.0013 median 0.0000 | lags 0-4 0.058 7-11 0.001 | growth 0.0551 | RANDOM median A nan
+mu=1e-05 | mean A -0.0001 median -0.0000 | lags 0-4 0.053 7-11 0.000 | growth 0.0551 | RANDOM median A nan
+mu=3e-05 | mean A 0.0014 median 0.0000 | lags 0-4 0.121 7-11 0.063 | growth 0.0556 | RANDOM median A nan
+mu=0.0001 | mean A 0.0030 median 0.0003 | lags 0-4 0.392 7-11 0.209 | growth 0.0576 | RANDOM median A nan
+mu=0.0003 | mean A 0.0067 median 0.0071 | lags 0-4 0.652 7-11 0.282 | growth 0.0590 | RANDOM median A nan
+mu=0.001 | mean A 0.0056 median 0.0060 | lags 0-4 0.677 7-11 0.284 | growth 0.0600 | RANDOM median A nan
+mu=0.003 | mean A 0.0084 median 0.0075 | lags 0-4 0.644 7-11 0.268 | growth 0.0604 | RANDOM median A nan
+mu=0.01 | mean A 0.0080 median 0.0078 | lags 0-4 0.516 7-11 0.303 | growth 0.0603 | RANDOM median A nan
+mu=0.03 | mean A 0.0055 median 0.0056 | lags 0-4 0.392 7-11 0.288 | growth 0.0608 | RANDOM median A nan
+mu=0.1 | mean A 0.0037 median 0.0037 | lags 0-4 0.309 7-11 0.263 | growth 0.0644 | RANDOM median A nan
+mu=0.3 | mean A 0.0027 median 0.0027 | lags 0-4 0.256 7-11 0.230 | growth 0.0681 | RANDOM median A nan
+--- drift r=0.03333
+mu=3e-06 | mean A 0.0011 median 0.0000 | lags 0-4 0.059 7-11 0.000 | growth 0.0550 | RANDOM median A nan
+mu=1e-05 | mean A 0.0011 median 0.0000 | lags 0-4 0.109 7-11 0.075 | growth 0.0556 | RANDOM median A nan
+mu=3e-05 | mean A 0.0025 median 0.0001 | lags 0-4 0.172 7-11 0.121 | growth 0.0563 | RANDOM median A nan
+mu=0.0001 | mean A 0.0049 median 0.0058 | lags 0-4 0.429 7-11 0.288 | growth 0.0581 | RANDOM median A nan
+mu=0.0003 | mean A 0.0081 median 0.0063 | lags 0-4 0.717 7-11 0.227 | growth 0.0594 | RANDOM median A nan
+mu=0.001 | mean A 0.0077 median 0.0079 | lags 0-4 0.778 7-11 0.190 | growth 0.0602 | RANDOM median A nan
+mu=0.003 | mean A 0.0095 median 0.0103 | lags 0-4 0.742 7-11 0.188 | growth 0.0606 | RANDOM median A nan
+mu=0.01 | mean A 0.0053 median 0.0053 | lags 0-4 0.515 7-11 0.275 | growth 0.0593 | RANDOM median A nan
+mu=0.03 | mean A 0.0038 median 0.0038 | lags 0-4 0.360 7-11 0.296 | growth 0.0600 | RANDOM median A nan
+mu=0.1 | mean A 0.0031 median 0.0030 | lags 0-4 0.297 7-11 0.270 | growth 0.0643 | RANDOM median A nan
+mu=0.3 | mean A 0.0024 median 0.0024 | lags 0-4 0.260 7-11 0.227 | growth 0.0680 | RANDOM median A nan
+--- drift r=0.1
+mu=3e-06 | mean A 0.0011 median 0.0000 | lags 0-4 0.060 7-11 0.001 | growth 0.0550 | RANDOM median A 0.0000
+mu=1e-05 | mean A -0.0001 median -0.0000 | lags 0-4 0.027 7-11 0.000 | growth 0.0550 | RANDOM median A -0.0000
+mu=3e-05 | mean A 0.0032 median 0.0001 | lags 0-4 0.208 7-11 0.177 | growth 0.0563 | RANDOM median A -0.0000
+mu=0.0001 | mean A 0.0052 median 0.0040 | lags 0-4 0.273 7-11 0.290 | growth 0.0570 | RANDOM median A 0.0000
+mu=0.0003 | mean A 0.0074 median 0.0065 | lags 0-4 0.744 7-11 0.214 | growth 0.0589 | RANDOM median A -0.0000
+mu=0.001 | mean A 0.0093 median 0.0102 | lags 0-4 0.911 7-11 0.061 | growth 0.0606 | RANDOM median A 0.0000
+mu=0.003 | mean A 0.0090 median 0.0089 | lags 0-4 0.809 7-11 0.124 | growth 0.0602 | RANDOM median A 0.0003
+mu=0.01 | mean A 0.0056 median 0.0054 | lags 0-4 0.589 7-11 0.212 | growth 0.0594 | RANDOM median A 0.0003
+mu=0.03 | mean A 0.0036 median 0.0036 | lags 0-4 0.367 7-11 0.282 | growth 0.0598 | RANDOM median A 0.0002
+mu=0.1 | mean A 0.0028 median 0.0028 | lags 0-4 0.306 7-11 0.264 | growth 0.0642 | RANDOM median A 0.0000
+mu=0.3 | mean A 0.0022 median 0.0022 | lags 0-4 0.260 7-11 0.224 | growth 0.0680 | RANDOM median A -0.0001
+r=0.01: max mean A 0.0084 | edges (np.float64(-3.841005654859899), np.float64(-1.152325905587275)) | width 2.688679749272624
+r=0.03333: max mean A 0.0095 | edges (np.float64(-4.037027758293621), np.float64(-1.8255255565667698)) | width 2.211502201726851
+r=0.1: max mean A 0.0093 | edges (np.float64(-4.147662864109721), np.float64(-1.778006113548727)) | width 2.369656750560994
+K1 window closes or narrows below 1.5 decades at r 1/10 (width 2.369656750560994) -> FAIL
+K2 monotone narrowing (w1 > w2 >= w3) [np.float64(2.688679749272624), np.float64(2.211502201726851), np.float64(2.369656750560994)] -> FAIL
+K3 low-edge shift 1/10 vs 1/100 -0.307 (boot 95% -0.829..0.346; 2000/2000) -> FAIL
+K4 replication of P4-DRIFT width at r 1/100 (2.30 +- 0.5): 2.688679749272624 -> PASS
+C ON > RANDOM at r 1/10, mu 0.001: p=1.36e-06 -> PASS
+PRIMARY K1: FAIL
+2026-11-27T02:10:16-05:00

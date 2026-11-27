@@ -1,0 +1,37 @@
+2026-11-27T01:14:06-05:00
+pilot LS=(4,) r=0.00000 seed=1391 A=0.0349 sec=9.0
+pilot LS=(4,) r=0.00000 seed=1392 A=0.0210 sec=8.9
+pilot LS=(4,) r=0.00000 seed=1393 A=0.0234 sec=8.8
+pilot LS=(4,) r=0.00000 seed=1394 A=0.0183 sec=9.0
+pilot LS=(11,) r=0.00000 seed=1391 A=0.0191 sec=9.0
+pilot LS=(11,) r=0.00000 seed=1392 A=0.0185 sec=9.0
+pilot LS=(11,) r=0.00000 seed=1393 A=0.0185 sec=9.2
+pilot LS=(11,) r=0.00000 seed=1394 A=0.0328 sec=9.2
+pilot LS=(4, 11) r=0.00000 seed=1391 A=0.0349 sec=8.7
+pilot LS=(4, 11) r=0.00000 seed=1392 A=0.0185 sec=8.8
+pilot LS=(4, 11) r=0.00000 seed=1393 A=0.0185 sec=8.7
+pilot LS=(4, 11) r=0.00000 seed=1394 A=0.0328 sec=9.2
+pilot LS=(4, 11) r=0.00033 seed=1391 A=0.0318 sec=9.2
+pilot LS=(4, 11) r=0.00033 seed=1392 A=0.0146 sec=9.8
+pilot LS=(4, 11) r=0.00033 seed=1393 A=0.0185 sec=8.7
+pilot LS=(4, 11) r=0.00033 seed=1394 A=0.0399 sec=9.3
+pilot LS=(4, 11) r=0.00100 seed=1391 A=0.0181 sec=9.2
+pilot LS=(4, 11) r=0.00100 seed=1392 A=0.0104 sec=9.2
+pilot LS=(4, 11) r=0.00100 seed=1393 A=0.0124 sec=9.6
+pilot LS=(4, 11) r=0.00100 seed=1394 A=0.0178 sec=9.7
+pilot LS=(4, 11) r=0.00333 seed=1391 A=0.0137 sec=9.6
+pilot LS=(4, 11) r=0.00333 seed=1392 A=0.0127 sec=9.0
+pilot LS=(4, 11) r=0.00333 seed=1393 A=0.0041 sec=9.1
+pilot LS=(4, 11) r=0.00333 seed=1394 A=0.0068 sec=9.9
+pilot LS=(4, 11) r=0.01000 seed=1391 A=0.0084 sec=8.4
+pilot LS=(4, 11) r=0.01000 seed=1392 A=0.0076 sec=8.7
+pilot LS=(4, 11) r=0.01000 seed=1393 A=0.0204 sec=8.6
+pilot LS=(4, 11) r=0.01000 seed=1394 A=0.0142 sec=8.4
+mean (4,) 0.0 0.0244
+mean (11,) 0.0 0.0222
+mean (4, 11) 0.0 0.0262
+mean (4, 11) 0.00033 0.0262
+mean (4, 11) 0.001 0.0147
+mean (4, 11) 0.00333 0.0093
+mean (4, 11) 0.01 0.0127
+2026-11-27T01:14:42-05:00
