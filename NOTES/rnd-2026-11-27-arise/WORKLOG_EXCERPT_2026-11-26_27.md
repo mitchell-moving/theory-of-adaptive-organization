@@ -55,3 +55,6 @@
 - 2026-11-27T00:22:39-05:00 — P4g run: P-cap PASS (c*_evolved 0.511, boot 0.437–0.563, vs c*_designed 0.617); P-high PASS (p 9.1e-5). RESULTS_AND_REVIEW_P4g_2026-11-27.md SHA-256 083f30f1f4525b54f197cc2176ef62d2fd4f26ad60aec77c70446436d5950854.
 - 2026-11-27T00:23:03-05:00 — PREREG_P4h_2026-11-27.md SHA-256 345f53aec1cd0ac75886a7333399aaf5b61b63a8f5c148ca6457faf18d62a60d locked before run (moderate price raises anticipation?).
 - 2026-11-27T00:24:13-05:00 — P4h run: H1 PASS (A 0.0459 vs 0.0227, p 9e-6), H2 FAIL (mechanism wrong). RESULTS_AND_REVIEW_P4h_2026-11-27.md SHA-256 a3dce4f1ae59d7c1df55c40f4969a0936c43668d9f2e2e8e42dbe0ed18f34cc9.
+- 2026-11-27T00:25:20-05:00 — M4 design pass: PREREG_M4_DESK_2026-11-27.md SHA-256 34be3a6d5f570286d77e0f9bddb8ba149599accb9b04e086188e37f744bf8129 locked before run (10 DOIs verified, crossref_m4.out).
+- 2026-11-27T00:27:22-05:00 — M4 desk run: D1 PASS 3/3 (uniform need: d_s 7.8-8.0), D2 FAIL 0/3 (hidden-2D need: d_s 7.3-7.7; locality not inherited from need alone). DESIGN_PASS_M4_2026-11-27.md SHA-256 1b5d514221cd942ee8e5105810b99fd91bc5681668ff49f2b1f20cc6fc9d9312.
+- 2026-11-27T00:27:43-05:00 — STOP (returns diminished; usage 84.2%). rnd/arise/STOP_AND_CHAIN_2026-11-27.md SHA-256 f31274a07807778c67a989ec806598dcc81ed8e1785aad4e5949d5123e8a4627.

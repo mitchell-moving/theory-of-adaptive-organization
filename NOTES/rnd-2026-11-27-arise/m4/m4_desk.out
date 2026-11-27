@@ -1,0 +1,7 @@
+calibration: 12x12 grid d_s = 1.92 (valid iff in [1.5, 2.5]); random graph d_s = 4.64
+seed 1 uniform: links 400 diameter 4 d_s 7.86
+seed 1 hidden2D: links 434 diameter 5 d_s 7.71
+seed 2 uniform: links 394 diameter 4 d_s 7.98
+seed 2 hidden2D: links 442 diameter 5 d_s 7.71
+seed 3 uniform: links 392 diameter 4 d_s 7.81
+seed 3 hidden2D: links 415 diameter 5 d_s 7.28
