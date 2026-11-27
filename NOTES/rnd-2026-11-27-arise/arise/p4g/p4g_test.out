@@ -1,0 +1,14 @@
+c=0.01: effort 0.471  f_inf 0.980  A 0.0243
+c=0.1: effort 0.452  f_inf 0.976  A 0.0269
+c=0.2: effort 0.396  f_inf 0.966  A 0.0311
+c=0.3: effort 0.424  f_inf 0.968  A 0.0405
+c=0.5: effort 0.248  f_inf 0.826  A 0.0273
+c=0.7: effort 0.059  f_inf 0.300  A 0.0048
+c=1.0: effort 0.007  f_inf 0.027  A 0.0004
+c=2.0: effort 0.003  f_inf 0.019  A 0.0001
+c*_evolved = 0.5109537032818577  (bootstrap 95% over seeds: 0.43664444323483637–0.5633524051740288; 2000/2000 with a crossing); c*_designed = 0.617
+P-cap (c*_evolved within a factor 2 of c*_designed): PASS
+mu=0.01: A median 0.0196 mean 0.0218 f_inf 0.897 effort 0.508
+mu=0.03: A median 0.0179 mean 0.0182 f_inf 0.707 effort 0.414
+mu=0.1: A median 0.0052 mean 0.0052 f_inf 0.345 effort 0.257
+P-high (A at mu 1e-2 > A at mu 1e-1, one-sided MW): p=9.134e-05 PASS
