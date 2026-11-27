@@ -53,3 +53,5 @@
 - 2026-11-27T00:19:06-05:00 — P4g (judgment rule: M5 failable price, in-model). Calibration spec SHA-256 b9b2434c20caa8015e41d681f6441fb3a711e38ef7c0ddb8edd4427848a95aad hashed before calibration.
 - 2026-11-27T00:19:44-05:00 — P4g calibration c*_designed=0.617 (calib.out). PREREG_P4g_2026-11-27.md SHA-256 612c81c19a5aa8ef5a3f85a79c8afb6aed9f45581f1dde5c42aeb5f6b359a56a locked before run.
 - 2026-11-27T00:22:39-05:00 — P4g run: P-cap PASS (c*_evolved 0.511, boot 0.437–0.563, vs c*_designed 0.617); P-high PASS (p 9.1e-5). RESULTS_AND_REVIEW_P4g_2026-11-27.md SHA-256 083f30f1f4525b54f197cc2176ef62d2fd4f26ad60aec77c70446436d5950854.
+- 2026-11-27T00:23:03-05:00 — PREREG_P4h_2026-11-27.md SHA-256 345f53aec1cd0ac75886a7333399aaf5b61b63a8f5c148ca6457faf18d62a60d locked before run (moderate price raises anticipation?).
+- 2026-11-27T00:24:13-05:00 — P4h run: H1 PASS (A 0.0459 vs 0.0227, p 9e-6), H2 FAIL (mechanism wrong). RESULTS_AND_REVIEW_P4h_2026-11-27.md SHA-256 a3dce4f1ae59d7c1df55c40f4969a0936c43668d9f2e2e8e42dbe0ed18f34cc9.

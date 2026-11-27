@@ -1,0 +1,4 @@
+c=0.01: A mean 0.0227 median 0.0202 | effort 0.500 | useless-lag share 0.0099 | f_inf 0.980 | growth 0.0678
+c=0.3: A mean 0.0459 median 0.0439 | effort 0.441 | useless-lag share 0.0184 | f_inf 0.967 | growth 0.0608
+H1 (A at c 0.3 > A at c 0.01): p=9.037e-06 PASS
+H2 (useless-lag share lower at c 0.3): p=0.9966 FAIL
