@@ -1,0 +1,10 @@
+2026-11-27T00:40:37-05:00
+pilot mu=1e-06 seed=1391 A=0.0000 sec=8.3
+pilot mu=1e-06 seed=1392 A=0.0000 sec=8.4
+pilot mu=0.001 seed=1391 A=0.0279 sec=8.9
+pilot mu=0.001 seed=1392 A=0.0167 sec=8.7
+pilot mu=0.3 seed=1391 A=0.0033 sec=10.7
+pilot mu=0.3 seed=1392 A=0.0036 sec=10.8
+pilot mu=1 seed=1391 A=0.0029 sec=14.0
+pilot mu=1 seed=1392 A=0.0027 sec=14.1
+2026-11-27T00:40:52-05:00

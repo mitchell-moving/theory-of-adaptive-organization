@@ -1,0 +1,22 @@
+Ka, Ki (nM), kc, ki (1/min): [88.4615, 0.2192, 2.55, 2.0909]
+Ti=1.0 nM bistable=True A-start [389.7   0. ] B-start [  0.  389.7]
+Ti=3.0 nM bistable=True A-start [389.7   0. ] B-start [  0.  389.7]
+Ti=10.0 nM bistable=True A-start [389.7   0. ] B-start [  0.  389.7]
+Ti=30.0 nM bistable=True A-start [389.7   0. ] B-start [  0.  389.7]
+chosen Ti = 1.0
+V=0.1 fL leak=0.0 nM/min | kappa 0.999 switch 0.0000 loss 0.001 
+V=0.1 fL leak=0.001 nM/min | kappa 0.992 switch 0.0000 loss 0.004 
+V=0.1 fL leak=0.01 nM/min | kappa 0.947 switch 0.0000 loss 0.026 
+V=0.3 fL leak=0.0 nM/min | kappa 1.000 switch 0.0000 loss 0.000 
+V=0.3 fL leak=0.001 nM/min | kappa 0.981 switch 0.0000 loss 0.009 
+V=0.3 fL leak=0.01 nM/min | kappa 0.840 switch 0.0000 loss 0.077 
+V=1.0 fL leak=0.0 nM/min | kappa 1.000 switch 0.0000 loss 0.000 
+V=1.0 fL leak=0.001 nM/min | kappa 0.945 switch 0.0000 loss 0.028 
+V=1.0 fL leak=0.01 nM/min | kappa 0.486 switch 0.0000 loss 0.346 
+V=3.0 fL leak=0.0 nM/min | kappa 1.000 switch 0.0000 loss 0.000 
+V=3.0 fL leak=0.001 nM/min | kappa 0.962 switch 0.0000 loss 0.018 
+V=3.0 fL leak=0.01 nM/min | kappa 0.666 switch 0.0048 loss 0.196 BAND
+V=10.0 fL leak=0.0 nM/min | kappa 1.000 switch 0.0000 loss 0.000 
+V=10.0 fL leak=0.001 nM/min | kappa 1.000 switch 0.0000 loss 0.000 
+V=10.0 fL leak=0.01 nM/min | kappa 1.000 switch 0.0000 loss 0.000 
+BAND: [(3.0, 0.01)]
