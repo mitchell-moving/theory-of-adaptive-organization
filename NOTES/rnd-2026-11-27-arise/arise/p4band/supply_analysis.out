@@ -1,0 +1,17 @@
+2026-11-27T01:09:40-05:00
+mu=1e-06: mean A T6000 -0.0000 | T12000 -0.0000 (median 0.0000); growth T12000 0.0544
+mu=3e-06: mean A T6000 0.0008 | T12000 0.0038 (median 0.0000); growth T12000 0.0560
+mu=1e-05: mean A T6000 0.0044 | T12000 0.0018 (median 0.0000); growth T12000 0.0559
+mu=3e-05: mean A T6000 0.0074 | T12000 0.0084 (median 0.0066); growth T12000 0.0621
+mu=0.0001: mean A T6000 0.0146 | T12000 0.0147 (median 0.0143); growth T12000 0.0638
+mu=0.0003: mean A T6000 0.0162 | T12000 0.0178 (median 0.0178); growth T12000 0.0660
+mu=0.001: mean A T6000 0.0208 | T12000 0.0284 (median 0.0301); growth T12000 0.0677
+mu=0.003: mean A T6000 0.0232 | T12000 0.0227 (median 0.0189); growth T12000 0.0684
+mu=0.01: mean A T6000 0.0236 | T12000 0.0225 (median 0.0226); growth T12000 0.0677
+mu=0.03: mean A T6000 0.0171 | T12000 0.0175 (median 0.0166); growth T12000 0.0655
+mu=0.1: mean A T6000 0.0054 | T12000 0.0052 (median 0.0053); growth T12000 0.0642
+mu=0.3: mean A T6000 0.0034 | T12000 0.0033 (median 0.0033); growth T12000 0.0676
+edges log10 mu: T6000 low -4.2023649391946 high -1.2881398394660435 | T12000 low -4.040566329634043 high -1.3841054646078885
+S1 low-edge shift 0.162 (boot 95% -0.503..0.826; 2000/2000); supply-limit expectation -0.301 -> FAIL
+S2 high-edge shift -0.096 (boot 95% -0.219..0.036; 2000/2000) -> PASS
+2026-11-27T01:09:41-05:00

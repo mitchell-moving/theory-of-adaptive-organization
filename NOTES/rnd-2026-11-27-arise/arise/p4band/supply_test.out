@@ -1,0 +1,7 @@
+2026-11-27T00:59:37-05:00
+Traceback (most recent call last):
+  File "/workspace/gtao-notes/rnd/arise/p4band/supply_test.py", line 22, in <module>
+    for mu, a, b, gr in zip(MUS, O.mean(1), N.mean(1), [np.mean([v["growth"] for (k, v) in out if k[0] == mu])]*1 + [None]*11):
+                                                                                                          ^^
+NameError: name 'mu' is not defined. Did you mean: 'm'?
+2026-11-27T01:06:30-05:00
